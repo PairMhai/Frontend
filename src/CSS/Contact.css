@@ -1,0 +1,58 @@
+
+#container {
+    width: 900px;
+    margin: auto;
+}
+#first {
+    margin-top: 5%;
+    width: 400px;
+    float: left;
+    height: 300px;
+
+}
+#second {
+    margin-top: 10%;
+    margin-left: 2%;
+    width: 450px;
+    float: left;
+    height: 300px;
+
+}
+#clear {
+    clear: both;
+}
+
+h2 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#fb {
+    margin-top: 10px;
+    height: 24px;
+    width: 24px;
+}
+
+#line {
+    margin-top: 10px;
+    height: 24px;
+    width: 24px;
+}
+
+#tel {
+    margin-top: 10px;
+    height: 24px;
+    width: 24px;
+}
+
+textarea {
+    margin-top: 5%;
+    width: 350px;
+    height: 100px;
+    overflow: auto;
+    resize: both;
+}
+
+#sent_email {
+    margin-top: 10%;
+}
