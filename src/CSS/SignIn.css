@@ -1,12 +1,29 @@
-section {
+.login-left {
    margin-left: 20px; 
 }
 
+.login-label {
+    margin-bottom: -25px;
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+.login-input {
+     background-color: #d8d8d8;
+     border-style: solid; 
+}
+
 .login-left-btn {
-    width: 150px;
-    height: 50px;
+    width: 200px;
+    height: 30px;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .forget {
-    font-size: 5px;
+    font-size: 12px;
 }
+

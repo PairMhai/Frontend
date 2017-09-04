@@ -7,17 +7,16 @@ class LeftTab extends Component {
         return (
             <div>
                 <div className="left-tab">
-
-                <section>
-                   <label>Username : </label><br></br>  
-                   <input type="user" name="user" class="login"></input><br></br>
-                   <label>Password : </label><br></br> 
-                   <input type="pass" name="pass" class="login"></input><br></br>
-                   <a href="#" classname="forget">Forgot your password?</a><br></br> 
-                   <input class="login-left-btn" type="submit" value="SIGN IN" class="button"></input>
+                <section className="login-left">
+                   <p className="login-label">USERNAME: </p><br></br>  
+                   <input type="user" name="user" className="login-input"></input><br></br>
+                   <p className="login-label">PASSWORD: </p><br></br> 
+                   <input type="pass" name="pass" className="login-input"></input><br></br>
+                   <a href="#" className="forget">Forgot your password?</a><br></br> 
+                   <input className="login-left-btn" type="submit" value="SIGN IN" class="button"></input>
                   <br></br>
                    ----------------or-----------------<br></br>
-                   <input class="login-left-btn" type="submit" value="SIGN UP" class="button"></input>
+                   <input className="login-left-btn" type="submit" value="SIGN UP" class="button"></input>
                    </section>
                 </div>
             </div>

@@ -9,20 +9,20 @@ class SignUp extends Component {
             <div>
                 <p classname="signup">SIGN UP</p>
                 <div classname="container">
-                    USERNAME: <input class="user"></input>
-                    PASSWORD: <input class="pass"></input>
+                    USERNAME: <input class="for-sign-up"></input>
+                    PASSWORD: <input class="for-sign-up"></input>
                 </div>
                 <p classname="person">PERSONAL INFORMATION</p>
                 <div classname="container">
-                    FIRSTNAME: <input class="first"></input>
-                    LASTNAME: <input class="last"></input><br></br>
+                    FIRSTNAME: <input class="for-sign-up"></input>
+                    LASTNAME: <input class="for-sign-up"></input><br></br>
                     GENTLE: 
                         <input type="radio" name="gentle" value="female" /> FEMALE
                         <input type="radio" name="gentle" value="male" />MALE
-                    AGE: <input type="number" class="age"></input>
+                    AGE: <input type="number" class="for-sign-up"></input>
                     BIRTHDAY: <input type="date"></input><br></br>
-                    E-MAIL: <input class="email"></input>
-                    TEL: <input class="tel"></input><br></br>
+                    E-MAIL: <input class="for-sign-up"></input>
+                    TEL: <input class="for-sign-up"></input><br></br>
                     ADDRESS: <input class="addr"></input>
                 </div>
                 <p classname="payment">PAYMENT INFORMATION</p>
