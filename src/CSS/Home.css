@@ -1,10 +1,209 @@
+* {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  
+
+}
+
+
 .login-bar {
   margin: 8px;
   float: right;
 }
   
-.left-tab {
-  background: blue;
-  width: 300px;
-  height: 100%;
+
+  .left-tab {
+    background : #ffffff;
+    width: 300px;
+    height: 100%;
+  }
+  .head{
+    font-size: 20px;
+    font-weight: bold ;
+  }
+  .nav-container{
+    color: #000000 ;
+    background : #ffffff;
+    height: 20% ;
+    vertical-align: bottom;
+  }
+  .buttonsearch{
+    background-color : #000000;
+    color: #ffffff;
+
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+    width: 70px;
+    border-radius: 0px ;
+    border-width: 1px;
+    margin-left: 1px;
+    
+    
+  }
+  .btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-top: 3% ;
+    margin-bottom: 0;
+    margin-right: 4% ;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 10px 16px;
+  }
+    
+  .btn-lg {
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 6px;
+  }
+  
+  .btn-primary {
+    color: #000000;
+    background-color: #ffffff;
+    border-color: #ffffff;
+  }
+  
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-primary:active,
+  .btn-primary.active,
+  .open .dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: gray;
+    border-color: gray;
+  }
+  
+  
+  .sharp {
+    border-radius:0;
+  }
+  
+
+  
+  .btn {
+      padding: 14px 24px;
+      border: 0 none;
+      font-weight: normal;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      
+  }
+  .btn:focus, .btn:active:focus, .btn.active:focus {
+      outline: 0 none;
+  }
+  
+  .btn-primary {
+      background: #ffffff;
+      color: #000000;
+  }
+  .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+      background: gray;
+      
+  }
+  .btn-primary:active, .btn-primary.active {
+      background:gray;
+      box-shadow: none;
+  }
+  
+
+
+  
+.checkedRadio {
+    -moz-box-shadow: inset 0 0 5px 1px #ccc;
+    -webkit-box-shadow: inset 0 0 5px 1px #ccc;
+    box-shadow: inset 0 0 5px 1px #ccc;
 }
+.radio-btn i {
+    border: 1px solid #E1E2E4;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+}
+.checkedRadio i {
+    background-color: #898A8C;
+}
+
+.align {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.link{
+  color: #000000;
+}
+.searchbar{
+  background-color : #ffffff;
+  border-color: #000000 ;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+  width: 210px;
+  border-radius: 0px ;
+  border-width: 1px;
+  
+}
+
+select {
+  /* styling */
+  background-color : #ffffff;
+  border-color: #000000 ;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+  width: 300px;
+  
+  border-radius: 0px ;
+  margin-left: 10px ;
+
+
+  /* reset */
+ 
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* arrows */
+select.classic2 {
+  width: 300px;
+  
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgb(255, 255, 255) 50%),
+    linear-gradient(135deg, rgb(157, 157, 157) 50%, transparent 50%),
+    linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0));
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    100% 0;
+  background-size:
+    5px 5px,
+    5px 5px,
+    2.5em 2.5em;
+  background-repeat: no-repeat;
+  
+}
+
