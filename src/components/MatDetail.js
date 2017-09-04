@@ -1,0 +1,27 @@
+import React , {Component} from 'react'
+
+class MatDetail extends Component {
+    render(){
+        return (
+            <div>
+                <h1>Material</h1>
+                <img src="" alt="mat-pic" border="2px solid black" />
+                <div>
+                    <p>NAME: Red silk </p>
+                    <p>DESCRIPTION: Made in Thailand </p> 
+                    <p>MATERIAL: Mudmee Silk  </p>
+                    <p>COLOR: Dark Red </p>
+                    <p>PRICE: 500 Baht / Yard of fabric  </p>
+
+                    <button>-</button>
+                    <input type="text"/>
+                    <button>+</button>
+
+                    <button>ADD TO CARD</button>
+                </div>
+            </div>
+        );
+    }
+}
+
+export default MatDetail
