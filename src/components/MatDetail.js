@@ -5,7 +5,7 @@ class MatDetail extends Component {
         return (
             <div>
                 <h1>Material</h1>
-                <img src="" alt="mat-pic" border="2px solid black" />
+                <img src={ require('../img/logomain.png') } alt="mat-pic" />
                 <div>
                     <p>NAME: Red silk </p>
                     <p>DESCRIPTION: Made in Thailand </p> 
