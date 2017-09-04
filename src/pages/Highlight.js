@@ -1,5 +1,4 @@
 import React , {Component} from 'react'
-import logo from '../img/logomain.png'
 import '../CSS/Highlight.css';
 
 class Highlight extends Component {
@@ -8,7 +7,7 @@ class Highlight extends Component {
         return (
             <div>
                 <div className="col-lg-6"> 
-                    <img src= {logo} width="100%" height="100%"/>
+                    <img src={ require('../img/logomain.png') } width="100%" height="100%"/>
                     <a className="btn btn-primary" href="/home" role="button">Home</a>
                 </div>
                
@@ -21,13 +20,13 @@ class Highlight extends Component {
                         </ol>
                         <div className="carousel-inner" role="listbox">
                             <div className="carousel-item active">
-                                <img className="d-block img-fluid" src={logo} alt="First slide"/>
+                                <img className="d-block img-fluid" src={ require('../img/logomain.png') } alt="First slide"/>
                             </div>
                             <div className="carousel-item">
-                                <img className="d-block img-fluid" src={logo} alt="Second slide"/>
+                                <img className="d-block img-fluid" src={ require('../img/logomain.png') } alt="Second slide"/>
                             </div>
                             <div className="carousel-item">
-                                <img className="d-block img-fluid" src={logo} alt="Third slide"/>
+                                <img className="d-block img-fluid" src={ require('../img/logomain.png') } alt="Third slide"/>
                             </div>
                         </div>
                         <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

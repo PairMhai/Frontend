@@ -3,15 +3,15 @@ import React , {Component} from 'react'
 class Navbar extends Component {
     render(){
         return (
-            <div>
-                <div>
-                    <img src="../images/maxresdefault.jpg" alt="Error" width="100" height="100" />
-                    <a className="btn" href="/material" role="button">Material</a>
-                    <a className="btn" href="/designed" role="button">Designed</a>
-                    <a className="btn" href="/info" role="button">Thai Silk's History</a>
-                    <a className="btn" href="/contact" role="button">Contact Us</a>
-                </div> 
-            </div>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <img src={ require('../img/logomain.png') } alt="Logo-Error" height="80px"/>
+                    <a className="btn btn-primary btn-lg sharp" href="/material" role="button">Material</a>
+                    <a className="btn btn-primary btn-lg sharp" href="/design" role="button">Des</a>
+                    <a className="btn btn-primary btn-lg sharp" href="/info" role="button">Thai Silk's History</a>
+                    <a className="btn btn-primary btn-lg sharp" href="/contact" role="button">Contact Us</a>            
+                </div>
+            </nav>        
         );
     }
 }

@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import Material from './pages/Material'
 import Design from './pages/Design'
 import Contact from './pages/Contact'
+import Information from './pages/Information'
 
 import './index.css';
 
@@ -21,6 +22,7 @@ ReactDOM.render((
       <Route exact path='/material' component={Material}/>
       <Route exact path='/design' component={Design}/>
       <Route exact path='/contact' component={Contact}/>
+      <Route exact path='/info' component={Information}/>
     </Switch>
   </BrowserRouter>
 )     

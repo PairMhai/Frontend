@@ -6,8 +6,8 @@ class LoginTab extends Component {
         return (
             <div>
                 <div className="login-bar">
-                    <a href="">Sign In</a> &nbsp;&nbsp;&nbsp;
-                    <a href="">Sign Up</a> &nbsp;&nbsp;&nbsp;
+                    <a className="link" href="">Sign In</a> &nbsp;&nbsp;&nbsp;
+                    <a className="link" href="/signup">Sign Up</a> &nbsp;&nbsp;&nbsp;
                 </div>
             </div>
         );
