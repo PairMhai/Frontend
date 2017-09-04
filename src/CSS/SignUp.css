@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: 'Trebuchet MS', Helvetica, sans-serif
 }
 
@@ -10,8 +10,7 @@ input {
     background-color: #d8d8d8;
     border-style: solid;
     border-width: 1px;
-    /* margin-right: 20px; */
-}
+} */
 
 .signup {
     font-size: 100px;
@@ -43,13 +42,13 @@ input {
     padding-bottom: 40px;  
 }
 
-table {
+.payment-table {
     border-collapse: collapse;
     width: 50%;
     text-align: center;
 }
 
-tr:nth-child(even) {
+/* tr:nth-child(even) {
     text-align: center;
     background-color: #dddddd;
 }
@@ -58,9 +57,9 @@ td {
     text-align: center;
     border: 1px solid #dddddd;
     padding: 5px;
-}
+} */
 
-button {
+.signup_btn {
     text-align: center;
     font-size: 14px;
     width: 180px;
@@ -82,8 +81,5 @@ button {
     margin-right: -4px; 
 }
 
-.member {
-    
-}
 
 

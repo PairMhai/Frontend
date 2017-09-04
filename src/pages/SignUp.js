@@ -7,27 +7,27 @@ class SignUp extends Component {
     render() {
         return (
             <div>
-                <p classname="signup">SIGN UP</p>
-                <div classname="container">
-                    USERNAME: <input class="for-sign-up"></input>
-                    PASSWORD: <input class="for-sign-up"></input>
+                <p className="signup">SIGN UP</p>
+                <div className="container">
+                    USERNAME: <input className="for-sign-up"></input>
+                    PASSWORD: <input className="for-sign-up"></input>
                 </div>
-                <p classname="person">PERSONAL INFORMATION</p>
-                <div classname="container">
-                    FIRSTNAME: <input class="for-sign-up"></input>
-                    LASTNAME: <input class="for-sign-up"></input><br></br>
+                <p className="person">PERSONAL INFORMATION</p>
+                <div className="container">
+                    FIRSTNAME: <input className="for-sign-up"></input>
+                    LASTNAME: <input className="for-sign-up"></input><br></br>
                     GENTLE: 
                         <input type="radio" name="gentle" value="female" /> FEMALE
                         <input type="radio" name="gentle" value="male" />MALE
-                    AGE: <input type="number" class="for-sign-up"></input>
+                    AGE: <input type="number" className="for-sign-up"></input>
                     BIRTHDAY: <input type="date"></input><br></br>
-                    E-MAIL: <input class="for-sign-up"></input>
-                    TEL: <input class="for-sign-up"></input><br></br>
-                    ADDRESS: <input class="addr"></input>
+                    E-MAIL: <input className="for-sign-up"></input>
+                    TEL: <input className="for-sign-up"></input><br></br>
+                    ADDRESS: <input className="addr"></input>
                 </div>
-                <p classname="payment">PAYMENT INFORMATION</p>
-                <div classname="container">
-                    <table align="center">
+                <p className="payment">PAYMENT INFORMATION</p>
+                <div className="container">
+                    <table align="center" className="payment-table">
                         <tr>
                             <td>4569 xxx xxx</td>
                             <td>TMB</td>
@@ -41,9 +41,9 @@ class SignUp extends Component {
                             <td></td>
                          </tr>
                     </table><br></br>
-                    <button>ADD CART</button>
+                    <button className="signup_btn">ADD CART</button>
                 </div>
-                <div><button classname="signup_btn">SIGN UP</button></div>
+                <div><button className="signup_btn">SIGN UP</button></div>
             </div>
         );
     }
