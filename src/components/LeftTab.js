@@ -9,13 +9,13 @@ class LeftTab extends Component {
                 <div className="left-tab">
                 <section>
                    <label>Username : </label><br></br>  
-                   <input type="user" name="user"></input><br></br>
+                   <input type="user" name="user" class="login"></input><br></br>
                    <label>Password : </label><br></br> 
-                   <input type="pass" name="pass"></input><br></br>
-                   <a href="#" class="more">Forgot your password?</a><br></br> 
-                   <button>Sign in</button><br></br>
+                   <input type="pass" name="pass" class="login"></input><br></br>
+                   <a href="#" class="forget">Forgot your password?</a><br></br> 
+                   <button class="login-left-btn">Sign in</button><br></br>
                    ----------------or-----------------<br></br>
-                   <button>Sign up</button>
+                   <button class="login-left-btn">Sign up</button>
                    </section>
                 </div>
             </div>

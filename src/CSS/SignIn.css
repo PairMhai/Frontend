@@ -2,13 +2,17 @@ section {
     
 }
 
-input {
+.login {
     text-align: center;
     width: 65%;
     height: 50%;
 }
 
-button {
+.login-left-btn {
     width: 65%;
     height: 50%;
+}
+
+.forget {
+    font-size: 5px;
 }
