@@ -1,8 +1,9 @@
 section {
-    text-align: center;
+    
 }
 
 input {
+    text-align: center;
     width: 65%;
     height: 50%;
 }
