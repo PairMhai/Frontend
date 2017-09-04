@@ -2,13 +2,13 @@ import React , {Component} from 'react'
 import '../CSS/SignIn.css';
 
 class LeftTab extends Component {
-
+   
     render(){
         return (
             <div>
                 <div className="left-tab">
-                <section>
-                   <label>Username : </label><br></br>  
+                    <section>
+                    <label>Username : </label><br></br>  
                    <input type="user" name="user"></input><br></br>
                    <label>Password : </label><br></br> 
                    <input type="pass" name="pass"></input><br></br>
@@ -17,8 +17,11 @@ class LeftTab extends Component {
                    ----------------or-----------------<br></br>
                    <button>Sign up</button>
                    </section>
+
+
                 </div>
             </div>
+                
         );
     }
 }
