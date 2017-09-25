@@ -7,7 +7,7 @@ import '../CSS/SignUp.css';
 class SignUp extends Component {
     constructor(props){
         super(props);
-        this.state = { username: '', password: '', cfpassword: '', firstname: '', lastname: '', gender: '',email: '', age: '', birthday: '', tel: '',  address: ''};
+        this.state = { username: 'Hellpo', password: 'Hello', cfpassword: 'Hello', firstname: 'Hello', lastname: 'Hello', gender: 'male',email: 'aaa@ku.th', age: '23', birthday: '', tel: '4557779',  address: 'hello'};
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -24,18 +24,22 @@ class SignUp extends Component {
     }
 
     handleSubmit(event){
-        axios.post('http://127.0.0.1:8000/membership/', {
-            username: this.state.username,
-            password: this.state.password,
-            cfpassword: this.state.cfpassword,
-            firstname: this.state.firstname,
-            lastname: this.state.lastname,
-            email: this.state.email,
-            gender: this.state.gender,
-            age: this.state.age,
-            birthday: this.state.birthday,
-            tel: this.state.tel,
-            address: this.state.address,
+        axios.post('http://127.0.0.1:8000/membership/',
+        { 
+            "user": {
+                "username": this.state.username,
+                "first_name": this.state.firstname,
+                "last_name": this.state.lastname,
+                "email": this.state.email,
+                "telephone": this.state.tel,
+                "address": this.state.address,
+                "age": this.state.age,
+                "date_of_birth": this.state.birthday,
+                "gender": this.state.gender,
+            },
+            "password1": this.state.password,
+            "password2": this.state.cfpassword,
+            "classes": 3
         })
         .then(function (response) {
             console.log(response);
@@ -44,7 +48,7 @@ class SignUp extends Component {
             console.log(error);
         });
 
-        alert(this.state.username + ' ' + this.state.gender);
+        // alert(this.state.username + ' ' + this.state.gender);
         event.preventDefault(); 
     }
   
@@ -63,8 +67,8 @@ class SignUp extends Component {
                         FIRSTNAME: <input type="text" name="firstname" value={this.state.firstname} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
                         LASTNAME: <input  type="text" name="lastname" value={this.state.lastname} onChange={this.handleChange}/> <br></br> <br></br>
                         GENDER: 
-                            &nbsp;&nbsp;<input type="radio" name="gender" value="Female" onChange={this.handleChange}/> FEMALE
-                            &nbsp;&nbsp;<input type="radio" name="gender" value="Male" onChange={this.handleChange}/> MALE &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;<input type="radio" name="gender" value="female" onChange={this.handleChange}/> FEMALE
+                            &nbsp;&nbsp;<input type="radio" name="gender" value="male" onChange={this.handleChange}/> MALE &nbsp;&nbsp;&nbsp;&nbsp;
                         AGE: <input type="number" name="age" value={this.state.age} onChange={this.handleChange} />&nbsp;&nbsp;&nbsp;&nbsp;
                         BIRTHDAY: <input type="date" name="birthday" value={this.state.birthday} onChange={this.handleChange}/><br></br><br></br>&nbsp;&nbsp;&nbsp;&nbsp;
                         E-MAIL: <input type="email" name="email" value={this.state.email} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
