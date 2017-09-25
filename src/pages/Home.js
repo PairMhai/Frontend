@@ -15,9 +15,9 @@ class Home extends Component {
                 <Navbar /> 
                 {/* <LoginTab /> */}
               
-                {/* <SignUp /> */}
+                <SignUp />
 
-                <Contact />
+                {/* <Contact /> */}
             </div>
         );
     }
