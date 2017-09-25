@@ -2,12 +2,8 @@ import React , {Component} from 'react'
 import '../CSS/Highlight.css';
 
 class Highlight extends Component {
-
     render(){
-        
-
         return (
-            
             <div className="container-fluid">
                 <div className="row">
             <div className="hl-content-logo"> 
