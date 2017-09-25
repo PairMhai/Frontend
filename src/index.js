@@ -20,10 +20,6 @@ ReactDOM.render((
     <Switch>
       <Route exact path='/' component={Highlight}/>
       <Route exact path='/home' component={Home}/>
-      <Route exact path='/material' component={Material}/>
-      <Route exact path='/design' component={Design}/>
-      <Route exact path='/contact' component={Contact}/>
-      <Route exact path='/info' component={Information}/>
     </Switch>
   </BrowserRouter>
 )     

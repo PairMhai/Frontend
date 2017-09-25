@@ -1,45 +1,37 @@
-/* body {
-    font-family: 'Trebuchet MS', Helvetica, sans-serif
+* {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
-div {
+.siup-center {
+    padding-top: 2%;
     text-align: center;
 }
-
-input {
-    background-color: #d8d8d8;
-    border-style: solid;
-    border-width: 1px;
-} */
 
 .signup {
     font-size: 100px;
     margin-top: 0px;
-    margin-bottom: -25px; 
-    margin-right: -490px; 
+    margin-bottom: -25px;   
 }
 
 .person {
     font-size: 40px;
     margin-top: 40px;
     margin-bottom: -10px; 
-    margin-right: -385px; 
 }
 
 .payment {
     font-size: 40px;
     margin-top: 40px;
     margin-bottom: -10px; 
-    margin-right: -415px; 
 }
 
 .container {
     border-style: solid;
     border-width: 3px;
-    margin-left: 200px; 
-    margin-right: 200px; 
-    padding-top: 40px;
-    padding-bottom: 40px;  
+    margin-left: auto; 
+    margin-right: auto; 
+    padding-top: 2%;
+    padding-bottom: 2%;  
 }
 
 .payment-table {
@@ -47,17 +39,6 @@ input {
     width: 50%;
     text-align: center;
 }
-
-/* tr:nth-child(even) {
-    text-align: center;
-    background-color: #dddddd;
-}
-
-td {
-    text-align: center;
-    border: 1px solid #dddddd;
-    padding: 5px;
-} */
 
 .signup_btn {
     text-align: center;
@@ -71,7 +52,7 @@ td {
 
 .addr {
     margin-right: 50px;
-    width: 250px;
+    width: 50%;
     height: 110px;
 }
 
@@ -81,5 +62,7 @@ td {
     margin-right: -4px; 
 }
 
-
+.pull-right {
+    margin-left: 75%;
+}
 

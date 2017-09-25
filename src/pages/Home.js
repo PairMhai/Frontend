@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import LoginTab from '../components/LoginTab'
 import LeftTab from '../components/LeftTab'
 import LeftTabFilter from '../components/LeftTabFilter'
+import SignUp from '../pages/SignUp'
 import '../CSS/Home.css';
 
 class Home extends Component {
@@ -11,8 +12,9 @@ class Home extends Component {
         return (
             <div>
                 <Navbar /> 
-                <LoginTab />
-                <LeftTabFilter />
+                {/* <LoginTab /> */}
+              
+                <SignUp />
             </div>
         );
     }

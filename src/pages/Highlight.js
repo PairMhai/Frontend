@@ -8,10 +8,11 @@ class Highlight extends Component {
 
         return (
             
-            <div className="row container-fluid">
+            <div className="container-fluid">
+                <div className="row">
             <div className="hl-content-logo"> 
-                <img src={ require('../img/logomain.png') } width="80%"/>
-                <a className="btn btn-primary" href="/home" role="button">Home</a>
+                <img className="hl-center"src={ require('../img/logomain.png') } width="100%"/>
+                <p className="hl-text-center"><a className="btn btn-primary btn-lg " href="/home" role="button">Home</a></p>
             </div>
            
             <div className="hl-content-promotion">
@@ -42,7 +43,7 @@ class Highlight extends Component {
                     </a>
                 </div>
             </div>
-            
+            </div>
         </div>
         );
     }
