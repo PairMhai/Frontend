@@ -5,13 +5,16 @@ import LeftTab from '../components/LeftTab'
 import fb_icon from '../img/facebook_icon.png'
 import line_icon from '../img/line_icon.png'
 import tel_icon from '../img/tel_icon.png'
+import { Link , Redirect } from 'react-router'
 import axios from 'axios'
+import swal from 'sweetalert'
 import '../CSS/Contact.css'
 
 class Contact extends Component {
+    
     constructor(props){
         super(props);
-        this.state = { msg: '', email: ''};
+        this.state = { msg: '', email: '', isModalOpen:false };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -24,8 +27,9 @@ class Contact extends Component {
     
         this.setState({
           [name]: value
-        });
+        }); 
     }
+
 
     handleSubmit(event){
         axios.post('http://127.0.0.1:8000/comment/',{ 
@@ -33,9 +37,22 @@ class Contact extends Component {
             "message": this.state.msg,
         })
           event.preventDefault();
+          swal({
+              title: "Sent!",
+              text: "Your comment already sent.",
+              type: "success"
+          }).then(function(){
+              window.location = "home"
+          });
+          
     }
+
+    
+
 render(){
     return (
+
+
         <div id="container">
             <Navbar /> 
             <div id="second">
@@ -62,7 +79,7 @@ render(){
                             <p><textarea className="text-msg" name="msg" value={this.state.msg} required="required" onChange={this.handleChange}/></p>
                         </div>
                         <div className="submit-field">
-                            <input type="submit" value="Send" onClick={this.handleSubmit}></input>
+                            <input type="submit" value="Send" onClick={ this.handleSubmit }></input> 
                         </div>
                     </fieldset>
                 </div>
