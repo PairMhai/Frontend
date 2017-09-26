@@ -1,7 +1,7 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
 import LoginTab from '../components/LoginTab'
-import LeftTab from '../components/LeftTab'
+import LeftTabInformation from '../components/LeftTabInformation'
 import '../CSS/Info.css'
 
 class Information extends Component {
@@ -11,7 +11,7 @@ class Information extends Component {
             <div>
                 <Navbar /> 
                 <div className="row">
-                    <LeftTab />
+                <LeftTabInformation />
                     <div className="info-layout">
                 <div className="row justify-content-start">
                     <div className="info-topic">HISTORY OF THAI SILK </div>

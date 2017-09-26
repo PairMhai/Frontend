@@ -1,6 +1,8 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
-import LeftTab from '../components/LeftTab'
+import LoginTab from '../components/LoginTab'
+import LeftTabFilter from '../components/LeftTabFilter'
+
 import ProdCard from '../components/ProdCard'
 
 class Design extends Component {
@@ -9,8 +11,9 @@ class Design extends Component {
         return (
             <div>
                 <Navbar /> 
-                <div className="row">
-                    <LeftTab />
+                <LoginTab />
+                <LeftTabFilter />
+                <div>
                     <ProdCard />
                 </div>
             </div>
