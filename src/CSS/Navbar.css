@@ -3,7 +3,7 @@
 }
 
 .nb-logo {
-    width: 5%;
+    width: 10%;
     padding-top: 0.8%;
 }
 
@@ -27,7 +27,7 @@
     height: 100%;
 }
 
-.nb-bottom {
+.nb-div{
     border-bottom: 2px solid #727070;
 }
 
