@@ -1,7 +1,5 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
-import LoginTab from '../components/LoginTab'
-import LeftTab from '../components/LeftTab'
 import fb_icon from '../img/facebook_icon.png'
 import line_icon from '../img/line_icon.png'
 import tel_icon from '../img/tel_icon.png'

@@ -1,6 +1,5 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
-import LoginTab from '../components/LoginTab'
 import LeftTabInformation from '../components/LeftTabInformation'
 import '../CSS/Info.css'
 
@@ -10,10 +9,12 @@ class Information extends Component {
         return (
             <div>
                 <Navbar /> 
-                <div className="row">
+                <div class="container-fluid">
+                <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar">
                 <LeftTabInformation />
-                    <div className="info-layout">
-                <div className="row justify-content-start">
+                </div>
+                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
                     <div className="info-topic">HISTORY OF THAI SILK </div>
                     <div className="info-content">
                     &emsp;&emsp;&emsp;The history of silk began 4700 years ago in China. The evidence shows that China spreaded the culture of silk weaving 

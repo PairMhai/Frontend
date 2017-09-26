@@ -1,6 +1,5 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
-import LeftTab from '../components/LeftTab'
 import LeftTabInformation from '../components/LeftTabInformation'
 import '../CSS/Info.css'
 
