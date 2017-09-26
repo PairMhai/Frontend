@@ -69,6 +69,7 @@ class SignUp extends Component {
   
     render() {
         return (
+            <div> <Navbar /> 
             <div className="siup-center container-fluid">
                 <p className="signup">SIGN UP</p>
                 <form onSubmit={this.handleSubmit}>
@@ -104,6 +105,7 @@ class SignUp extends Component {
                     </div><br></br>
                     <input type="submit" value="SIGN UP" className="signup_btn"/><br></br><br></br>
                 </form> 
+            </div>
             </div>
         );
     }

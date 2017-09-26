@@ -1,5 +1,5 @@
 .login-left {
-   margin-left: 20px; 
+   margin-left: 20%; 
 }
 
 .login-label {
@@ -25,5 +25,9 @@
 
 .forget {
     font-size: 12px;
+}
+
+.login-layout {
+    width: 20%;
 }
 

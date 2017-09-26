@@ -1,15 +1,16 @@
 import React , {Component} from 'react'
+import { Link } from 'react-router-dom'
 import '../CSS/Navbar.css';
 
 class Navbar extends Component {
     render(){
         return (
             <div className="nb-bottom container-fluid">
-                <img className="nb-logo" src={ require('../img/logomain.png') } alt="Logo-Error"/>
-                <a className="nb-btn" href="/material" role="button">Material</a>
-                <a className="nb-btn" href="/design" role="button">Description</a>
-                <a className="nb-btn" href="/info" role="button">Thai Silk's History</a>
-                <a className="nb-btn" href="/contact" role="button">Contact Us</a>            
+                <Link to="/home"><img className="nb-logo" src={ require('../img/logomain.png') } alt="Logo-Error"/></Link>
+                <Link to="/material"  className="nb-btn" role="button">Material</Link>
+                <Link to="/design" className="nb-btn" role="button">Design</Link>
+                <Link to="/info" className="nb-btn" role="button">Thai Silk's History</Link>
+                <Link to="/contactus" className="nb-btn" role="button">Contact Us</Link>          
             </div>
         );
     }
