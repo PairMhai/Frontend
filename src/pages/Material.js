@@ -1,7 +1,7 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
 import LoginTab from '../components/LoginTab'
-import LeftTab from '../components/LeftTab'
+import LeftTabFilter from '../components/LeftTabFilter'
 import ProdCard from '../components/ProdCard'
 
 class Material extends Component {
@@ -11,7 +11,7 @@ class Material extends Component {
             <div>
                 <Navbar /> 
                 <div className="row">
-                    <LeftTab />
+                    <LeftTabFilter />
                     <ProdCard />
                 </div>
             </div>

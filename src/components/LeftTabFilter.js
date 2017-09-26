@@ -1,6 +1,6 @@
 import React , {Component} from 'react'
 import '../CSS/LeftTabFilter.css';
-class LeftTab extends Component {
+class LeftTabFilter extends Component {
    
     render(){
         return (
@@ -99,4 +99,4 @@ class LeftTab extends Component {
     }
 }
 
-export default LeftTab
+export default LeftTabFilter

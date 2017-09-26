@@ -1,7 +1,7 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
 import LoginTab from '../components/LoginTab'
-import LeftTab from '../components/LeftTab'
+import LeftTabInformation from '../components/LeftTabInformation'
 import SilkHis from '../components/SilkHis'
 
 class Information extends Component {
@@ -10,11 +10,8 @@ class Information extends Component {
         return (
             <div>
                 <Navbar /> 
-                <LoginTab />
-                <LeftTab />
-                <div>
-                    <SilkHis />
-                </div>
+                <LeftTabInformation />
+                
             </div>
         );
     }
