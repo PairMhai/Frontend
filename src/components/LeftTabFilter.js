@@ -1,6 +1,6 @@
 import React , {Component} from 'react'
-
-class LeftTab extends Component {
+import '../CSS/LeftTabFilter.css';
+class LeftTabFilter extends Component {
    
     render(){
         return (
@@ -38,6 +38,45 @@ class LeftTab extends Component {
                     </div>
                     <br></br>
                     <a className="head" >&nbsp;&nbsp;&nbsp;COLOR :&nbsp;</a>
+                    <div class="custom-radios">
+                    <div>
+                        <input type="radio" id="color-1" name="color" value="color-1" checked/>
+                        <label for="color-1">
+                        <span>
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                        </span>
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <input type="radio" id="color-2" name="color" value="color-2"/>
+                        <label for="color-2">
+                        <span>
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                        </span>
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <input type="radio" id="color-3" name="color" value="color-3"/>
+                        <label for="color-3">
+                        <span>
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                        </span>
+                        </label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="color-4" name="color" value="color-4"/>
+                        <label for="color-4">
+                        <span>
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                        </span>
+                        </label>
+                    </div>
+                    </div>
+
+                    
                     <br></br>
 
                     <br></br>                                        
@@ -60,4 +99,4 @@ class LeftTab extends Component {
     }
 }
 
-export default LeftTab
+export default LeftTabFilter

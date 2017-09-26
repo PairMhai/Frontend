@@ -1,7 +1,8 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
 import LoginTab from '../components/LoginTab'
-import LeftTab from '../components/LeftTab'
+import LeftTabFilter from '../components/LeftTabFilter'
+
 import ProdCard from '../components/ProdCard'
 
 class Design extends Component {
@@ -11,7 +12,7 @@ class Design extends Component {
             <div>
                 <Navbar /> 
                 <LoginTab />
-                <LeftTab />
+                <LeftTabFilter />
                 <div>
                     <ProdCard />
                 </div>
