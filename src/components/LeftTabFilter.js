@@ -22,8 +22,10 @@ class LeftTabFilter extends Component {
                     <form action="" method="get" className="search">
 
                     <div className="form__field">
-                        &nbsp;&nbsp;<input className="searchbar" type="search" name="search" placeholder="Enter here" ></input>
-                        <input className="buttonsearch" type="submit" value="Search" ></input>
+
+                        &nbsp;&nbsp;<input className="searchbar" type="search" name="search" placeholder="Enter here"/>
+                        <input className="buttonsearch" type="submit" value="Search" />
+
                   
                     </div>
                     </form>

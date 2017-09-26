@@ -3,13 +3,16 @@ import Navbar from '../components/Navbar'
 import fb_icon from '../img/facebook_icon.png'
 import line_icon from '../img/line_icon.png'
 import tel_icon from '../img/tel_icon.png'
+import { Link , Redirect } from 'react-router'
 import axios from 'axios'
+import swal from 'sweetalert'
 import '../CSS/Contact.css'
 
 class Contact extends Component {
+    
     constructor(props){
         super(props);
-        this.state = { msg: '', email: ''};
+        this.state = { msg: '', email: '', isModalOpen:false };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -22,8 +25,9 @@ class Contact extends Component {
     
         this.setState({
           [name]: value
-        });
+        }); 
     }
+
 
     handleSubmit(event){
         axios.post('http://127.0.0.1:8000/comment/',{ 
@@ -31,9 +35,22 @@ class Contact extends Component {
             "message": this.state.msg,
         })
           event.preventDefault();
+          swal({
+              title: "Sent!",
+              text: "Your comment already sent.",
+              type: "success"
+          }).then(function(){
+              window.location = "home"
+          });
+          
     }
+
+    
+
 render(){
     return (
+
+
         <div id="container">
             <Navbar /> 
             <div id="second">
@@ -56,11 +73,11 @@ render(){
                         </div>
                         <div className="mailTxt-field" title="send_mail">
                             <label id="sent_email" htmlFor="email"><h3>Send Message</h3></label>
-                            <p>E-mail <input type="email" name="email" value={this.state.email} onChange={this.handleChange} /></p>
+                            <p>E-mail: <input type="email" name="email" value={this.state.email} onChange={this.handleChange} /></p>
                             <p><textarea className="text-msg" name="msg" value={this.state.msg} required="required" onChange={this.handleChange}/></p>
                         </div>
                         <div className="submit-field">
-                            <input type="submit" value="Send" onClick={this.handleSubmit}></input>
+                            <input type="submit" value="Send" onClick={ this.handleSubmit }></input> 
                         </div>
                     </fieldset>
                 </div>

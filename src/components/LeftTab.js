@@ -12,10 +12,10 @@ class LeftTab extends Component {
                    <p className="login-label">PASSWORD: </p><br></br> 
                    <input type="pass" name="pass" className="login-input"></input><br></br>
                    <a href="#" className="forget">Forgot your password?</a><br></br> 
-                   <input className="login-left-btn" type="submit" value="SIGN IN" class="button"></input>
+                   <input className="login-left-btn" type="submit" value="SIGN IN" />
                   <br></br>
                    ----------------or-----------------<br></br>
-                   <input className="login-left-btn" type="submit" value="SIGN UP" class="button"></input>
+                   <input className="login-left-btn" type="submit" value="SIGN UP" />
                 </section>
             </div>
         );
