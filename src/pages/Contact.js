@@ -75,7 +75,7 @@ render(){
                         </div>
                         <div className="mailTxt-field" title="send_mail">
                             <label id="sent_email" htmlFor="email"><h3>Send Message</h3></label>
-                            <p>E-mail <input type="email" name="email" value={this.state.email} onChange={this.handleChange} /></p>
+                            <p>E-mail: <input type="email" name="email" value={this.state.email} onChange={this.handleChange} /></p>
                             <p><textarea className="text-msg" name="msg" value={this.state.msg} required="required" onChange={this.handleChange}/></p>
                         </div>
                         <div className="submit-field">
