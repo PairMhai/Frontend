@@ -11,9 +11,9 @@ class LeftTabInformation extends Component {
 
                     <Link to="/info/his"  className="nb-btn-1" role="button">History</Link>
                     <br/><br/>
-                    <Link to="/info/care" className="nb-btn-1" role="button">Care</Link>
+                    <Link to="/info/clean" className="nb-btn-1" role="button">Clean</Link>
                     <br/><br/>
-                    <Link to="/info/clean" className="nb-btn-1" role="button">Care</Link>
+                    <Link to="/info/care" className="nb-btn-1" role="button">Care</Link>
                     <br/><br/>
                     <Link to="/info/type" className="nb-btn-1" role="button">Type</Link>
                     <br/><br/>

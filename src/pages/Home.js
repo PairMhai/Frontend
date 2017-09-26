@@ -16,7 +16,10 @@ class Home extends Component {
         return (
             <div>
                 <Navbar /> 
-                <LeftTabFilter />
+                <div className="row">
+                    <LeftTab />
+                    {/* <ProdCard /> */}
+                </div>
             </div>
         );
     }
