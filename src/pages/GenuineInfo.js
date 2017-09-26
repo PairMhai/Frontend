@@ -1,6 +1,7 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
 import LeftTab from '../components/LeftTab'
+import LeftTabInformation from '../components/LeftTabInformation'
 import '../CSS/Info.css'
 
 class GenuineInfo extends Component {
@@ -10,7 +11,7 @@ class GenuineInfo extends Component {
             <div>
                 <Navbar /> 
                 <div className="row container-fluid">
-                    <LeftTab />
+                <LeftTabInformation />
                     <div className="info-layout">
                 <div className="row justify-content-start">
                     <div className="info-topic">HOW TO DETERMINE IF SILK IS GENUINE</div>
