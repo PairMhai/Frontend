@@ -1,0 +1,20 @@
+.info-layout {
+    width: 80%;
+    padding-right: 5%;
+}
+
+.info-topic {
+    width: 100%;
+    padding-top: 2%;
+    font-size: 80px;
+}
+
+.info-content {
+    width: 100%;
+    margin-top: 1%;
+    font-size: 25px;
+}
+
+.info-ref {
+    margin-top: 4%;
+}
