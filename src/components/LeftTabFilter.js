@@ -19,11 +19,11 @@ class LeftTabFilter extends Component {
                   
                    <br></br>
                    <br></br>
-                    <form action="" method="get" class="search">
+                    <form action="" method="get" className="search">
 
                     <div className="form__field">
-                        &nbsp;&nbsp;<input className="searchbar" type="search" name="search" placeholder="Enter here" class="form__input"></input>
-                        <input className="buttonsearch" type="submit" value="Search" class="button"></input>
+                        &nbsp;&nbsp;<input className="searchbar" type="search" name="search" placeholder="Enter here"/>
+                        <input className="buttonsearch" type="submit" value="Search" />
                   
                     </div>
                     </form>
@@ -38,7 +38,7 @@ class LeftTabFilter extends Component {
                     </div>
                     <br></br>
                     <a className="head" >&nbsp;&nbsp;&nbsp;COLOR :&nbsp;</a>
-                    <div class="custom-radios">
+                    <div className="custom-radios">
                     <div>
                         <input type="radio" id="color-1" name="color" value="color-1" checked/>
                         <label for="color-1">
