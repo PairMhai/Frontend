@@ -1,16 +1,18 @@
 * {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
-    
-  
   }
-  
-  
-
 
 .prod-card {
-    margin: 10px;
+    margin: 1%;
+    margin-right: 1%; 
+    align-content: center;
+    text-align: center;
 }
 
 .border-pic {
     border: 2px solid black;
+}
+
+.prod-layout {
+    width: 80%;
 }

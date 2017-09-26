@@ -37,8 +37,9 @@ class Contact extends Component {
 render(){
     return (
         <div id="container">
+            <Navbar /> 
             <div id="second">
-                <p>Faculty of Engineering, Kasetsart University </p>            
+                <h3>Faculty of Engineering, Kasetsart University </h3>            
                  <iframe className="ct-map" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6607.927433481854!2d76.32357176582866!3d10.00883294733899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1476078954945"
                              allowFullScreen></iframe>
             </div>
@@ -56,7 +57,7 @@ render(){
                              <img id="tel" src={tel_icon}/>&nbsp;089-9999999
                         </div>
                         <div className="mailTxt-field" title="send_mail">
-                            <label id="sent_email" htmlFor="email">Send Message</label>
+                            <label id="sent_email" htmlFor="email"><h3>Send Message</h3></label>
                             <p>E-mail <input type="email" name="email" value={this.state.email} onChange={this.handleChange} /></p>
                             <p><textarea className="text-msg" name="msg" value={this.state.msg} required="required" onChange={this.handleChange}/></p>
                         </div>

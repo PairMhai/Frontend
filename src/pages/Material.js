@@ -10,9 +10,8 @@ class Material extends Component {
         return (
             <div>
                 <Navbar /> 
-                <LoginTab />
-                <LeftTab />
-                <div>
+                <div className="row">
+                    <LeftTab />
                     <ProdCard />
                 </div>
             </div>

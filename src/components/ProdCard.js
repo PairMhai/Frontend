@@ -5,12 +5,44 @@ class ProdCard extends Component {
 
     render(){
         return (
-            <div>
-                <div className="col-xd-12 col-lg-3 prod-card">
+            <div className="prod-layout">
+            <div className="row justify-content-start">
+                <div className="col-xd-6 col-lg-2 prod-card">
                    <img src={ require('../img/logomain.png') } width="100%" alt="product pic" />
                    <p>Green silk dress</p>
                    <p>1500 Baht-</p>
                 </div>
+
+                <div className="col-xd-6 col-lg-2 prod-card">
+                   <img src={ require('../img/logomain.png') } width="100%" alt="product pic" />
+                   <p>Green silk dress</p>
+                   <p>1500 Baht-</p>
+                </div>
+
+                <div className="col-xd-6 col-lg-2 prod-card">
+                   <img src={ require('../img/logomain.png') } width="100%" alt="product pic" />
+                   <p>Green silk dress</p>
+                   <p>1500 Baht-</p>
+                </div>
+
+                <div className="col-xd-6 col-lg-2 prod-card">
+                   <img src={ require('../img/logomain.png') } width="100%" alt="product pic" />
+                   <p>Green silk dress</p>
+                   <p>1500 Baht-</p>
+                </div>
+
+                <div className="col-xd-6 col-lg-2 prod-card">
+                   <img src={ require('../img/logomain.png') } width="100%" alt="product pic" />
+                   <p>Green silk dress</p>
+                   <p>1500 Baht-</p>
+                </div>
+
+                <div className="col-xd-6 col-lg-2 prod-card">
+                   <img src={ require('../img/logomain.png') } width="100%" alt="product pic" />
+                   <p>Green silk dress</p>
+                   <p>1500 Baht-</p>
+                </div>
+            </div>
             </div>
         );
     }
