@@ -10,9 +10,9 @@ class Design extends Component {
         return (
             <div>
                 <Navbar /> 
-                <LoginTab />
                 <LeftTabFilter />
-                <div>
+                <div className="row">
+                    
                     <ProdCard />
                 </div>
             </div>
