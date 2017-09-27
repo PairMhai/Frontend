@@ -1,6 +1,6 @@
 import React , {Component} from 'react'
-import Navbar from '../components/Navbar'
 import axios from 'axios';
+import swal from 'sweetalert'
 import '../CSS/SignUp.css';
 
 class SignUp extends Component {
@@ -21,6 +21,41 @@ class SignUp extends Component {
           [name]: value
         });
     }
+
+    // open() {
+    //     swal("Card Information", {
+    //         // content: "input",
+    //     })
+    //     .then((value) => {
+    //         swal(`Add Card Complete!`);
+    //     });
+    
+    // }
+
+    ccomplex () {
+        swal.withForm({
+          title: 'Card Information',
+          showCancelButton: true,
+          confirmButtonColor: '#DD6B55',
+          confirmButtonText: 'Add Card',
+          closeOnConfirm: true,
+          formFields: [
+
+            { name: 'type', value: 'Visa', type: 'radio' },
+            { name: 'type', value: 'Master', type: 'radio' },
+
+            { id: 'number', placeholder: 'Card Number' },
+            { id: 'bank', placeholder: 'Bank' },
+            { id: 'cvv', placeholder: 'CVV' },
+            { id: 'holder', placeholder: 'Card Holder' },
+            { id: 'exp', placeholder: 'exp' },
+            
+          ]
+        })
+        .then((res) => {
+            console.log(res)
+        });
+      }
 
     handleSubmit(event){
         axios.post('http://127.0.0.1:8000/membership/',
@@ -69,7 +104,6 @@ class SignUp extends Component {
   
     render() {
         return (
-            <div> <Navbar /> 
             <div className="siup-center container-fluid">
                 <p className="signup">SIGN UP</p>
                 <form onSubmit={this.handleSubmit}>
@@ -86,26 +120,35 @@ class SignUp extends Component {
                             &nbsp;&nbsp;<input type="radio" name="gender" value="female" onChange={this.handleChange}/> FEMALE
                             &nbsp;&nbsp;<input type="radio" name="gender" value="male" onChange={this.handleChange}/> MALE &nbsp;&nbsp;&nbsp;&nbsp;
                         AGE: <input type="number" name="age" value={this.state.age} onChange={this.handleChange} />&nbsp;&nbsp;&nbsp;&nbsp;
-                        BIRTHDAY: <input type="date" name="birthday" value={this.state.birthday} onChange={this.handleChange}/><br></br><br></br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        BIRTHDAY: <input type="date" name="birthday" className="hbd" value={this.state.birthday} onChange={this.handleChange}/><br></br><br></br>&nbsp;&nbsp;&nbsp;&nbsp;
                         E-MAIL: <input type="email" name="email" value={this.state.email} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
                         TEL: <input type="text" name="tel" value={this.state.tel} onChange={this.handleChange}/><br></br> <br></br>&nbsp;&nbsp;&nbsp;&nbsp;
-                        ADDRESS: <input type="text" className="addr" name="address" value={this.state.address} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
+                        ADDRESS: <textarea className="addr" name="address" value={this.state.address} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <p className="member">MEMBERSHIP:</p><br/>
+                        <div type="container" className="radio_container">
+                            &nbsp;&nbsp;<input type="radio" name="member" value="bronze" onChange={this.handleChange}/> BRONZE 
+                            &nbsp;&nbsp;<input type="radio" name="member" value="silver" onChange={this.handleChange}/> SILVER 
+                            &nbsp;&nbsp;<input type="radio" name="member" value="gold" onChange={this.handleChange}/> GOLD 
+                            &nbsp;&nbsp;<input type="radio" name="member" value="platinum" onChange={this.handleChange}/> PLATINUM 
+                            &nbsp;&nbsp;<input type="radio" name="member" value="diamond" onChange={this.handleChange}/> DIAMOND 
+                        </div>
                     </div>
                     <p className="payment">PAYMENT INFORMATION</p>
                     <div className="container">
-                        {/* <table className="payment-table">
-                            <tr>
-                                <td>4569 xxx xxx</td>
-                                <td>TMB</td>
-                                <td>3/20</td>
-                                <td>Thanawan Sean-in</td>
-                            </tr>
-                        </table><br></br> */}
-                        <button className="signup_btn pull-right">ADD CART</button>
+                        <table className="payment-table">
+                            <tbody>
+                                <tr>
+                                    <td>4569 xxx xxx</td>
+                                    <td>TMB</td>
+                                    <td>3/20</td>
+                                    <td>Thanawan Sean-in</td>
+                                </tr>
+                            </tbody>
+                        </table><br></br>
+                        <button className="signup_btn pull-right" onChange={this.handleChange} onClick={this.complex}>ADD CARD</button>
                     </div><br></br>
                     <input type="submit" value="SIGN UP" className="signup_btn"/><br></br><br></br>
                 </form> 
-            </div>
             </div>
         );
     }
