@@ -55,8 +55,7 @@ render(){
             <Navbar /> 
             <div id="second">
                 <h3>Faculty of Engineering, Kasetsart University </h3>            
-                 <iframe className="ct-map" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6607.927433481854!2d76.32357176582866!3d10.00883294733899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1476078954945"
-                             allowFullScreen></iframe>
+                    <iframe className="ct-map" src="https://maps.google.com/maps?q=Faculty%20of%20Engineering%2C%20Kasetsart%20University%20Bangkok%2C%20TH&t=&z=14&ie=UTF8&iwloc=&output=embed"></iframe>
             </div>
             <div id="first">
                  <h2>Contact Us</h2>
