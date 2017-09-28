@@ -9,12 +9,12 @@ class Information extends Component {
         return (
             <div>
                 <Navbar /> 
-                <div class="container-fluid">
-                <div class="row">
-                <div class="col-sm-3 col-md-2 sidebar">
+                
+                <div className="row">
+                <div className="col-md-3 push-md-9">
                 <LeftTabInformation />
                 </div>
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <div className="col-md-9 push-md-3">
                     <div className="info-topic">HISTORY OF THAI SILK </div>
                     <div className="info-content">
                     &emsp;&emsp;&emsp;The history of silk began 4700 years ago in China. The evidence shows that China spreaded the culture of silk weaving 
@@ -39,7 +39,7 @@ class Information extends Component {
                 </div>
             </div>
                 </div>
-            </div>
+            
         );
     }
 }

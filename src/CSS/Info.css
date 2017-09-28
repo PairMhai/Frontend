@@ -4,15 +4,15 @@
 }
 
 .info-topic {
-    width: 100%;
+    /* width: 100%; */
     padding-top: 2%;
-    font-size: 80px;
+    font-size: 60px;
 }
 
 .info-content {
-    width: 100%;
+    /* width: 100%; */
     margin-top: 1%;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .info-ref {

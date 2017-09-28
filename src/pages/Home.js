@@ -11,8 +11,12 @@ class Home extends Component {
             <div>
                 <Navbar /> 
                 <div className="row">
+                    <div className="col-md-3 push-md-9">
                     <LeftTab />
+                    </div>
+                    <div className="col-md-9 push-md-3">
                     {/* <ProdCard /> */}
+                    </div>
                 </div>
             </div>
         );

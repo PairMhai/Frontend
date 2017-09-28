@@ -37,11 +37,7 @@ class ProdCard extends Component {
                    <p>1500 Baht-</p>
                 </div>
 
-                <div className="col-xd-6 col-lg-2 prod-card">
-                   <img src={ require('../img/logomain.png') } width="100%" alt="product pic" />
-                   <p>Green silk dress</p>
-                   <p>1500 Baht-</p>
-                </div>
+               
             </div>
             </div>
         );
