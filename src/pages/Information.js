@@ -1,42 +1,54 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
-import LeftTabInformation from '../components/LeftTabInformation'
+import { Link } from 'react-router-dom'
+import Clean from '../components/CleanInfo'
+import Care from '../components/CareInfo'
+import Type from '../components/TypeInfo'
+import SilkHis from '../components/SilkHis'
+import Genuine from '../components/GenuineInfo'
 import '../CSS/Info.css'
 
 class Information extends Component {
+    constructor(props){
+        super(props);
+        this.state = { info: 'his' };
+
+        this.renderInfo = this.renderInfo.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(content){
+        this.setState({info: content});
+    }
+
+    renderInfo(){
+        if(this.state.info === 'clean')
+            return <Clean />;
+        else if (this.state.info === 'care')
+            return <Care />;
+        else if (this.state.info === 'type')
+            return <Type />;
+        else if (this.state.info === 'genuine')
+            return <Genuine />;
+        else 
+            return <SilkHis />
+    }
 
     render(){
         return (
             <div>
                 <Navbar /> 
-                
-                <div className="row">
-                <div className="col-md-3 push-md-9">
-                <LeftTabInformation />
+                <div className="info-row">
+                    <div>
+                        <div className="info-btn" role="button" onClick={() => this.handleChange('his')}>History</div >
+                        <div className="info-btn" role="button" onClick={() => this.handleChange('clean')}>Clean</div>
+                        <div className="info-btn" role="button" onClick={() => this.handleChange('care')}>Care</div>
+                        <div className="info-btn" role="button" onClick={() => this.handleChange('type')}>Type</div>
+                        <div className="info-btn" role="button" onClick={() => this.handleChange('genuine')}>Genuine</div>      
+                    </div>   
+                    {this.renderInfo()}
                 </div>
-                <div className="col-md-9 push-md-3">
-                    <div className="info-topic">HISTORY OF THAI SILK </div>
-                    <div className="info-content">
-                    &emsp;&emsp;&emsp;The history of silk began 4700 years ago in China. The evidence shows that China spreaded the culture of silk weaving 
-                process to nearby countries, including Thailand. However, the archeologists found the remnant of silk cloth in Ban Chiang, 
-                Chiang Mai province. The oldest remnant of cloth is from 3000 years old approximately. At the King Rama V reign, 
-                his majesty supported silk farming (sericulture) and Thai weaving. But at that time the technology knowledge 
-                was not ready for silk farming, Thai people could only create rough silk materials. Not too long after that,
-                the King created the silk department, which later called the Queen Sirikit Department of Sericulture, to support silk farming. 
-                The King also hired the Japanese expert to help improving silk farming processes in Thailand. Nevertheless, after the King 
-                passed away the silk farming became unpopular. Until 2479 BE, the government started to promote silk farming again along with
-                the year 2491 BE,  Jim Thompson founded the company selling Thai silk products and materials. 
-                <br></br>&emsp;&emsp;&emsp;Nowaday, silk weaving and silk market have grown and develop to be more industrial in order to 
-                export goods to foreign countries, including Thailand.
-                <div className="info-ref"> References:
-“ประวัติ และความเป็นมาของผ้าไหมไทย.” ประวัติ และความเป็นมาของผ้าไหมไทย ~, thaiphamai.blogspot.com/2013/04/blog-post.html.
-</div>
-               
-
-</div>         
-</div>
-</div>
-</div>
+            </div>         
         );
     }
 }

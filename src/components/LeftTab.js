@@ -5,6 +5,7 @@ class LeftTab extends Component {
    
     render(){
         return (
+
             <div>
                 <div className="login-left">
                    <p className="login-label">USERNAME: </p><br></br>  
@@ -16,6 +17,8 @@ class LeftTab extends Component {
                   <br/>
                   <p className="login-label">-------or-----</p>
                   <br/>
+
+
                    <input className="login-left-btn" type="submit" value="SIGN UP" />
                 </div>
             </div>

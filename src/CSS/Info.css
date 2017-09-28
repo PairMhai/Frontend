@@ -1,20 +1,74 @@
+* {
+    font-family: 'Trebuchet MS', Helvetica, sans-serif
+}
+
 .info-layout {
     width: 80%;
     padding-right: 5%;
 }
 
 .info-topic {
-    /* width: 100%; */
-    padding-top: 2%;
-    font-size: 60px;
+    text-align: right;
+    font-size: 50px;
+    text-transform: uppercase;
+    padding-top: 1%;
+    padding-right: 4%;
 }
 
 .info-content {
-    /* width: 100%; */
-    margin-top: 1%;
     font-size: 20px;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 1%;
 }
 
 .info-ref {
     margin-top: 4%;
 }
+
+.info-btn {
+    text-align: left;
+    padding-left: 20%;
+    padding-top: 10%;
+    background: #ffffff;
+    color: #000000;
+    border-radius: 0;
+    font-weight: normal;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 40px ;
+    border-top: 100% ;
+    border-bottom: 100% ;
+}   
+
+.info-btn:hover {
+    background-color: black;
+    text-decoration: none;
+    color: white;
+    
+    padding: 10%;
+    border-top: 100% ;
+    border-bottom: 100% ;
+}
+
+.info-row {
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.info-border {
+    border: 3px solid gray;
+    
+}
+
+.info-header {
+    text-align: bottom;
+    color: gray;
+    font-size: 100px;
+    margin-bottom: -40px; 
+    margin-left: -7px; 
+}
+

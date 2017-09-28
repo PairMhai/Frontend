@@ -3,16 +3,9 @@
   }
 
 .prod-card {
-    margin: 1%;
-    margin-right: 1%; 
-    align-content: center;
-    text-align: center;
+    padding: 3%;
 }
 
 .border-pic {
     border: 2px solid black;
-}
-
-.prod-layout {
-    width: 80%;
 }
