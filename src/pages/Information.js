@@ -45,7 +45,7 @@ class Information extends Component {
                         <div className="info-btn" role="button" onClick={() => this.handleChange('care')}>Care</div>
                         <div className="info-btn" role="button" onClick={() => this.handleChange('type')}>Type</div>
                         <div className="info-btn" role="button" onClick={() => this.handleChange('genuine')}>Genuine</div>      
-                    </div>    
+                    </div>   
                     {this.renderInfo()}
                 </div>
             </div>         
