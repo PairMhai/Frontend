@@ -9,10 +9,11 @@ class GenuineInfo extends Component {
         return (
             <div>
                 <Navbar /> 
-                <div className="row container-fluid">
+                <div className="row">
+                <div className="col-md-3 push-md-9">
                 <LeftTabInformation />
-                    <div className="info-layout">
-                <div className="row justify-content-start">
+                </div>
+                <div className="col-md-9 push-md-3">
                     <div className="info-topic">HOW TO DETERMINE IF SILK IS GENUINE</div>
                     <div className="info-content">
                     &emsp;&emsp;&emsp;There are many ways to determine if silk is genuine, we must look at weaves, pattern, prices, lustre, and testing by using burn or wedding ring. 
@@ -29,7 +30,7 @@ class GenuineInfo extends Component {
                 </div>
             </div>
                 </div>
-            </div>
+            
         );
     }
 }

@@ -11,8 +11,7 @@ class CleanInfo extends Component {
                 <Navbar /> 
                 <div className="row container-fluid">
                 <LeftTabInformation />
-                    <div className="info-layout">
-                <div className="row justify-content-start">
+                <div className="col-md-9 push-md-3">
                     <div className="info-topic">HOW TO CLEAN THAI SILK </div>
                     <div className="info-content">
                     When we talk about silk, it is a natural product that we should take care of them carefully if not it will be destroyed and lost their value, so you should know how to clean silk in the right way. 
@@ -39,11 +38,11 @@ class CleanInfo extends Component {
                     <div className="info-ref">Reference:
                     “How Do I Take Care of My Thai Silk?” How Do I Take Care of My Thai Silk? | Mizpah International Pty Ltd, www.mizpah.biz/how-do-i-take-care-my-thai-silk.
 </div>                    
-                    </div>
-                </div>
-            </div>
-                </div>
-            </div>
+
+</div>         
+</div>
+</div>
+</div>
         );
     }
 }

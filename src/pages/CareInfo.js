@@ -9,10 +9,11 @@ class CareInfo extends Component {
         return (
             <div>
             <Navbar /> 
-            <div className="row container-fluid">
+            <div className="row">
+            <div className="col-md-3 push-md-9">
             <LeftTabInformation />
-                <div className="info-layout">
-            <div className="row justify-content-start">
+            </div>
+            <div className="col-md-9 push-md-3">
                 <div className="info-topic">HOW TO CARE FOR THAI SILK </div>
                 <div className="info-content">
                 &emsp;&emsp;&emsp;Tips for shine and bright colors of silk.
@@ -35,11 +36,12 @@ class CareInfo extends Component {
                 <div className="info-ref">References:
                 “Facebook.” การดูแลรักษาผ้าไหมไทย, www.facebook.com/notes/ดาหวันไหมไทย/การดูแลรักษาผ้าไหมไทย/916689258365515/.
                </div>                    
+                
                 </div>
             </div>
         </div>
             </div>
-        </div>
+        
         );
     }
 }
