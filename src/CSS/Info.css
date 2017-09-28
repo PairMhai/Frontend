@@ -1,20 +1,58 @@
+* {
+    font-family: 'Trebuchet MS', Helvetica, sans-serif
+}
+
 .info-layout {
     width: 80%;
     padding-right: 5%;
 }
 
 .info-topic {
-    /* width: 100%; */
+    text-align: right;
     padding-top: 2%;
     font-size: 60px;
+    text-transform: uppercase;
 }
 
 .info-content {
-    /* width: 100%; */
-    margin-top: 1%;
     font-size: 20px;
 }
 
 .info-ref {
     margin-top: 4%;
 }
+
+.info-btn {
+    text-align: left;
+    padding-left: 20%;
+    padding-top: 10%;
+    background: #ffffff;
+    color: #000000;
+    border-radius: 0;
+    font-weight: normal;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 40px ;
+    border-top: 100% ;
+    border-bottom: 100% ;
+}   
+
+.info-btn:hover {
+    background-color: #727070;
+    text-decoration: none;
+    color: white;
+    
+    padding: 10%;
+    border-top: 100% ;
+    border-bottom: 100% ;
+}
+
+.info-row {
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+}
+

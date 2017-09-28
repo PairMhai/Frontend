@@ -6,7 +6,7 @@
 #first {
     margin-top: 5%;
     margin-left:10%;
-    width: 50%;
+    width: 30%;
     float: left;
     height: 50%;
 
@@ -14,7 +14,7 @@
 #second {
     margin-top: 5%;
     margin-left: 10%;
-    width: 30%;
+    width: 40%;
     height: 500px;
     float: left;
 }

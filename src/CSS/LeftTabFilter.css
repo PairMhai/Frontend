@@ -43,3 +43,33 @@
 .custom-radios input[type="radio"]:checked + label span img {
   opacity: 1;
 }
+
+.searchbar {
+  background-color: #ffffff;
+  border-color: #000000;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+  width: 69%;
+  border-radius: 0px;
+  border-width: 1px;
+}
+
+.buttonsearch {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0.5em 4em 0.5em 1em;
+  width: 10%;
+}
+
+.left-tab {
+  padding-left: 10%;
+  margin: 0;
+  width: 100%;
+}
+
+select.classic2 {
+  width: 89%;
+  margin-left: 0px; 
+}

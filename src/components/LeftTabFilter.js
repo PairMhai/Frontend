@@ -6,24 +6,17 @@ class LeftTabFilter extends Component {
         return (
             <div>
                 <div className="left-tab">
-                    <br></br>
-                    <br></br>
-                        <a className="head">&nbsp;&nbsp;SORT BY :</a>
-                        <br></br>
-                        &nbsp;<input type="radio" name="optradio"/>&nbsp;&nbsp;PRICE
-                        &nbsp;<input type="radio" name="optradio"/>&nbsp;ALPHABET
-                      
-                        
-                 
-                   
-                  
+                    <br/>
+                        <a className="head"><h3>SORT BY:</h3></a>
+                        <input type="radio" name="optradio"/>&nbsp;PRICE 
+                        &nbsp;&nbsp;<input type="radio" name="optradio"/>&nbsp;ALPHABET
                    <br></br>
                    <br></br>
                     <form action="" method="get" className="search">
 
                     <div className="form__field">
 
-                        &nbsp;&nbsp;<input className="searchbar" type="search" name="search" placeholder="Enter here"/>
+                        <input className="searchbar" type="search" name="search" placeholder="Enter here"/>
                         <input className="buttonsearch" type="submit" value="Search" />
 
                   
@@ -31,15 +24,14 @@ class LeftTabFilter extends Component {
                     </form>
                     <br></br>
                    <div>
-                    <a className="head">&nbsp;&nbsp;&nbsp;PRICE RANGE :&nbsp;</a>
-                   <br></br>
+                    <a className="head"><h4>PRICE RANGE:</h4></a>
                    <select className="classic2" id="pricerange" >
-                        <option value="pricer1">&nbsp; 1000-2000 </option>
-                        <option value="pricer2">&nbsp; 2000-5000</option>
+                        <option value="pricer1">1000-2000 </option>
+                        <option value="pricer2">2000-5000</option>
                     </select>
                     </div>
                     <br></br>
-                    <a className="head" >&nbsp;&nbsp;&nbsp;COLOR :&nbsp;</a>
+                    <a className="head"><h4>COLOR:</h4></a>
                     <div className="custom-radios">
                     <div>
                         <input type="radio" id="color-1" name="color" value="color-1" />
@@ -79,9 +71,9 @@ class LeftTabFilter extends Component {
                     </div>
                     <br/>                                  
                     <div>
-                    <a className="head">&nbsp;&nbsp;&nbsp;MATERIAL :&nbsp;</a>
+                    <a className="head"><h4>MATERIAL:</h4></a>
                    
-                   &nbsp;<select className="classic2" id="pricerange" >
+                  <select className="classic2" id="pricerange" >
                         <option value="Mudmee Silk">&nbsp; Mudmee Silk </option>
                         <option value="normal silk">&nbsp; Normal Silk</option>
                     </select>
