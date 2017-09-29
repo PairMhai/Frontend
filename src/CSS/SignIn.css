@@ -1,5 +1,5 @@
 .login-left {
-   margin-left: 20%; 
+   margin-left: 5%; 
 }
 
 .login-label {
@@ -11,6 +11,8 @@
 .login-input {
      background-color: #d8d8d8;
      border-style: solid; 
+     width: 200px;
+     height: 30px;
 }
 
 .login-left-btn {
@@ -25,6 +27,7 @@
 
 .forget {
     font-size: 12px;
+    margin-left: 10px;
 }
 
 .login-layout {
