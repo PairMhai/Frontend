@@ -1,4 +1,5 @@
 import React , {Component} from 'react'
+import Navbar from '../components/Navbar'
 
 class DesDetail extends Component {
 
@@ -8,8 +9,8 @@ class DesDetail extends Component {
 
     render(){
         return (
-            
-            <div>
+            <div id="container">
+                <Navbar /> 
                 <h1>Design</h1>
                 <div className="col-lg-12">
                    

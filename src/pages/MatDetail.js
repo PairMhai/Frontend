@@ -1,4 +1,5 @@
 import React , {Component} from 'react'
+import Navbar from '../components/Navbar'
 
 class MatDetail extends Component {
 
@@ -9,20 +10,22 @@ class MatDetail extends Component {
     render(){
         return (
             <div>
+                <Navbar /> 
                 <h1>Material</h1>
-                <img src={ require('../img/logomain.png') } alt="mat-pic" />
-                <div>
-                    <p>NAME: Red silk </p>
-                    <p>DESCRIPTION: Made in Thailand </p> 
-                    <p>MATERIAL: Mudmee Silk  </p>
-                    <p>COLOR: Dark Red </p>
-                    <p>PRICE: 500 Baht / Yard of fabric  </p>
-                    {this.props.params.id}
-                    <button>-</button>
-                    <input type="text"/>
-                    <button>+</button>
-
-                    <button>ADD TO CARD</button>
+                <div className="content row">
+                    <img src={ require('../img/logomain.png') } alt="mat-pic" width="20%" height="20%" />
+                    <div>
+                        <p>NAME: Red silk </p>
+                        <p>DESCRIPTION: Made in Thailand </p> 
+                        <p>MATERIAL: Mudmee Silk  </p>
+                        <p>COLOR: Dark Red </p>
+                        <p>PRICE: 500 Baht / Yard of fabric  </p>
+                        <button>-</button>
+                        <input type="text"/>
+                        <button>+</button>
+                        <br/>
+                        <button>ADD TO CARD</button>
+                    </div>
                 </div>
             </div>
         );

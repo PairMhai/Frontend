@@ -1,5 +1,6 @@
 import React , {Component} from 'react'
 import {Link} from 'react-router'
+import { Route, Redirect } from 'react-router'
 import '../CSS/Card.css'
 
 class ProdCard extends Component {
@@ -12,13 +13,14 @@ class ProdCard extends Component {
     }
 
     clickDetail(e){
-        const a = e.target;
-        alert(a.id)
+        const id = e.currentTarget.dataset.id;
+        const type = e.currentTarget.dataset.type;
+        window.location = '/'+type+'/'+id;
     }
     render(){
         return (
             <div className="row justify-content-start">
-                <div className="col-xd-6 col-lg-3 prod-card" id={"kkk"} onClick={this.clickDetail}>
+                <div className="col-xd-6 col-lg-3 prod-card" data-id="2" data-type="mat"  onClick={this.clickDetail}>
                     <img src={ require('../img/logomain.png') } width="100%" alt="product pic" />
                     <h4>Green silk dress</h4>
                     <p>1500 Baht-</p>

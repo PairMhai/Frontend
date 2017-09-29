@@ -48,8 +48,6 @@ class Contact extends Component {
 
 render(){
     return (
-
-
         <div id="container">
             <Navbar /> 
             <div id="second">
