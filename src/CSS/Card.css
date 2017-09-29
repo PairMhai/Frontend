@@ -4,6 +4,7 @@
 
 .prod-card {
     padding: 3%;
+    cursor: pointer;
 }
 
 .border-pic {

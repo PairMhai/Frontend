@@ -1,12 +1,18 @@
 import React , {Component} from 'react'
 
 class DesDetail extends Component {
+
+    constructor(props){
+        super(props);
+    }
+
     render(){
         return (
+            
             <div>
                 <h1>Design</h1>
                 <div className="col-lg-12">
-                    
+                   
                 </div>
                 <div className="pic">
 

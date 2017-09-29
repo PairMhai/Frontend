@@ -1,6 +1,11 @@
 import React , {Component} from 'react'
 
 class MatDetail extends Component {
+
+    constructor(props){
+        super(props);
+    }
+
     render(){
         return (
             <div>
@@ -12,7 +17,7 @@ class MatDetail extends Component {
                     <p>MATERIAL: Mudmee Silk  </p>
                     <p>COLOR: Dark Red </p>
                     <p>PRICE: 500 Baht / Yard of fabric  </p>
-
+                    {this.props.params.id}
                     <button>-</button>
                     <input type="text"/>
                     <button>+</button>

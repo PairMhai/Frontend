@@ -4,8 +4,6 @@ import LeftTab from '../components/LeftTab'
 import homePic from '../img/homePic.jpg'
 import '../CSS/Home.css';
 
-
-
 class Home extends Component {
     render(){
         return (
@@ -16,7 +14,6 @@ class Home extends Component {
                     <LeftTab />
                     </div>
                     <div className="col-md-9 push-md-3">
-                    {/* <ProdCard /> */}
                         <div className="company_name">PAIR MHAI </div>
                         <div className="our_story">Our Story </div>
                         <div className="slogan">Simple But Elegant </div>
