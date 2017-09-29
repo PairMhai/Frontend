@@ -1,5 +1,6 @@
 import React , {Component} from 'react'
 import '../CSS/Info.css'
+import ThaiSilk from '../img/Thai-silk.jpg'
 
 class SilkHis extends Component {
 
@@ -19,7 +20,9 @@ class SilkHis extends Component {
                         Chiang Mai province. The oldest remnant of cloth is from 3000 years old approximately. At the King Rama V reign, 
                         his majesty supported silk farming (sericulture) and Thai weaving. But at that time the technology knowledge 
                         was not ready for silk farming, Thai people could only create rough silk materials. Not too long after that,
-                        the King created the silk department, which later called the Queen Sirikit Department of Sericulture, to support silk farming. 
+                        the King created the silk department, 
+                        <div className="pic_zone"><img className="silk_pic" src={ThaiSilk}/></div>
+                        which later called the Queen Sirikit Department of Sericulture, to support silk farming. 
                         The King also hired the Japanese expert to help improving silk farming processes in Thailand. Nevertheless, after the King 
                         passed away the silk farming became unpopular. Until 2479 BE, the government started to promote silk farming again along with
                         the year 2491 BE,  Jim Thompson founded the company selling Thai silk products and materials. 
