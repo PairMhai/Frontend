@@ -1,16 +1,19 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
+import ProfileTab from '../components/ProfileTab'
+import LoginTab from '../components/LoginTab'
 import '../CSS/Mat.css'
 
 class MatDetail extends Component {
 
     constructor(props){
         super(props);
-        this.state = {amount: 0}
+        this.state = {amount: 0, isLogin: true}
 
         this.increaseProd = this.increaseProd.bind(this);
         this.decreaseProd = this.decreaseProd.bind(this);
         this.addProdToCart = this.addProdToCart.bind(this);
+        this.checkLogin = this.checkLogin.bind(this);
     }
 
     increaseProd() {
@@ -25,11 +28,18 @@ class MatDetail extends Component {
     addProdToCart() {
         this.setState({ amount: 0});
     }
+    
+    checkLogin(){
+        if(this.state.isLogin)
+            return <ProfileTab />;
+        return <LoginTab />
+    }
 
     render(){
         return (
             <div>
                 <Navbar /> 
+                {this.checkLogin()}
                 <div className="content container-fluid">
                     <p className="mat-head">Material</p>
                     <div className="row">

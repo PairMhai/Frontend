@@ -7,7 +7,7 @@ class Highlight extends Component {
         return (
             <div className="row container-fluid">
                 <div className="col-lg-6"> 
-                    <img className="hl-center" src={ require('../img/logomain.png') } alt="logo"/>
+                    <img className="hl-center" src={ require('../img/Logo/logomain.png') } alt="logo"/>
                     <a className="hl-btn" href="/home" role="button">Home</a>
                 </div>
                 <div className="col-lg-6">
@@ -25,7 +25,7 @@ class Highlight extends Component {
                                 <img className="d-block img-fluid hl-img" src={ require('../img/Promotion/promotion2.jpg') } alt="Second slide"/>
                             </div>
                             <div className="carousel-item">
-                                <img className="d-block img-fluid hl-img" src={ require('../img/logomain.png') } alt="Third slide"/>
+                                <img className="d-block img-fluid hl-img" src={ require('../img/Logo/logomain.png') } alt="Third slide"/>
                             </div>
                         </div>
                         <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

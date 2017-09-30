@@ -1,14 +1,13 @@
 import React , {Component} from 'react'
+import '../CSS/Tab.css'
 
 class LoginTab extends Component {
 
     render(){
         return (
-            <div>
-                <div className="login-bar">
-                    <a className="link" href="">Sign In</a> &nbsp;&nbsp;&nbsp;
-                    <a className="link" href="/signup">Sign Up</a> &nbsp;&nbsp;&nbsp;
-                </div>
+            <div className="login-bar">
+                <a className="tab-text" href="/signin">SIGN IN</a> &nbsp;&nbsp;&nbsp;
+                <a className="tab-text" href="/signup">SIGN UP</a> &nbsp;&nbsp;&nbsp;
             </div>
         );
     }

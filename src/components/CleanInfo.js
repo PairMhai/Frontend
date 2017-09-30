@@ -20,8 +20,8 @@ class CleanInfo extends Component {
                         <br/>&emsp;&emsp;&emsp;This is the best way to clean your silk item because each silk item have several and complex construction such as curtains, heavy garments that is difficult to maintain in the right way with washing by water. 
                         <br/><br/>Handwashing
                         <div className="pic_zone-right">
-                            <img className="info-pic" src={ require('../img/clean1.jpg') } alt="clean-pic" />
-                            <img className="info-pic" src={ require('../img/clean.jpg') }  alt="clean-pic"/>
+                            <img className="info-pic" src={ require('../img/Information/clean1.jpg') } alt="clean-pic" />
+                            <img className="info-pic" src={ require('../img/Information/clean.jpg') }  alt="clean-pic"/>
                         </div>
                         <br/>&emsp;&emsp;&emsp;Handwashing is suitable for some silk item such as shirt, dress, and skirts. Before you wash the silk by hand make sure that the care label allow to do that and test the dye runs by using a clean cloth in cool water with a dropping soap and rub the fabric in the part that can’t easy to see if dye runs or the sheen is changed, you must use Dry-cleaning with the item but if not you can follow this instruction.
                         <br/>&emsp;&emsp;&emsp;1. Separate the silk with difference color.

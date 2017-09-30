@@ -32,10 +32,10 @@ class TypeInfo extends Component {
                         communities use anaphe silk to make velvet due to its strength and elasticity.
                         <br/>&emsp;&emsp;&emsp;The last is spider silk. Spider silk is resistant to extreme temperature and humidity.
                         <br/><br/>
-                        <img src={require('../img/type.jpg') } alt="type-pic" width="25%" height="250px" />  
-                        <img src={require('../img/type1.jpg')} alt="type-pic" width="25%" height="250px"/>  
-                        <img src={require('../img/type2.jpg')} alt="type-pic" width="25%" height="250px"/>   
-                        <img src={require('../img/type3.jpg')} alt="type-pic" width="25%" height="250px"/>   
+                        <img src={require('../img/Information/type.jpg') } alt="type-pic" width="25%" height="250px" />  
+                        <img src={require('../img/Information/type1.jpg')} alt="type-pic" width="25%" height="250px"/>  
+                        <img src={require('../img/Information/type2.jpg')} alt="type-pic" width="25%" height="250px"/>   
+                        <img src={require('../img/Information/type3.jpg')} alt="type-pic" width="25%" height="250px"/>   
                         <br/><br/>&emsp;&emsp;&emsp;In addition, Types of Thai silk to be able to identify genuine Thai mulberry
                         silk easily, Thailand’s Agriculture Ministry uses a peacock emblem to authenticate
                         Thai silk and protect it from imitations. They are:
