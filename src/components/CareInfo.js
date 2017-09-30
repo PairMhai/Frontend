@@ -21,7 +21,7 @@ class CareInfo extends Component {
                         water, silicone or baby oil for one of the last water before dry your fabric.
                         <br/><br/>Ironing
                         <div className="pic_zone-right">
-                            <img className="info-pic" src={ require('../img/care.jpg') } />
+                            <img className="info-pic" src={ require('../img/care.jpg') }  alt="care-pic"/>
                         </div>
                         <br/>&emsp;&emsp;&emsp;Iron on the inside while the silk is damp or dampen the silk with a misted spray of distilled water rinse the whole area thoroughly. Then Ironing with steam iron.
                         In general silk is a protein fiber so it is destroyed by the UV rays which have in the sunlight.

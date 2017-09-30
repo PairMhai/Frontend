@@ -48,7 +48,8 @@ input::-webkit-inner-spin-button {
 }
 
 .mat-group-btn {
-    padding: 2%;
+    padding-top: 2%;
+    padding-bottom: 1%;
 }
 .mat-btn-submit{
     margin-top: 5%;

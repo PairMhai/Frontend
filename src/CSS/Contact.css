@@ -116,10 +116,11 @@ textarea {
     border-radius: 0px;
     font-size: 14px;
     margin: 0; 
+    font-weight: normal;
 }
 
 
-.contact-btn{
+.contact-btn {
     background-color: black;
     color: #fff;
     border: none;

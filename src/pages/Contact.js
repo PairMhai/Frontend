@@ -58,13 +58,13 @@ render(){
                 <div className="message"></div>
                     <fieldset>
                         <div className="fb-field">
-                            <img id="fb" src={fb_icon}/>&nbsp;www.facebook.com/pairmhai2017
+                            <img id="fb" src={fb_icon} alt="fb-logo"/>&nbsp;www.facebook.com/pairmhai2017
                         </div><br></br>
                         <div className="line-field">
-                            <img id="line" src={line_icon}/>&nbsp;pairmhai2017
+                            <img id="line" src={line_icon} alt="line-logo"/>&nbsp;pairmhai2017
                         </div><br></br>
                         <div className="tel-field">
-                             <img id="tel" src={tel_icon}/>&nbsp;089-9999999
+                             <img id="tel" src={tel_icon} alt="tel-logo"/>&nbsp;089-9999999
                         </div>
                         <div className="mailTxt-field">
                             <label id="sent_email" htmlFor="email"><h3>Send Message</h3></label>

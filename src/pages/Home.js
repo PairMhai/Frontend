@@ -18,7 +18,7 @@ class Home extends Component {
                         <div className="our_story">Our Story </div>
                         <div className="slogan">Simple But Elegant </div>
                         <div className="pic_zone">
-                            <div className="pic_zone"><img className="home_pic" src={homePic}/></div>
+                            <div className="pic_zone"><img className="home_pic" alt="home-pic" src={homePic}/></div>
                         </div>
                         <div className="txt_zone">
                             <div className="pairmhai_info">

@@ -2,33 +2,55 @@
     font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
-.hl-content-logo {
-    width: 46.65%;
-    height: 100%;
-}
-
-.hl-content-promotion {
-    width: 53.35%;
-    height: 100%;
-}
-
-.hl-logo {
-    width: 50%;
-}
 
 .hl-center {
-    padding-top: 10%;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-top: 15%;
+    width: 75%;
+    display: block;
+    margin: auto;
 }
 
-.hl-text-center {
-    padding-left: 45%;
-    padding-right: 45%;
+.row {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 0px;
 }
 
+.hl-btn {
+    color: black;
+    border-radius: 8px;
+    padding: 14px 24px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 2px solid black;
+    display: block;
+    margin: auto;
+    width: 15%;
+    text-align: center;
+}
 
-.slide-promo {
+.hl-btn:hover {
+    color: white;
+    background-color: black;
+    border: none;
+    text-decoration: none;
+}
+
+.col-lg-6 {
+    -ms-flex: 0 0 50%;
+    -webkit-box-flex: 0;
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0px;
+}
+
+.hl-img {
     width: 100%;
     height: 100%;
 }

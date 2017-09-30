@@ -1,6 +1,4 @@
 import React , {Component} from 'react'
-import {Link} from 'react-router'
-import { Route, Redirect } from 'react-router'
 import '../CSS/Card.css'
 
 class ProdCard extends Component {

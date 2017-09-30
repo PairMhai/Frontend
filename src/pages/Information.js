@@ -1,6 +1,5 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
-import { Link } from 'react-router-dom'
 import Clean from '../components/CleanInfo'
 import Care from '../components/CareInfo'
 import Type from '../components/TypeInfo'
