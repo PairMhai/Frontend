@@ -43,8 +43,7 @@ class Contact extends Component {
           });
           
     }
-
-    
+ 
 
 render(){
     return (
@@ -67,13 +66,13 @@ render(){
                         <div className="tel-field">
                              <img id="tel" src={tel_icon}/>&nbsp;089-9999999
                         </div>
-                        <div className="mailTxt-field" title="send_mail">
+                        <div className="mailTxt-field">
                             <label id="sent_email" htmlFor="email"><h3>Send Message</h3></label>
                             <p>E-mail: <input type="email" name="email" value={this.state.email} onChange={this.handleChange} /></p>
                             <p><textarea className="text-msg" name="msg" value={this.state.msg} required="required" onChange={this.handleChange}/></p>
                         </div>
                         <div className="submit-field">
-                            <input type="submit" value="Send" onClick={ this.handleSubmit }></input> 
+                            <input className="contact-btn" type="submit" value="Send" onClick={ this.handleSubmit }></input> 
                         </div>
                     </fieldset>
                 </div>

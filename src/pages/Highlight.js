@@ -7,7 +7,7 @@ class Highlight extends Component {
             <div className="container-fluid">
                 <div className="row">
             <div className="hl-content-logo"> 
-                <img className="hl-center"src={ require('../img/logomain.png') } width="100%"/>
+                <img className="hl-center" src={ require('../img/logomain.png') } width="100%"/>
                 <p className="hl-text-center"><a className="btn btn-primary btn-lg " href="/home" role="button">Home</a></p>
             </div>
            
@@ -20,10 +20,10 @@ class Highlight extends Component {
                     </ol>
                     <div className="carousel-inner" role="listbox">
                         <div className="carousel-item active">
-                            <img className="d-block img-fluid" width="100%" height="100%" src={ require('../img/promotion1.jpg') } alt="First slide"/>
+                            <img className="d-block img-fluid" width="100%" height="100%" src={ require('../img/Promotion/promotion1.jpg') } alt="First slide"/>
                         </div>
                         <div className="carousel-item">
-                            <img className="d-block img-fluid" width="100%" height="100%" src={ require('../img/promotion2.jpg') } alt="Second slide"/>
+                            <img className="d-block img-fluid" width="100%" height="100%" src={ require('../img/Promotion/promotion2.jpg') } alt="Second slide"/>
                         </div>
                         <div className="carousel-item">
                             <img className="d-block img-fluid" width="100%" height="100%" src={ require('../img/logomain.png') } alt="Third slide"/>

@@ -10,7 +10,7 @@ class CareInfo extends Component {
                     Silk Information 
                 </div>
                 <div className="info-border">
-                    <div className="info-topic">
+                    <div className="info-topic-left">
                         HOW TO CARE
                     </div>
                     <div className="info-content">
@@ -20,6 +20,9 @@ class CareInfo extends Component {
                         and then Dry in the shade away from direct sunlight. Some people like fragrances and want to make the fabric soft, soaked in silk in a softener, 
                         water, silicone or baby oil for one of the last water before dry your fabric.
                         <br/><br/>Ironing
+                        <div className="pic_zone-right">
+                            <img className="info-pic" src={ require('../img/care.jpg') } />
+                        </div>
                         <br/>&emsp;&emsp;&emsp;Iron on the inside while the silk is damp or dampen the silk with a misted spray of distilled water rinse the whole area thoroughly. Then Ironing with steam iron.
                         In general silk is a protein fiber so it is destroyed by the UV rays which have in the sunlight.
                         In alkaline conditions And high temperatures will cause the silk to fall and reduce the luster of the silk. So understanding the nature of silk will allow us to avoid destroying a silk  by ignorance.

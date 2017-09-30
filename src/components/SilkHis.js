@@ -1,6 +1,6 @@
 import React , {Component} from 'react'
 import '../CSS/Info.css'
-import ThaiSilk from '../img/Thai-silk.jpg'
+
 
 class SilkHis extends Component {
 
@@ -17,11 +17,11 @@ class SilkHis extends Component {
                     <div className="info-content">
                         &emsp;&emsp;&emsp;The history of silk began 4700 years ago in China. The evidence shows that China spreaded the culture of silk weaving 
                         process to nearby countries, including Thailand. However, the archeologists found the remnant of silk cloth in Ban Chiang, 
+                        <div className="pic_zone"><img className="info-pic" src={require('../img/Thai-silk.jpg')} alt="his-pic"/></div>
                         Chiang Mai province. The oldest remnant of cloth is from 3000 years old approximately. At the King Rama V reign, 
                         his majesty supported silk farming (sericulture) and Thai weaving. But at that time the technology knowledge 
                         was not ready for silk farming, Thai people could only create rough silk materials. Not too long after that,
                         the King created the silk department, 
-                        <div className="pic_zone"><img className="silk_pic" src={ThaiSilk}/></div>
                         which later called the Queen Sirikit Department of Sericulture, to support silk farming. 
                         The King also hired the Japanese expert to help improving silk farming processes in Thailand. Nevertheless, after the King 
                         passed away the silk farming became unpopular. Until 2479 BE, the government started to promote silk farming again along with

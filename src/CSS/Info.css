@@ -14,6 +14,13 @@
     padding-top: 1%;
     padding-right: 4%;
 }
+.info-topic-left {
+    margin-left: 3%; 
+    font-size: 50px;
+    text-transform: uppercase;
+    padding-top: 1%;
+    padding-right: 4%;
+}
 
 .info-content {
     font-size: 20px;
@@ -70,5 +77,27 @@
     font-size: 100px;
     margin-bottom: -40px; 
     margin-left: -7px; 
+}
+
+.pic_zone {
+    margin-right: 5px;
+    width: 30%;
+    height: 100%;
+    float: left;
+}
+
+.pic_zone-right {
+    margin-right: 5px;
+    width: 30%;
+    height: 100%;
+    float: right;
+}
+.info-pic{
+    margin-top: 0;
+    margin-left: 0;
+    margin-bottom: 2%; 
+    width: 100%;
+    height: 100%;
+    float: left;
 }
 

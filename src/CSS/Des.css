@@ -1,0 +1,84 @@
+* {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+  }
+
+.des-head {
+    padding-left: 6%;
+    margin-top: 1%; 
+    font-size: 60px;
+}
+
+.des-right {
+    border: 2px solid black;
+    width: 60%;
+    height: 100%;
+    padding-top: 5%; 
+    padding-right: 7%; 
+    padding-left: 8%; 
+    display: block;
+    margin: auto;    
+}
+
+.img-prod {
+    width: 60%;
+    height: 100%;
+    border: 2px solid black;
+    display: block;
+    margin: auto;
+}
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.des-amount {
+    width: 20%;
+    text-align: center;
+    margin: 0;
+}
+
+.des-btn-add{
+    background-color: black;
+    color: white;
+    width: 10%;
+    border: none;
+}
+
+.des-group-btn {
+    padding: 2%;
+    margin-bottom: 2%;
+    height: 13%;
+}
+.des-btn-submit{
+    width: 80%;
+    height: 11%;
+    margin-top: 1%; 
+    background-color: white;
+    border: 2px solid black; 
+}
+
+.des-btn-size{
+    width: 80%;
+    height: 10%;
+    background-color: black;
+    color: white;
+    display: block;
+    margin: auto;
+}
+
+.des-img-size {
+    width: 100%;
+    display: block;
+    margin: auto;
+}
+
+.txt-size {
+    font-size: 30px;
+    padding-left: 20%;  
+    margin-bottom: -12.5px;
+}

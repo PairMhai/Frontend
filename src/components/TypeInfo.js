@@ -18,6 +18,7 @@ class TypeInfo extends Component {
                         available in the market today. It gets its name from a silkworm that lives and feeds
                         exclusively on the leaves of the mulberry plant. This type of silk is the strongest
                         natural fiber known to man and can last for many years.
+                        
                         <br/>&emsp;&emsp;&emsp;The second is Tasar silk. Tasar silk is easy to recognize because of its
                         copperish color. It is this color that makes it ideal for interior decor and furnishing.
                         <br/>&emsp;&emsp;&emsp;The third is Eri Silk. Its texture can be coarse or fine, and it is mainly cream
@@ -30,6 +31,11 @@ class TypeInfo extends Component {
                         usually soft and quite lustrous. In southern and central Africa, a number of
                         communities use anaphe silk to make velvet due to its strength and elasticity.
                         <br/>&emsp;&emsp;&emsp;The last is spider silk. Spider silk is resistant to extreme temperature and humidity.
+                        <br/><br/>
+                        <img src={require('../img/type.jpg') } alt="type-pic" width="25%" height="250px" />  
+                        <img src={require('../img/type1.jpg')} alt="type-pic" width="25%" height="250px"/>  
+                        <img src={require('../img/type2.jpg')} alt="type-pic" width="25%" height="250px"/>   
+                        <img src={require('../img/type3.jpg')} alt="type-pic" width="25%" height="250px"/>   
                         <br/><br/>&emsp;&emsp;&emsp;In addition, Types of Thai silk to be able to identify genuine Thai mulberry
                         silk easily, Thailand’s Agriculture Ministry uses a peacock emblem to authenticate
                         Thai silk and protect it from imitations. They are:
