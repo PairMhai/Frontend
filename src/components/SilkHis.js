@@ -1,7 +1,6 @@
 import React , {Component} from 'react'
 import '../CSS/Info.css'
 
-
 class SilkHis extends Component {
 
     render(){

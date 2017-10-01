@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import axios from 'axios';
 import swal from 'sweetalert'
 import '../CSS/SignUp.css';
+import ReactTooltip from 'react-tooltip'
 
 class SignUp extends Component {
     constructor(props){
@@ -23,40 +24,25 @@ class SignUp extends Component {
         });
     }
 
-    // open() {
-    //     swal("Card Information", {
-    //         // content: "input",
-    //     })
-    //     .then((value) => {
-    //         swal(`Add Card Complete!`);
-    //     });
-    
-    // }
-
-    ccomplex () {
-        swal.withForm({
-          title: 'Card Information',
-          showCancelButton: true,
-          confirmButtonColor: '#DD6B55',
-          confirmButtonText: 'Add Card',
-          closeOnConfirm: true,
-          formFields: [
-
-            { name: 'type', value: 'Visa', type: 'radio' },
-            { name: 'type', value: 'Master', type: 'radio' },
-
-            { id: 'number', placeholder: 'Card Number' },
-            { id: 'bank', placeholder: 'Bank' },
-            { id: 'cvv', placeholder: 'CVV' },
-            { id: 'holder', placeholder: 'Card Holder' },
-            { id: 'exp', placeholder: 'exp' },
-            
-          ]
+    open() {
+        swal({
+            title: "Card Information",
+            text: "Card Number:",
+            content: "input", 
+            buttons: {
+                cancel: "Cancel",
+                add: "Add Card",
+            }
         })
-        .then((res) => {
-            console.log(res)
+        .then((value) => {
+            switch (value) {
+                case "add":
+                    swal(`Add Card Complete!`);   
+                default:
+                    break;
+            }
         });
-      }
+    }
 
     handleSubmit(event){
         axios.post('http://127.0.0.1:8000/membership/',
@@ -128,12 +114,27 @@ class SignUp extends Component {
                         TEL: <input type="text" name="tel" value={this.state.tel} onChange={this.handleChange}/><br></br> <br></br>&nbsp;&nbsp;&nbsp;&nbsp;
                         ADDRESS: <textarea className="addr" name="address" value={this.state.address} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
                         <p className="member">MEMBERSHIP:</p><br/>
-                        <div type="container" className="radio_container">
-                            &nbsp;&nbsp;<input type="radio" name="member" value="bronze" onChange={this.handleChange}/> BRONZE 
-                            &nbsp;&nbsp;<input type="radio" name="member" value="silver" onChange={this.handleChange}/> SILVER 
-                            &nbsp;&nbsp;<input type="radio" name="member" value="gold" onChange={this.handleChange}/> GOLD 
-                            &nbsp;&nbsp;<input type="radio" name="member" value="platinum" onChange={this.handleChange}/> PLATINUM 
-                            &nbsp;&nbsp;<input type="radio" name="member" value="diamond" onChange={this.handleChange}/> DIAMOND 
+                        <div type="container" className="radio-container">
+                            <div className="member-box" data-tip="React-tooltip">
+                                <input type="radio" name="member" onChange={this.handleChange}/>&nbsp;&nbsp;BRONZE 
+                                <ReactTooltip place="right" type="dark" effect="float"/>
+                            </div> 
+                            <div className="member-box" data-tip="React-tooltip">
+                                <input type="radio" name="member" onChange={this.handleChange}/>&nbsp;&nbsp;SILVER 
+                                <ReactTooltip place="right" type="dark" effect="float"/>   
+                            </div> 
+                            <div className="member-box" data-tip="React-tooltip">
+                                <input type="radio" name="member" onChange={this.handleChange}/>&nbsp;&nbsp;GOLD
+                                <ReactTooltip place="right" type="dark" effect="float"/>
+                            </div> 
+                            <div className="member-box" data-tip="React-tooltip">
+                                <input type="radio" name="member" onChange={this.handleChange}/>&nbsp;&nbsp;PLATINUM
+                                <ReactTooltip place="right" type="dark" effect="float"/>
+                            </div> 
+                            <div className="member-box">
+                                <input type="radio" name="member" onChange={this.handleChange}/>&nbsp;&nbsp;DIAMOND 
+                                <ReactTooltip place="right" type="dark" effect="float"/>
+                            </div> 
                         </div>
                     </div>
                     <p className="payment">PAYMENT INFORMATION</p>
@@ -148,7 +149,7 @@ class SignUp extends Component {
                                 </tr>
                             </tbody>
                         </table><br></br>
-                        <button className="signup_btn pull-right" onChange={this.handleChange} onClick={this.complex}>ADD CARD</button>
+                        <button className="signup_btn pull-right" onChange={this.handleChange} onClick={this.open}>ADD CARD</button>
                     </div><br></br>
                     <input type="submit" value="SIGN UP" className="signup_btn"/><br></br><br></br>
                 </form> 
