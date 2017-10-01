@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import axios from 'axios';
 import swal from 'sweetalert'
 import '../CSS/SignUp.css';
+import ReactTooltip from 'react-tooltip'
 
 class SignUp extends Component {
     constructor(props){
@@ -114,11 +115,21 @@ class SignUp extends Component {
                         ADDRESS: <textarea className="addr" name="address" value={this.state.address} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
                         <p className="member">MEMBERSHIP:</p><br/>
                         <div type="container" className="radio_container">
-                            &nbsp;&nbsp;<input type="radio" name="member" value="bronze" onChange={this.handleChange}/> BRONZE 
-                            &nbsp;&nbsp;<input type="radio" name="member" value="silver" onChange={this.handleChange}/> SILVER 
-                            &nbsp;&nbsp;<input type="radio" name="member" value="gold" onChange={this.handleChange}/> GOLD 
-                            &nbsp;&nbsp;<input type="radio" name="member" value="platinum" onChange={this.handleChange}/> PLATINUM 
-                            &nbsp;&nbsp;<input type="radio" name="member" value="diamond" onChange={this.handleChange}/> DIAMOND 
+                            &nbsp;&nbsp;<input type="radio" name="member" value="bronze" onChange={this.handleChange}/> 
+                            <a data-tip="React-tooltip"> BRONZE </a>
+                            <ReactTooltip place="bottom" type="dark" effect="float"/>
+                            &nbsp;&nbsp;<input type="radio" name="member" value="silver" onChange={this.handleChange}/>  
+                            <a data-tip="React-tooltip"> SILVER </a>
+                            <ReactTooltip place="bottom" type="dark" effect="float"/>
+                            &nbsp;&nbsp;<input type="radio" name="member" value="gold" onChange={this.handleChange}/>  
+                            <a data-tip="React-tooltip"> GOLD </a>
+                            <ReactTooltip place="bottom" type="dark" effect="float"/>
+                            &nbsp;&nbsp;<input type="radio" name="member" value="platinum" onChange={this.handleChange}/>  
+                            <a data-tip="React-tooltip"> PLATINUM </a>
+                            <ReactTooltip place="bottom" type="dark" effect="float"/>
+                            &nbsp;&nbsp;<input type="radio" name="member" value="diamond" onChange={this.handleChange}/>  
+                            <a data-tip="React-tooltip"> DIAMOND </a>
+                            <ReactTooltip place="bottom" type="dark" effect="float"/>
                         </div>
                     </div>
                     <p className="payment">PAYMENT INFORMATION</p>
