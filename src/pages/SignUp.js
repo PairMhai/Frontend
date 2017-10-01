@@ -23,40 +23,25 @@ class SignUp extends Component {
         });
     }
 
-    // open() {
-    //     swal("Card Information", {
-    //         // content: "input",
-    //     })
-    //     .then((value) => {
-    //         swal(`Add Card Complete!`);
-    //     });
-    
-    // }
-
-    ccomplex () {
-        swal.withForm({
-          title: 'Card Information',
-          showCancelButton: true,
-          confirmButtonColor: '#DD6B55',
-          confirmButtonText: 'Add Card',
-          closeOnConfirm: true,
-          formFields: [
-
-            { name: 'type', value: 'Visa', type: 'radio' },
-            { name: 'type', value: 'Master', type: 'radio' },
-
-            { id: 'number', placeholder: 'Card Number' },
-            { id: 'bank', placeholder: 'Bank' },
-            { id: 'cvv', placeholder: 'CVV' },
-            { id: 'holder', placeholder: 'Card Holder' },
-            { id: 'exp', placeholder: 'exp' },
-            
-          ]
+    open() {
+        swal({
+            title: "Card Information",
+            text: "Card Number:",
+            content: "input", 
+            buttons: {
+                cancel: "Cancel",
+                add: "Add Card",
+            }
         })
-        .then((res) => {
-            console.log(res)
+        .then((value) => {
+            switch (value) {
+                case "add":
+                    swal(`Add Card Complete!`);   
+                default:
+                    break;
+            }
         });
-      }
+    }
 
     handleSubmit(event){
         axios.post('http://127.0.0.1:8000/membership/',
@@ -148,7 +133,7 @@ class SignUp extends Component {
                                 </tr>
                             </tbody>
                         </table><br></br>
-                        <button className="signup_btn pull-right" onChange={this.handleChange} onClick={this.complex}>ADD CARD</button>
+                        <button className="signup_btn pull-right" onChange={this.handleChange} onClick={this.open}>ADD CARD</button>
                     </div><br></br>
                     <input type="submit" value="SIGN UP" className="signup_btn"/><br></br><br></br>
                 </form> 
