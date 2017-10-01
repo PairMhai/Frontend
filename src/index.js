@@ -15,6 +15,7 @@ import MatDetail from './pages/MatDetail'
 import DesDetail from './pages/DesDetail'
 import Profile from './components/Profile'
 import Cart from './components/Cart'
+import Payment from './components/Payment'
 
 import './CSS/index.css';
 
@@ -26,9 +27,10 @@ ReactDOM.render((
       <Route exact path='/' component={Highlight}/>
       <Route path='/home' component={Home}/>
       <Route exact path='/contactus' component={Contact}/>
-      <Route exact path='/signup' component={SignIn}/>
-      <Route exact path='/signin' component={SignUp}/>
+      <Route exact path='/signup' component={SignUp}/>
+      <Route exact path='/signin' component={SignIn}/>
       <Route exact path='/cart' component={Cart}/>
+      <Route exact path='/payment' component={Payment}/>
       <Route exact path='/profile' component={Profile}/>
       <Route exact path='/info' component={Information}/>
       <Route exact path='/material' component={Material}/>
