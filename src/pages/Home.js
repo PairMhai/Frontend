@@ -2,6 +2,8 @@ import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
 import LeftTabProfile from '../components/LeftTabProfile'
 import LeftTab from '../components/LeftTab'
+import LoginNav from '../components/LoginNav'
+import ProfileNav from '../components/ProfileNav'
 import homePic from '../img/homePic.jpg'
 import profile_icon from '../img/userpic.png'
 import '../CSS/Home.css';
@@ -10,7 +12,10 @@ class Home extends Component {
     render(){
         return (
             <div>
+                <div className="nav">
                 <Navbar /> 
+                <ProfileNav />
+                </div>
                 <div className="row">
                     <div className="col-md-3 push-md-9">
                     <LeftTab />

@@ -1,7 +1,7 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
-import ProfileTab from '../components/ProfileTab'
-import LoginTab from '../components/LoginNav'
+import ProfileNav from '../components/ProfileNav'
+import LoginNav from '../components/LoginNav'
 import '../CSS/Mat.css'
 
 class MatDetail extends Component {
@@ -31,15 +31,19 @@ class MatDetail extends Component {
     
     checkLogin(){
         if(this.state.isLogin)
-            return <ProfileTab />;
-        return <LoginTab />
+            return <ProfileNav />;
+        return <LoginNav />
     }
 
     render(){
         return (
             <div>
+            <div className="nav">
                 <Navbar /> 
+                <LoginNav />
+                
                 {this.checkLogin()}
+                </div>
                 <div className="content container-fluid">
                     <p className="mat-head">Material</p>
                     <div className="row">
