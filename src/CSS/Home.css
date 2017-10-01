@@ -85,21 +85,7 @@
     height: 20% ;
     vertical-align: bottom;
   }
-  .buttonsearch{
-    background-color : #000000;
-    color: #ffffff;
-
-    display: inline-block;
-    font: inherit;
-    line-height: 1.5em;
-    padding: 0.5em 3.5em 0.5em 1em;
-    width: 70px;
-    border-radius: 0px ;
-    border-width: 1px;
-    margin-left: 1px;
-    
-    
-  }
+  
   .btn {
     display: inline-block;
     padding: 6px 12px;
@@ -210,17 +196,7 @@
 .link{
   color: #000000;
 }
-.searchbar{
-  background-color : #ffffff;
-  border-color: #000000 ;
-  display: inline-block;
-  font: inherit;
-  line-height: 1.5em;
-  padding: 0.5em 3.5em 0.5em 1em;
-  width: 210px;
-  border-radius: 0px ;
-  border-width: 1px;
-}
+
 
 
 select {

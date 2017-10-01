@@ -1,5 +1,6 @@
 import React , {Component} from 'react'
 import '../CSS/LeftTabFilter.css';
+import sr_icon from '../img/search.png'
 class LeftTabFilter extends Component {
    
     render(){
@@ -17,7 +18,10 @@ class LeftTabFilter extends Component {
                     <div className="form__field">
 
                         <input className="searchbar" type="search" name="search" placeholder="Enter here"/>
-                        <input className="buttonsearch" type="submit" value="Search" />
+                        
+                        <button type="submit" className="search_btn" >
+                        <img id="sr_icon" src={sr_icon} alt="pf_icon"/>
+                        </button>
 
                   
                     </div>

@@ -1,7 +1,9 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
+import LeftTabProfile from '../components/LeftTabProfile'
 import LeftTab from '../components/LeftTab'
 import homePic from '../img/homePic.jpg'
+import profile_icon from '../img/userpic.png'
 import '../CSS/Home.css';
 
 class Home extends Component {

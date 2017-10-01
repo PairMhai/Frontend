@@ -2,6 +2,7 @@ import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
 import LeftTabFilter from '../components/LeftTabFilter'
 import ProdCard from '../components/ProdCard'
+import Cart from '../components/Cart'
 
 class Material extends Component {
 
@@ -14,7 +15,8 @@ class Material extends Component {
                     <LeftTabFilter />
                     </div>
                     <div className="col-md-9 push-md-3">
-                    <ProdCard />
+                        <Cart />
+                    {/* <ProdCard /> */}
                     </div>
                 </div>
             </div>

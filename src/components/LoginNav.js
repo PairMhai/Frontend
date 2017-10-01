@@ -1,7 +1,7 @@
 import React , {Component} from 'react'
 import '../CSS/Tab.css'
 
-class LoginTab extends Component {
+class LoginNav extends Component {
 
     render(){
         return (
@@ -13,4 +13,4 @@ class LoginTab extends Component {
     }
 }
 
-export default LoginTab
+export default LoginNav

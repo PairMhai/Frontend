@@ -1,0 +1,66 @@
+.login-left {
+    margin-left: 5%; 
+    margin-top: 15%;
+ }
+ 
+ .login-label {
+     margin-bottom: -20px;
+     margin-top: 15px;
+     
+     font-size: 15px;
+     
+ }
+ 
+ .login-input {
+      background-color:white;
+      border-style: solid; 
+      border-width: 1px;
+      width: 200px;
+      height: 30px;
+      
+ }
+ 
+ .login-left-btn {
+     width: 200px;
+     height: 30px;
+     background-color: white;
+     border-style: solid;
+     border-color: black;
+     margin-top: 25px;
+     margin-bottom: 10px;
+ }
+ .login-left-btn:hover {
+     width: 200px;
+     height: 30px;
+     color: white;
+     background-color: black;
+     
+     border-style: solid;
+     border-color: black;
+     margin-top: 25px;
+     margin-bottom: 10px;
+ }
+ 
+ .forget {
+     font-size: 12px;
+     margin-left: 0px;
+     color: gray;
+    
+     
+ }
+ #line_icon {
+     width: 45px;
+     height: 45px;
+     margin-left: 5px;
+     margin-right: 5px;
+ }
+ 
+ .orlabel {
+     margin-left: 35px ;
+     margin-bottom : -8px; 
+ }
+ 
+.login-layout {
+    width: 20%;
+}
+
