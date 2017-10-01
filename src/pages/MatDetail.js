@@ -1,7 +1,7 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
 import ProfileTab from '../components/ProfileTab'
-import LoginTab from '../components/LoginTab'
+import LoginTab from '../components/LoginNav'
 import '../CSS/Mat.css'
 
 class MatDetail extends Component {
