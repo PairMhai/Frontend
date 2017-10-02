@@ -45,7 +45,7 @@ class SignUp extends Component {
     }
 
     handleSubmit(event){
-        axios.post('http://127.0.0.1:8000/membership/',
+        axios.post('http://127.0.0.1:8000/membership/register/',
         { 
             "user": {
                 "username": this.state.username,

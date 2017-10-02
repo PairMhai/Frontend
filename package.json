@@ -6,6 +6,8 @@
     "axios": "^0.16.2",
     "bootstrap": "^4.0.0-alpha.6",
     "react": "^15.6.2",
+    "react-cookie": "^2.1.1",
+    "react-cookies": "^0.1.0",
     "react-dom": "^15.6.1",
     "react-modal": "^2.3.2",
     "react-router": "^4.2.0",
@@ -13,7 +15,8 @@
     "react-router-modal": "^1.1.13",
     "react-scripts": "0.9.5",
     "react-tooltip": "^3.3.0",
-    "sweetalert": "^2.0.3"
+    "sweetalert": "^2.0.3",
+    "tool-tip": "^4.2.5"
   },
   "devDependencies": {},
   "scripts": {

@@ -1,7 +1,7 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
-import ProfileTab from '../components/ProfileTab'
-import LoginTab from '../components/LoginTab'
+import ProfileNav from '../components/ProfileNav'
+import LoginNav from '../components/LoginNav'
 import '../CSS/Des.css'
 
 class DesDetail extends Component {
@@ -31,8 +31,8 @@ class DesDetail extends Component {
 
     checkLogin(){
         if(this.state.isLogin)
-            return <ProfileTab />;
-        return <LoginTab />
+            return <ProfileNav />;
+        return <LoginNav />
     }
 
     render(){
