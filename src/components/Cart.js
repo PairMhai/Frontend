@@ -2,12 +2,20 @@ import React , {Component} from 'react'
 import '../CSS/Usercart.css';
 import dress from '../img/Design/darkorange-dress.jpg'
 import material from '../img/Material/red.jpg'
+import Navbar from '../components/Navbar'
+import LeftTab from '../components/LeftTab'
+
 class Cart extends Component {
    
     render(){
         return (
-            <div >
-                <div>
+            <div>
+                <Navbar /> 
+                <div className="row">
+                    <div className="col-md-3 push-md-9">
+                        <LeftTab />
+                    </div>
+                    <div className="col-md-9 push-md-3 cus-con">
                 <div className="cart-header">
                     YOUR CART
                 </div>
@@ -61,7 +69,7 @@ class Cart extends Component {
                 </div>
                 
 
-                   
+                   </div>
                     
                 
                 </div>

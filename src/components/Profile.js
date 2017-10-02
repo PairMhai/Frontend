@@ -1,7 +1,6 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
-import LeftTabProfile from '../components/LeftTabFilter'
-import TabProfile from '../components/LeftTabProfile'
+import LeftTabProfile from '../components/LeftTabProfile'
 import '../CSS/CustomerInfo.css'
 
 class Profile extends Component {

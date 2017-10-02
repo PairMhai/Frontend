@@ -14,13 +14,14 @@ class Home extends Component {
             <div>
                 <div className="nav">
                 <Navbar /> 
-                <ProfileNav />
+               
                 </div>
                 <div className="row">
                     <div className="col-md-3 push-md-9">
                     <LeftTab />
                     </div>
                     <div className="col-md-9 push-md-3">
+                    <ProfileNav />
                         <div className="company_name">PAIR MHAI </div>
                         <div className="our_story">Our Story </div>
                         <div className="slogan">Simple But Elegant </div>
