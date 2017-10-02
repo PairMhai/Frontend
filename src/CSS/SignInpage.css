@@ -1,0 +1,75 @@
+.signin {
+    text-align: center;
+    margin-top: 3%;
+}
+
+ .signin-label-page {
+    margin-bottom: -20px;
+    margin-top: 15px;
+    margin-right: 10px ;
+    font-size: 20px;
+    
+}
+
+.signin-input-page {
+     background-color:white;
+     border-style: solid; 
+     border-width: 1px;
+     width: 250px;
+     height: 30px;
+     margin-bottom: 15px;
+}
+
+#profile-pic-signin {
+   
+    height: 159px;
+    width: 159px;
+    margin-bottom: 25px;
+   
+}
+
+.signin-page-btn {
+    width: 350px;
+    height: 40px;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+.signin-page-btn:hover {
+    width: 350px;
+    height: 40px;
+    color: white;
+    background-color: black;
+    font-size: 20px;
+    font-weight: bold;
+    border-style: solid;
+    border-color: black;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.forget {
+    font-size: 12px;
+    margin-left: 0px;
+    color: gray;
+   
+    
+}
+#line_icon {
+    width: 45px;
+    height: 45px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.orlabel-page {
+    margin-left: 35px ;
+    margin-bottom : -8px; 
+}
+
+
