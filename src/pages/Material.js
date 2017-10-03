@@ -17,9 +17,8 @@ class Material extends Component {
                         <LeftTabFilter />
                     </div>
                     <div className="col-md-9 push-md-3">
-                    <LoginNav />
-                        <ProdCard />
-                        
+                        <LoginNav />
+                        <ProdCard type="mat"/>
                     </div>
                 </div>
             </div>

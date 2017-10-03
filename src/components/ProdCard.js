@@ -1,4 +1,5 @@
 import React , {Component} from 'react'
+import axios from 'axios';
 import '../CSS/Card.css'
 
 class ProdCard extends Component {
@@ -15,6 +16,24 @@ class ProdCard extends Component {
         const type = e.currentTarget.dataset.type;
         window.location = '/'+type+'/'+id;
     }
+
+    componentWillMount(){
+        var typeProd = '';
+        if(this.props.type === 'mat'){
+            typeProd = 'materials';
+        } else {
+            typeProd = 'designs' 
+        }
+
+        axios.get('http://127.0.0.1:8000/catalog/'+typeProd)
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        }); 
+    }
+
     render(){
         return (
             <div className="row justify-content-start">
