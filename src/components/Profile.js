@@ -22,11 +22,12 @@ class Profile extends Component {
             var key = cookies.get('key')
 
             axios.get('http://guarded-brook-49660.herokuapp.com/membership/cust/'+ key) 
-            // .then(res => this.setState({ posts: res.data }))
-            // .catch(err => console.log(err))
-            .then(function(response){
-                alert(response.data.id)
-                console.log(response);
+            .then((response)=> {
+                this.setState({ firstname: response.data.user.first_name, lastname: response.data.user.last_name,
+                    gender: response.data.user.gender ,birthday: response.data.user.date_of_birth, 
+                    age: response.data.user.age, address: response.data.user.address, tel: response.data.user.telephone,
+                     email: response.data.user.email,
+                });
             })
             .catch(function (error){
                 console.log(error);

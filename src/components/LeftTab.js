@@ -1,15 +1,14 @@
 import React , {Component} from 'react'
 import axios from 'axios';
 import line_icon from '../img/line.png'
-//import { connect } from 'react-redux'
-import {addCookie} from '../components/CookieActions'
-import { withCookies, Cookies } from 'react-cookie';
+import {Cookies } from 'react-cookie';
+import swal from 'sweetalert'
 import '../CSS/Lefttab.css';
 
 class LeftTab extends Component {
     constructor(props){
         super(props);
-        this.state = { username: 'superman', password: 'password123'};
+        this.state = { username: '', password: ''};
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -32,25 +31,15 @@ class LeftTab extends Component {
             "password": this.state.password,
         })
         .then(function (response) {
-            // const cookies = new Cookies();
-            // cookies.set('key', response.data.key, {path: '/'})
-            // var test = cookies.get('key');
+            console.log(response)
             const cookies = new Cookies();
             cookies.set('key', response.data.key, {path: '/'})
-            var test = cookies.get('key')
-           console.log(test)
-            //alert(response.data.key);
-            //console.log(response);
         })
         .catch(function (error) {
-            if (error.response) {
-                alert(JSON.stringify(error.response.data, null, '\t'));
-            } else if (error.request) {
-                console.log(error.request);
-            } else {
-                console.log('Error', error.message);
-            }
-            console.log(error.config);
+            const cookies = new Cookies();
+            cookies.set('key', null, {path: '/'})
+           // alert("Incorrect!!!");
+           swal ( "Oops" ,  "Incorrect username or password" ,  "error" )
           });
         event.preventDefault(); 
     }
@@ -75,11 +64,4 @@ class LeftTab extends Component {
     }
 }
 
-// function mapDispatchToProps(dispatch) {
-//     return {
-//         cookie: (key) => dispatch(addCookie(key)),
-//     }
-// }
-
-//export default connect(null, mapDispatchToProps) (LeftTab);
 export default LeftTab;
