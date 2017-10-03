@@ -1,12 +1,12 @@
 .login-left {
-    margin-left: 5%; 
+    margin-left: 0%;
     
  }
  
  .login-label {
      margin-bottom: -20px;
      margin-top: 15px;
-     
+     margin-left: 5%;
      font-size: 15px;
      
  }
@@ -15,26 +15,28 @@
       background-color:white;
       border-style: solid; 
       border-width: 1px;
-      width: 200px;
+      width: 210px;
       height: 30px;
+      margin-left: 5%;
       
  }
  
  .login-left-btn {
-     width: 200px;
+     width: 210px;
      height: 30px;
      background-color: white;
      border-style: solid;
      border-color: black;
      margin-top: 25px;
      margin-bottom: 10px;
+     margin-left: 5%;
  }
  .login-left-btn:hover {
-     width: 200px;
+     width: 210px;
      height: 30px;
      color: white;
      background-color: black;
-     
+     margin-left: 5%;
      border-style: solid;
      border-color: black;
      margin-top: 25px;
@@ -45,20 +47,25 @@
      font-size: 12px;
      margin-left: 0px;
      color: gray;
-    
+     margin-left: 5%;
      
  }
- #line_icon {
-     width: 45px;
-     height: 45px;
-     margin-left: 5px;
-     margin-right: 5px;
- }
+
  
- .orlabel {
-     margin-left: 35px ;
-     margin-bottom : -8px; 
+ #line_icon {
+    width: 86px;
+    height: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+
+
  }
+
+ .orlabel {
+    margin-left: 8px ;
+    margin-bottom : -8px;
+    margin-top: 12px; 
+}
  
 .login-layout {
     width: 20%;

@@ -1,6 +1,7 @@
 import React , {Component} from 'react'
 import '../CSS/Lefttab.css';
-import line_icon from '../img/line.png'
+import line_icon from '../img/line-1.png'
+import profile_icon from '../img/userpic.png'
 class LeftTab extends Component {
    
     render(){
@@ -8,6 +9,8 @@ class LeftTab extends Component {
 
             <div>
                 <div className="login-left">
+                <img id="profile-pic" src={profile_icon} alt="profile-logo"/>
+                        <br/><br/>
                    <p className="login-label">USERNAME: </p><br></br>  
                    <input type="user" name="user" className="login-input" ></input><br></br>
                    <p className="login-label">PASSWORD: </p><br></br> 

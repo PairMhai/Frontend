@@ -10,12 +10,23 @@
 }
 
 .pay-info {
+    float: right;
+    height: 300px;
+    width: 800px;
     border: 2px solid black;
     padding: 2%;
     padding-left: 5%;
     font-size: 30px
+    
+    
 }
 
+#pay_icon {
+    margin-bottom: 8px;
+    height: 29px;
+    width: 89px;
+    padding-right: 20px ;
+}
 .pay-btn-add {
     background-color: white;
     border: 2px solid black;
@@ -23,8 +34,8 @@
     width: 35%; 
 }
 .pay-btn-add:hover {
-    border: 2px solid gray;
-    background-color: gray;
+    border: 2px solid black;
+    background-color: black;
     color: white;
 }
 .pay-price {
@@ -39,11 +50,14 @@ input[type=radio] {
 }
 
 input[type=checkbox] {
-    transform: scale(2.5);
+    transform: scale(1);
 }
 
 .pay-table {
+    float: left;
+    border-collapse: collapse;
+    width: 90%;
     border: 2px solid black;
-    width: 100%;
-    height: 350px;
+    font-size: 20px ;
+
 }

@@ -10,3 +10,10 @@
 .border-pic {
     border: 2px solid black;
 }
+
+
+#product:hover {
+    background-color: black ;
+    color: white;
+
+}
