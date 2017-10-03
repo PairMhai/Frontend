@@ -17,34 +17,34 @@ class ProdCard extends Component {
     }
     render(){
         return (
-            <div className="row justify-content-start">
+            <div id="procon" className="row justify-content-start">
                 <div id="product" className="col-xd-6 col-lg-3 prod-card" data-id="2" data-type="mat" onClick={this.clickDetail}>
-                    <img src={ require('../img/Logo/logomain.png') } width="100%" alt="product pic" />
+                    <img className="imgproduct" src={ require('../img/Logo/logomain.png') } width="100%" alt="product pic" />
                     <h4>Green silk dress</h4>
                     <p>1500 Baht-</p>
                 </div>
                 <div id="product" className="col-xd-6 col-lg-3 prod-card" data-id="2" data-type="des" onClick={this.clickDetail}>
-                    <img src={ require('../img/Logo/logomain.png') } width="100%" alt="product pic" />
+                    <img className="imgproduct" src={ require('../img/Logo/logomain.png') } width="100%" alt="product pic" />
                     <h4>Green silk dress</h4>
                     <p>1500 Baht-</p>
                 </div>
                 <div id="product" className="col-xd-6 col-lg-3 prod-card">
-                   <img src={ require('../img/Logo/logomain.png') } width="100%" alt="product pic" />
+                   <img className="imgproduct" src={ require('../img/Logo/logomain.png') } width="100%" alt="product pic" />
                    <h4>Green silk dress</h4>
                    <p>1500 Baht-</p>
                 </div>
                 <div id="product" className="col-xd-6 col-lg-3 prod-card">
-                   <img src={ require('../img/Logo/logomain.png') } width="100%" alt="product pic" />
+                   <img className="imgproduct" src={ require('../img/Logo/logomain.png') } width="100%" alt="product pic" />
                    <h4>Green silk dress</h4>
                    <p>1500 Baht-</p>
                 </div>
                 <div id="product" className="col-xd-6 col-lg-3 prod-card">
-                   <img src={ require('../img/Logo/logomain.png') } width="100%" alt="product pic" />
+                   <img className="imgproduct" src={ require('../img/Logo/logomain.png') } width="100%" alt="product pic" />
                    <h4>Green silk dress</h4>
                    <p>1500 Baht-</p>
                 </div>
                 <div id="product" className="col-xd-6 col-lg-3 prod-card">
-                   <img src={ require('../img/Logo/logomain.png') } width="100%" alt="product pic" />
+                   <img className="imgproduct" src={ require('../img/Logo/logomain.png') } width="100%" alt="product pic" />
                    <h4>Green silk dress</h4>
                    <p>1500 Baht-</p>
                 </div>
