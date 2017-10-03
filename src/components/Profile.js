@@ -5,13 +5,31 @@ import TabProfile from '../components/LeftTabProfile'
 import axios from 'axios'
 import { instanceOf } from 'prop-types';
 import { withCookies, Cookies } from 'react-cookie';
+import LeftTab from '../components/LeftTab'
 import '../CSS/CustomerInfo.css'
 
 class Profile extends Component {
 
     constructor(props) {
         super(props)
-        this.state = {firstname:'', lastname:'', gender:'', birthday:'', age:'', address:'', tel:'', email:''}}
+        this.state = {firstname:'', lastname:'', gender:'',
+        birthday:'', age:'', address:'', tel:'', email:'', token: ''}}
+
+        static propTypes = {
+            cookies: instanceOf(Cookies).isRequired
+          };
+    
+        componenWillMount() {
+            axios.get('http://localhost:8000/membership/cust') 
+            // .then(res => this.setState({ posts: res.data }))
+            // .catch(err => console.log(err))
+            .then(function(response){
+                console.log(response);
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+        }
 
     render(){
         return (
