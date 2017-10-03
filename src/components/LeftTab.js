@@ -38,7 +38,6 @@ class LeftTab extends Component {
         .catch(function (error) {
             const cookies = new Cookies();
             cookies.set('key', null, {path: '/'})
-           // alert("Incorrect!!!");
            swal ( "Oops" ,  "Incorrect username or password" ,  "error" )
           });
         event.preventDefault(); 

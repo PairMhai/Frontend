@@ -37,11 +37,11 @@ class SignIn extends Component {
             console.log(response)
             const cookies = new Cookies();
             cookies.set('key', response.data.key, {path: '/'})
+            window.location = "home"
         })
         .catch(function (error) {
             const cookies = new Cookies();
             cookies.set('key', null, {path: '/'})
-            //alert("Incorrect!!!");
             swal ( "Oops" ,  "Incorrect username or password" ,  "error" )
           });
         event.preventDefault(); 
@@ -60,11 +60,11 @@ class SignIn extends Component {
                    <label className="signin-label-page">PASSWORD: </label>
                    <input type="password" name="pass" className="signin-input-page"   value={this.state.pass} onChange={this.handleChange}></input><br></br>
                    <a href="#" className="forget">Forgot your password?</a><br></br> 
-                   <input className="signin-page-btn" type="submit" value="SIGN IN" onClick={this.handleSubmit}/>
-                  <br/>
-                  <label className="orlabel-page"><img id="line_icon" src={line_icon} alt="line_icon"/>or<img id="line_icon" src={line_icon} alt="line_icon"/></label>
-                  <br/>
-                  <a href="/signup"><input className="signin-page-btn" href="/signup" type="submit" value="SIGN UP" /></a>
+                   <a href="home"><input className="signin-page-btn" href="/home"type="submit" value="SIGN IN" onClick={this.handleSubmit}/></a>
+                   <br/>
+                   <label className="orlabel-page"><img id="line_icon" src={line_icon} alt="line_icon"/>or<img id="line_icon" src={line_icon} alt="line_icon"/></label>
+                   <br/>
+                   <a href="/signup"><input className="signin-page-btn" href="/signup" type="submit" value="SIGN UP" /></a>
                 </div>
             </div>
         );
