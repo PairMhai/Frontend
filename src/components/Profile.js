@@ -6,6 +6,8 @@ import axios from 'axios'
 import { instanceOf } from 'prop-types';
 import { withCookies, Cookies } from 'react-cookie';
 import LeftTab from '../components/LeftTab'
+//import { connect } from 'react-redux'
+
 import '../CSS/CustomerInfo.css'
 
 class Profile extends Component {
@@ -13,17 +15,17 @@ class Profile extends Component {
     constructor(props) {
         super(props)
         this.state = {firstname:'', lastname:'', gender:'',
-        birthday:'', age:'', address:'', tel:'', email:'', token: ''}}
+        birthday:'', age:'', address:'', tel:'', email:'', key:''}}
 
-        static propTypes = {
-            cookies: instanceOf(Cookies).isRequired
-          };
-    
-        componenWillMount() {
-            axios.get('http://localhost:8000/membership/cust') 
+        componentWillMount() {
+            const cookies = new Cookies();
+            var key = cookies.get('key')
+
+            axios.get('http://guarded-brook-49660.herokuapp.com/membership/cust/'+ key) 
             // .then(res => this.setState({ posts: res.data }))
             // .catch(err => console.log(err))
             .then(function(response){
+                alert(response.data.id)
                 console.log(response);
             })
             .catch(function (error){
@@ -32,6 +34,8 @@ class Profile extends Component {
         }
 
     render(){
+        const { key } = this.state;
+        
         return (
             <div>
                 <Navbar /> 
@@ -42,14 +46,14 @@ class Profile extends Component {
                     <div className="col-md-9 push-md-3 cus-con">
                         <p className="cus-inf-header">YOUR INFORMATION</p>
                         <div className="cus-inf-part">
-                            FIRSTNAME: <span className="cus-data" name="firstname">BaiToey</span>  &emsp;&emsp;&emsp;
-                            LASTNAME: <span className="cus-data" name="lastname">BABA</span>
-                            <br/><br/>GENDER: <span className="cus-data" name="gender">TUDs</span> &emsp;&emsp;&emsp;
-                            BIRTHDAY: <span className="cus-data" name="birthday">12/04/1996</span>  &emsp;&emsp;&emsp;
-                            AGE: <span className="cus-data" name="age">18</span>
-                            <br/><br/>ADDRESS: <span className="cus-data" name="address">Chatuchak, under the bridge</span>
-                            <br/><br/>TEL: <span className="cus-data" name="tel">0888888888</span> &emsp;&emsp;&emsp;
-                            E-MAIL: <span className="cus-data" name="email">DDDDD@D.com</span>
+                            FIRSTNAME: <span className="cus-data" name="firstname">{this.state.firstname}</span>  &emsp;&emsp;&emsp;
+                            LASTNAME: <span className="cus-data" name="lastname">{this.state.lastname}</span>
+                            <br/><br/>GENDER: <span className="cus-data" name="gender">{this.state.gender}</span> &emsp;&emsp;&emsp;
+                            BIRTHDAY: <span className="cus-data" name="birthday">{this.state.birthday}</span>  &emsp;&emsp;&emsp;
+                            AGE: <span className="cus-data" name="age">{this.state.age}</span>
+                            <br/><br/>ADDRESS: <span className="cus-data" name="address">{this.state.address}</span>
+                            <br/><br/>TEL: <span className="cus-data" name="tel">{this.state.tel}</span> &emsp;&emsp;&emsp;
+                            E-MAIL: <span className="cus-data" name="email">{this.state.email}</span>
                         </div>
                         <input className="cus-btn-edit" type="button" value="EDIT"/>
                     </div>
@@ -59,4 +63,11 @@ class Profile extends Component {
     }
 }
 
-export default Profile
+// function mapStateToProps(state) {
+//     return {
+//         key: state.cookies.key
+//     }
+// }
+
+//export default connect(mapStateToProps)(Profile);
+export default Profile;

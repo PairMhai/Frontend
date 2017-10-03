@@ -1,13 +1,15 @@
 import React , {Component} from 'react'
 import axios from 'axios';
 import line_icon from '../img/line.png'
+//import { connect } from 'react-redux'
+import {addCookie} from '../components/CookieActions'
+import { withCookies, Cookies } from 'react-cookie';
 import '../CSS/Lefttab.css';
-
 
 class LeftTab extends Component {
     constructor(props){
         super(props);
-        this.state = { username: '', password: ''};
+        this.state = { username: 'superman', password: 'password123'};
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -24,14 +26,21 @@ class LeftTab extends Component {
     }
 
     handleSubmit(event){
-        axios.post('http://127.0.0.1:8000/membership/login/',
+        axios.post('http://guarded-brook-49660.herokuapp.com/membership/login/',
         { 
             "username": this.state.username,
             "password": this.state.password,
         })
         .then(function (response) {
-            alert(response.data.key);
-            console.log(response);
+            // const cookies = new Cookies();
+            // cookies.set('key', response.data.key, {path: '/'})
+            // var test = cookies.get('key');
+            const cookies = new Cookies();
+            cookies.set('key', response.data.key, {path: '/'})
+            var test = cookies.get('key')
+           console.log(test)
+            //alert(response.data.key);
+            //console.log(response);
         })
         .catch(function (error) {
             if (error.response) {
@@ -66,4 +75,11 @@ class LeftTab extends Component {
     }
 }
 
-export default LeftTab
+// function mapDispatchToProps(dispatch) {
+//     return {
+//         cookie: (key) => dispatch(addCookie(key)),
+//     }
+// }
+
+//export default connect(null, mapDispatchToProps) (LeftTab);
+export default LeftTab;
