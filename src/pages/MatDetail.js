@@ -39,9 +39,7 @@ class MatDetail extends Component {
         return (
             <div>
             <div className="nav">
-                <Navbar /> 
-                <LoginNav />
-                
+                <Navbar />                 
                 {this.checkLogin()}
                 </div>
                 <div className="content container-fluid">
