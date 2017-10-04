@@ -7,6 +7,7 @@ import ReactTooltip from 'react-tooltip'
 import Modal from 'react-modal'
 
 class SignUp extends Component {
+    
     constructor(props){
         super(props);
         this.state = { username: 'Hellpo', password: 'Hello', cfpassword: 'Hello', firstname: 'Hello', lastname: 'Hello', gender: 'male',email: 'aaa@ku.th', age: '23', birthday: '', tel: '4557779',  address: 'hello'};
@@ -44,7 +45,7 @@ class SignUp extends Component {
     }
 
     handleSubmit(event){
-        axios.post('http://127.0.0.1:8000/membership/register/',
+        axios.post('https://pairmhai-api.herokuapp.com/membership/register/',
         { 
             "user": {
                 "username": this.state.username,
@@ -67,15 +68,8 @@ class SignUp extends Component {
             console.log(response);
         })
         .catch(function (error) {
-            if (error.response) {
-              alert(JSON.stringify(error.response.data, null, '\t'));
-            } else if (error.request) {
-              console.log(error.request);
-            } else {
-              console.log('Error', error.message);
-            }
-            console.log(error.config);
-          });
+            console.log(error);
+        });
         event.preventDefault(); 
     }
   

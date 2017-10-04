@@ -2,6 +2,7 @@ import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
 import ProfileNav from '../components/ProfileNav'
 import LoginNav from '../components/LoginNav'
+import {Cookies} from 'react-cookie';
 import Modal from 'react-modal'
 import '../CSS/Des.css'
 
@@ -9,7 +10,7 @@ class DesDetail extends Component {
 
     constructor(props){
         super(props);
-        this.state = {amount: 0, isLogin: false}
+        this.state = {amount: 0}
 
         this.state = {
             isActive: false 
@@ -35,9 +36,11 @@ class DesDetail extends Component {
     }
 
     checkLogin(){
-        if(this.state.isLogin)
+        const cookies = new Cookies();
+        var key = cookies.get('key');
+        if(key!=null)
             return <ProfileNav />;
-        return <LoginNav />
+        return <LoginNav />;
     }
 
     componentWillMount() {
@@ -59,7 +62,7 @@ class DesDetail extends Component {
                     <p className="des-head">Design</p>
                     <div className="row">
                         <div className="col-lg-4">
-                            <img className="img-prod" src={ require('../img/Design/ash-dress.jpg') } alt="des-pic"/>
+                            <img className="img-prod" src={ require('../img/des/ash-dress.jpg') } alt="des-pic"/>
                         </div>
                         <div className="col-lg-4">
                             <p>NAME:&ensp;Red silk </p>
@@ -78,17 +81,17 @@ class DesDetail extends Component {
                         <div className="col-lg-4">
                             <p className="txt-size">Size</p>
                             <div className="des-right">
-                                <img className="des-img-size" src={ require('../img/Design/size.png') } alt="size-pic"/>
+                                <img className="des-img-size" src={ require('../img/des/size.png') } alt="size-pic"/>
                                 <p/><button className="des-btn-size" onClick={this.open}>Fill Your Size</button>
                                 <Modal isOpen={this.state.isActive} onRequestClose={this.open}>
                                     <button className="des-exit-fill" onClick={this.open}>X</button>
                                     <p className="des-fill-label">FILL YOUR SIZE</p>
                                     <div className="des-my-modal">
                                         <div className="size-info">
-                                            <img className="img-in-modal" src={ require('../img/Design/ash-dress.jpg') } alt="des-pic"/>
+                                            <img className="img-in-modal" src={ require('../img/des/ash-dress.jpg') } alt="des-pic"/>
                                         </div>
                                         <div className="size-info">
-                                            <img className="img-in-modal" src={ require('../img/Design/size.png') } alt="size-pic"/>
+                                            <img className="img-in-modal" src={ require('../img/des/size.png') } alt="size-pic"/>
                                         </div>
                                         <div className="size-info">
                                             Neck &nbsp;&nbsp;<input className="fill-size"/>&nbsp;&nbsp;&nbsp;&nbsp;

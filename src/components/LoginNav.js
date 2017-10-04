@@ -1,7 +1,7 @@
 import React , {Component} from 'react'
 import '../CSS/Tab.css'
-import pf_icon from '../img/userpic.png'
-import pf2_icon from '../img/user-2.png'
+import pf_icon from '../img/icon/userpic.png'
+import pf2_icon from '../img/icon/user-2.png'
 
 class LoginNav extends Component {
 

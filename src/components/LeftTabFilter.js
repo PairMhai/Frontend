@@ -1,6 +1,6 @@
 import React , {Component} from 'react'
 import '../CSS/LeftTabFilter.css';
-import sr_icon from '../img/search.png'
+
 class LeftTabFilter extends Component {
    
     render(){

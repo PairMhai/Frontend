@@ -1,10 +1,10 @@
 import React , {Component} from 'react'
-import axios from 'axios';
-import line_icon from '../img/line-1.png'
-import profile_icon from '../img/userpic.png'
-import {Cookies } from 'react-cookie';
+import axios from 'axios'
+import {Cookies} from 'react-cookie'
 import swal from 'sweetalert'
-import '../CSS/Lefttab.css';
+import line_icon from '../img/line-1.png'
+import profile_icon from '../img/icon/userpic.png'
+import '../CSS/Lefttab.css'
 
 class LeftTab extends Component {
     constructor(props){
@@ -26,7 +26,7 @@ class LeftTab extends Component {
     }
 
     handleSubmit(event){
-        axios.post('http://guarded-brook-49660.herokuapp.com/membership/login/',
+        axios.post('https://pairmhai-api.herokuapp.com/membership/login/',
         { 
             "username": this.state.username,
             "password": this.state.password,
@@ -35,12 +35,13 @@ class LeftTab extends Component {
             console.log(response)
             const cookies = new Cookies();
             cookies.set('key', response.data.key, {path: '/'})
+            window.location = "/home/"
         })
         .catch(function (error) {
             const cookies = new Cookies();
             cookies.set('key', null, {path: '/'})
-           swal ( "Oops" ,  "Incorrect username or password" ,  "error" )
-          });
+            swal ( "Oops" ,  "Incorrect username or password" ,  "error" )
+        });
         event.preventDefault(); 
     }
 

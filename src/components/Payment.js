@@ -1,10 +1,9 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
 import LeftTabProfile from '../components/LeftTabFilter'
-import TabProfile from '../components/LeftTabProfile'
+import ems from '../img/icon/ems-logo.png'
+import kerry from '../img/icon/kerry-exprss-logo.png'
 import '../CSS/Payment.css'
-import ems from '../img/ems-logo.png'
-import kerry from '../img/kerry-exprss-logo.png'
 
 class Payment extends Component {
 

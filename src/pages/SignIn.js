@@ -3,7 +3,7 @@ import '../CSS/SignInpage.css';
 import Navbar from '../components/Navbar'
 import axios from 'axios';
 import line_icon from '../img/line-1.png'
-import profile_icon from '../img/userpic.png'
+import profile_icon from '../img/icon/userpic.png'
 import {Cookies } from 'react-cookie';
 import swal from 'sweetalert'
 
@@ -28,7 +28,7 @@ class SignIn extends Component {
     }
 
     handleSubmit(event){
-        axios.post('http://guarded-brook-49660.herokuapp.com/membership/login/',
+        axios.post('https://pairmhai-api.herokuapp.com/membership/login/',
         { 
             "username": this.state.user,
             "password": this.state.pass,
@@ -37,7 +37,7 @@ class SignIn extends Component {
             console.log(response)
             const cookies = new Cookies();
             cookies.set('key', response.data.key, {path: '/'})
-            window.location = "home"
+            window.location = "/home"
         })
         .catch(function (error) {
             const cookies = new Cookies();

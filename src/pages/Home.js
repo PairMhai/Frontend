@@ -2,14 +2,28 @@ import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
 import LeftTabProfile from '../components/LeftTabProfile'
 import LeftTab from '../components/LeftTab'
-import LoginNav from '../components/LoginNav'
-import ProfileNav from '../components/ProfileNav'
-import homePic from '../img/home-1.png'
-import profile_icon from '../img/userpic.png'
+import homePic from '../img/homePic.png'
+import {Cookies} from 'react-cookie'
 import '../CSS/Home.css';
 
 
 class Home extends Component {
+    
+    constructor(props){
+        super(props);
+        this.state = {isLogin: false}
+        
+        this.checkLogin =  this.checkLogin = this.checkLogin.bind(this);
+    }
+
+    checkLogin(){
+        const cookies = new Cookies();
+        var key = cookies.get('key');
+        if(key === 'null' || key === undefined)
+            return <LeftTab />;
+        return <LeftTabProfile  />;
+    }
+
     render(){
         return (
             <div>
@@ -18,10 +32,9 @@ class Home extends Component {
                 </div>
                 <div className="row">
                     <div className="col-md-3 push-md-9">
-                    <LeftTab />
+                        {this.checkLogin()}
                     </div>
                     <div className="col-md-9 push-md-3">
-                    <ProfileNav />
                         <div className="company_name">PAIR MHAI </div>
                         <div className="our_story">Our Story </div>
                         <div className="slogan">Simple But Elegant </div>

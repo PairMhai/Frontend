@@ -1,7 +1,7 @@
 import React , {Component} from 'react'
 import '../CSS/Usercart.css';
-import dress from '../img/Design/darkorange-dress.jpg'
-import material from '../img/Material/red.jpg'
+import dress from '../img/des/darkorange-dress.jpg'
+import material from '../img/mat/red.jpg'
 import Navbar from '../components/Navbar'
 import LeftTab from '../components/LeftTab'
 

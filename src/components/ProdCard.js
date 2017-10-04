@@ -1,55 +1,61 @@
 import React , {Component} from 'react'
+import axios from 'axios';
 import '../CSS/Card.css'
 
 class ProdCard extends Component {
 
     constructor(props){
         super(props);
-        this.state = { };
+        this.state = { prod: [], type: ''};
 
         this.clickDetail = this.clickDetail.bind(this);
     }
 
     clickDetail(e){
-        const id = e.currentTarget.dataset.id;
+        const id = e.currentTarget.dataset.key;
         const type = e.currentTarget.dataset.type;
         window.location = '/'+type+'/'+id;
     }
+    
+
+    componentWillMount(){
+        var typeProd = '';
+        if(this.props.type === 'mat'){
+            this.setState({type: 'mat'})
+            typeProd = 'materials';
+        } else {
+            this.setState({type: 'des'})
+            typeProd = 'designs' 
+        }
+
+        axios.get('https://pairmhai-api.herokuapp.com/catalog/'+typeProd)
+        .then((response) => {
+            console.log(response);
+            this.setState({prod: response.data});
+        })
+        .catch(function (error) {
+            console.log(error);
+        }); 
+    }
+
     render(){
-        return (
-            <div id="procon" className="row justify-content-start">
-                <div id="product" className="col-xd-6 col-lg-3 prod-card" data-id="2" data-type="mat" onClick={this.clickDetail}>
-                    <img className="imgproduct" src={ require('../img/Logo/logomain.png') } width="100%" alt="product pic" />
-                    <h4>Green silk dress</h4>
-                    <p>1500 Baht-</p>
-                </div>
-                <div id="product" className="col-xd-6 col-lg-3 prod-card" data-id="2" data-type="des" onClick={this.clickDetail}>
-                    <img className="imgproduct" src={ require('../img/Logo/logomain.png') } width="100%" alt="product pic" />
-                    <h4>Green silk dress</h4>
-                    <p>1500 Baht-</p>
-                </div>
-                <div id="product" className="col-xd-6 col-lg-3 prod-card">
-                   <img className="imgproduct" src={ require('../img/Logo/logomain.png') } width="100%" alt="product pic" />
-                   <h4>Green silk dress</h4>
-                   <p>1500 Baht-</p>
-                </div>
-                <div id="product" className="col-xd-6 col-lg-3 prod-card">
-                   <img className="imgproduct" src={ require('../img/Logo/logomain.png') } width="100%" alt="product pic" />
-                   <h4>Green silk dress</h4>
-                   <p>1500 Baht-</p>
-                </div>
-                <div id="product" className="col-xd-6 col-lg-3 prod-card">
-                   <img className="imgproduct" src={ require('../img/Logo/logomain.png') } width="100%" alt="product pic" />
-                   <h4>Green silk dress</h4>
-                   <p>1500 Baht-</p>
-                </div>
-                <div id="product" className="col-xd-6 col-lg-3 prod-card">
-                   <img className="imgproduct" src={ require('../img/Logo/logomain.png') } width="100%" alt="product pic" />
-                   <h4>Green silk dress</h4>
-                   <p>1500 Baht-</p>
-                </div>
-            </div>
-        );
+        const allProd = this.state.prod.map((prodVal, index) => {
+            if(this.state.type === 'mat'){
+                return  <div className="col-xd-6 col-lg-3 prod-card" key={prodVal.product_id} data-type='mat' onClick={this.clickDetail}>
+                            <img className="imgproduct" src={require('../img/mat/'+ prodVal.image_name)} width="100%" alt="product pic" />
+                            <h4><p></p>{prodVal.name}</h4>
+                            <p>{prodVal.price} Baht.-</p>
+                        </div>
+            } else {
+                return  <div className="col-xd-6 col-lg-3 prod-card" key={prodVal.product_id} data-type='des' onClick={this.clickDetail}>
+                            <img className="imgproduct" src={require('../img/des/'+ prodVal.images[0].file_name)} width="100%" alt="product pic" />
+                            <h4><p></p>{prodVal.name}</h4>
+                            <p>{prodVal.price} Baht.-</p>
+                        </div>
+            }
+        });
+        
+        return <div id="procon" className="row justify-content-start">{allProd }</div>
     }
 }
 

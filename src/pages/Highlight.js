@@ -7,7 +7,7 @@ class Highlight extends Component {
         return (
             <div className="row container-fluid">
                 <div className="col-lg-6"> 
-                    <img className="hl-center" src={ require('../img/Logo/Promo.png') } alt="logo"/>
+                    <img className="hl-center" src={ require('../img/icon/Promo.png') } alt="logo"/>
                     <a className="hl-btn" href="/home" role="button">Home</a>
                 </div>
                 <div className="col-lg-6">
