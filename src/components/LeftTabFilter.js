@@ -9,8 +9,9 @@ class LeftTabFilter extends Component {
                 <div className="left-tab">
                     <br/>
                         <a className="head"><h3>SORT BY:</h3></a>
-                        <input type="radio" name="optradio"/>&nbsp;PRICE 
-                        &nbsp;&nbsp;<input type="radio" name="optradio"/>&nbsp;ALPHABET
+                    
+                        <input type="radio" name="optradio"/><label className="radio-sort">&nbsp;PRICE 
+                        &nbsp;&nbsp;</label><input type="radio" name="optradio"/><label className="radio-sort">&nbsp;ALPHABET</label>
                    <br></br>
                    <br></br>
                     <form action="" method="get" className="search">
@@ -20,7 +21,7 @@ class LeftTabFilter extends Component {
                         <input className="searchbar" type="search" name="search" placeholder="Enter here"/>
                         
                         <button type="submit" className="search_btn" >
-                        <img id="sr_icon" src={sr_icon} alt="pf_icon"/>
+                        Search
                         </button>
 
                   

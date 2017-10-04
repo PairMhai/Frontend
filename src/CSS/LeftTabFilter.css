@@ -1,5 +1,7 @@
 .custom-radios div {
   display: inline-block;
+  margin-right: 20px;
+  margin-top: 10px;
 }
 .custom-radios input[type="radio"] {
   display: none;
@@ -49,30 +51,41 @@
   background-color : #ffffff;
   border-color: #000000 ;
   display: inline-block;
-  font: inherit;
-  line-height: 1.5em;
+  margin-top: 2px;
+  line-height: 0em;
   padding: 0.5em 3.5em 0.5em 1em;
-  width: 180px;
+  width: 205px;
+  height: 40px;
   border-radius: 0px ;
   border-width: 1px;
 }
 
 
-
-#sr_icon {
-  width: 30px ;
-  height: 35px ;
-
+.radio-sort {
+  font-size: 20px;
+  margin-left: 5px; 
 }
 
 .search_btn {
     background-color: black ;
     border-color: #000000 ;
-    width: 50px ;
-    height: 42px ;
-    
+    width: 80px ;
+    height: 41px ;
+    color: white;
+  
     
 }
+
+.search_btn:hover {
+  background-color: white ;
+  border-color: #000000 ;
+  width: 80px ;
+  height: 41px ;
+  color: black
+
+  
+}
+
 .left-tab {
   padding-left: 10%;
   margin: 0;

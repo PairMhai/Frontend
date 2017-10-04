@@ -23,16 +23,16 @@
 
 .hl-btn {
     color: black;
-    border-radius: 8px;
-    padding: 14px 24px;
+    padding: 5px;
     font-weight: normal;
-    letter-spacing: 1px;
     text-transform: uppercase;
     border: 2px solid black;
     display: block;
     margin: auto;
-    width: 15%;
+    width: 400px;
+    height: 55px ;
     text-align: center;
+    font-size: 30px;
 }
 
 .hl-btn:hover {

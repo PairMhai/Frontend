@@ -8,8 +8,8 @@ class ProfileNav extends Component {
     render(){
         return (
             <div className="login-bar">
-                <a className="tab-text" href="/signin"><img id="pff_icon" src={pf_icon} alt="pf_icon"/>PROFILE</a> &nbsp;&nbsp;&nbsp;
-                <a className="tab-text" href="/signup"><img id="pff_icon" src={pf2_icon} alt="pf2_icon"/>CART</a> &nbsp;&nbsp;&nbsp;
+                <a className="tab-text" href="/profile"><img id="pff_icon" src={pf_icon} alt="pf_icon"/>PROFILE</a> &nbsp;&nbsp;&nbsp;
+                <a className="tab-text" href="/cart"><img id="pff_icon" src={pf2_icon} alt="pf2_icon"/>CART</a> &nbsp;&nbsp;&nbsp;
             </div>
         );
     }

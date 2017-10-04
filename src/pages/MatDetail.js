@@ -39,19 +39,17 @@ class MatDetail extends Component {
         return (
             <div>
             <div className="nav">
-                <Navbar /> 
-                <LoginNav />
-                
+                <Navbar />                 
                 {this.checkLogin()}
                 </div>
                 <div className="content container-fluid">
                     <p className="mat-head">Material</p>
                     <div className="row">
-                        <div className="col-lg-6">
+                        <div id="img-mat" className="col-lg-6">
                             <img className="img-prod" src={ require('../img/Material/rosegold.jpg') } alt="mat-pic"/>
                         </div>
                         <div className="mat-right col-lg-6">
-                            <p>NAME:&ensp;Red silk </p>
+                            <p>NAME:&ensp;&ensp;Red silk</p>
                             <p>DESCRIPTION:&ensp;Made in Thailand </p> 
                             <p>MATERIAL:&ensp;Mudmee Silk  </p>
                             <p>COLOR:&ensp;Dark Red </p>

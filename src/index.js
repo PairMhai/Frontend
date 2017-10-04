@@ -16,6 +16,9 @@ import DesDetail from './pages/DesDetail'
 import Profile from './components/Profile'
 import Cart from './components/Cart'
 import Payment from './components/Payment'
+import Promotion from './components/Promotion'
+//import {Provider} from 'react-redux'
+//import CookieReducer from './components/CookieReducer'
 
 import './CSS/index.css';
 
@@ -31,6 +34,7 @@ ReactDOM.render((
       <Route exact path='/signin' component={SignIn}/>
       <Route exact path='/cart' component={Cart}/>
       <Route exact path='/payment' component={Payment}/>
+      <Route exact path='/promotion' component={Promotion}/>
       <Route exact path='/profile' component={Profile}/>
       <Route exact path='/info' component={Information}/>
       <Route exact path='/material' component={Material}/>
