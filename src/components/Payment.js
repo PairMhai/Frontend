@@ -1,11 +1,22 @@
 import React , {Component} from 'react'
+import { Cookies } from 'react-cookie';
 import Navbar from '../components/Navbar'
-import LeftTabProfile from '../components/LeftTabFilter'
+import LeftTabProfile from '../components/LeftTabProfile'
 import ems from '../img/icon/ems-logo.png'
 import kerry from '../img/icon/kerry-exprss-logo.png'
 import '../CSS/Payment.css'
 
 class Payment extends Component {
+
+    componentWillMount() {
+        const cookies = new Cookies();
+        var key = cookies.get('key')
+        if(key !== 'null' && key !== undefined){
+            
+        } else {
+            window.location = "/home";
+        }
+    }
 
     render(){
         return (
