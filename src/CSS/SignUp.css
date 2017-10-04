@@ -76,12 +76,34 @@
 .member-box {
     border-style: solid;
     border-width: 1px;
-    border-color: darkgray;
-    padding-top: .5%;
-    padding-bottom: .5%;
-    width: 20%;
-    margin-left: 40%;
-    margin-bottom: 1%;
+    padding: .5%;
+    width: 10%;
+    height: 80px;
+    margin-left: 1%;
+    display: inline-block;
+}
+
+.add-card-info {
+    font-size: 300%;
+    margin-bottom: -4%;
+    margin-top: 2%; 
+    margin-left: 60%;
+}
+
+.info-box {
+    border-style: solid;
+    border-color: black;
+    padding: 1%; 
+    text-align: center;
+}
+
+.modal-btn {
+    margin-right: 2%;
+
+}
+
+.cvv {
+    width: 4%;
 }
 
 .pull-right {

@@ -1,9 +1,10 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
+import AddCard from '../components/AddCard'
 import axios from 'axios';
-import swal from 'sweetalert'
 import '../CSS/SignUp.css';
 import ReactTooltip from 'react-tooltip'
+import Modal from 'react-modal'
 
 class SignUp extends Component {
     
@@ -13,6 +14,10 @@ class SignUp extends Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
+
+        this.state = {
+            isActive: false
+        }
     }
 
     handleChange(event){
@@ -25,24 +30,18 @@ class SignUp extends Component {
         });
     }
 
-    open() {
-        swal({
-            title: "Card Information",
-            text: "Card Number:",
-            content: "input", 
-            buttons: {
-                cancel: "Cancel",
-                add: "Add Card",
-            }
+    componentWillMount() {
+        Modal.setAppElement('body');
+    }
+
+    toggleModal = () => {
+        this.setState({
+            isActive: !this.state.isActive
         })
-        .then((value) => {
-            switch (value) {
-                case "add":
-                    swal(`Add Card Complete!`);   
-                default:
-                    break;
-            }
-        });
+    }
+
+    open() {
+        <AddCard/>
     }
 
     handleSubmit(event){
@@ -58,7 +57,9 @@ class SignUp extends Component {
                 "age": this.state.age,
                 "date_of_birth": this.state.birthday,
                 "gender": this.state.gender,
+                "member": this.state.member,
             },
+
             "password1": this.state.password,
             "password2": this.state.cfpassword,
             "classes": 3
@@ -69,7 +70,6 @@ class SignUp extends Component {
         .catch(function (error) {
             console.log(error);
         });
-
         event.preventDefault(); 
     }
   
@@ -87,39 +87,41 @@ class SignUp extends Component {
                     </div>
                     <p className="person">PERSONAL INFORMATION</p>
                     <div className="container">
-                        FIRSTNAME: <input type="text" name="firstname" value={this.state.firstname} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
-                        LASTNAME: <input  type="text" name="lastname" value={this.state.lastname} onChange={this.handleChange}/> <br></br> <br></br>
+                        FIRSTNAME: <input type="text" name="first_name" value={this.state.firstname} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
+                        LASTNAME: <input  type="text" name="last_name" value={this.state.lastname} onChange={this.handleChange}/> <br></br> <br></br>
                         GENDER: 
                             &nbsp;&nbsp;<input type="radio" name="gender" value="female" onChange={this.handleChange}/> FEMALE
                             &nbsp;&nbsp;<input type="radio" name="gender" value="male" onChange={this.handleChange}/> MALE &nbsp;&nbsp;&nbsp;&nbsp;
                         AGE: <input type="number" name="age" value={this.state.age} onChange={this.handleChange} />&nbsp;&nbsp;&nbsp;&nbsp;
-                        BIRTHDAY: <input type="date" name="birthday" className="hbd" value={this.state.birthday} onChange={this.handleChange}/><br></br><br></br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        BIRTHDAY: <input type="date" name="date_of_birth" className="hbd" value={this.state.birthday} onChange={this.handleChange}/>
+                                  <br></br><br></br>&nbsp;&nbsp;&nbsp;&nbsp;
                         E-MAIL: <input type="email" name="email" value={this.state.email} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
-                        TEL: <input type="text" name="tel" value={this.state.tel} onChange={this.handleChange}/><br></br> <br></br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        TEL: <input type="text" name="telephone" value={this.state.tel} onChange={this.handleChange}/><br></br> <br></br>&nbsp;&nbsp;&nbsp;&nbsp;
                         ADDRESS: <textarea className="addr" name="address" value={this.state.address} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
                         <p className="member">MEMBERSHIP:</p><br/>
                         <div type="container" className="radio-container">
-                            <div className="member-box" data-tip="React-tooltip">
-                                <input type="radio" name="member" onChange={this.handleChange}/>&nbsp;&nbsp;BRONZE 
+                            <div className="member-box" data-tip="Discount 2% each time that purchase product.">
+                                <input type="radio" name="member" className="member-radio" value="bronze" onChange={this.handleChange}/>&nbsp;&nbsp;BRONZE 
                                 <ReactTooltip place="right" type="dark" effect="float"/>
                             </div> 
-                            <div className="member-box" data-tip="React-tooltip">
-                                <input type="radio" name="member" onChange={this.handleChange}/>&nbsp;&nbsp;SILVER 
+                            <div className="member-box" data-tip="Discount 5% each time that purchase product.">
+                                <input type="radio" name="member" className="member-radio" value="silver" onChange={this.handleChange}/>&nbsp;&nbsp;SILVER 
                                 <ReactTooltip place="right" type="dark" effect="float"/>   
                             </div> 
-                            <div className="member-box" data-tip="React-tooltip">
-                                <input type="radio" name="member" onChange={this.handleChange}/>&nbsp;&nbsp;GOLD
+                            <div className="member-box" data-tip="Discount 8% each time that purchase product.">
+                                <input type="radio" name="member" className="member-radio" value="gold" onChange={this.handleChange}/>&nbsp;&nbsp;GOLD
                                 <ReactTooltip place="right" type="dark" effect="float"/>
                             </div> 
-                            <div className="member-box" data-tip="React-tooltip">
-                                <input type="radio" name="member" onChange={this.handleChange}/>&nbsp;&nbsp;PLATINUM
+                            <div className="member-box" data-tip="Discount 10% each time that purchase product.">
+                                <input type="radio" name="member" className="member-radio" value="platinum" onChange={this.handleChange}/>&nbsp;&nbsp;PLATINUM
                                 <ReactTooltip place="right" type="dark" effect="float"/>
                             </div> 
-                            <div className="member-box">
-                                <input type="radio" name="member" onChange={this.handleChange}/>&nbsp;&nbsp;DIAMOND 
+                            <div className="member-box" data-tip="Discount 12% each time that purchase product.">
+                                <input type="radio" name="member" className="member-radio" value="diamond" onChange={this.handleChange}/>&nbsp;&nbsp;DIAMOND 
                                 <ReactTooltip place="right" type="dark" effect="float"/>
                             </div> 
                         </div>
+                        <br/>
                     </div>
                     <p className="payment">PAYMENT INFORMATION</p>
                     <div className="container">
@@ -133,7 +135,26 @@ class SignUp extends Component {
                                 </tr>
                             </tbody>
                         </table><br></br>
-                        <button className="signup_btn pull-right" onChange={this.handleChange} onClick={this.open}>ADD CARD</button>
+                        <div>
+                            <button className="signup_btn pull-right" onChange={this.handleChange} onClick={this.toggleModal}>ADD CARD</button>
+                            <Modal isOpen={this.state.isActive} onRequestClose={this.toggleModal}>
+                                <div>
+                                    <p className="add-card-info">CARD INFORMATION</p>
+                                </div><br/>
+                                <div className="info-box">
+                                    <div className="card-box"><input type="radio" name="card"/>Visa
+                                    <input type="radio" name="card"/>Master-Card</div>   
+                                    <br/>
+                                    Card Number &nbsp;&nbsp;<input className="card-number"/>&nbsp;&nbsp;
+                                    Bank &nbsp;&nbsp;<input className="bank"/>&nbsp;&nbsp;
+                                    CVV &nbsp;&nbsp;<input className="cvv"/><br/><br/>            
+                                    Card Holder &nbsp;&nbsp;<input className="card-holder"/>&nbsp;&nbsp;
+                                    EXP &nbsp;&nbsp;<input type="month" className="exp"/>
+                                </div><br/>
+                                <button className="signup_btn modal-btn" onChange={this.handleChange} onClick={this.toggleModal}>CANCEL</button>
+                                <button className="signup_btn modal-btn" onChange={this.handleChange}>ADD</button>
+                            </Modal>
+                        </div>
                     </div><br></br>
                     <input type="submit" value="SIGN UP" className="signup_btn"/><br></br><br></br>
                 </form> 
