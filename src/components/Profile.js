@@ -1,6 +1,6 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
-import LeftTabProfile from '../components/LeftTabFilter'
+import LeftTabProfile from '../components/LeftTabProfile'
 import axios from 'axios'
 import { Cookies } from 'react-cookie';
 import '../CSS/CustomerInfo.css'
@@ -16,17 +16,21 @@ class Profile extends Component {
     componentWillMount() {
         const cookies = new Cookies();
         var key = cookies.get('key')
-        axios.get('https://pairmhai-api.herokuapp.com/membership/cust/'+ key) 
-        .then((response)=> {
-            this.setState({ firstname: response.data.user.first_name, lastname: response.data.user.last_name,
-                gender: response.data.user.gender ,birthday: response.data.user.date_of_birth, 
-                age: response.data.user.age, address: response.data.user.address, tel: response.data.user.telephone,
-                email: response.data.user.email,
-            });
-        })
-        .catch(function (error){
-            console.log(error);
-        })
+        if(key !== 'null' && key !== undefined){
+            axios.get('https://pairmhai-api.herokuapp.com/membership/cust/'+ key) 
+            .then((response)=> {
+                this.setState({ firstname: response.data.user.first_name, lastname: response.data.user.last_name,
+                    gender: response.data.user.gender ,birthday: response.data.user.date_of_birth, 
+                    age: response.data.user.age, address: response.data.user.address, tel: response.data.user.telephone,
+                    email: response.data.user.email,
+                });
+            })
+            .catch(function (error){
+                console.log(error);
+            })
+        } else {
+            window.location = "/home";
+        }
     }
 
     render(){

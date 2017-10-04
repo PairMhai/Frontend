@@ -49,18 +49,20 @@ class LeftTab extends Component {
         return (
             <div>
                 <div className="login-left">
-                <img id="profile-pic" src={profile_icon} alt="profile-logo"/>
-                        <br/><br/>
-                    <p className="login-label">USERNAME: </p><br></br>  
-                    <input type="user" name="username" className="login-input" value={this.state.username} onChange={this.handleChange}/><br></br>
-                    <p className="login-label">PASSWORD: </p><br></br> 
-                    <input type="password" name="password" className="login-input"  value={this.state.password} onChange={this.handleChange}/><br></br>
-                    <a href="#" className="forget">Forgot your password?</a><br></br> 
-                    <input className="login-left-btn" type="submit" onClick={this.handleSubmit} value="SIGN IN" />
+                    <img id="profile-pic" src={profile_icon} alt="profile-logo"/>
                     <br/>
-                    <label className="orlabel"><img id="line_icon" src={line_icon} alt="line_icon"/>or<img id="line_icon" src={line_icon} alt="line_icon"/></label>
-                    <br/>
-                    <a href="/signup"><input className="login-left-btn" href="/signup" type="submit" value="SIGN UP" /></a>
+                    <div className="login-cont">
+                        <p className="login-label">USERNAME: </p><br></br>  
+                        <input type="user" name="username" className="login-input" value={this.state.username} onChange={this.handleChange}/><br></br>
+                        <p className="login-label">PASSWORD: </p><br></br> 
+                        <input type="password" name="password" className="login-input"  value={this.state.password} onChange={this.handleChange}/><br></br>
+                        <a href="#" className="forget">Forgot your password?</a><br></br> 
+                        <input className="login-left-btn" type="submit" onClick={this.handleSubmit} value="SIGN IN" />
+                        <br/>
+                        <label className="orlabel"><img id="line_icon" src={line_icon} alt="line_icon"/>or<img id="line_icon" src={line_icon} alt="line_icon"/></label>
+                        <br/>
+                        <a href="/signup"><input className="login-left-btn" href="/signup" type="submit" value="SIGN UP" /></a>
+                    </div>
                 </div>
             </div>
         );

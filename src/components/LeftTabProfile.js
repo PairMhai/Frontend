@@ -5,14 +5,23 @@ import profile_icon from '../img/icon/userpic.png'
 import pf_icon from '../img/icon/userpic.png'
 import cart_icon from '../img/icon/cart.png'
 import his_icon from '../img/icon/history.png'
+import logout_icon from '../img/icon/logout.jpg'
 import '../CSS/LeftTabProfile.css';
 
 class LeftTabProfile extends Component {
+
     constructor(props) {
         super(props)
         this.state = {firstname:'', lastname:''}
+        this.logout = this.logout.bind(this);
     }
 
+    logout(e) {
+        const cookies = new Cookies();
+        cookies.set('key', null, {path: '/'});
+        window.location = "/home"
+    }
+    
     componentWillMount() {
         const cookies = new Cookies();
         var key = cookies.get('key')
@@ -24,31 +33,18 @@ class LeftTabProfile extends Component {
         .catch(function (error){
             console.log(error);
         })
-        }
+    }
    
     render(){
         return (
-            <div>
-                <br></br>
-                <div className="left-tab-profile">
-                    <br></br>
-                        <img id="profile-pic" src={profile_icon} alt="profile-logo"/>
-                        <br/><br/>
-                        <label className="user-name">{this.state.firstname+' '+this.state.lastname}</label>
-                        <div className="profile-btn" role="button" onClick={() => this.handleChange('profile')}><img id="pf_icon" src={pf_icon} alt="pf_icon"/>Profile</div >
-                        <div className="profile-btn" role="button" onClick={() => this.handleChange('cart')}><img id="pf_icon" src={cart_icon} alt="cart_icon"/>Cart</div>
-                        <div className="profile-btn" role="button" onClick={() => this.handleChange('history')}><img id="pf_icon" src={his_icon} alt="history_icon"/>History</div>
-                        
-                    <br></br>
-                        
-                    </div>
-
-                    
-                
-                </div>
-                
-
-                
+            <div className="left-tab-profile"><br/>
+                <img id="profile-pic" src={profile_icon} alt="profile-logo"/><br/>
+                <div className="user-name">{this.state.firstname+' '+this.state.lastname}</div><br/>
+                <a href='/profile'><div className="profile-btn"><img id="pf_icon" src={pf_icon} alt="pf_icon"/>Profile</div ></a>
+                <a href='/cart'><div className="profile-btn"><img id="pf_icon" src={cart_icon} alt="cart_icon"/>Cart</div></a>
+                <a href='/history'><div className="profile-btn"><img id="pf_icon" src={his_icon} alt="history_icon"/>History</div></a>
+                <div className="profile-btn" onClick={this.logout}><img id="pf_icon" src={logout_icon} alt="logout_icon"/>Logout</div>
+            </div>     
         );
     }
 }
