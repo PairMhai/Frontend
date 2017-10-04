@@ -6,6 +6,7 @@ import '../CSS/SignUp.css';
 import ReactTooltip from 'react-tooltip'
 
 class SignUp extends Component {
+    
     constructor(props){
         super(props);
         this.state = { username: 'Hellpo', password: 'Hello', cfpassword: 'Hello', firstname: 'Hello', lastname: 'Hello', gender: 'male',email: 'aaa@ku.th', age: '23', birthday: '', tel: '4557779',  address: 'hello'};
@@ -45,7 +46,7 @@ class SignUp extends Component {
     }
 
     handleSubmit(event){
-        axios.post('http://127.0.0.1:8000/membership/',
+        axios.post('https://pairmhai-api.herokuapp.com/membership/register/',
         { 
             "user": {
                 "username": this.state.username,
@@ -66,26 +67,9 @@ class SignUp extends Component {
             console.log(response);
         })
         .catch(function (error) {
-            if (error.response) {
-              // The request was made and the server responded with a status code 
-              // that falls out of the range of 2xx 
-              alert(JSON.stringify(error.response.data, null, '\t'));
-              // console.log(error.response.data); // response message
-              // console.log(error.response.status); // http response code
-              // console.log(error.response.headers); // response header
-            } else if (error.request) {
-              // The request was made but no response was received 
-              // `error.request` is an instance of XMLHttpRequest in the browser and an instance of 
-              // http.ClientRequest in node.js 
-              console.log(error.request);
-            } else {
-              // Something happened in setting up the request that triggered an Error 
-              console.log('Error', error.message);
-            }
-            console.log(error.config);
-          });
+            console.log(error);
+        });
 
-        // alert(this.state.username + ' ' + this.state.gender);
         event.preventDefault(); 
     }
   

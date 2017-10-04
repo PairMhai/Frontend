@@ -29,7 +29,7 @@
 }
 
 .signin-page-btn {
-    width: 350px;
+    width: 365px;
     height: 40px;
     background-color: white;
     border-style: solid;
@@ -41,7 +41,7 @@
     
 }
 .signin-page-btn:hover {
-    width: 350px;
+    width: 365px;
     height: 40px;
     color: white;
     background-color: black;
@@ -53,19 +53,19 @@
     margin-bottom: 10px;
 }
 
-.forget {
+.forget-page {
     font-size: 12px;
     margin-left: 0px;
     color: gray;
    
     
 }
-#line_icon {
+/* #line_icon {
     width: 45px;
     height: 45px;
     margin-left: 5px;
     margin-right: 5px;
-}
+} */
 
 .orlabel-page {
     margin-left: 35px ;

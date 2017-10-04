@@ -1,8 +1,10 @@
 import React , {Component} from 'react'
-import axios from 'axios';
-import line_icon from '../img/line.png'
-import '../CSS/Lefttab.css';
-
+import axios from 'axios'
+import {Cookies} from 'react-cookie'
+import swal from 'sweetalert'
+import line_icon from '../img/line-1.png'
+import profile_icon from '../img/icon/userpic.png'
+import '../CSS/Lefttab.css'
 
 class LeftTab extends Component {
     constructor(props){
@@ -24,25 +26,22 @@ class LeftTab extends Component {
     }
 
     handleSubmit(event){
-        axios.post('http://127.0.0.1:8000/membership/login/',
+        axios.post('https://pairmhai-api.herokuapp.com/membership/login/',
         { 
             "username": this.state.username,
             "password": this.state.password,
         })
         .then(function (response) {
-            alert(response.data.key);
-            console.log(response);
+            console.log(response)
+            const cookies = new Cookies();
+            cookies.set('key', response.data.key, {path: '/'})
+            window.location = "/home/"
         })
         .catch(function (error) {
-            if (error.response) {
-                alert(JSON.stringify(error.response.data, null, '\t'));
-            } else if (error.request) {
-                console.log(error.request);
-            } else {
-                console.log('Error', error.message);
-            }
-            console.log(error.config);
-          });
+            const cookies = new Cookies();
+            cookies.set('key', null, {path: '/'})
+            swal ( "Oops" ,  "Incorrect username or password" ,  "error" )
+        });
         event.preventDefault(); 
     }
 
@@ -50,6 +49,8 @@ class LeftTab extends Component {
         return (
             <div>
                 <div className="login-left">
+                <img id="profile-pic" src={profile_icon} alt="profile-logo"/>
+                        <br/><br/>
                     <p className="login-label">USERNAME: </p><br></br>  
                     <input type="user" name="username" className="login-input" value={this.state.username} onChange={this.handleChange}/><br></br>
                     <p className="login-label">PASSWORD: </p><br></br> 
@@ -66,4 +67,4 @@ class LeftTab extends Component {
     }
 }
 
-export default LeftTab
+export default LeftTab;

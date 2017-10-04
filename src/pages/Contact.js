@@ -1,8 +1,8 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
-import fb_icon from '../img/Logo/facebook_icon.png'
-import line_icon from '../img/Logo/line_icon.png'
-import tel_icon from '../img/Logo/tel_icon.png'
+import fb_icon from '../img/icon/facebook_icon.png'
+import line_icon from '../img/icon/line_icon.png'
+import tel_icon from '../img/icon/tel_icon.png'
 import axios from 'axios'
 import swal from 'sweetalert'
 import '../CSS/Contact.css'
@@ -29,7 +29,7 @@ class Contact extends Component {
 
 
     handleSubmit(event){
-        axios.post('http://127.0.0.1:8000/comment/',{ 
+        axios.post('https://pairmhai-api.herokuapp.com/comment/',{ 
             "email": this.state.email,
             "message": this.state.msg,
         })

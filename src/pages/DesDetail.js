@@ -2,13 +2,14 @@ import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
 import ProfileNav from '../components/ProfileNav'
 import LoginNav from '../components/LoginNav'
+import {Cookies} from 'react-cookie';
 import '../CSS/Des.css'
 
 class DesDetail extends Component {
 
     constructor(props){
         super(props);
-        this.state = {amount: 0, isLogin: false}
+        this.state = {amount: 0}
 
         this.increaseProd = this.increaseProd.bind(this);
         this.decreaseProd = this.decreaseProd.bind(this);
@@ -30,9 +31,11 @@ class DesDetail extends Component {
     }
 
     checkLogin(){
-        if(this.state.isLogin)
+        const cookies = new Cookies();
+        var key = cookies.get('key');
+        if(key!=null)
             return <ProfileNav />;
-        return <LoginNav />
+        return <LoginNav />;
     }
 
     render(){
@@ -44,7 +47,7 @@ class DesDetail extends Component {
                     <p className="des-head">Design</p>
                     <div className="row">
                         <div className="col-lg-4">
-                            <img className="img-prod" src={ require('../img/Design/ash-dress.jpg') } alt="des-pic"/>
+                            <img className="img-prod" src={ require('../img/des/ash-dress.jpg') } alt="des-pic"/>
                         </div>
                         <div className="col-lg-4">
                             <p>NAME:&ensp;Red silk </p>
@@ -63,7 +66,7 @@ class DesDetail extends Component {
                         <div className="col-lg-4">
                             <p className="txt-size">Size</p>
                             <div className="des-right">
-                                <img className="des-img-size" src={ require('../img/Design/size.png') } alt="size-pic"/>
+                                <img className="des-img-size" src={ require('../img/des/size.png') } alt="size-pic"/>
                                 <p/><button className="des-btn-size">Fill Your Size</button>
                             </div>
                         </div>

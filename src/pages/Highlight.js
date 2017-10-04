@@ -7,7 +7,7 @@ class Highlight extends Component {
         return (
             <div className="row container-fluid">
                 <div className="col-lg-6"> 
-                    <img className="hl-center" src={ require('../img/Logo/logomain.png') } alt="logo"/>
+                    <img className="hl-center" src={ require('../img/icon/Promo.png') } alt="logo"/>
                     <a className="hl-btn" href="/home" role="button">Home</a>
                 </div>
                 <div className="col-lg-6">
@@ -19,13 +19,13 @@ class Highlight extends Component {
                         </ol>
                         <div className="carousel-inner" role="listbox">
                             <div className="carousel-item active">
-                                <img className="d-block img-fluid hl-img" src={ require('../img/Promotion/promotion1.jpg') } alt="First slide"/>
+                                <img className="d-block img-fluid hl-img" src={ require('../img/Promotion/pro-1.png') } alt="First slide"/>
                             </div>
                             <div className="carousel-item">
-                                <img className="d-block img-fluid hl-img" src={ require('../img/Promotion/promotion2.jpg') } alt="Second slide"/>
+                                <img className="d-block img-fluid hl-img" src={ require('../img/Promotion/pro-2.png') } alt="Second slide"/>
                             </div>
                             <div className="carousel-item">
-                                <img className="d-block img-fluid hl-img" src={ require('../img/Logo/logomain.png') } alt="Third slide"/>
+                                <img className="d-block img-fluid hl-img" src={ require('../img/Promotion/pro-3.png') } alt="Third slide"/>
                             </div>
                         </div>
                         <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

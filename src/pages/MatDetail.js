@@ -2,13 +2,14 @@ import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
 import ProfileNav from '../components/ProfileNav'
 import LoginNav from '../components/LoginNav'
+import {Cookies} from 'react-cookie'
 import '../CSS/Mat.css'
 
 class MatDetail extends Component {
 
     constructor(props){
         super(props);
-        this.state = {amount: 0, isLogin: true}
+        this.state = {amount: 0}
 
         this.increaseProd = this.increaseProd.bind(this);
         this.decreaseProd = this.decreaseProd.bind(this);
@@ -30,9 +31,11 @@ class MatDetail extends Component {
     }
     
     checkLogin(){
-        if(this.state.isLogin)
+        const cookies = new Cookies();
+        var key = cookies.get('key');
+        if(key!=null)
             return <ProfileNav />;
-        return <LoginNav />
+        return <LoginNav />;
     }
 
     render(){
@@ -45,11 +48,11 @@ class MatDetail extends Component {
                 <div className="content container-fluid">
                     <p className="mat-head">Material</p>
                     <div className="row">
-                        <div className="col-lg-6">
-                            <img className="img-prod" src={ require('../img/Material/rosegold.jpg') } alt="mat-pic"/>
+                        <div id="img-mat" className="col-lg-6">
+                            <img className="img-prod" src={ require('../img/mat/rosegold.jpg') } alt="mat-pic"/>
                         </div>
                         <div className="mat-right col-lg-6">
-                            <p>NAME:&ensp;Red silk </p>
+                            <p>NAME:&ensp;&ensp;Red silk</p>
                             <p>DESCRIPTION:&ensp;Made in Thailand </p> 
                             <p>MATERIAL:&ensp;Mudmee Silk  </p>
                             <p>COLOR:&ensp;Dark Red </p>

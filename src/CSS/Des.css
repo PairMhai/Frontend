@@ -46,7 +46,14 @@ input::-webkit-inner-spin-button {
     background-color: black;
     color: white;
     width: 10%;
-    border: none;
+    border: 1px solid black; 
+}
+
+.des-btn-add:hover{
+    background-color: white;
+    color: black;
+    width: 10%;
+    border: 1px solid black; 
 }
 
 .des-group-btn {
@@ -64,6 +71,15 @@ input::-webkit-inner-spin-button {
     border: 2px solid black; 
 }
 
+.des-btn-submit:hover{
+    width: 80%;
+    height: 11%;
+    margin-top: 1%; 
+    background-color: black;
+    color: white;
+    border: 2px solid black; 
+}
+
 .des-btn-size{
     width: 80%;
     height: 10%;
@@ -71,6 +87,17 @@ input::-webkit-inner-spin-button {
     color: white;
     display: block;
     margin: auto;
+    border: 2px solid black; 
+}
+
+.des-btn-size:hover{
+    width: 80%;
+    height: 10%;
+    background-color: white;
+    color: black;
+    display: block;
+    margin: auto;
+    border: 2px solid black; 
 }
 
 .des-img-size {

@@ -1,7 +1,8 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
 import LeftTabProfile from '../components/LeftTabFilter'
-import TabProfile from '../components/LeftTabProfile'
+import ems from '../img/icon/ems-logo.png'
+import kerry from '../img/icon/kerry-exprss-logo.png'
 import '../CSS/Payment.css'
 
 class Payment extends Component {
@@ -18,13 +19,13 @@ class Payment extends Component {
                         <p className="pay-header">SHIPPING & PAYMENT</p>
                         <div className="pay-info">
                             TOTAL PRICE:&emsp;<span className="pay-price" id="price"> 2300</span>&emsp;Baht.- <br/>
-                            SHIPPING:&emsp; <input type="radio" name="shipping" value="EMS"/> 
-                            &emsp;&emsp;<input type="radio" name="shipping" value="KERRY"/><br/>
+                            SHIPPING:&emsp; <input type="radio" name="shipping" value="EMS"/><img id="pay_icon" src={ems} alt="ems_icon"/> 
+                            <input type="radio" name="shipping" value="KERRY"/><img id="pay_icon" src={kerry} alt="kerry_icon"/><br/>
                             SELECT CARD &emsp;or&emsp; <input className="pay-btn-add" type="button" value="ADD CART"/>
                             <p/>
                             <table className="pay-table">
                             <tbody>
-                                <tr>
+                                <tr className="table-tr">
                                     <td>&emsp;<input type="checkbox"/></td>
                                     <td>4569 xxx xxx</td>
                                     <td>TMB</td>

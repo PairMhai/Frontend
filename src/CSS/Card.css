@@ -10,3 +10,21 @@
 .border-pic {
     border: 2px solid black;
 }
+
+#procon {
+    margin-top: 40px;
+}
+
+.imgproduct {
+    border: 1px solid black;
+}
+
+.imgproduct:hover {
+    border: 1px solid white;
+}
+
+#product:hover {
+    background-color: black ;
+    color: white;
+
+}

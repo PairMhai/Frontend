@@ -27,9 +27,11 @@
 }
 
 .home_pic {
-  padding:1px;
+  width: 500px;
+  height: 300px;
+  
   border:5px solid #000000;
-  margin-right: 50;
+  margin-right: 50%;
 }
 
 .pic {
@@ -48,17 +50,17 @@
   margin: auto;
 }
 
-.pic_zone {
+.pic_zone_1 {
   margin-top: 0;
   margin-left: 0;
-  width: 30%;
+  width: 500px;
   height: 500px;
   float: left;
 }
 
 .txt_zone {
   margin-top: 0;
-  margin-left:15%;
+  margin-left: 8%;
   width: 50%;
   float: left;
   height: 50%;

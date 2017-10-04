@@ -1,7 +1,7 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
-import LeftTabProfile from '../components/LeftTabFilter'
-import TabProfile from '../components/LeftTabProfile'
+// import LeftTabProfile from '../components/LeftTabFilter'
+// import TabProfile from '../components/LeftTabProfile'
 import '../CSS/Payment.css'
 
 class Promotion extends Component {
