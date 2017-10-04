@@ -2,11 +2,8 @@ import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
 import ProfileNav from '../components/ProfileNav'
 import LoginNav from '../components/LoginNav'
-<<<<<<< HEAD
 import {Cookies} from 'react-cookie';
-=======
 import Modal from 'react-modal'
->>>>>>> aedb4739b8da48093e864f383575abc200643894
 import '../CSS/Des.css'
 
 class DesDetail extends Component {
