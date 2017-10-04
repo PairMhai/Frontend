@@ -84,3 +84,47 @@ input::-webkit-inner-spin-button {
     padding-left: 20%;  
     margin-bottom: -12.5px;
 }
+
+
+
+.des-my-modal {
+    text-align: center;
+}
+
+.size-info {
+    width: 30%;
+    display: inline-block;
+}
+
+.fill-size {
+    width: 15%;
+}
+
+.img-in-modal {
+    width: 70%;
+    height: 110%;
+    margin-bottom: 150%;
+}
+
+.des-submit-fill {
+    background-color: black;
+    color: white;
+    display: block;
+    width: 100%; 
+    border-style: solid;
+}
+
+.des-exit-fill {
+    background-color: white;
+    color: black;
+    border-color: white;
+    display: block;
+    border-style: solid;
+    margin-left: 98%;
+}
+
+.des-fill-label {
+    font-size: 300%;
+}
+
+
