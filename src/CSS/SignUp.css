@@ -124,17 +124,11 @@
     width: 50%;
 }
 
-.diamond-icon {
-    margin-left: 1%;
-}
 
-.platinum-icon {
-    margin-left: 3%;
-}
 
 .add-card-info {
     font-size: 300%;
-    margin-bottom: -4%;
+    margin-bottom: -3.3%;
     margin-top: 2%; 
     margin-left: 60%;
 }
@@ -142,12 +136,13 @@
 .info-box {
     border-style: solid;
     border-color: black;
-    padding: 1%; 
+    padding: 5%; 
     text-align: center;
 }
 
 .modal-btn {
     margin-right: 2%;
+    float: right;
 }
 
 .cvv {
@@ -157,4 +152,10 @@
 .pull-right {
     margin-left: 75%;
 }
-
+#visa_icon {
+    margin-bottom: 8px;
+    height: 2%;
+    width: 8%;
+    padding-right: 20px ;
+    margin-left: 2% ;
+}

@@ -105,61 +105,36 @@ class SignUp extends Component {
                         <div type="container" className="radio-container">
                         <div className="member-box">
                             <img id="class-icon" src={diamond} alt="diamond-icon" className="diamond-icon member-icon"/> 
-<<<<<<< HEAD
                             <br/><input type="radio" name="member" className="member-radio" value="diamond" onChange={this.handleChange}/>
                             <a data-tip="Discount 12% each time that purchase product.">&nbsp;DIAMOND</a> 
-=======
-                            <br/><input type="radio" name="class" value="5" className="member-radio" value="diamond" onChange={this.handleChange}/>
-                            <a data-tip="Discount 12% each time that purchase product.">DIAMOND</a> 
->>>>>>> aaac29e6dca744d9601964e62ec47f74a6047437
                             <ReactTooltip place="ribottomght" type="dark" effect="float"/>
                         </div>
                            
                         <div className="member-box">
                             <img id="class-icon" src={platinum} alt="platinum-icon" className="platinum-icon member-icon"/> 
-<<<<<<< HEAD
                             <br/><input type="radio" name="member" className="member-radio" value="platinum" onChange={this.handleChange}/>
                             <a data-tip="Discount 10% each time that purchase product.">&nbsp;PLATINUM</a>
-=======
-                            <br/><input type="radio" name="class" value="4" className="member-radio" value="platinum" onChange={this.handleChange}/>
-                            <a data-tip="Discount 10% each time that purchase product.">PLATINUM</a>
->>>>>>> aaac29e6dca744d9601964e62ec47f74a6047437
                             <ReactTooltip place="bottom" type="dark" effect="float"/>
                         </div>
                           
                         <div className="member-box">
                             <img id="class-icon" src={gold} alt="gold-icon" className="gold-icon member-icon"/> 
-<<<<<<< HEAD
                             <br/><input type="radio" name="member" className="member-radio" value="gold" onChange={this.handleChange}/>
                             <a data-tip="Discount 8% each time that purchase product.">&nbsp;GOLD</a>
-=======
-                            <br/><input type="radio"  name="class" value="3" className="member-radio" value="gold" onChange={this.handleChange}/>
-                            <a data-tip="Discount 8% each time that purchase product.">GOLD</a>
->>>>>>> aaac29e6dca744d9601964e62ec47f74a6047437
                             <ReactTooltip place="bottom" type="dark" effect="float"/>
                         </div>
 
                         <div className="member-box">
                             <img id="class-icon" src={silver} alt="silver-icon" className="silver-icon member-icon"/> 
-<<<<<<< HEAD
                             <br/><input type="radio" name="member" className="member-radio" value="silver" onChange={this.handleChange}/>
                             <a data-tip="Discount 5% each time that purchase product.">&nbsp;SILVER</a> 
-=======
-                            <br/><input type="radio" name="class" value="2" className="member-radio" value="silver" onChange={this.handleChange}/>
-                            <a data-tip="Discount 5% each time that purchase product.">SILVER</a> 
->>>>>>> aaac29e6dca744d9601964e62ec47f74a6047437
                             <ReactTooltip place="bottom" type="dark" effect="float"/>
                         </div>
                             
                         <div className="member-box">
                             <img id="class-icon" src={bronze} alt="bronze-icon" className="bronze-icon member-icon"/> 
-<<<<<<< HEAD
                             <br/><input type="radio" name="member" className="member-radio" value="bronze" onChange={this.handleChange}/>
                             <a data-tip="Discount 2% each time that purchase product.">&nbsp;BRONZE</a>
-=======
-                            <br/><input type="radio" name="class" value="1" className="member-radio" value="bronze" onChange={this.handleChange}/>
-                            <a data-tip="Discount 2% each time that purchase product.">BRONZE</a>
->>>>>>> aaac29e6dca744d9601964e62ec47f74a6047437
                             <ReactTooltip place="bottom" type="dark" effect="float"/>
                         </div>
                                              
@@ -187,9 +162,9 @@ class SignUp extends Component {
                                 <div className="info-box">
                                     <div className="card-box">
                                         <input type="radio" name="card"/>
-                                        <img id="pay_icon" src={visa} alt="visa-icon"/> 
+                                        <img id="visa_icon" src={visa} alt="visa-icon"/> 
                                         <input type="radio" name="card"/>
-                                        <img id="pay_icon" src={master} alt="master-icon"/>    
+                                        <img id="visa_icon" src={master} alt="master-icon"/>    
                                     </div>
                                     <br/>
                                     Card Number &nbsp;&nbsp;<input className="card-number"/>&nbsp;&nbsp;
