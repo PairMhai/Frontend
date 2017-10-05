@@ -10,6 +10,8 @@ import silver from '../img/icon/silver.png'
 import gold from '../img/icon/gold.png'
 import platinum from '../img/icon/platinum.png'
 import diamond from '../img/icon/diamond.png'
+import visa from '../img/icon/visa.png'
+import master from '../img/icon/mastercard.png'
 
 class SignUp extends Component {
     
@@ -95,11 +97,12 @@ class SignUp extends Component {
                         BIRTHDAY: <input type="date" name="birthday" className="hbd" value={this.state.birthday} onChange={this.handleChange}/>
                                   <br></br><br></br>&nbsp;&nbsp;&nbsp;&nbsp;
                         E-MAIL: <input type="email" name="email" value={this.state.email} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
-                        TEL: <input type="text" name="tel" value={this.state.tel} onChange={this.handleChange}/><br></br> <br></br>&nbsp;&nbsp;&nbsp;&nbsp;
-                        ADDRESS: <br/><textarea className="address" name="address" value={this.state.address} onChange={this.handleChange}/><br/><br/>
+                        TEL: <input type="text" name="telephone" value={this.state.tel} onChange={this.handleChange}/><br></br> <br></br>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a className="address">ADDRESS:</a>
+                        <br/><textarea className="addr" name="address" value={this.state.address} onChange={this.handleChange}/><br/><br/>
                         
-                        <div type="container" className="radio-container">
                         <a className="member">MEMBERSHIP:</a>
+                        <div type="container" className="radio-container">
                         <div className="member-box">
                             <img id="class-icon" src={diamond} alt="diamond-icon" className="diamond-icon member-icon"/> 
                             <br/><input type="radio" name="class" value="5" className="member-radio" value="diamond" onChange={this.handleChange}/>
@@ -157,8 +160,12 @@ class SignUp extends Component {
                                     <p className="add-card-info">CARD INFORMATION</p>
                                 </div><br/>
                                 <div className="info-box">
-                                    <div className="card-box"><input type="radio" name="card"/>Visa
-                                    <input type="radio" name="card"/>Master-Card</div>   
+                                    <div className="card-box">
+                                        <input type="radio" name="card"/>
+                                        <img id="pay_icon" src={visa} alt="visa-icon"/> 
+                                        <input type="radio" name="card"/>
+                                        <img id="pay_icon" src={master} alt="master-icon"/>    
+                                    </div>
                                     <br/>
                                     Card Number &nbsp;&nbsp;<input className="card-number"/>&nbsp;&nbsp;
                                     {/* Bank &nbsp;&nbsp;<input className="bank"/>&nbsp;&nbsp; */}
@@ -171,7 +178,7 @@ class SignUp extends Component {
                             </Modal>
                         </div>
                     </div><br></br>
-                    <input type="submit" value="SIGN UP" className="signup_btn btn-height"/><br></br><br></br>
+                    <input type="submit" value="SIGN UP" className="signup_btn"/><br></br><br></br>
                 </form> 
             </div>
             </div>

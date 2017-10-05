@@ -19,9 +19,9 @@ class DesDetail extends Component {
         this.addProdToCart = this.addProdToCart.bind(this);
         this.checkLogin = this.checkLogin.bind(this);
 
-        this.state = {
-            isActive: false
-        }
+        // this.state = {
+        //     isActive: false
+        // }
         this.isLogin = this.isLogin.bind(this);
     }
 
