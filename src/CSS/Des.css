@@ -118,8 +118,6 @@ input::-webkit-inner-spin-button {
     margin-bottom: -12.5px;
 }
 
-
-
 .des-my-modal {
     text-align: center;
 }
@@ -127,6 +125,7 @@ input::-webkit-inner-spin-button {
 .size-info {
     width: 30%;
     display: inline-block;
+    vertical-align: top;
 }
 
 .fill-size {

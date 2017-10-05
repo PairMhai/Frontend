@@ -18,6 +18,10 @@ class DesDetail extends Component {
         this.decreaseProd = this.decreaseProd.bind(this);
         this.addProdToCart = this.addProdToCart.bind(this);
         this.checkLogin = this.checkLogin.bind(this);
+
+        this.state = {
+            isActive: false
+        }
         this.isLogin = this.isLogin.bind(this);
     }
 
@@ -133,7 +137,7 @@ class DesDetail extends Component {
                             <div className="des-right">
                                 <img className="des-img-size" src={ require('../img/des/size.png') } alt="size-pic"/>
                                 <p/><button className="des-btn-size" onClick={this.open}>Fill Your Size</button>
-                                <Modal isOpen={this.state.isActive} onRequestClose={this.open}>
+                                <Modal isOpen={this.state.isActive} onRequestClose={this.toggleModal} contentLabel="Modal">
                                     <button className="des-exit-fill" onClick={this.open}>X</button>
                                     <p className="des-fill-label">FILL YOUR SIZE</p>
                                     <div className="des-my-modal">

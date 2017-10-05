@@ -68,7 +68,7 @@ class Cart extends Component {
                             <div className="btn-field">
                                 <input className="clearcart_btn" type="submit" value="Clear Cart" /> 
                                 <a href="/payment"><input className="clearcart_btn" type="submit" value="Shipping and Payment" onClick={this.toggleModal} />
-                                <Modal isOpen={this.state.isActive} onRequestClose={this.toggleModal}>
+                                <Modal isOpen={this.state.isActive} onRequestClose={this.toggleModal} contentLabel="Modal">
                                     <div>
                                         <p className="add-card-info">CARD INFORMATION</p>
                                     </div><br/>
