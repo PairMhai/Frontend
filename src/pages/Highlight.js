@@ -10,7 +10,7 @@ class Highlight extends Component {
                     <img className="hl-center" src={ require('../img/icon/Promo.png') } alt="logo"/>
                     <a className="hl-btn" href="/home" role="button">Home</a>
                 </div>
-                <div className="col-lg-6">
+                <div id="img-hi" className="col-lg-6">
                     <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
                         <ol className="carousel-indicators">
                             <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>

@@ -32,7 +32,7 @@ class Material extends Component {
                     <div className="col-md-3 push-md-9 ">
                         <LeftTabFilter />
                     </div>
-                    <div className="col-md-9 push-md-3">
+                    <div id="prod" className="col-md-9 push-md-3">
                         <ProdCard type="mat"/>
                     </div>
                 </div>

@@ -48,6 +48,10 @@
     padding-bottom: 2%;  
 }
 
+.radio-container {
+    text-align: center;
+}
+
 .payment-table {
     border-collapse: collapse;
     width: 50%;
@@ -66,8 +70,8 @@
 
 .addr {
     margin-top: 0%;
-    width: 30%;
-    height: 250%;
+    width: 30vw;
+    height: 8vw;
 }
 
 .member {
