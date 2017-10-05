@@ -17,14 +17,11 @@ class SignUp extends Component {
     
     constructor(props){
         super(props);
-        this.state = { username: 'Hellpo', password: 'Hello', cfpassword: 'Hello', firstname: 'Hello', lastname: 'Hello', gender: 'male',email: 'aaa@ku.th', age: '23', birthday: '', tel: '4557779',  address: 'hello'};
+        this.state = { username: '', password: '', cfpassword: '', firstname: '', lastname: '', 
+        gender: '',email: '', birthday: '', tel: '',  address: '', class: '', isActive: false};
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
-
-        this.state = {
-            isActive: false
-        }
     }
 
     handleChange(event){
@@ -52,7 +49,7 @@ class SignUp extends Component {
     }
 
     handleSubmit(event){
-        axios.post('https://pairmhai-api.herokuapp.com/membership/register/',
+        axios.post('https://pairmhai-api.herokuapp.com/membership/register',
         { 
             "user": {
                 "username": this.state.username,
@@ -61,15 +58,13 @@ class SignUp extends Component {
                 "email": this.state.email,
                 "telephone": this.state.tel,
                 "address": this.state.address,
-                "age": this.state.age,
                 "date_of_birth": this.state.birthday,
                 "gender": this.state.gender,
-                "member": this.state.member,
             },
 
             "password1": this.state.password,
             "password2": this.state.cfpassword,
-            "classes": 3
+            "classes": this.state.class,
         })
         .then(function (response) {
             console.log(response);
@@ -94,12 +89,12 @@ class SignUp extends Component {
                     </div>
                     <p className="person">PERSONAL INFORMATION</p>
                     <div className="container">
-                        FIRSTNAME: <input type="text" name="first_name" value={this.state.firstname} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
-                        LASTNAME: <input  type="text" name="last_name" value={this.state.lastname} onChange={this.handleChange}/> <br></br> <br></br>
+                        FIRSTNAME: <input type="text" name="firstname" value={this.state.firstname} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
+                        LASTNAME: <input  type="text" name="lastname" value={this.state.lastname} onChange={this.handleChange}/> <br></br> <br></br>
                         GENDER: 
-                            &nbsp;<input type="radio" name="gender" className="gender" value="female" onChange={this.handleChange}/> FEMALE
-                            &nbsp;<input type="radio" name="gender" value="male" className="gender" onChange={this.handleChange}/> MALE &nbsp;&nbsp;&nbsp;&nbsp;
-                        BIRTHDAY: <input type="date" name="date_of_birth" className="hbd" value={this.state.birthday} onChange={this.handleChange}/>
+                            &nbsp;<input type="radio" name="gender" className="gender" value="Female" onChange={this.handleChange}/> FEMALE
+                            &nbsp;<input type="radio" name="gender" value="Male" className="gender" onChange={this.handleChange}/> MALE &nbsp;&nbsp;&nbsp;&nbsp;
+                        BIRTHDAY: <input type="date" name="birthday" className="hbd" value={this.state.birthday} onChange={this.handleChange}/>
                                   <br></br><br></br>&nbsp;&nbsp;&nbsp;&nbsp;
                         E-MAIL: <input type="email" name="email" value={this.state.email} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
                         TEL: <input type="text" name="telephone" value={this.state.tel} onChange={this.handleChange}/><br></br> <br></br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -111,35 +106,35 @@ class SignUp extends Component {
                         <div className="member-box">
                             <img id="class-icon" src={diamond} alt="diamond-icon" className="diamond-icon member-icon"/> 
                             <br/><input type="radio" name="member" className="member-radio" value="diamond" onChange={this.handleChange}/>
-                            <a data-tip="Discount 12% each time that purchase product.">DIAMOND</a> 
+                            <a data-tip="Discount 12% each time that purchase product.">&nbsp;DIAMOND</a> 
                             <ReactTooltip place="ribottomght" type="dark" effect="float"/>
                         </div>
                            
                         <div className="member-box">
                             <img id="class-icon" src={platinum} alt="platinum-icon" className="platinum-icon member-icon"/> 
                             <br/><input type="radio" name="member" className="member-radio" value="platinum" onChange={this.handleChange}/>
-                            <a data-tip="Discount 10% each time that purchase product.">PLATINUM</a>
+                            <a data-tip="Discount 10% each time that purchase product.">&nbsp;PLATINUM</a>
                             <ReactTooltip place="bottom" type="dark" effect="float"/>
                         </div>
                           
                         <div className="member-box">
                             <img id="class-icon" src={gold} alt="gold-icon" className="gold-icon member-icon"/> 
                             <br/><input type="radio" name="member" className="member-radio" value="gold" onChange={this.handleChange}/>
-                            <a data-tip="Discount 8% each time that purchase product.">GOLD</a>
+                            <a data-tip="Discount 8% each time that purchase product.">&nbsp;GOLD</a>
                             <ReactTooltip place="bottom" type="dark" effect="float"/>
                         </div>
 
                         <div className="member-box">
                             <img id="class-icon" src={silver} alt="silver-icon" className="silver-icon member-icon"/> 
                             <br/><input type="radio" name="member" className="member-radio" value="silver" onChange={this.handleChange}/>
-                            <a data-tip="Discount 5% each time that purchase product.">SILVER</a> 
+                            <a data-tip="Discount 5% each time that purchase product.">&nbsp;SILVER</a> 
                             <ReactTooltip place="bottom" type="dark" effect="float"/>
                         </div>
                             
                         <div className="member-box">
                             <img id="class-icon" src={bronze} alt="bronze-icon" className="bronze-icon member-icon"/> 
                             <br/><input type="radio" name="member" className="member-radio" value="bronze" onChange={this.handleChange}/>
-                            <a data-tip="Discount 2% each time that purchase product.">BRONZE</a>
+                            <a data-tip="Discount 2% each time that purchase product.">&nbsp;BRONZE</a>
                             <ReactTooltip place="bottom" type="dark" effect="float"/>
                         </div>
                                              
@@ -167,9 +162,9 @@ class SignUp extends Component {
                                 <div className="info-box">
                                     <div className="card-box">
                                         <input type="radio" name="card"/>
-                                        <img id="pay_icon" src={visa} alt="visa-icon"/> 
+                                        <img id="visa_icon" src={visa} alt="visa-icon"/> 
                                         <input type="radio" name="card"/>
-                                        <img id="pay_icon" src={master} alt="master-icon"/>    
+                                        <img id="visa_icon" src={master} alt="master-icon"/>    
                                     </div>
                                     <br/>
                                     Card Number &nbsp;&nbsp;<input className="card-number"/>&nbsp;&nbsp;
