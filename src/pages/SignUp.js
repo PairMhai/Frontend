@@ -10,6 +10,8 @@ import silver from '../img/icon/silver.png'
 import gold from '../img/icon/gold.png'
 import platinum from '../img/icon/platinum.png'
 import diamond from '../img/icon/diamond.png'
+import visa from '../img/icon/visa.png'
+import master from '../img/icon/mastercard.png'
 
 class SignUp extends Component {
     
@@ -163,8 +165,12 @@ class SignUp extends Component {
                                     <p className="add-card-info">CARD INFORMATION</p>
                                 </div><br/>
                                 <div className="info-box">
-                                    <div className="card-box"><input type="radio" name="card"/>Visa
-                                    <input type="radio" name="card"/>Master-Card</div>   
+                                    <div className="card-box">
+                                        <input type="radio" name="card"/>
+                                        <img id="pay_icon" src={visa} alt="visa-icon"/> 
+                                        <input type="radio" name="card"/>
+                                        <img id="pay_icon" src={master} alt="master-icon"/>    
+                                    </div>
                                     <br/>
                                     Card Number &nbsp;&nbsp;<input className="card-number"/>&nbsp;&nbsp;
                                     {/* Bank &nbsp;&nbsp;<input className="bank"/>&nbsp;&nbsp; */}
