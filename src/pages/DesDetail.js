@@ -11,7 +11,7 @@ class DesDetail extends Component {
 
     constructor(props){
         super(props);
-        this.state = {amount: 0, isActive: false, id: '', name: '', description: '',  color: '', price: '',  imageName: '' }
+        this.state = {amount: 0, isActive: false, id: '', name: '', description: '',  color: '', material:'', price: '',  imageName: '' }
 
         this.increaseProd = this.increaseProd.bind(this);
         this.decreaseProd = this.decreaseProd.bind(this);
@@ -46,7 +46,7 @@ class DesDetail extends Component {
             this.setState({ id: response.data.product_id,
                 name: response.data.name, description: response.data.description,
                 price: response.data.price, imageName: '../img/des/'+response.data.image_name,
-                // material: response.data.material
+                material: response.data.material_name, color: response.data.material_color,
             })
             console.log(response)
         })
@@ -77,7 +77,8 @@ class DesDetail extends Component {
                         <div className="col-lg-4">
                             <p>NAME:&ensp;{this.state.name}</p>
                             <p>DESCRIPTION:&ensp;{this.state.description}</p> 
-                            {/* <p>MATERIAL:&ensp;Mudmee Silk  </p> */}
+                            <p>MATERIAL:&ensp;{this.state.material_name}</p>
+                            <p>MATERIAL:&ensp;{this.state.material_color}</p>
                             <p>PRICE:&ensp;{this.state.price} Baht.- </p>
                             <div className="row des-group-btn ">
                                 <button className="des-btn-add" onClick={this.decreaseProd}>-</button>

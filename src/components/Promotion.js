@@ -15,7 +15,7 @@ class Promotion extends Component {
                       
                     </div>
                     <div className="col-md-9 push-md-3 cus-con">
-                        <h1>Comming Soon</h1>
+                        <h1>Coming Soon</h1>
                     </div>
                 </div>
             </div>
