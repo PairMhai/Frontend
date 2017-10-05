@@ -17,12 +17,16 @@
     font-size: 80px;
 }
 
-.img-prod {
-    width: 40%;
-    height: 95%;
+.login-bar {
+    margin-bottom: -30%;
+    margin-right: 25%;
+}
+
+.mat-img-prod {
+    width: 60%;
+    margin: auto;
     border: 4px solid black;
     display: block;
-
 }
 
 input[type='number'] {

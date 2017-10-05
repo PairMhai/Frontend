@@ -16,7 +16,7 @@ class Design extends Component {
     checkLogin(){
         const cookies = new Cookies();
         var key = cookies.get('key');
-        if(key === 'null')
+        if(key === 'null' || key === undefined)
             return <LoginNav />;
         return <ProfileNav />;
     }
@@ -25,12 +25,12 @@ class Design extends Component {
         return (
             <div>
                 <Navbar /> 
+                {this.checkLogin()}
                 <div className="row container-fluid">
                     <div className="col-md-3 push-md-9 ">
                         <LeftTabFilter />
                     </div>
                     <div className="col-md-9 push-md-3">
-                        {this.checkLogin()}
                         <ProdCard type="des"/>
                     </div>
                 </div>

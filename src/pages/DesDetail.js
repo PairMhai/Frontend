@@ -1,4 +1,5 @@
 import React , {Component} from 'react'
+import axios from 'axios'
 import Navbar from '../components/Navbar'
 import ProfileNav from '../components/ProfileNav'
 import LoginNav from '../components/LoginNav'
@@ -10,11 +11,7 @@ class DesDetail extends Component {
 
     constructor(props){
         super(props);
-        this.state = {amount: 0}
-
-        this.state = {
-            isActive: false 
-        }
+        this.state = {amount: 0, isActive: false, id: '', name: '', description: '',  color: '', price: '',  imageName: '' }
 
         this.increaseProd = this.increaseProd.bind(this);
         this.decreaseProd = this.decreaseProd.bind(this);
@@ -44,6 +41,19 @@ class DesDetail extends Component {
     }
 
     componentWillMount() {
+        axios.get('https://pairmhai-api.herokuapp.com/catalog/design/'+ this.props.match.params.id) 
+        .then((response)=> {
+            this.setState({ id: response.data.product_id,
+                name: response.data.name, description: response.data.description,
+                price: response.data.price, imageName: '../img/des/'+response.data.image_name,
+                // material: response.data.material
+            })
+            console.log(response)
+        })
+        .catch(function (error){
+            console.log(error);
+        })
+
         Modal.setAppElement('body');
     }
 
@@ -56,7 +66,7 @@ class DesDetail extends Component {
     render(){
         return (
             <div>
-                <Navbar /> 
+                <Navbar />                 
                 {this.checkLogin()}
                 <div className="container-fluid">
                     <p className="des-head">Design</p>
@@ -65,11 +75,10 @@ class DesDetail extends Component {
                             <img className="img-prod" src={ require('../img/des/ash-dress.jpg') } alt="des-pic"/>
                         </div>
                         <div className="col-lg-4">
-                            <p>NAME:&ensp;Red silk </p>
-                            <p>DESCRIPTION:&ensp;Made in Thailand </p> 
-                            <p>MATERIAL:&ensp;Mudmee Silk  </p>
-                            <p>COLOR:&ensp;Dark Red </p>
-                            <p>PRICE:&ensp;500 Baht </p>
+                            <p>NAME:&ensp;{this.state.name}</p>
+                            <p>DESCRIPTION:&ensp;{this.state.description}</p> 
+                            {/* <p>MATERIAL:&ensp;Mudmee Silk  </p> */}
+                            <p>PRICE:&ensp;{this.state.price} Baht.- </p>
                             <div className="row des-group-btn ">
                                 <button className="des-btn-add" onClick={this.decreaseProd}>-</button>
                                 <input className="des-amount" type="number" value={this.state.amount} required/>

@@ -41,13 +41,13 @@ class ProdCard extends Component {
     render(){
         const allProd = this.state.prod.map((prodVal, index) => {
             if(this.state.type === 'mat'){
-                return  <div id="product" className="col-xd-6 col-lg-3 prod-card" key={prodVal.product_id} data-type='mat' onClick={this.clickDetail}>
+                return  <div id="product" className="col-xd-6 col-lg-3 prod-card" key={prodVal.product_id} data-key={prodVal.id} data-type='mat' onClick={this.clickDetail}>
                             <img className="imgproduct" src={require('../img/mat/'+ prodVal.image_name)} width="100%" alt="product pic" />
                             <h4><p></p>{prodVal.name}</h4>
                             <p>{prodVal.price} Baht.-</p>
                         </div>
             } else {
-                return  <div id="product" className="col-xd-6 col-lg-3 prod-card" key={prodVal.product_id} data-type='des' onClick={this.clickDetail}>
+                return  <div id="product" className="col-xd-6 col-lg-3 prod-card" key={prodVal.product_id} data-key={prodVal.id} data-type='des' onClick={this.clickDetail}>
                             <img className="imgproduct" src={require('../img/des/'+ prodVal.images[0].file_name)} width="100%" alt="product pic" />
                             <h4><p></p>{prodVal.name}</h4>
                             <p>{prodVal.price} Baht.-</p>
