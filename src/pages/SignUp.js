@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import AddCard from '../components/AddCard'
 import axios from 'axios';
 import '../CSS/SignUp.css';
+import {Cookies } from 'react-cookie';
 import ReactTooltip from 'react-tooltip'
 import Modal from 'react-modal'
 import bronze from '../img/icon/bronze.png'
@@ -49,33 +50,18 @@ class SignUp extends Component {
     }
 
     handleSubmit(event){
-        // console.log(this.state.firstname);
-        // console.log(this.state.lastname);
-        // console.log(this.state.email);
-        // console.log(this.state.tel);
-        // console.log(this.state.birthday);
-        // console.log(this.state.password);
-        // console.log(this.state.cfpassword);
-        // console.log(this.state.username);
-        // console.log(this.state.gender);
-        // console.log(this.state.address); 
-        // console.log(this.state.classes);       
+        console.log(this.state.firstname);
+        console.log(this.state.lastname);
+        console.log(this.state.email);
+        console.log(this.state.tel);
+        console.log(this.state.birthday);
+        console.log(this.state.password);
+        console.log(this.state.cfpassword);
+        console.log(this.state.username);
+        console.log(this.state.gender);
+        console.log(this.state.address); 
+        console.log(this.state.classes);       
         axios.post('https://pairmhai-api.herokuapp.com/membership/register',
-        // {
-        //     "user": {
-        //         "username": this.state.username,
-        //         "first_name": this.state.firstname,
-        //         "last_name": this.state.lastname,
-        //         "email": this.state.email,
-        //         "telephone": this.state.tel,
-        //         "address": this.state.address,
-        //         "date_of_birth": this.state.birthday,
-        //         "gender": this.state.gender
-        //     },
-        //     "password1": this.state.password,
-        //     "password2": this.state.cfpassword,
-        //     "classes": this.state.classes
-        // })
         {
             "user": {
                 "username": this.state.username,
@@ -90,14 +76,36 @@ class SignUp extends Component {
             "password1": this.state.password,
             "password2": this.state.cfpassword,
             "classes": this.state.classes
-        }
-    )
+        })
+        
+
+        // {
+        //     "user": {
+        //         "username": "Kevin",
+        //         "first_name": "kevin",
+        //         "last_name": "Hommie",
+        //         "email": "h@c.c",
+        //         "telephone": "00000",
+        //         "address": "Beijing",
+        //         "date_of_birth": "1997-05-29",
+        //         "gender": "male"
+        //     },
+        //     "password1": "password123",
+        //     "password2": "password123",
+        //     "classes": 1
+        // }
+    //)
+    
         .then(function (response) {
             console.log(response);
+            const cookies = new Cookies();
+            cookies.set('key', response.data.key, {path: '/'})
+            var key = cookies.get(response.data.key);
+            alert(key);
         })
         .catch(function (error) {
             console.log(error);
-        });
+        });  
         event.preventDefault(); 
     }
 
@@ -110,7 +118,7 @@ class SignUp extends Component {
                 <p className="signup">SIGN UP</p>
                 <form onSubmit={this.handleSubmit}>
                     <div className="container">
-                        USERNAME: <input type="text" name="username" value={this.state.username} onChange={this.handleChange}/>&nbsp;&nbsp;&nbsp;&nbsp;
+                        USERNAME: <input type="user" name="username" value={this.state.username} onChange={this.handleChange}/>&nbsp;&nbsp;&nbsp;&nbsp;
                         PASSWORD: <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/>&nbsp;&nbsp;&nbsp;&nbsp;
                         CONFIRM PASSWORD: <input type="password" name="cfpassword" value={this.state.cfpassword} onChange={this.handleChange}/>
                     </div>
@@ -134,35 +142,35 @@ class SignUp extends Component {
                             <img id="class-icon" src={diamond} alt="diamond-icon" className="diamond-icon member-icon"/> 
                             <br/><input type="radio" name="classes" value="5" className="member-radio" value="diamond" onChange={this.handleChange}/>
                             <a data-tip="Discount 12% each time that purchase product.">DIAMOND</a> 
-                            <ReactTooltip place="ribottomght" type="dark" effect="float"/>
+                            
                         </div>
                            
                         <div className="member-box">
                             <img id="class-icon" src={platinum} alt="platinum-icon" className="platinum-icon member-icon"/> 
                             <br/><input type="radio" name="classes" value="4" className="member-radio" value="platinum" onChange={this.handleChange}/>
                             <a data-tip="Discount 10% each time that purchase product.">PLATINUM</a>
-                            <ReactTooltip place="bottom" type="dark" effect="float"/>
+                            
                         </div>
                           
                         <div className="member-box">
                             <img id="class-icon" src={gold} alt="gold-icon" className="gold-icon member-icon"/> 
                             <br/><input type="radio"  name="classes" value="3" className="member-radio" value="gold" onChange={this.handleChange}/>
                             <a data-tip="Discount 8% each time that purchase product.">GOLD</a>
-                            <ReactTooltip place="bottom" type="dark" effect="float"/>
+                            
                         </div>
 
                         <div className="member-box">
                             <img id="class-icon" src={silver} alt="silver-icon" className="silver-icon member-icon"/> 
                             <br/><input type="radio" name="classes" value="2" className="member-radio" value="silver" onChange={this.handleChange}/>
                             <a data-tip="Discount 5% each time that purchase product.">SILVER</a> 
-                            <ReactTooltip place="bottom" type="dark" effect="float"/>
+                            
                         </div>
                             
                         <div className="member-box">
                             <img id="class-icon" src={bronze} alt="bronze-icon" className="bronze-icon member-icon"/> 
                             <br/><input type="radio" name="classes" value="1" className="member-radio" value="bronze" onChange={this.handleChange}/>
                             <a data-tip="Discount 2% each time that purchase product.">BRONZE</a>
-                            <ReactTooltip place="bottom" type="dark" effect="float"/>
+                           
                         </div>
                                              
                         </div>
