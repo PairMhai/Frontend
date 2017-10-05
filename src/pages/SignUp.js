@@ -101,10 +101,11 @@ class SignUp extends Component {
                                   <br></br><br></br>&nbsp;&nbsp;&nbsp;&nbsp;
                         E-MAIL: <input type="email" name="email" value={this.state.email} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
                         TEL: <input type="text" name="telephone" value={this.state.tel} onChange={this.handleChange}/><br></br> <br></br>&nbsp;&nbsp;&nbsp;&nbsp;
-                        ADDRESS: <br/><textarea className="addr" name="address" value={this.state.address} onChange={this.handleChange}/><br/><br/>
+                        <a className="address">ADDRESS:</a>
+                        <br/><textarea className="addr" name="address" value={this.state.address} onChange={this.handleChange}/><br/><br/>
                         
-                        <div type="container" className="radio-container">
                         <a className="member">MEMBERSHIP:</a>
+                        <div type="container" className="radio-container">
                         <div className="member-box">
                             <img id="class-icon" src={diamond} alt="diamond-icon" className="diamond-icon member-icon"/> 
                             <br/><input type="radio" name="member" className="member-radio" value="diamond" onChange={this.handleChange}/>
@@ -176,7 +177,7 @@ class SignUp extends Component {
                             </Modal>
                         </div>
                     </div><br></br>
-                    <input type="submit" value="SIGN UP" className="signup_btn btn-height"/><br></br><br></br>
+                    <input type="submit" value="SIGN UP" className="signup_btn"/><br></br><br></br>
                 </form> 
             </div>
             </div>
