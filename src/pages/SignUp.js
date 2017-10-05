@@ -152,7 +152,7 @@ class SignUp extends Component {
                             <tbody>
                                 <tr>
                                     <td>4569 xxx xxx</td>
-                                    <td>TMB</td>
+                                    {/* <td>TMB</td> */}
                                     <td>3/20</td>
                                     <td>Thanawan Sean-in</td>
                                 </tr>
