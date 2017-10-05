@@ -13,6 +13,7 @@ import platinum from '../img/icon/platinum.png'
 import diamond from '../img/icon/diamond.png'
 import visa from '../img/icon/visa.png'
 import master from '../img/icon/mastercard.png'
+import swal from 'sweetalert'
 
 class SignUp extends Component {
     
@@ -82,8 +83,10 @@ class SignUp extends Component {
         })
         .catch(function (error) {
             console.log(error);
+            swal ( "Oops" ,  "Please enter valid data" ,  "error" )
         });  
-        event.preventDefault(); 
+        event.preventDefault();
+
     }
 
   
@@ -190,7 +193,7 @@ class SignUp extends Component {
                             </Modal>
                         </div>
                     </div><br></br>
-                    <input type="submit" value="SIGN UP" className="signup_btn"/><br></br><br></br>
+                <input type="submit" href="/home" value="SIGN UP" className="signup_btn" /><br></br><br></br>
                 </form> 
             </div>
             </div>
