@@ -11,26 +11,26 @@
     font-size: 650%;
     margin-top: 0%;
     margin-left: 56%;
-    margin-bottom: -4%;   
+    margin-bottom: -3%;   
 }
 
 .person {
     font-size: 250%;
     margin-top: 4%;
     margin-left: 48%;
-    margin-bottom: -1.5%; 
+    margin-bottom: -1.25%; 
 }
 
 .payment {
     font-size: 250%;
     margin-top: 4%;
     margin-left: 50%;
-    margin-bottom: -1.5%; 
+    margin-bottom: -1.25%; 
 }
 
 .gender {
-    margin-right: -1.5%;
-    margin-left: -1.5%;
+    margin-right: 0%;
+    margin-left: 0%;
 }
 
 .hbd {
@@ -49,9 +49,10 @@
 }
 
 .radio-container {
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 20%;
+    margin-right: 20%;
     border: 1px solid black;
+    padding-bottom: 3%;
 }
 
 .payment-table {
@@ -104,8 +105,19 @@
 }
 
 .member-box {
+    background-color: white;
     display: inline-block;
-    margin-right: -7%;
+    margin-top: 3%;
+    padding-bottom:1%;
+    
+}
+.member-box:hover{
+    background-color: black;
+    display: inline-block;
+    color: white;
+    padding-bottom: 1%;
+    
+    
 }
 
 .member-icon {

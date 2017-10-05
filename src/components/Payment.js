@@ -30,7 +30,7 @@ class Payment extends Component {
                         <p className="pay-header">SHIPPING & PAYMENT</p>
                         <div className="pay-info">
                             TOTAL PRICE:&emsp;<span className="pay-price" id="price"> 2300</span>&emsp;Baht.- <br/>
-                            SHIPPING:&emsp; <input type="radio" name="shipping" value="EMS"/><img id="pay_icon" src={ems} alt="ems_icon"/> 
+                            SHIPPING:&emsp; <input className="pay-radio" type="radio" name="shipping" value="EMS"/><img id="pay_icon" src={ems} alt="ems_icon"/> 
                             <input type="radio" name="shipping" value="KERRY"/><img id="pay_icon" src={kerry} alt="kerry_icon"/><br/>
                             SELECT CARD &emsp;or&emsp; <input className="pay-btn-add" type="button" value="ADD CART"/>
                             <p/>
