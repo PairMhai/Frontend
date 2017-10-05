@@ -50,7 +50,10 @@
     padding: 0px;
 }
 
+#img-hi {
+    height: 200%;
+}
 .hl-img {
     width: 100%;
-    height: 100%;
+    height: 200%;
 }

@@ -48,10 +48,10 @@
 
  
  #line_icon {
-    width: 86px;
+    width: 35%;
     height: 20px;
     margin-right: 10px;
-    margin-left: 10px;
+    margin-left: 2%;
 
 
  }
@@ -60,6 +60,7 @@
     margin-left: 8px ;
     margin-bottom : -8px;
     margin-top: 12px; 
+    font-size: 20px;
 }
  
 .login-layout {
