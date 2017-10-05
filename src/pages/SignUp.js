@@ -157,7 +157,7 @@ class SignUp extends Component {
                         </table><br></br>
                         <div>
                             <button className="signup_btn pull-right" onChange={this.handleChange} onClick={this.toggleModal}>ADD CARD</button>
-                            <Modal isOpen={this.state.isActive} onRequestClose={this.toggleModal}>
+                            <Modal isOpen={this.state.isActive} onRequestClose={this.toggleModal} contentLabel="Modal">
                                 <div>
                                     <p className="add-card-info">CARD INFORMATION</p>
                                 </div><br/>
