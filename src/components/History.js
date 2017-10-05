@@ -27,7 +27,7 @@ class History extends Component {
                     <div className="col-md-9 push-md-3 cus-con">
                         <p className="pay-header">HISTORY</p>
                         <div className="pay-info">
-                           Comming soon
+                           Coming soon
                         </div>
                     </div>
                 </div>

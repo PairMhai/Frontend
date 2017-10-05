@@ -4,18 +4,20 @@ import Navbar from '../components/Navbar'
 import ProfileNav from '../components/ProfileNav'
 import LoginNav from '../components/LoginNav'
 import {Cookies} from 'react-cookie'
+import swal from 'sweetalert'
 import '../CSS/Mat.css'
 
 class MatDetail extends Component {
 
     constructor(props){
         super(props);
-        this.state = {amount: 0,id: '', name: '', description: '',  color: '', price: '', imageName: ''}
+        this.state = {amount: 0,id: '', name: '', description: '',  color: '', price: '', imageName: '', prod: [], detail: [] }
 
         this.increaseProd = this.increaseProd.bind(this);
         this.decreaseProd = this.decreaseProd.bind(this);
         this.addProdToCart = this.addProdToCart.bind(this);
         this.checkLogin = this.checkLogin.bind(this);
+        this.isLogin = this.isLogin.bind(this);
     }
 
     componentWillMount() {
@@ -23,38 +25,77 @@ class MatDetail extends Component {
         .then((response)=> {
             this.setState({ id: response.data.product_id,
                 name: response.data.name, description: response.data.description,
-                price: response.data.price, color: response.data.color, imageName: '../img/mat/'+response.data.image_name,
+                price: response.data.price, color: response.data.color, imageName: response.data.image_name
             })
-            console.log(response)
+
+            const newDetail = this.state.detail;
+            newDetail.push(response.data); 
+            this.setState({detail: newDetail})
+            console.log(response.data)
         })
         .catch(function (error){
             console.log(error);
         })
+
+        console.log(this.state.detail)
     }
 
     increaseProd() {
+        if (!this.isLogin()) {
+            swal({title:"Please Login"})
+            return
+        }
         this.setState({ amount: this.state.amount + 1 });
     } 
 
     decreaseProd() {
+        if (!this.isLogin()) {
+            swal({title:"Please Login"})
+            return
+        }
         if(this.state.amount > 0)
             this.setState({ amount: this.state.amount - 1 });
     }
 
+    isLogin(){
+        const cookies = new Cookies();
+        var key = cookies.get('key');
+        if (key === 'null' || key === undefined) 
+            return false;
+        return true;
+    }
+
     addProdToCart() {
-        this.setState({ amount: 0});
+        if (!this.isLogin()) {
+            swal({title:"Please Login"})
+            return
+        }
+        if(this.state.amount > 0){
+            const newProd = this.state.prod;
+            newProd.push({ prod_id: this.state.id, name: this.state.name, amount: this.state.amount, price: this.state.price, imageName: this.state.imageName}); 
+            this.setState({prod: newProd})
+            
+            const cookies = new Cookies();
+            var key = cookies.set('prod',this.state.prod,);
+            this.setState({ amount: 0});
+            swal({title:"Your product is already added"})
+        } else {
+            swal({title:"You should add product before add to cart"})
+        }
     }
     
     checkLogin(){
         const cookies = new Cookies();
         var key = cookies.get('key');
-        if(key!=null)
+        if(key!== 'null' && key !== undefined)
             return <ProfileNav />;
         return <LoginNav />;
     }
 
     render(){
-        const path = this.state.imageName;
+        const image = this.state.detail.map((det, index) => {
+             return  <img className="mat-img-prod" key="mat-prod" src={require('../img/mat/'+det.image_name)} alt="mat-pic"/>
+        });
           return (
             <div>
                 <Navbar />                 
@@ -63,7 +104,7 @@ class MatDetail extends Component {
                     <p className="mat-head">Material</p>
                     <div className="row">
                         <div id="img-mat" className="col-lg-6">
-                            <img className="mat-img-prod" src={require('../img/mat/black.jpg')} alt="mat-pic"/>
+                            {image}   
                         </div>
                         <div className="mat-right col-lg-6">
                             <p>NAME:&ensp;&ensp;{this.state.name}</p>
@@ -75,7 +116,7 @@ class MatDetail extends Component {
                                 <input className="mat-amount" type="number" value={this.state.amount} required/>
                                 <button className="mat-btn-add" onClick={this.increaseProd}>+</button>&ensp;Yard of Fabric
                             </div>
-                            <button className="mat-btn-submit">ADD TO CARD</button>
+                            <button className="mat-btn-submit" onClick={this.addProdToCart}>ADD TO CART</button>
                         </div>
                     </div>
                 </div>
