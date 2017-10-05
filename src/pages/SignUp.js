@@ -13,6 +13,7 @@ import platinum from '../img/icon/platinum.png'
 import diamond from '../img/icon/diamond.png'
 import visa from '../img/icon/visa.png'
 import master from '../img/icon/mastercard.png'
+import swal from 'sweetalert'
 
 class SignUp extends Component {
     
@@ -50,8 +51,7 @@ class SignUp extends Component {
     }
 
     handleSubmit(event){
-        axios.post('https://pairmhai-api.herokuapp.com/membership/register',
-        {
+        axios.post('http://pairmhai-api.herokuapp.com/membership/register', {
             "user": {
                 "username": this.state.username,
                 "first_name": this.state.firstname,
@@ -74,8 +74,10 @@ class SignUp extends Component {
         })
         .catch(function (error) {
             console.log(error);
-        });
-        event.preventDefault(); 
+            swal ( "Oops" ,  "Please enter valid data" ,  "error" )
+        });  
+        event.preventDefault();
+
     }
 
   
@@ -87,7 +89,7 @@ class SignUp extends Component {
                 <p className="signup">SIGN UP</p>
                 <form onSubmit={this.handleSubmit}>
                     <div className="container">
-                        USERNAME: <input type="text" name="username" value={this.state.username} onChange={this.handleChange}/>&nbsp;&nbsp;&nbsp;&nbsp;
+                        USERNAME: <input type="user" name="username" value={this.state.username} onChange={this.handleChange}/>&nbsp;&nbsp;&nbsp;&nbsp;
                         PASSWORD: <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/>&nbsp;&nbsp;&nbsp;&nbsp;
                         CONFIRM PASSWORD: <input type="password" name="cfpassword" value={this.state.cfpassword} onChange={this.handleChange}/>
                     </div>
@@ -110,36 +112,31 @@ class SignUp extends Component {
                         <div className="member-box">
                             <img id="class-icon" src={diamond} alt="diamond-icon" className="diamond-icon member-icon"/> 
                             <br/><input type="radio" name="classes" value="5" className="member-radio" onChange={this.handleChange}/>
-                            {/* <a data-tip="Discount 12% each time that purchase product.">DIAMOND</a> 
-                            <ReactTooltip place="ribottomght" type="dark" effect="float"/> */}
+                            <a data-tip="Discount 12% each time that purchase product.">DIAMOND</a> 
                         </div>
                            
                         <div className="member-box">
                             <img id="class-icon" src={platinum} alt="platinum-icon" className="platinum-icon member-icon"/> 
-                            <br/><input type="radio" name="classes" value="4" className="member-radio"  onChange={this.handleChange}/>
-                            {/* <a data-tip="Discount 10% each time that purchase product.">PLATINUM</a>
-                            <ReactTooltip place="bottom" type="dark" effect="float"/> */}
+                            <br/><input type="radio" name="classes" value="4" className="member-radio" onChange={this.handleChange}/>
+                            <a data-tip="Discount 10% each time that purchase product.">PLATINUM</a>
                         </div>
                           
                         <div className="member-box">
                             <img id="class-icon" src={gold} alt="gold-icon" className="gold-icon member-icon"/> 
                             <br/><input type="radio"  name="classes" value="3" className="member-radio" onChange={this.handleChange}/>
-                            {/* <a data-tip="Discount 8% each time that purchase product.">GOLD</a>
-                            <ReactTooltip place="bottom" type="dark" effect="float"/> */}
+                            <a data-tip="Discount 8% each time that purchase product.">GOLD</a>
                         </div>
 
                         <div className="member-box">
                             <img id="class-icon" src={silver} alt="silver-icon" className="silver-icon member-icon"/> 
-                            <br/><input type="radio" name="classes" value="2" className="member-radio"  onChange={this.handleChange}/>
-                            {/* <a data-tip="Discount 5% each time that purchase product.">SILVER</a> 
-                            <ReactTooltip place="bottom" type="dark" effect="float"/> */}
+                            <br/><input type="radio" name="classes" value="2" className="member-radio" onChange={this.handleChange}/>
+                            <a data-tip="Discount 5% each time that purchase product.">SILVER</a> 
                         </div>
                             
                         <div className="member-box">
                             <img id="class-icon" src={bronze} alt="bronze-icon" className="bronze-icon member-icon"/> 
-                            <br/><input type="radio" name="classes" value="1" className="member-radio"  onChange={this.handleChange}/>
-                            {/* <a data-tip="Discount 2% each time that purchase product.">BRONZE</a>
-                            <ReactTooltip place="bottom" type="dark" effect="float"/> */}
+                            <br/><input type="radio" name="classes" value="1" className="member-radio" onChange={this.handleChange}/>
+                            <a data-tip="Discount 2% each time that purchase product.">BRONZE</a>
                         </div>
                                              
                         </div>
@@ -182,7 +179,7 @@ class SignUp extends Component {
                             </Modal>
                         </div>
                     </div><br></br>
-                    <input type="submit" value="SIGN UP" className="signup_btn"/><br></br><br></br>
+                <input type="submit" href="/home" value="SIGN UP" className="signup_btn" /><br></br><br></br>
                 </form> 
             </div>
             </div>
