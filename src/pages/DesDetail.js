@@ -45,7 +45,7 @@ class DesDetail extends Component {
         .then((response)=> {
             this.setState({ id: response.data.product_id,
                 name: response.data.name, description: response.data.description,
-                price: response.data.price, imageName: '../img/des/'+response.data.image_name,
+                price: response.data.price, color: response.data.color, imageName: '../img/des/'+response.data.image_name,
                 // material: response.data.material
             })
             console.log(response)
@@ -78,6 +78,7 @@ class DesDetail extends Component {
                             <p>NAME:&ensp;{this.state.name}</p>
                             <p>DESCRIPTION:&ensp;{this.state.description}</p> 
                             {/* <p>MATERIAL:&ensp;Mudmee Silk  </p> */}
+                            <p>COLOR:&ensp;{this.state.color}</p>
                             <p>PRICE:&ensp;{this.state.price} Baht.- </p>
                             <div className="row des-group-btn ">
                                 <button className="des-btn-add" onClick={this.decreaseProd}>-</button>
