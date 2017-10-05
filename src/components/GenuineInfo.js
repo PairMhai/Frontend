@@ -21,8 +21,8 @@ class GenuineInfo extends Component {
                         <br/>&emsp;&emsp;&emsp;4. Pattern 
                         <br/>&emsp;&emsp;&emsp;5. Testing by using burn, if it’s smell after burning like burnt hair and produces black ashes, it mean that is genuine silk.
                         <br/>&emsp;&emsp;&emsp;6. Testing by using wedding ring, this testing cannot use for all type of silk. We can use this testing with low weight silk by pull silk through wedding ring. If its can thread the wedding ring, it mean that is genuine silk.        
-                        <img src={require('../img/Information/genuine.png')} alt="genuine-pic" width="50%" />   
-                        <img src={require('../img/Information/genuine1.jpg')} alt="genuine-pic" width="50%" />
+                        <img className="pic-info2" src={require('../img/Information/genuine.png')} alt="genuine-pic" width="47.5%" />   
+                        <img className="pic-info2" src={require('../img/Information/genuine1.jpg')} alt="genuine-pic" width="49.5%" />
                         <div className="info-ref">
                             Reference: http://www.mizpah.biz/how-do-i-tell-if-my-silk-genuine-or-artificial
                         </div>
