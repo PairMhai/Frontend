@@ -28,6 +28,11 @@
     margin-bottom: -1.5%; 
 }
 
+.gender {
+    margin-right: -1.5%;
+    margin-left: -1.5%;
+}
+
 .hbd {
     border-style: solid;
     border-width: 1px;
@@ -53,7 +58,7 @@
     text-align: center;
     font-size: 100%;
     width: 15%;
-    height:50px;
+    height: 8%;
     background-color: white;
     border-style: solid;
     border-color: black;
@@ -61,26 +66,38 @@
 
 .addr {
     margin-top: 0%;
-    margin-right: 5px;
-    margin-left: 0%; 
     width: 30%;
-    height: 80px;
+    height: 100%;
 }
 
 .member {
     margin-top: 2%;
-    margin-bottom: -2%;
+    margin-bottom: -1%;
     margin-left: -30%;
 }
 
-.member-box {
-    border-style: solid;
-    border-width: 1px;
-    padding: .5%;
-    width: 10%;
-    height: 80px;
+.member-radio {
+    margin-right: 2%; 
     margin-left: 1%;
+    width: 5%;
+    height: 1em;
+}
+
+.member-box {
     display: inline-block;
+    margin-right: -7%;
+}
+
+.member-icon {
+    width: 50%;
+}
+
+.diamond-icon {
+    margin-left: 1%;
+}
+
+.platinum-icon {
+    margin-left: 3%;
 }
 
 .add-card-info {
@@ -99,7 +116,6 @@
 
 .modal-btn {
     margin-right: 2%;
-
 }
 
 .cvv {

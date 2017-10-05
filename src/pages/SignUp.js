@@ -5,6 +5,11 @@ import axios from 'axios';
 import '../CSS/SignUp.css';
 import ReactTooltip from 'react-tooltip'
 import Modal from 'react-modal'
+import bronze from '../img/icon/bronze.png'
+import silver from '../img/icon/silver.png'
+import gold from '../img/icon/gold.png'
+import platinum from '../img/icon/platinum.png'
+import diamond from '../img/icon/diamond.png'
 
 class SignUp extends Component {
     
@@ -90,36 +95,51 @@ class SignUp extends Component {
                         FIRSTNAME: <input type="text" name="first_name" value={this.state.firstname} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
                         LASTNAME: <input  type="text" name="last_name" value={this.state.lastname} onChange={this.handleChange}/> <br></br> <br></br>
                         GENDER: 
-                            &nbsp;&nbsp;<input type="radio" name="gender" value="female" onChange={this.handleChange}/> FEMALE
-                            &nbsp;&nbsp;<input type="radio" name="gender" value="male" onChange={this.handleChange}/> MALE &nbsp;&nbsp;&nbsp;&nbsp;
-                        AGE: <input type="number" name="age" value={this.state.age} onChange={this.handleChange} />&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;<input type="radio" name="gender" className="gender" value="female" onChange={this.handleChange}/> FEMALE
+                            &nbsp;<input type="radio" name="gender" value="male" className="gender" onChange={this.handleChange}/> MALE &nbsp;&nbsp;&nbsp;&nbsp;
                         BIRTHDAY: <input type="date" name="date_of_birth" className="hbd" value={this.state.birthday} onChange={this.handleChange}/>
                                   <br></br><br></br>&nbsp;&nbsp;&nbsp;&nbsp;
                         E-MAIL: <input type="email" name="email" value={this.state.email} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
                         TEL: <input type="text" name="telephone" value={this.state.tel} onChange={this.handleChange}/><br></br> <br></br>&nbsp;&nbsp;&nbsp;&nbsp;
-                        ADDRESS: <textarea className="addr" name="address" value={this.state.address} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
-                        <p className="member">MEMBERSHIP:</p><br/>
+                        ADDRESS: <br/><textarea className="addr" name="address" value={this.state.address} onChange={this.handleChange}/> 
+                        
                         <div type="container" className="radio-container">
-                            <div className="member-box" data-tip="Discount 2% each time that purchase product.">
-                                <input type="radio" name="member" className="member-radio" value="bronze" onChange={this.handleChange}/>&nbsp;&nbsp;BRONZE 
-                                <ReactTooltip place="right" type="dark" effect="float"/>
-                            </div> 
-                            <div className="member-box" data-tip="Discount 5% each time that purchase product.">
-                                <input type="radio" name="member" className="member-radio" value="silver" onChange={this.handleChange}/>&nbsp;&nbsp;SILVER 
-                                <ReactTooltip place="right" type="dark" effect="float"/>   
-                            </div> 
-                            <div className="member-box" data-tip="Discount 8% each time that purchase product.">
-                                <input type="radio" name="member" className="member-radio" value="gold" onChange={this.handleChange}/>&nbsp;&nbsp;GOLD
-                                <ReactTooltip place="right" type="dark" effect="float"/>
-                            </div> 
-                            <div className="member-box" data-tip="Discount 10% each time that purchase product.">
-                                <input type="radio" name="member" className="member-radio" value="platinum" onChange={this.handleChange}/>&nbsp;&nbsp;PLATINUM
-                                <ReactTooltip place="right" type="dark" effect="float"/>
-                            </div> 
-                            <div className="member-box" data-tip="Discount 12% each time that purchase product.">
-                                <input type="radio" name="member" className="member-radio" value="diamond" onChange={this.handleChange}/>&nbsp;&nbsp;DIAMOND 
-                                <ReactTooltip place="right" type="dark" effect="float"/>
-                            </div> 
+                        <a className="member">MEMBERSHIP:</a>
+                        <div className="member-box">
+                            <input type="radio" name="member" className="member-radio" value="diamond" onChange={this.handleChange}/>
+                            <a data-tip="Discount 12% each time that purchase product.">DIAMOND</a> 
+                            <ReactTooltip place="ribottomght" type="dark" effect="float"/><br/>
+                            <img id="class-icon" src={diamond} alt="diamond-icon" className="diamond-icon member-icon"/> 
+                        </div>
+                           
+                        <div className="member-box">
+                            <input type="radio" name="member" className="member-radio" value="platinum" onChange={this.handleChange}/>
+                            <a data-tip="Discount 10% each time that purchase product.">PLATINUM</a>
+                            <ReactTooltip place="bottom" type="dark" effect="float"/><br/>
+                            <img id="class-icon" src={platinum} alt="platinum-icon" className="platinum-icon member-icon"/> 
+                        </div>
+                          
+                        <div className="member-box">
+                            <input type="radio" name="member" className="member-radio" value="gold" onChange={this.handleChange}/>
+                            <a data-tip="Discount 8% each time that purchase product.">GOLD</a>
+                            <ReactTooltip place="bottom" type="dark" effect="float"/><br/>
+                            <img id="class-icon" src={gold} alt="gold-icon" className="gold-icon member-icon"/> 
+                        </div>
+
+                        <div className="member-box">
+                            <input type="radio" name="member" className="member-radio" value="silver" onChange={this.handleChange}/>
+                            <a data-tip="Discount 5% each time that purchase product.">SILVER</a> 
+                            <ReactTooltip place="bottom" type="dark" effect="float"/><br/>
+                            <img id="class-icon" src={silver} alt="silver-icon" className="silver-icon member-icon"/> 
+                        </div>
+                            
+                        <div className="member-box">
+                            <input type="radio" name="member" className="member-radio" value="bronze" onChange={this.handleChange}/>
+                            <a data-tip="Discount 2% each time that purchase product.">BRONZE</a>
+                            <ReactTooltip place="bottom" type="dark" effect="float"/><br/>
+                            <img id="class-icon" src={bronze} alt="bronze-icon" className="bronze-icon member-icon"/> 
+                        </div>
+                                             
                         </div>
                         <br/>
                     </div>
@@ -146,7 +166,7 @@ class SignUp extends Component {
                                     <input type="radio" name="card"/>Master-Card</div>   
                                     <br/>
                                     Card Number &nbsp;&nbsp;<input className="card-number"/>&nbsp;&nbsp;
-                                    Bank &nbsp;&nbsp;<input className="bank"/>&nbsp;&nbsp;
+                                    {/* Bank &nbsp;&nbsp;<input className="bank"/>&nbsp;&nbsp; */}
                                     CVV &nbsp;&nbsp;<input className="cvv"/><br/><br/>            
                                     Card Holder &nbsp;&nbsp;<input className="card-holder"/>&nbsp;&nbsp;
                                     EXP &nbsp;&nbsp;<input type="month" className="exp"/>
@@ -156,7 +176,7 @@ class SignUp extends Component {
                             </Modal>
                         </div>
                     </div><br></br>
-                    <input type="submit" value="SIGN UP" className="signup_btn"/><br></br><br></br>
+                    <input type="submit" value="SIGN UP" className="signup_btn btn-height"/><br></br><br></br>
                 </form> 
             </div>
             </div>
