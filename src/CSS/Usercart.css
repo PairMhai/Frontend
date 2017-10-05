@@ -15,14 +15,14 @@ a:link {
 .scrollit
 {
     overflow:scroll;
-    height:100px;
+    height:100%;
     width: 80%;
     float: right;
     border-collapse: collapse;
     
 }
 tbody {
-    height: 100px;       
+    height: 80%;       
     overflow-y: auto;    
     overflow-x: hidden; 
     
@@ -32,7 +32,8 @@ tbody {
 .cart-table {
     float: right;
     border-collapse: collapse;
-    width: 80%;
+    width: 95%;
+    
     border: 2px solid black;
     font-size: 20px ;
     
