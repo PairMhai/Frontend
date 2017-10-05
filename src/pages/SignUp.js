@@ -189,9 +189,9 @@ class SignUp extends Component {
                                 <div className="info-box">
                                     <div className="card-box">
                                         <input type="radio" name="card"/>
-                                        <img id="pay_icon" src={visa} alt="visa-icon"/> 
+                                        <img id="visa_icon" src={visa} alt="visa-icon"/> 
                                         <input type="radio" name="card"/>
-                                        <img id="pay_icon" src={master} alt="master-icon"/>    
+                                        <img id="visa_icon" src={master} alt="master-icon"/>    
                                     </div>
                                     <br/>
                                     Card Number &nbsp;&nbsp;<input className="card-number"/>&nbsp;&nbsp;
