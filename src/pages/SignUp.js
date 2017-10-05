@@ -106,37 +106,37 @@ class SignUp extends Component {
                         <div type="container" className="radio-container">
                         <a className="member">MEMBERSHIP:</a>
                         <div className="member-box">
-                            <input type="radio" name="member" className="member-radio" value="diamond" onChange={this.handleChange}/><br/>
                             <img id="class-icon" src={diamond} alt="diamond-icon" className="diamond-icon member-icon"/> 
-                            <br/><a data-tip="Discount 12% each time that purchase product.">DIAMOND</a> 
+                            <br/><input type="radio" name="member" className="member-radio" value="diamond" onChange={this.handleChange}/>
+                            <a data-tip="Discount 12% each time that purchase product.">DIAMOND</a> 
                             <ReactTooltip place="ribottomght" type="dark" effect="float"/>
                         </div>
                            
                         <div className="member-box">
-                            <input type="radio" name="member" className="member-radio" value="platinum" onChange={this.handleChange}/><br/>
                             <img id="class-icon" src={platinum} alt="platinum-icon" className="platinum-icon member-icon"/> 
-                            <br/><a data-tip="Discount 10% each time that purchase product.">PLATINUM</a>
+                            <br/><input type="radio" name="member" className="member-radio" value="platinum" onChange={this.handleChange}/>
+                            <a data-tip="Discount 10% each time that purchase product.">PLATINUM</a>
                             <ReactTooltip place="bottom" type="dark" effect="float"/>
                         </div>
                           
                         <div className="member-box">
-                            <input type="radio" name="member" className="member-radio" value="gold" onChange={this.handleChange}/><br/>
                             <img id="class-icon" src={gold} alt="gold-icon" className="gold-icon member-icon"/> 
-                            <br/><a data-tip="Discount 8% each time that purchase product.">GOLD</a>
+                            <br/><input type="radio" name="member" className="member-radio" value="gold" onChange={this.handleChange}/>
+                            <a data-tip="Discount 8% each time that purchase product.">GOLD</a>
                             <ReactTooltip place="bottom" type="dark" effect="float"/>
                         </div>
 
                         <div className="member-box">
-                            <input type="radio" name="member" className="member-radio" value="silver" onChange={this.handleChange}/><br/>
                             <img id="class-icon" src={silver} alt="silver-icon" className="silver-icon member-icon"/> 
-                            <br/><a data-tip="Discount 5% each time that purchase product.">SILVER</a> 
+                            <br/><input type="radio" name="member" className="member-radio" value="silver" onChange={this.handleChange}/>
+                            <a data-tip="Discount 5% each time that purchase product.">SILVER</a> 
                             <ReactTooltip place="bottom" type="dark" effect="float"/>
                         </div>
                             
                         <div className="member-box">
-                            <input type="radio" name="member" className="member-radio" value="bronze" onChange={this.handleChange}/><br/>
                             <img id="class-icon" src={bronze} alt="bronze-icon" className="bronze-icon member-icon"/> 
-                            <br/><a data-tip="Discount 2% each time that purchase product.">BRONZE</a>
+                            <br/><input type="radio" name="member" className="member-radio" value="bronze" onChange={this.handleChange}/>
+                            <a data-tip="Discount 2% each time that purchase product.">BRONZE</a>
                             <ReactTooltip place="bottom" type="dark" effect="float"/>
                         </div>
                                              
