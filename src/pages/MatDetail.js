@@ -36,8 +36,16 @@ class MatDetail extends Component {
         .catch(function (error){
             console.log(error);
         })
-
-        console.log(this.state.detail)
+         
+        const cookies = new Cookies();
+        
+        if(cookies.get('prod')!== 'null' && cookies.get('prod') !== undefined){
+            var oldProd = cookies.get('prod');
+            this.setState({prod: oldProd,})
+        } else {
+            var key = cookies.set('prod',this.state.prod,{path: '/'});
+        }
+        console.log(this.state.prod);
     }
 
     increaseProd() {
@@ -72,12 +80,12 @@ class MatDetail extends Component {
         }
         if(this.state.amount > 0){
             const newProd = this.state.prod;
-            newProd.push({ prod_id: this.state.id, name: this.state.name, amount: this.state.amount, price: this.state.price, imageName: this.state.imageName}); 
-            this.setState({prod: newProd})
-            
-            const cookies = new Cookies();
-            var key = cookies.set('prod',this.state.prod,);
+            newProd.push({ prod_id: this.state.id,type: 'mat', name: this.state.name, amount: this.state.amount, price: this.state.price, imageName: this.state.imageName, remark: ''}); 
+            this.setState({prod: newProd});
             this.setState({ amount: 0});
+            const cookies = new Cookies();
+            cookies.set('prod',this.state.prod,{path: '/'})
+            console.log(this.state.prod);
             swal({title:"Your product is already added"})
         } else {
             swal({title:"You should add product before add to cart"})
@@ -113,7 +121,7 @@ class MatDetail extends Component {
                             <p>PRICE:&ensp;{this.state.price} Baht.- / Yard of Fabric</p>
                             <div className="row mat-group-btn ">
                                 <button className="mat-btn-add" onClick={this.decreaseProd}>-</button>
-                                <input className="mat-amount" type="number" value={this.state.amount} required/>
+                                <input className="mat-amount" type="number" value={this.state.amount} disabled/>
                                 <button className="mat-btn-add" onClick={this.increaseProd}>+</button>&ensp;Yard of Fabric
                             </div>
                             <button className="mat-btn-submit" onClick={this.addProdToCart}>ADD TO CART</button>

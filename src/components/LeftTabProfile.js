@@ -18,7 +18,8 @@ class LeftTabProfile extends Component {
 
     logout(e) {
         const cookies = new Cookies();
-        cookies.set('key', null, {path: '/'});
+        cookies.remove('key', {path: '/'});
+        cookies.remove('prod',{path: '/'});
         window.location = "/home"
     }
     
