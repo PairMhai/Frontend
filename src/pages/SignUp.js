@@ -20,7 +20,8 @@ class SignUp extends Component {
     constructor(props){
         super(props);
         this.state = { username: '', password: '', cfpassword: '', firstname: '', lastname: '', 
-        gender: '',email: '', birthday: '', tel: '',  address: '', classes: '', isActive: false};
+        gender: '',email: '', birthday: '', tel: '',  address: '', classes: '', isActive: false,
+        card_number: '', bank:'', cvv:'', card_holder:'', exp:'', customer:'',};
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -46,9 +47,6 @@ class SignUp extends Component {
         })
     }
 
-    open() {
-        <AddCard/>
-    }
 
     handleSubmit(event){
         axios.post('http://pairmhai-api.herokuapp.com/membership/register', {
@@ -79,6 +77,22 @@ class SignUp extends Component {
         event.preventDefault();
 
     }
+
+    handleCard(event) {
+        const cookies = new Cookies();
+        axios.post('https://pairmhai-api.herokuapp.com/payment/',{ 
+            "owner": this.state.card_holder,
+            "credit_no": this.state.card_number,
+            "ccv": this.state.cvv,
+            "expire_date": this.state.exp,
+            "customer": cookies.get('key')
+        })
+        .catch(function (error) {
+        swal ( "Oops" ,  "Incorrect data" ,  "error" )
+        });
+        event.preventDefault();      
+    }
+
 
   
     render() {
@@ -156,27 +170,28 @@ class SignUp extends Component {
                         </table><br></br>
                         <div>
                             <button className="signup_btn pull-right" onChange={this.handleChange} onClick={this.toggleModal}>ADD CARD</button>
-                            <Modal isOpen={this.state.isActive} onRequestClose={this.toggleModal} contentLabel="Modal">
+                            <Modal contentLabel="modal" isOpen={this.state.isActive} onRequestClose={this.toggleModal} contentLabel="Modal">
                                 <div>
                                     <p className="add-card-info">CARD INFORMATION</p>
                                 </div><br/>
                                 <div className="info-box">
                                     <div className="card-box">
-                                        <input type="radio" name="card"/>
+                                        <input type="radio" name="card" onChange={this.handleChange}/>
                                         <img id="visa_icon" src={visa} alt="visa-icon"/> 
-                                        <input type="radio" name="card"/>
+                                        <input type="radio" name="card" onChange={this.handleChange}/>
                                         <img id="visa_icon" src={master} alt="master-icon"/>    
                                     </div>
                                     <br/>
-                                    Card Number &nbsp;&nbsp;<input className="card-number"/>&nbsp;&nbsp;
-                                    {/* Bank &nbsp;&nbsp;<input className="bank"/>&nbsp;&nbsp; */}
-                                    CVV &nbsp;&nbsp;<input className="cvv"/><br/><br/>            
-                                    Card Holder &nbsp;&nbsp;<input className="card-holder"/>&nbsp;&nbsp;
-                                    EXP &nbsp;&nbsp;<input type="month" className="exp"/>
+                                    Card Number &nbsp;&nbsp;<input className="card_number" name="card_number" value={this.state.card_number} onChange={this.handleChange}/>&nbsp;&nbsp;
+                                    Bank &nbsp;&nbsp;<input className="bank" name="bank" value={this.state.bank} onChange={this.handleChange}/>&nbsp;&nbsp;
+                                    CVV &nbsp;&nbsp;<input className="cvv" name="cvv" value={this.state.cvv} onChange={this.handleChange}/><br/><br/>            
+                                    Card Holder &nbsp;&nbsp;<input className="card_holder" name="card_holder" value={this.state.card_holder} onChange={this.handleChange}/>&nbsp;&nbsp;
+                                    EXP &nbsp;&nbsp;<input type="month" className="exp" name="exp" value={this.state.exp} onChange={this.handleChange}/>
                                 </div><br/>
                                 <button className="signup_btn modal-btn" onChange={this.handleChange} onClick={this.toggleModal}>CANCEL</button>
-                                <button className="signup_btn modal-btn" onChange={this.handleChange}>ADD</button>
+                                <button className="signup_btn modal-btn" onChange={this.handleChange} onClick={this.handleCard}>ADD</button>
                             </Modal>
+
                         </div>
                     </div><br></br>
                 <input type="submit" href="/home" value="SIGN UP" className="signup_btn" /><br></br><br></br>

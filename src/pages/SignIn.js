@@ -46,6 +46,10 @@ class SignIn extends Component {
           });
         event.preventDefault(); 
     }
+    toggleModal = () => {
+            this.setState({
+            isActive: !this.state.isActive
+        })}
    
     render(){
         return (
