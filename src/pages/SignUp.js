@@ -1,9 +1,9 @@
 import React , {Component} from 'react'
+import {Cookies} from 'react-cookie'
 import Navbar from '../components/Navbar'
 import AddCard from '../components/AddCard'
 import axios from 'axios';
 import '../CSS/SignUp.css';
-import {Cookies } from 'react-cookie';
 import ReactTooltip from 'react-tooltip'
 import Modal from 'react-modal'
 import bronze from '../img/icon/bronze.png'
@@ -13,6 +13,7 @@ import platinum from '../img/icon/platinum.png'
 import diamond from '../img/icon/diamond.png'
 import visa from '../img/icon/visa.png'
 import master from '../img/icon/mastercard.png'
+import swal from 'sweetalert'
 
 class SignUp extends Component {
     
@@ -50,18 +51,6 @@ class SignUp extends Component {
     }
 
     handleSubmit(event){
-        console.log(this.state.firstname);
-        console.log(this.state.lastname);
-        console.log(this.state.email);
-        console.log(this.state.tel);
-        console.log(this.state.birthday);
-        console.log(this.state.password);
-        console.log(this.state.cfpassword);
-        console.log(this.state.username);
-        console.log(this.state.gender);
-        console.log(this.state.address); 
-        console.log(this.state.classes); 
-
         axios.post('http://pairmhai-api.herokuapp.com/membership/register', {
             "user": {
                 "username": this.state.username,
@@ -78,12 +67,17 @@ class SignUp extends Component {
             "classes": this.state.classes
         })
         .then(function (response) {
+            const cookies = new Cookies();
+            cookies.set('key', response.data.key, {path: '/'})
+            window.location = "/home"
             console.log(response);
         })
         .catch(function (error) {
             console.log(error);
+            swal ( "Oops" ,  "Please enter valid data" ,  "error" )
         });  
-        event.preventDefault(); 
+        event.preventDefault();
+
     }
 
   
@@ -155,35 +149,30 @@ class SignUp extends Component {
                             <img id="class-icon" src={diamond} alt="diamond-icon" className="diamond-icon member-icon"/> 
                             <br/><input type="radio" name="classes" value="5" className="member-radio" onChange={this.handleChange}/>
                             <a data-tip="Discount 12% each time that purchase product.">DIAMOND</a> 
-                            
                         </div>
                            
                         <div className="member-box">
                             <img id="class-icon" src={platinum} alt="platinum-icon" className="platinum-icon member-icon"/> 
                             <br/><input type="radio" name="classes" value="4" className="member-radio" onChange={this.handleChange}/>
                             <a data-tip="Discount 10% each time that purchase product.">PLATINUM</a>
-                            
                         </div>
                           
                         <div className="member-box">
                             <img id="class-icon" src={gold} alt="gold-icon" className="gold-icon member-icon"/> 
                             <br/><input type="radio"  name="classes" value="3" className="member-radio" onChange={this.handleChange}/>
                             <a data-tip="Discount 8% each time that purchase product.">GOLD</a>
-                            
                         </div>
 
                         <div className="member-box">
                             <img id="class-icon" src={silver} alt="silver-icon" className="silver-icon member-icon"/> 
                             <br/><input type="radio" name="classes" value="2" className="member-radio" onChange={this.handleChange}/>
                             <a data-tip="Discount 5% each time that purchase product.">SILVER</a> 
-                            
                         </div>
                             
                         <div className="member-box">
                             <img id="class-icon" src={bronze} alt="bronze-icon" className="bronze-icon member-icon"/> 
                             <br/><input type="radio" name="classes" value="1" className="member-radio" onChange={this.handleChange}/>
                             <a data-tip="Discount 2% each time that purchase product.">BRONZE</a>
-                           
                         </div>
                                              
                         </div>
@@ -226,7 +215,7 @@ class SignUp extends Component {
                             </Modal>
                         </div>
                     </div><br></br>
-                    <input type="submit" value="SIGN UP" className="signup_btn"/><br></br><br></br>
+                <input type="submit" href="/home" value="SIGN UP" className="signup_btn" /><br></br><br></br>
                 </form> 
             </div>
             </div>
