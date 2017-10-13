@@ -43,13 +43,8 @@ class SignUp extends Component {
     toggleModal = () => {
         this.setState({
             isActive: !this.state.isActive
-        }),
-        <AddCard/>
+        })
     }
-
-    // open() {
-    //     <AddCard/>
-    // }
 
     handleSubmit(event){
         axios.post('http://pairmhai-api.herokuapp.com/membership/register', {
