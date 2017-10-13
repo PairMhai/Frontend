@@ -12,10 +12,9 @@ class Promotion extends Component {
                 <Navbar /> 
                 <div className="row">
                     <div className="col-md-3 push-md-9">
-                      
                     </div>
                     <div className="col-md-9 push-md-3 cus-con">
-                        <h1>Coming Soon</h1>
+                        
                     </div>
                 </div>
             </div>
