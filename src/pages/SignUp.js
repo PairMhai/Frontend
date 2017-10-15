@@ -67,6 +67,14 @@ class SignUp extends Component {
         .then(function (response) {
             const cookies = new Cookies();
             cookies.set('key', response.data.key, {path: '/'})
+            axios.post('https://pairmhai-api.herokuapp.com/payment/',{ 
+                "owner": this.state.card_holder,
+                "credit_no": this.state.card_number,
+                "ccv": this.state.cvv,
+                "expire_date": this.state.exp,
+                "customer": cookies.get('key')
+            
+        })
             window.location = "/home"
             console.log(response);
         })
@@ -80,16 +88,13 @@ class SignUp extends Component {
 
     handleCard(event) {
         const cookies = new Cookies();
-        axios.post('https://pairmhai-api.herokuapp.com/payment/',{ 
+        this.setState = {
             "owner": this.state.card_holder,
             "credit_no": this.state.card_number,
             "ccv": this.state.cvv,
             "expire_date": this.state.exp,
             "customer": cookies.get('key')
-        })
-        .catch(function (error) {
-        swal ( "Oops" ,  "Incorrect data" ,  "error" )
-        });
+        }
         event.preventDefault();      
     }
 
@@ -186,10 +191,10 @@ class SignUp extends Component {
                                     Bank &nbsp;&nbsp;<input className="bank" name="bank" value={this.state.bank} onChange={this.handleChange}/>&nbsp;&nbsp;
                                     CVV &nbsp;&nbsp;<input className="cvv" name="cvv" value={this.state.cvv} onChange={this.handleChange}/><br/><br/>            
                                     Card Holder &nbsp;&nbsp;<input className="card_holder" name="card_holder" value={this.state.card_holder} onChange={this.handleChange}/>&nbsp;&nbsp;
-                                    EXP &nbsp;&nbsp;<input type="month" className="exp" name="exp" value={this.state.exp} onChange={this.handleChange}/>
+                                    EXP &nbsp;&nbsp;<input type="date" className="exp" name="exp" value={this.state.exp} onChange={this.handleChange}/>
                                 </div><br/>
                                 <button className="signup_btn modal-btn" onChange={this.handleChange} onClick={this.toggleModal}>CANCEL</button>
-                                <button className="signup_btn modal-btn" onChange={this.handleChange} onClick={this.handleCard}>ADD</button>
+                                <button className="signup_btn modal-btn" onChange={this.handleCard} onClick={this.handleCard}>ADD</button>
                             </Modal>
 
                         </div>
