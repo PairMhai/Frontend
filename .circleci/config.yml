@@ -18,19 +18,19 @@ jobs:
           - dependencies-{{ checksum "package.json" }}
           - dependencies-
       - run:
-        name: install dependency
-        command: 'npm install'
+          name: install dependency
+          command: 'npm install'
       - save_cache:
-        key: dependencies-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-          paths:
-            - ./node_modules
+          key: dependencies-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+            paths:
+              - ./node_modules
       # testing and coverage
       - run:
-        name: run code test
-        command: 'npm test'
+          name: run code test
+          command: 'npm test'
       - run:
-        name: run code coverage
-        command: './node_modules/.bin/nyc --reporter=lcov --reporter=text-lcov report'
+          name: run code coverage
+          command: './node_modules/.bin/nyc --reporter=lcov --reporter=text-lcov report'
       # save artifacts
       - store_artifacts:
           path: test-results.xml
@@ -39,4 +39,4 @@ jobs:
           path: coverage
           prefix: coverage
       - store_test_results:
-        path: test-results.xml
+          path: test-results.xml
