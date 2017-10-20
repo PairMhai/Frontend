@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
+    workflows: ~/frontend
     docker:
       # node 4.8.2
       - image: circleci/node:4.8.2
