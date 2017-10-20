@@ -9,21 +9,21 @@ jobs:
       - checkout
       # upgrade npm to latest version
       - run:
-        name: update npm
-        command: 'sudo npm install -g npm@latest'
+          name: update npm
+          command: 'sudo npm install -g npm@latest'
       # install and update package
       - restore_cache:
           keys:
-          - dependencies-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-          - dependencies-{{ checksum "package.json" }}
-          - dependencies-
+            - dependencies-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+            - dependencies-{{ checksum "package.json" }}
+            - dependencies-
       - run:
           name: install dependency
           command: 'npm install'
       - save_cache:
           key: dependencies-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-            paths:
-              - ./node_modules
+          paths:
+            - ./node_modules
       # testing and coverage
       - run:
           name: run code test
