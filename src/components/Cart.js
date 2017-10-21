@@ -2,7 +2,6 @@ import React , {Component} from 'react'
 import { Cookies } from 'react-cookie';
 import Navbar from '../components/Navbar'
 import LeftTabProfile from '../components/LeftTabProfile'
-import Modal from 'react-modal'
 import '../CSS/Cart.css';
 import ems from '../img/icon/ems-logo.png'
 import kerry from '../img/icon/kerry-exprss-logo.png'

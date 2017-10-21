@@ -3,7 +3,7 @@ import {Cookies} from 'react-cookie'
 import Navbar from '../components/Navbar'
 import axios from 'axios';
 import '../CSS/SignUp.css';
-import ReactTooltip from 'react-tooltip'
+// import ReactTooltip from 'react-tooltip'
 import Modal from 'react-modal'
 import bronze from '../img/icon/bronze.png'
 import silver from '../img/icon/silver.png'
