@@ -1,7 +1,6 @@
 import React , {Component} from 'react'
 import {Cookies} from 'react-cookie'
 import Navbar from '../components/Navbar'
-import AddCard from '../components/AddCard'
 import axios from 'axios';
 import '../CSS/SignUp.css';
 import ReactTooltip from 'react-tooltip'

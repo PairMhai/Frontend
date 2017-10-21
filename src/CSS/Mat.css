@@ -42,6 +42,7 @@ input::-webkit-inner-spin-button {
     width: 15%;
     text-align: center;
     margin: 0;
+    background-color: white;
 }
 
 .mat-btn-add{

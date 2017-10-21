@@ -1,0 +1,25 @@
+.event {
+    font-size: 450%;
+    margin-top: 0%;
+    margin-left: 40%;
+    margin-bottom: -4%;  
+}
+
+.promotion-box {
+    border: .2em solid black;
+    padding: 2em;
+    overflow-y: scroll;
+    height: 20em;
+}
+
+.promotion-info {
+    display: inline-block;
+    margin-right: 10%;
+    margin-top: 3%;
+}
+
+/* .promo-pic {
+    width: 50%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+} */
