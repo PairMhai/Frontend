@@ -2,6 +2,7 @@ import React , {Component} from 'react'
 import { Cookies } from 'react-cookie';
 import Navbar from '../components/Navbar'
 import LeftTabProfile from '../components/LeftTabProfile'
+
 import Modal from 'react-modal'
 import '../CSS/Payment.css'
 
@@ -44,6 +45,7 @@ class Payment extends Component {
             return <img src={ require('../img/icon/kerry-exprss-logo.png')} alt="KERRY" width="15%" />
         else
             return <img src={ require('../img/icon/lineman.png')} alt="LINEMAN" width="15%" />
+
     }
 
     render(){
@@ -57,7 +59,7 @@ class Payment extends Component {
                     <div className="col-md-9 push-md-3 cus-con">
                         <p className="pay-header">PAYMENT</p>
                         <div className="pay-info">
-                            TOTAL PRICE:&emsp;<span className="pay-price" id="price"> 2300</span>&emsp;Baht.- <br/>      
+                            TOTAL PRICE:&emsp;<span className="pay-price" id="price"> 2300</span>&emsp;Baht.- <br/>
                             SELECT CARD &emsp;or&emsp; <input className="pay-btn-add" type="button" value="ADD CART" onClick={this.cardToggleModal}/>
                             <Modal isOpen={this.state.isCardActive} onRequestClose={this.cardToggleModal} contentLabel="Modal">
                                 <div>
@@ -72,6 +74,7 @@ class Payment extends Component {
                                     </div>
                                     <br/>
                                     Card Number &nbsp;&nbsp;<input className="card-number"/>&nbsp;&nbsp;
+
                                     CVV &nbsp;&nbsp;<input className="cvv"/><br/><br/>            
                                     Card Holder &nbsp;&nbsp;<input className="card-holder"/>&nbsp;&nbsp;
                                     EXP &nbsp;&nbsp;<input type="month" className="exp"/>
