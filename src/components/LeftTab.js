@@ -39,6 +39,7 @@ class LeftTab extends Component {
             window.location = "/home/"
         })
         .catch(function (error) {
+            console.log(error)
             const cookies = new Cookies();
             cookies.set('key', null, {path: '/'})
             this.setState({password: ''})

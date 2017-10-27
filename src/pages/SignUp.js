@@ -2,8 +2,8 @@ import React , {Component} from 'react'
 import {Cookies} from 'react-cookie'
 import Navbar from '../components/Navbar'
 import AddCard from '../components/AddCard'
-import axios from 'axios';
-import '../CSS/SignUp.css';
+import axios from 'axios'
+import '../CSS/SignUp.css'
 import ReactTooltip from 'react-tooltip'
 import Modal from 'react-modal'
 import bronze from '../img/icon/bronze.png'
@@ -44,10 +44,6 @@ class SignUp extends Component {
         this.setState({
             isActive: !this.state.isActive
         })
-    }
-
-    open() {
-        <AddCard/>
     }
 
     handleSubmit(event){
