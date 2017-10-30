@@ -1,4 +1,5 @@
 import React , {Component} from 'react'
+import axios from 'axios';
 import { Cookies } from 'react-cookie';
 import Navbar from '../components/Navbar'
 import LeftTabProfile from '../components/LeftTabProfile'
@@ -6,18 +7,48 @@ import '../CSS/History.css'
 
 class History extends Component {
 
-    componentWillMount() {
-        const cookies = new Cookies();
-        var key = cookies.get('key')
-        if(key !== 'null' && key !== undefined){
-            
-        } else {
-            window.location = "/home";
-        }
+    constructor(props){
+        super(props);
+        this.state = { prodhis: [] ,id:'',productid:'',
+        design:'', material:'',quantity:''}
+
+        
     }
 
-    render(){
+    clickOrder(e){
+        
+    }
 
+    searhOrder(e){
+
+    }
+    
+
+    componentWillMount(){
+        
+
+        const cookies = new Cookies();
+        var key = cookies.get('key')
+        axios.get('https://pairmhai-api.herokuapp.com/cart/history/'+key)
+        .then((response)=> {
+            this.setState({ prodhis: response.data 
+            });
+            console.log(this.state.prodhis)
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
+    
+
+    render(){
+        const allhis = this.state.prodhis.map((prodhisval, index) => {
+            return <div className="row" key={prodhisval.id} onClick={this.clickOrder}>
+            <div className="first-col-his">{prodhisval.id}</div>
+            <div className="second-col-his" >{prodhisval.products.map((detail,ind)=> {return <div>{detail.product.id}</div>})}<br/>{prodhisval.design}<br/>{prodhisval.material}</div>
+            <div className="second-col-his">{prodhisval.quantity}</div>
+            </div>
+        });
 
         
 
@@ -35,12 +66,8 @@ class History extends Component {
                         <button type="submit" className="search_btn" >
                         Search
                         </button>
-                        <div className="pay-info">
-                        <div className="row" key="001">
-                <div className="first-col-his">001</div>
-                <div className="second-col-his">Total :2300 Baht</div>
-                <div className="second-col-his">pink silk dress 1500 Baht.-</div>
-                </div>
+                        <div className="his-info">
+                        {allhis}
                         </div>
                     </div>
                 </div>

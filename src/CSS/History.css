@@ -35,3 +35,10 @@
     border: 2px solid black;
     font-size: 15px;
 }
+.his-info {
+    float: right;
+    height: 300px;
+    width: 95%;
+    border: 2px solid black;
+    font-size: 30px   
+}
