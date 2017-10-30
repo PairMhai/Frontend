@@ -4,11 +4,42 @@ import Navbar from '../components/Navbar'
 // import TabProfile from '../components/LeftTabProfile'
 import '../CSS/Payment.css'
 import '../CSS/Promotion.css';
-import user from '../img/icon/userpic.png'
+import axios from 'axios'
 
 class Promotion extends Component {
 
+    constructor(props) {
+        super(props)
+        this.state = { promotions: [] }
+    }
+
+    componentWillMount() {
+        axios.get('https://pairmhai-api.herokuapp.com/catalog/promotions')
+        .then((response) => {
+            console.log(response.data);
+            this.setState({promotions: response.data});
+        })
+        .catch(function (error) {
+            console.log(error);
+        }); 
+    }
+
     render(){
+        const promDet = this.state.promotions.map((promVal, index) => {
+            return (<div key={promVal.name}>
+                <div className="promotion-info">
+                    {/* <img className="img" src={require('../img/..'+ this.state.promotions.image_name)} width="100%" alt="product pic" /> */}
+                </div>
+                <div className="promotion-info">
+                        <h2><div>{promVal.name}</div></h2>                    
+                        {/* <div className="promo-detail" name="description">{promVal.description}</div><br/>
+                        <div className="promo-detail" name="discount">{promVal.discount}</div><br/> */}
+                        <div className="promo-detail" name="start">{promVal.start}</div> 
+                        <div className="promo-detail" name="end">{promVal.end}</div><br/>
+                </div>  
+                </div>  
+            );
+        });
         return (
             <div>
                 <Navbar /> 
@@ -18,28 +49,9 @@ class Promotion extends Component {
                     <div className="col-md-9 push-md-3 cus-con">
                         <p className="event">SPECIAL EVENT</p>
                         <div className="promotion-box">
-                            <div className="promotion-info">
-                                <img id="user_icon" src={user} alt="user-icon" className="promo-pic"/> 
-                            </div>
-                            <div className="promotion-info">
-                                <h2>Birthday Party!</h2>
-                                <p>
-                                    Special price!<br/>
-                                    Sale up to 70%<br/>
-                                    from 10-16 August 2018
-                                </p>
-                            </div>    
-                            <div className="promotion-info">
-                                <img id="user_icon" src={user} alt="user-icon"/> 
-                            </div>
-                            <div className="promotion-info">
-                                <h2>Mew's day</h2>
-                                <p>
-                                    Special price!<br/>
-                                    Sale up to 70%<br/>
-                                    from 10-16 August 2018
-                                </p>
-                            </div>    
+                            
+                            {promDet}
+                            
                         </div>
                     </div>
                 </div>
