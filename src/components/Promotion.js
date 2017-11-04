@@ -26,17 +26,16 @@ class Promotion extends Component {
 
     render(){
         const promDet = this.state.promotions.map((promVal, index) => {
-            return (<div key={promVal.name}>
-                <div className="promotion-info">
-                    {/* <img className="img" src={require('../img/..'+ this.state.promotions.image_name)} width="100%" alt="product pic" /> */}
-                </div>
-                <div className="promotion-info">
+            return (
+                <div key={promVal.name}>
+                        <img className="img" src={require('../img/Promotion/'+ promVal.image_name)} width="25%" alt="product pic" />
+                    <div className="promotion-info">
                         <h2><div>{promVal.name}</div></h2>                    
-                        {/* <div className="promo-detail" name="description">{promVal.description}</div><br/>
-                        <div className="promo-detail" name="discount">{promVal.discount}</div><br/> */}
+                        <div className="promo-detail" name="description">{promVal.description}</div><br/>
+                        <div className="promo-detail" name="discount">{promVal.discount}</div><br/>
                         <div className="promo-detail" name="start">{promVal.start}</div> 
                         <div className="promo-detail" name="end">{promVal.end}</div><br/>
-                </div>  
+                    </div>  
                 </div>  
             );
         });
