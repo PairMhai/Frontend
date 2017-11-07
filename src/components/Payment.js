@@ -17,7 +17,7 @@ class Payment extends Component {
 
     constructor(props){
         super(props);
-        this.state = { isActive: false, card_number: '', bank:'', cvv:'', card_holder:'', exp:'', customer:'',};
+        this.state = { isActive: false, card_number: '', bank:'', ccv:'', card_holder:'', exp:'', customer:'',};
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this); 
@@ -47,7 +47,7 @@ class Payment extends Component {
                 axios.post('https://pairmhai-api.herokuapp.com/payment/',{ 
                         "owner": this.state.card_holder,
                         "credit_no": this.state.card_number,
-                        "ccv": this.state.cvv,
+                        "ccv": this.state.ccv,
                         "expire_date": this.state.exp,
                         "customer": cookies.get('key')
                     
@@ -89,7 +89,7 @@ class Payment extends Component {
                                     <br/><br/>
                                     Card Number &nbsp;&nbsp;<input className="card_number" type="text" name="card_number" value={this.state.card_number} onChange={this.handleChange}/>&nbsp;&nbsp;
                                     Bank &nbsp;&nbsp;<input className="bank" name="bank" type="text" value={this.state.bank} onChange={this.handleChange}/>&nbsp;&nbsp;
-                                    CVV &nbsp;&nbsp;<input className="cvv" name="cvv" type="text" value={this.state.cvv} onChange={this.handleChange}/><br/><br/>            
+                                    CVV &nbsp;&nbsp;<input className="ccv" name="ccv" type="text" value={this.state.ccv} onChange={this.handleChange}/><br/><br/>            
                                     Card Holder &nbsp;&nbsp;<input className="card_holder" type="text" name="card_holder" value={this.state.card_holder} onChange={this.handleChange}/>&nbsp;&nbsp;
                                     EXP &nbsp;&nbsp;<input type="date" className="exp" name="exp" value={this.state.exp} onChange={this.handleChange}/>
                                 </div><br/>

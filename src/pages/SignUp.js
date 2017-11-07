@@ -1,3 +1,4 @@
+
 import React , {Component} from 'react'
 import {Cookies} from 'react-cookie'
 import Navbar from '../components/Navbar'
@@ -21,11 +22,15 @@ class SignUp extends Component {
         super(props);
         this.state = { username: '', password: '', cfpassword: '', firstname: '', lastname: '', 
         gender: '',email: '', birthday: '', tel: '',  address: '', classes: '', isActive: false,
-        card_number: '', bank:'', cvv:'', card_holder:'', exp:'', customer:'',};
+        card_number: '', bank:'', ccv:'', card_holder:'', exp:'', customer:'', card_detail:[]};
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
+
+    handleCard(event) {
+    }
+
 
     handleChange(event){
         const target = event.target;
@@ -38,18 +43,45 @@ class SignUp extends Component {
     }
 
     componentWillMount() {
+        // var card_owner = this.state.card_holder;
+        // var card_number = this.state.card_number;
+        // var card_ccv = this.state.ccv;
+        // var card_expire = this.state.exp;
+
+        // this.setState({card_detail: card_owner, card_number, card_ccv, card_expire})
+        const newCard = this.state.card_detail;
+        newCard.push({card_owner: this.state.card_holder, card_number: this.state.card_number, card_ccv: this.state.ccv, card_expire: this.state.exp});
+        this.setState({card_detail: newCard});
+        console.log(this.state.card_detail);
+
+        const cookies = new Cookies();
+        var key = cookies.set('card_detail',this.state.card_detail,);
+
         Modal.setAppElement('body');
     }
 
     toggleModal = () => {
-        this.setState({
-            isActive: !this.state.isActive
-        })
+        this.setState({ isActive: !this.state.isActive })
     }
 
-
     handleSubmit(event){
-        axios.post('http://pairmhai-api.herokuapp.com/membership/register', {
+        // axios.post('http://pairmhai-api.herokuapp.com/membership/register', {
+        //     "user": {
+        //         "username": this.state.username,
+        //         "first_name": this.state.firstname,
+        //         "last_name": this.state.lastname,
+        //         "email": this.state.email,
+        //         "telephone": this.state.tel,
+        //         "address": this.state.address,
+        //         "date_of_birth": this.state.birthday,
+        //         "gender": this.state.gender
+        //     },
+        //     "password1": this.state.password,
+        //     "password2": this.state.cfpassword,
+        //     "classes": this.state.classes
+        // })
+
+        axios.post('https://pairmhai-api.herokuapp.com/membership/register/', {
             "user": {
                 "username": this.state.username,
                 "first_name": this.state.firstname,
@@ -62,45 +94,42 @@ class SignUp extends Component {
             },
             "password1": this.state.password,
             "password2": this.state.cfpassword,
-            "classes": this.state.classes
+            "classes": this.state.classes,
+
+            "credit_cards": [
+                {
+                    "owner": this.state.card_owner,
+                    "credit_no": this.state.card_number,
+                    "ccv": this.state.card_ccv,
+                    "expire_date": this.state.card_expire
+                },
+                {
+                    "owner": this.state.card_owner,
+                    "credit_no": this.state.card_number,
+                    "ccv": this.state.card_ccv,
+                    "expire_date": this.state.card_expire
+                },
+            ]
         })
         .then(function (response) {
             const cookies = new Cookies();
             cookies.set('key', response.data.key, {path: '/'})
-            axios.post('https://pairmhai-api.herokuapp.com/payment/',{ 
-                "owner": this.state.card_holder,
-                "credit_no": this.state.card_number,
-                "ccv": this.state.cvv,
-                "expire_date": this.state.exp,
-                "customer": cookies.get('key')
-            
-        })
-            window.location = "/home"
+            //window.location = "/home"
             console.log(response);
         })
         .catch(function (error) {
             console.log(error);
             swal ( "Oops" ,  "Please enter valid data" ,  "error" )
-        });  
-        event.preventDefault();
-
+        });
+         event.preventDefault();  
     }
-
-    handleCard(event) {
-        const cookies = new Cookies();
-        this.setState = {
-            "owner": this.state.card_holder,
-            "credit_no": this.state.card_number,
-            "ccv": this.state.cvv,
-            "expire_date": this.state.exp,
-            "customer": cookies.get('key')
-        }
-        event.preventDefault();      
-    }
-
 
   
     render() {
+        const allCard = this.state.card_detail.map((cardVal, index)=>{
+           
+        });
+        
         return (
             <div>
                 <Navbar />
@@ -174,12 +203,13 @@ class SignUp extends Component {
                             </tbody>
                         </table><br></br>
                         <div>
-                            <button className="signup_btn pull-right" onChange={this.handleChange} onClick={this.toggleModal}>ADD CARD</button>
-                            <Modal contentLabel="modal" isOpen={this.state.isActive} onRequestClose={this.toggleModal} contentLabel="Modal">
+                            <button className="signup_btn pull-right" onClick={this.toggleModal}>ADD CARD</button>
+
+                            {<Modal contentLabel="modal" isOpen={this.state.isActive} onRequestClose={this.toggleModal} contentLabel="Modal">
                                 <div>
                                     <p className="add-card-info">CARD INFORMATION</p>
                                 </div><br/>
-                                <div className="info-box">
+                                {/* <div className="info-box">
                                     <div className="card-box">
                                         <input type="radio" name="card" onChange={this.handleChange}/>
                                         <img id="visa_icon" src={visa} alt="visa-icon"/> 
@@ -189,17 +219,18 @@ class SignUp extends Component {
                                     <br/>
                                     Card Number &nbsp;&nbsp;<input className="card_number" name="card_number" value={this.state.card_number} onChange={this.handleChange}/>&nbsp;&nbsp;
                                     Bank &nbsp;&nbsp;<input className="bank" name="bank" value={this.state.bank} onChange={this.handleChange}/>&nbsp;&nbsp;
-                                    CVV &nbsp;&nbsp;<input className="cvv" name="cvv" value={this.state.cvv} onChange={this.handleChange}/><br/><br/>            
+                                    CVV &nbsp;&nbsp;<input className="ccv" name="ccv" value={this.state.ccv} onChange={this.handleChange}/><br/><br/>            
                                     Card Holder &nbsp;&nbsp;<input className="card_holder" name="card_holder" value={this.state.card_holder} onChange={this.handleChange}/>&nbsp;&nbsp;
                                     EXP &nbsp;&nbsp;<input type="date" className="exp" name="exp" value={this.state.exp} onChange={this.handleChange}/>
-                                </div><br/>
-                                <button className="signup_btn modal-btn" onChange={this.handleChange} onClick={this.toggleModal}>CANCEL</button>
-                                <button className="signup_btn modal-btn" onChange={this.handleCard} onClick={this.handleCard}>ADD</button>
-                            </Modal>
+                                </div><br/> */}
+                                <button className="signup_btn modal-btn" onClick={this.toggleModal}>CANCEL</button>
+                                <button className="signup_btn modal-btn" onClick={this.toggleModal}>ADD</button>
+                            </Modal>}
 
                         </div>
                     </div><br></br>
-                <input type="submit" href="/home" value="SIGN UP" className="signup_btn" /><br></br><br></br>
+                <button className="signup_btn" onClick={this.handleSubmit} onChange={this.handleChange}>SIGN UP</button><br></br><br></br>
+
                 </form> 
             </div>
             </div>
@@ -208,3 +239,4 @@ class SignUp extends Component {
 }
 
 export default SignUp
+
