@@ -22,7 +22,7 @@ class SignUp extends Component {
         super(props);
         this.state = { username: '', password: '', cfpassword: '', firstname: '', lastname: '', 
         gender: '',email: '', birthday: '', tel: '',  address: '', classes: '', isActive: false,
-        card_number: '', bank:'', ccv:'', card_holder:'', exp:'', customer:'', card_detail:[]};
+        cardNumber: '', bank:'', ccv:'', cardHolder:'', exp:'', customer:'', cardDetail:[]};
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -49,13 +49,6 @@ class SignUp extends Component {
         // var card_expire = this.state.exp;
 
         // this.setState({card_detail: card_owner, card_number, card_ccv, card_expire})
-        const newCard = this.state.card_detail;
-        newCard.push({card_owner: this.state.card_holder, card_number: this.state.card_number, card_ccv: this.state.ccv, card_expire: this.state.exp});
-        this.setState({card_detail: newCard});
-        console.log(this.state.card_detail);
-
-        const cookies = new Cookies();
-        var key = cookies.set('card_detail',this.state.card_detail,);
 
         Modal.setAppElement('body');
     }
@@ -81,6 +74,29 @@ class SignUp extends Component {
         //     "classes": this.state.classes
         // })
 
+        console.log("user name: " + this.state.username);
+        console.log("first name: " + this.state.firstname);
+        console.log("last name: " + this.state.lastname);
+        console.log("email: " + this.state.email);
+        console.log("telephone: " + this.state.tel);
+        console.log("address: " + this.state.address);
+        console.log("date of birth: " + this.state.birthday);
+        console.log("gender: " + this.state.gender);
+        
+        console.log("owner: " + this.state.cardOwner);
+        console.log("credit no: " + this.state.cardNumber);
+        console.log("ccv: " + this.state.ccv);
+        console.log("expire date: " + this.state.exp);
+
+        const newCard = this.state.card_detail;
+        newCard.push({cardOwner: this.state.cardHolder, cardNumber: this.state.cardNumber, cardCcv: this.state.ccv, cardExpire: this.state.exp});
+        this.setState({cardDetail: newCard});
+        console.log(this.state.cardDetail);
+
+        const cookies = new Cookies();
+        var key = cookies.set('cardDetail',this.state.cardDetail,);
+
+
         axios.post('https://pairmhai-api.herokuapp.com/membership/register/', {
             "user": {
                 "username": this.state.username,
@@ -98,16 +114,16 @@ class SignUp extends Component {
 
             "credit_cards": [
                 {
-                    "owner": this.state.card_owner,
-                    "credit_no": this.state.card_number,
-                    "ccv": this.state.card_ccv,
-                    "expire_date": this.state.card_expire
+                    "owner": this.state.cardHolder,
+                    "credit_no": this.state.cardNumber,
+                    "ccv": this.state.ccv,
+                    "expire_date": this.state.exp
                 },
                 {
-                    "owner": this.state.card_owner,
-                    "credit_no": this.state.card_number,
-                    "ccv": this.state.card_ccv,
-                    "expire_date": this.state.card_expire
+                    "owner": this.state.cardHolder,
+                    "credit_no": this.state.cardNumber,
+                    "ccv": this.state.ccv,
+                    "expire_date": this.state.exp
                 },
             ]
         })
@@ -126,7 +142,7 @@ class SignUp extends Component {
 
   
     render() {
-        const allCard = this.state.card_detail.map((cardVal, index)=>{
+        const allCard = this.state.cardDetail.map((cardVal, index)=>{
            
         });
         
@@ -204,12 +220,11 @@ class SignUp extends Component {
                         </table><br></br>
                         <div>
                             <button className="signup_btn pull-right" onClick={this.toggleModal}>ADD CARD</button>
-
-                            {<Modal contentLabel="modal" isOpen={this.state.isActive} onRequestClose={this.toggleModal} contentLabel="Modal">
+                            <Modal contentLabel="modal" isOpen={this.state.isActive} onRequestClose={this.toggleModal} contentLabel="Modal">
                                 <div>
                                     <p className="add-card-info">CARD INFORMATION</p>
                                 </div><br/>
-                                {/* <div className="info-box">
+                                <div className="info-box">
                                     <div className="card-box">
                                         <input type="radio" name="card" onChange={this.handleChange}/>
                                         <img id="visa_icon" src={visa} alt="visa-icon"/> 
@@ -217,15 +232,15 @@ class SignUp extends Component {
                                         <img id="visa_icon" src={master} alt="master-icon"/>    
                                     </div>
                                     <br/>
-                                    Card Number &nbsp;&nbsp;<input className="card_number" name="card_number" value={this.state.card_number} onChange={this.handleChange}/>&nbsp;&nbsp;
-                                    Bank &nbsp;&nbsp;<input className="bank" name="bank" value={this.state.bank} onChange={this.handleChange}/>&nbsp;&nbsp;
-                                    CVV &nbsp;&nbsp;<input className="ccv" name="ccv" value={this.state.ccv} onChange={this.handleChange}/><br/><br/>            
-                                    Card Holder &nbsp;&nbsp;<input className="card_holder" name="card_holder" value={this.state.card_holder} onChange={this.handleChange}/>&nbsp;&nbsp;
-                                    EXP &nbsp;&nbsp;<input type="date" className="exp" name="exp" value={this.state.exp} onChange={this.handleChange}/>
-                                </div><br/> */}
+                                    Card Number &nbsp;&nbsp;<input name="cardNumber" value={this.state.cardNumber} onChange={this.handleChange}/>&nbsp;&nbsp;
+                                    Bank &nbsp;&nbsp;<input  name="bank" value={this.state.bank} onChange={this.handleChange}/>&nbsp;&nbsp;
+                                    CCV &nbsp;&nbsp;<input  name="ccv" value={this.state.ccv} onChange={this.handleChange}/><br/><br/>            
+                                    Card Holder &nbsp;&nbsp;<input  name="cardHolder" value={this.state.cardHolder} onChange={this.handleChange}/>&nbsp;&nbsp;
+                                    EXP &nbsp;&nbsp;<input type="date"  name="exp" value={this.state.exp} onChange={this.handleChange}/>
+                                </div><br/>
                                 <button className="signup_btn modal-btn" onClick={this.toggleModal}>CANCEL</button>
                                 <button className="signup_btn modal-btn" onClick={this.toggleModal}>ADD</button>
-                            </Modal>}
+                            </Modal>
 
                         </div>
                     </div><br></br>
