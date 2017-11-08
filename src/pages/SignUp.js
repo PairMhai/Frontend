@@ -20,7 +20,7 @@ class SignUp extends Component {
     constructor(props){
         super(props);
         this.state = { username: '', password: '', cfpassword: '', firstname: '', lastname: '', 
-        gender: '',email: '', birthday: '', tel: '',  address: '', classes: '', isActive: false,
+        gender: '',email: '', birthday:'', tel: '',  address: '', classes: '', isActive: false,
         cardNumber: '', ccv:'', cardHolder:'', exp:'', customer:'', cardDetail:[]};
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -57,20 +57,6 @@ class SignUp extends Component {
     }
 
     handleSubmit(event){
-        console.log("user name: " + this.state.username);
-        console.log("first name: " + this.state.firstname);
-        console.log("last name: " + this.state.lastname);
-        console.log("email: " + this.state.email);
-        console.log("telephone: " + this.state.tel);
-        console.log("address: " + this.state.address);
-        console.log("date of birth: " + this.state.birthday);
-        console.log("gender: " + this.state.gender);
-        
-        console.log("owner: " + this.state.cardOwner);
-        console.log("credit no: " + this.state.cardNumber);
-        console.log("ccv: " + this.state.ccv);
-        console.log("expire date: " + this.state.exp);
-
 
         axios.post('https://pairmhai-api.herokuapp.com/membership/register/', {
             "user": {
@@ -103,21 +89,14 @@ class SignUp extends Component {
 
   
     render() {
-        // const allCard = this.state.cardDetail.map((cardVal, index)=>{
-        //   return 
-        //   <div>
-        //   <table className="payment-table">
-        //       <tbody>
-        //           <tr>
-        //               <td>4569 xxx xxx</td>
-        //               <td>TMB</td>
-        //               <td>3/20</td>
-        //               <td>Thanawan Sean-in</td>
-        //           </tr>
-        //       </tbody>
-        //   </table><br></br>
-        //   </div>
-        // });
+        const allCard = this.state.cardDetail.map((cardVal, index)=>{
+          return <div className="row" key={index}>
+                <div className="first-col">{cardVal.owner}</div>&nbsp;&nbsp;&nbsp;&nbsp;
+                <div className="second-col">{cardVal.credit_no}</div>&nbsp;&nbsp;&nbsp;&nbsp;
+                <div className="third-col">{cardVal.expire_date}</div>&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+        });
+
         
         return (
             <div>
@@ -135,7 +114,7 @@ class SignUp extends Component {
                         FIRSTNAME: <input type="text" name="firstname" value={this.state.firstname} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
                         LASTNAME: <input  type="text" name="lastname" value={this.state.lastname} onChange={this.handleChange}/> <br></br> <br></br>
                         GENDER: 
-                            &nbsp;<input type="radio" name="gender" className="gender" value="Female" onChange={this.handleChange}/> FEMALE
+                            &nbsp;<input type="radio" name="gender" className="gender" value="Female" onChange={this.handleChange} defaultChecked/> FEMALE
                             &nbsp;<input type="radio" name="gender" value="Male" className="gender" onChange={this.handleChange}/> MALE &nbsp;&nbsp;&nbsp;&nbsp;
                         BIRTHDAY: <input type="date" name="birthday" className="hbd" value={this.state.birthday} onChange={this.handleChange}/>
                                   <br></br><br></br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -148,7 +127,7 @@ class SignUp extends Component {
                         <div type="container" className="radio-container">
                         <div className="member-box">
                             <img id="class-icon" src={diamond} alt="diamond-icon" className="diamond-icon member-icon"/> 
-                            <br/><input type="radio" name="classes" value="5" className="member-radio" onChange={this.handleChange}/>
+                            <br/><input type="radio" name="classes" value="5" className="member-radio" onChange={this.handleChange} defaultChecked/>
                             <a data-tip="Discount 12% each time that purchase product.">DIAMOND</a> 
                         </div>
                            
@@ -180,17 +159,8 @@ class SignUp extends Component {
                         <br/>
                     </div>
                     <p className="payment">PAYMENT INFORMATION</p>
-                    <div className="container">
-                        <table className="payment-table">
-                            <tbody>
-                                <tr>
-                                    <td>4569 xxx xxx</td>
-                                    <td>TMB</td>
-                                    <td>3/20</td>
-                                    <td>Thanawan Sean-in</td>
-                                </tr>
-                            </tbody>
-                        </table><br></br>
+                    <div className="container">  
+                            {allCard}                
                         <div>
                             <button className="signup_btn pull-right" onClick={this.toggleModal}>ADD CARD</button>
                             <Modal contentLabel="modal" isOpen={this.state.isActive} onRequestClose={this.toggleModal}>
