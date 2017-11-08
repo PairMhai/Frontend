@@ -82,7 +82,7 @@ class SignUp extends Component {
         })
         .catch(function (error) {
             console.log(error.response);
-            swal ( "Oops" ,  "Please enter valid data" ,  "error" )
+            //swal ( "Oops" ,  "Please enter valid data" ,  "error" )
         });
          event.preventDefault();  
      }
@@ -105,7 +105,7 @@ class SignUp extends Component {
                 <p className="signup">SIGN UP</p>
                 
                     <div className="container">
-                        USERNAME: <input type="user" name="username" value={this.state.username} onChange={this.handleChange}/>&nbsp;&nbsp;&nbsp;&nbsp;
+                        USERNAME: <input type="user" name="username" value={this.state.username} onChange={this.handleChange} required/>&nbsp;&nbsp;&nbsp;&nbsp;
                         PASSWORD: <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/>&nbsp;&nbsp;&nbsp;&nbsp;
                         CONFIRM PASSWORD: <input type="password" name="cfpassword" value={this.state.cfpassword} onChange={this.handleChange}/>
                     </div>
