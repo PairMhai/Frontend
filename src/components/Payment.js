@@ -2,24 +2,32 @@ import React , {Component} from 'react'
 import { Cookies } from 'react-cookie';
 import Navbar from '../components/Navbar'
 import LeftTabProfile from '../components/LeftTabProfile'
-
 import Modal from 'react-modal'
+import axios from 'axios'
 import '../CSS/Payment.css'
 
 
 class Payment extends Component {
     constructor(props){
         super(props);
-        this.state = { shipping: "KERRY", isCardActive: false, isAddrActive: false}
-        this.getShipping = this.getShipping.bind(this)
-        this.cardAdd = this.cardAdd.bind(this)
+        this.state = { shipping: '', cusKey: '',isCardActive: false, isAddrActive: false, user: [], card: []}
+        this.getShipping = this.getShipping.bind(this);
+        this.cardAdd = this.cardAdd.bind(this);
     }
 
     componentWillMount() {
         const cookies = new Cookies();
         var key = cookies.get('key')
         if(key !== 'null' && key !== undefined){
-            
+            this.setState({cusKey: key})
+            axios.get('https://pairmhai-api.herokuapp.com/membership/cust/'+key)
+            .then(response => {
+                console.log(response);
+                this.setState({user: response.data.user, card: response.data.creditcards })
+            })
+            .catch(function (error) {
+                console.log(error);
+            }); 
         } else {
             window.location = "/home";
         }
@@ -37,7 +45,6 @@ class Payment extends Component {
         this.setState({isAddrActive: !this.state.isAddrActive })
     }
 
-
     getShipping(){
         if(this.state.shipping === "EMS")
             return <img src={ require('../img/icon/ems-logo.png')} alt="EMS" width="15%" />
@@ -49,6 +56,13 @@ class Payment extends Component {
     }
 
     render(){
+        const cusCard = this.state.card.map((det, index) => {
+        return <tr className="table-tr" key={det.id}>
+                    <td>&emsp;<input type="checkbox"/></td>
+                    <td>{det.credit_no}</td>
+                    <td>{det.owner}</td>
+                </tr>
+        });
         return (
             <div>
                 <Navbar /> 
@@ -84,44 +98,31 @@ class Payment extends Component {
                             </Modal>
                             <p/>
                             <table className="pay-table">
-                            <tbody>
-                                <tr className="table-tr">
-                                    <td>&emsp;<input type="checkbox"/></td>
-                                    <td>4569 xxx xxx</td>
-                                    <td>TMB</td>
-                                    <td>3/20</td>
-                                    <td>Thanawan Sean-in</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <br/>
-                        SHIPPING: {this.getShipping()}<br/>
-                        SELECT ADDRESS &emsp;or&emsp; <input className="pay-btn-add" type="button" value="ADD ADDRESS" onClick={this.addrToggleModal}/>
-                        <Modal isOpen={this.state.isAddrActive} onRequestClose={this.addrToggleModal} contentLabel="Modal">
-                            <div>
-                                <p className="add-card-info">ADD NEW ADDRESS</p>
-                            </div><br/>
-                            <div type="container" className="info-box">
-                            <a className="address">ADDRESS:</a>
-                            <br/><textarea className="addr-add" name="address" value={this.state.address} onChange={this.handleChange}/><br/><br/>
-                            </div><br/>
-                            <button className="signup_btn modal-btn" onClick={this.addrToggleModal}>CANCEL</button>
-                            <button className="signup_btn modal-btn" onChange={this.ddAddr}>ADD</button>
-                        </Modal>
+                                <tbody>
+                                    {cusCard}
+                                </tbody>
+                            </table>
+                            <br/>
+                            SHIPPING: {this.getShipping()}<br/>
+                            SELECT ADDRESS &emsp;or&emsp; <button className="pay-btn-add" onClick={this.addrToggleModal}>CHANGE ADDRESS</button>
+                            <Modal isOpen={this.state.isAddrActive} onRequestClose={this.addrToggleModal} contentLabel="Modal">
+                                <div>
+                                    <p className="add-card-info">CHANGE ADDRESS</p>
+                                </div><br/>
+                                <div type="container" className="info-box">
+                                <a className="address">ADDRESS:</a>
+                                <br/><textarea className="addr-add" name="address" value={this.state.user.address} onChange={this.handleChange}/><br/><br/>
+                                </div><br/>
+                                <button className="signup_btn modal-btn" onClick={this.addrToggleModal}>CANCEL</button>
+                                <button className="signup_btn modal-btn" onChange={this.ddAddr}>ADD</button>
+                            </Modal>
                             <p/>
-                            <table className="pay-table">
-                            <tbody>
-                                <tr className="table-tr">
-                                    <td>&emsp;<input type="checkbox"/></td>
-                                    <td>4569 xxx xxx</td>
-                                    <td>TMB</td>
-                                    <td>3/20</td>
-                                    <td>Thanawan Sean-in</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                            <div className="pay-table">
+                                To: {this.state.user.first_name} {this.state.user.last_name}<br/>
+                                &emsp; &emsp; {this.state.user.address}
+                            </div>
                         </div>
-                        <button className="pay-btn-add btn-right" onclick="">Check Out</button>
+                        <button className="pay-btn-add btn-right" onClick="">Check Out</button>
                     </div>
                 </div>
             </div>
