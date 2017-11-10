@@ -37,6 +37,7 @@ class SignIn extends Component {
             console.log(response)
             const cookies = new Cookies();
             cookies.set('key', response.data.key, {path: '/'})
+            cookies.set('prod', [], {path: '/'})
             window.location = "/home"
         })
         .catch(function (error) {

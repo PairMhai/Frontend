@@ -35,11 +35,13 @@ class LeftTab extends Component {
             console.log(response)
             const cookies = new Cookies();
             cookies.set('key', response.data.key, {path: '/'})
+            cookies.set('prod',[], {path: '/'});
             window.location = "/home/"
         })
         .catch(function (error) {
             const cookies = new Cookies();
             cookies.set('key', null, {path: '/'})
+            this.setState({password: ''})
             swal ( "Oops" ,  "Incorrect username or password" ,  "error" )
         });
         event.preventDefault(); 

@@ -1,10 +1,9 @@
 import React , {Component} from 'react'
 import {Cookies} from 'react-cookie'
 import Navbar from '../components/Navbar'
-import AddCard from '../components/AddCard'
 import axios from 'axios';
 import '../CSS/SignUp.css';
-import ReactTooltip from 'react-tooltip'
+// import ReactTooltip from 'react-tooltip'
 import Modal from 'react-modal'
 import bronze from '../img/icon/bronze.png'
 import silver from '../img/icon/silver.png'
@@ -53,7 +52,9 @@ class SignUp extends Component {
     }
 
     toggleModal = () => {
-        this.setState({ isActive: !this.state.isActive })
+        this.setState({
+            isActive: !this.state.isActive
+        })
     }
 
     handleSubmit(event){
@@ -125,6 +126,7 @@ class SignUp extends Component {
                         
                         <a className="member">MEMBERSHIP:</a>
                         <div type="container" className="radio-container">
+
                         <div className="member-box">
                             <img id="class-icon" src={diamond} alt="diamond-icon" className="diamond-icon member-icon"/> 
                             <br/><input type="radio" name="classes" value="5" className="member-radio" onChange={this.handleChange} defaultChecked/>
@@ -196,6 +198,3 @@ class SignUp extends Component {
 }
 
 export default SignUp
-
-
-// expiredate require
