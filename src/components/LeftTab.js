@@ -14,6 +14,7 @@ class LeftTab extends Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleResetPass = this.handleResetPass.bind(this);
     }
 
     handleChange(event){
@@ -36,17 +37,17 @@ class LeftTab extends Component {
         })
     }
 
-    // handleResetPass() {
-    //     axios.post('https://pairmhai-api.herokuapp.com/membership/password/reset/',
-    //     {
-    //         "email": this.state.emailForReset,
-    //     })
-    //     .then(function(response){
-    //         console.log(response)
-    //         alert(response)
-    //         swal("E-mail has been sent!", "Please check in your email");
-    //     });
-    // }
+    handleResetPass() {
+        axios.post('https://pairmhai-api.herokuapp.com/membership/password/reset/',
+        {
+            "email": this.state.emailForReset,
+        })
+        .then(function(response){
+            console.log(response)
+            alert(response)
+            swal("E-mail has been sent!", "Please check in your email");
+        });
+    }
 
     handleSubmit(event){
         axios.post('https://pairmhai-api.herokuapp.com/membership/login/',
@@ -68,15 +69,15 @@ class LeftTab extends Component {
             swal ( "Oops" ,  "Incorrect username or password" ,  "error" )
         });
 
-        axios.post('https://pairmhai-api.herokuapp.com/membership/password/reset/',
-        {
-            "email": this.state.emailForReset,
-        })
-        .then(function(response){
-            console.log(response)
-            alert(response)
-            swal("E-mail has been sent!", "Please check in your email");
-        });
+        // axios.post('https://pairmhai-api.herokuapp.com/membership/password/reset/',
+        // {
+        //     "email": this.state.emailForReset,
+        // })
+        // .then(function(response){
+        //     console.log(response)
+        //     alert(response)
+        //     swal("E-mail has been sent!", "Please check in your email");
+        // });
         event.preventDefault(); 
     }
 
@@ -101,7 +102,7 @@ class LeftTab extends Component {
                                     E-mail &nbsp;&nbsp;<input name="emailForReset" type="email" value={this.state.emailForReset} onChange={this.handleChange}/>
                                 </div><br/>
                                 <button className="lefttab_btn modal-btn" onClick={this.toggleModal}>CANCEL</button>
-                                <button className="lefttab_btn modal-btn" onClick={this.handleSubmit}>ADD</button>
+                                <button className="lefttab_btn modal-btn" onClick={this.handleResetPass}>ADD</button>
                             </Modal>
                         <input className="login-left-btn" type="submit" onClick={this.handleSubmit} value="SIGN IN" />
                         <br/>
