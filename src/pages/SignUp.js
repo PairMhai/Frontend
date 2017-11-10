@@ -45,7 +45,7 @@ class SignUp extends Component {
         this.setState({cardDetail: newCard, isActive: !this.state.isActive});
         console.log(this.state.cardDetail);
 
-        this.setState({ owner: '', credit_no: '', ccv: '', expire_date: '', cardHolder:''});
+        this.setState({ owner: '', cardNumber: '', ccv: '', exp: '', cardHolder:''});
     }
 
     componentWillMount() {
@@ -105,7 +105,7 @@ class SignUp extends Component {
                 <p className="signup">SIGN UP</p>
                 
                     <div className="container">
-                        USERNAME: <input type="user" name="username" value={this.state.username} onChange={this.handleChange} required/>&nbsp;&nbsp;&nbsp;&nbsp;
+                        USERNAME: <input type="user" name="username" value={this.state.username} onChange={this.handleChange} />&nbsp;&nbsp;&nbsp;&nbsp;
                         PASSWORD: <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/>&nbsp;&nbsp;&nbsp;&nbsp;
                         CONFIRM PASSWORD: <input type="password" name="cfpassword" value={this.state.cfpassword} onChange={this.handleChange}/>
                     </div>
@@ -160,7 +160,8 @@ class SignUp extends Component {
                     </div>
                     <p className="payment">PAYMENT INFORMATION</p>
                     <div className="container">  
-                            {allCard}                
+                            {allCard} 
+                            <br/>               
                         <div>
                             <button className="signup_btn pull-right" onClick={this.toggleModal}>ADD CARD</button>
                             <Modal contentLabel="modal" isOpen={this.state.isActive} onRequestClose={this.toggleModal}>
@@ -169,7 +170,7 @@ class SignUp extends Component {
                                 </div><br/>
                                 <div className="info-box">
                                     <div className="card-box">
-                                        <input type="radio" name="card" onChange={this.handleChange}/>
+                                        <input type="radio" name="card" onChange={this.handleChange} defaultChecked/>
                                         <img id="visa_icon" src={visa} alt="visa-icon"/> 
                                         <input type="radio" name="card" onChange={this.handleChange}/>
                                         <img id="visa_icon" src={master} alt="master-icon"/>    
