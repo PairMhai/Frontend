@@ -43,9 +43,9 @@ class Promotion extends Component {
                     <div className="col-sm-6 promotion-info">
                         <h2><div>{promVal.name}</div></h2>                    
                         <div className="promo-detail" name="description">{promVal.description}</div><br/>
-                        <div className="promo-detail" name="discount">{promVal.discount}</div><br/>
-                        <div className="promo-detail" name="start">{promVal.start}</div> 
-                        <div className="promo-detail" name="end">{promVal.end}</div><br/>
+                        <div className="promo-detail" name="discount">Discount: {promVal.discount}%</div><br/>
+                        <div className="promo-detail" name="start">From {promVal.start.substring(0,10)}</div> 
+                        <div className="promo-detail" name="end">To {promVal.end.substring(0,10)}</div><br/>
                     </div>  
                 </div>  
             );
