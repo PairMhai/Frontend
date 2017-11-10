@@ -37,16 +37,22 @@ class LeftTab extends Component {
         })
     }
 
-    handleResetPass() {
+    handleResetPass(event) {
         axios.post('https://pairmhai-api.herokuapp.com/membership/password/reset/',
         {
-            "email": this.state.emailForReset,
+            "email": this.state.emailForReset,            
         })
         .then(function(response){
-            console.log(response)
-            alert(response)
-            swal("E-mail has been sent!", "Please check in your email");
-        });
+            console.log(response)            
+            swal({
+                title: "E-mail has been sent!",
+                text: "Please check in your email",
+                type: "success"
+            }).then(function(){
+                window.location = "home"
+                this.setState({emailForReset:'',})
+            });
+        })
     }
 
     handleSubmit(event){
@@ -68,16 +74,6 @@ class LeftTab extends Component {
             this.setState({password: ''})
             swal ( "Oops" ,  "Incorrect username or password" ,  "error" )
         });
-
-        // axios.post('https://pairmhai-api.herokuapp.com/membership/password/reset/',
-        // {
-        //     "email": this.state.emailForReset,
-        // })
-        // .then(function(response){
-        //     console.log(response)
-        //     alert(response)
-        //     swal("E-mail has been sent!", "Please check in your email");
-        // });
         event.preventDefault(); 
     }
 
