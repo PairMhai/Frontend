@@ -22,10 +22,11 @@
     width: 25%;
 }
 .pay-btn-add {
+    margin-left: 2%;
     background-color: white;
     border: 2px solid black;
     font-size: 25px;
-    width: 35%; 
+    width: 25%; 
 }
 .pay-btn-add:hover {
     border: 2px solid black;

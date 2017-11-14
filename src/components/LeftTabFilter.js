@@ -21,7 +21,7 @@ class LeftTabFilter extends Component {
    
     render(){
         const mat = this.state.matSel.map((matVal, index) => {           
-            return  <option key={matVal.name} value={matVal.name}>&nbsp; {matVal.name}</option>
+            return  <option key={matVal.id} value={matVal.name}>&nbsp; {matVal.name}</option>
         });
 
         return (

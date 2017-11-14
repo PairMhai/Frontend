@@ -113,7 +113,7 @@ class DesDetail extends Component {
             this.setState({ id: response.data.product_id,
                 name: response.data.name, description: response.data.description,
                 price: response.data.price, imageName: response.data.images[0].file_name,
-                material: response.data.material_name, color: response.data.material_color,
+                material: response.data.material.name, color: response.data.material.color,
             })
             const newDetail = this.state.detail;
             newDetail.push(response.data); 
