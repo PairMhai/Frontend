@@ -15,7 +15,7 @@ class DesDetail extends Component {
         this.state = {amount: 0, isActive: false, id: '', name: '', description: '',  color: '', material:'', 
         price: '',  imageName: '',prod:[], detail: [], size: '' ,
         neck: 0, sleeve: 0, bust: 0, back: 0, waist: 0, waistband: 0, rise: 0, outseam: 0, hips: 0, inseam: 0,
-         thigh: 0, ankle: 0, knee: 0, calf: 0, isFillSize: false}
+         thigh: 0, ankle: 0, knee: 0, calf: 0, isFillSize: false, remain: '', max: ''}
 
         this.increaseProd = this.increaseProd.bind(this);
         this.decreaseProd = this.decreaseProd.bind(this);
@@ -56,7 +56,10 @@ class DesDetail extends Component {
             swal({title:"Please Login"})
             return
         }
-        this.setState({ amount: this.state.amount + 1 });
+        if(this.state.amount < this.state.remain)
+            this.setState({ amount: this.state.amount + 1, remain: this.state.remain - this.state.amount });
+        else
+            swal("Sorry","The product is not enough.", "error")
     } 
 
     decreaseProd() {
@@ -65,7 +68,7 @@ class DesDetail extends Component {
             return
         }
         if(this.state.amount > 0)
-            this.setState({ amount: this.state.amount - 1 });
+            this.setState({ amount: this.state.amount - 1, remain: this.state.remain + 1 });
     }
 
     addProdToCart() {
@@ -78,9 +81,23 @@ class DesDetail extends Component {
             return
         }
         if(this.state.amount > 0){
-            const newProd = this.state.prod;
-            newProd.push({ prod_id: this.state.id,type: 'des', name: this.state.name, amount: this.state.amount, price: this.state.price, imageName: this.state.imageName, remark: ''}); 
-            this.setState({prod: newProd});
+            var idx = -1
+            for(var i = 0 ; i < this.state.prod.length; i++){
+                if(this.state.prod[i].prod_id === this.state.id){
+                   idx = i
+                   break
+                }    
+            }
+            if(idx !== -1){
+                var arr = this.state.prod;
+                arr[idx].amount += this.state.amount;
+                this.setState({prod: arr})
+            } else {
+                const newProd = this.state.prod;
+                newProd.push({ prod_id: this.state.id,type: 'des', name: this.state.name, amount: this.state.amount,
+                price: this.state.price, imageName: this.state.imageName, remark: '', max: this.state.max}); 
+                this.setState({prod: newProd});
+            }
             this.setState({ amount: 0});
             const cookies = new Cookies();
             cookies.set('prod',this.state.prod,{path: '/'})
@@ -113,7 +130,8 @@ class DesDetail extends Component {
             this.setState({ id: response.data.product_id,
                 name: response.data.name, description: response.data.description,
                 price: response.data.price, imageName: response.data.images[0].file_name,
-                material: response.data.material.name, color: response.data.material.color,
+                material: response.data.material.name, color: response.data.material.color, 
+                max: response.data.quantity, remain: response.data.quantity 
             })
             const newDetail = this.state.detail;
             newDetail.push(response.data); 
@@ -166,12 +184,13 @@ class DesDetail extends Component {
                             <p>MATERIAL:&ensp;{this.state.material}</p>
                             <p>COLOR:&ensp;{this.state.color}</p>
                             <p>PRICE:&ensp;{this.state.price} Baht.- </p>
+                            <p>REMAINING:&ensp;{this.state.remain} Pieces</p>
                             <div className="row des-group-btn ">
                                 <button className="des-btn-add" onClick={this.decreaseProd}>-</button>
                                 <input className="des-amount" type="number" value={this.state.amount} disabled/>
                                 <button className="des-btn-add" onClick={this.increaseProd}>+</button>
                             </div>
-                            <h8>You must fill in your size before add product to care</h8>
+                            <h8>You must fill in your size before add product to cart</h8>
                             <button className="des-btn-submit" onClick={this.addProdToCart}>ADD TO CART</button>
                         </div>
                         <div className="col-lg-4">

@@ -1,6 +1,7 @@
 import React , {Component} from 'react'
 import { Cookies } from 'react-cookie'
 import axios from 'axios'
+import swal from 'sweetalert'
 import Navbar from '../components/Navbar'
 import LeftTabProfile from '../components/LeftTabProfile'
 import '../CSS/Cart.css';
@@ -29,6 +30,7 @@ class Cart extends Component {
         if(key === 'null' || key === undefined){
             window.location = "/home";
         }
+        console.log(allProd)
     }
     
     componentDidMount(){
@@ -44,9 +46,12 @@ class Cart extends Component {
     increaseProd(e){
         var idx = e.target.id;
         var arr = this.state.prod;
-        arr[idx].amount += 1;
-        this.setState({prod: arr})
-        this.getPrice(this.state.shipping);
+        if(arr[idx].amount < arr[idx].max){
+            arr[idx].amount += 1;
+            this.setState({prod: arr})
+            this.getPrice(this.state.shipping);
+        } else
+            swal("Sorry","The product is not enough.", "error")
         e.preventDefault(); 
     }
 
@@ -67,36 +72,41 @@ class Cart extends Component {
     }
 
     clearCart(){
-        this.setState({prod: [],})
+        this.setState({prod: [],price: 0, discount: 0, total_price: 0})
         const cookies = new Cookies();
-        cookies.set('prod',this.state.prod,{path: '/'})
-        console.log(this.state.prod);
+        var key = cookies.set('prod', []);
     }
 
     getPrice(transportation){
         const cookies = new Cookies();
         var key = cookies.get('key');
         var products = [];
-        for(var i=0; i<this.state.prod.length; i++){
-            products.push({ pid: this.state.prod[i].prod_id, quantity:this.state.prod[i].amount}); 
-        }
-        axios.post('https://pairmhai-api.herokuapp.com/cart/calculate', {
-            "customer": key,
-            "products": products,
-            "transportation": transportation
-        })
-        .then((response) => {
-            console.log(response)
-            this.setState({orderKey: response.data.calculate_id, price: response.data.full_price, 
-                discount: response.data.customer_discount + response.data.event_discount, total_price: response.data.final_price
+        console.log(this.state.prod)
+        if(this.state.prod.length > 0){
+            for(var i=0; i<this.state.prod.length; i++){
+                products.push({ pid: this.state.prod[i].prod_id, quantity:this.state.prod[i].amount}); 
+            }
+            axios.post('https://pairmhai-api.herokuapp.com/cart/calculate', {
+                "customer": key,
+                "products": products,
+                "transportation": transportation
             })
-            var order = { id: response.data.calculate_id, price: response.data.final_price, shipping: this.state.shipping}; 
-            const cookies = new Cookies();
-            cookies.set('orderInfo',order,{path: '/'})
-        })
-        .catch(function (error) {
-            console.log(error.response);
-        });  
+            .then((response) => {
+                console.log(response)
+                this.setState({orderKey: response.data.calculate_id, price: response.data.full_price, 
+                    discount: response.data.customer_discount + response.data.event_discount, total_price: response.data.final_price
+                })
+                var order = { id: response.data.calculate_id, price: response.data.final_price, shipping: this.state.shipping}; 
+                const cookies = new Cookies();
+                cookies.set('orderInfo',order,{path: '/'})
+            })
+            .catch(function (error) {
+                console.log(error.response);
+            });  
+        } else {
+            this.setState({prod: [],price: 0, discount: 0, total_price: 0})
+            cookies.set('orderInfo',[]);
+        }
     }
 
     render(){

@@ -15,17 +15,19 @@ class Payment extends Component {
         selectedCard: '', user: [], card: [],owner: '', 
         cardNumber: '', ccv: '', exp: '', cardHolder:''}
         this.getShipping = this.getShipping.bind(this);
-        this.cardAdd = this.cardAdd.bind(this);
+        this.cardChange = this.cardChange.bind(this);
+        this.handleAdd = this.handleAdd.bind(this);
         this.checkout = this.checkout.bind(this);
-        this.addChange = this.addChange.bind(this);
+        this.addrChange = this.addrChange.bind(this);
+        this.setCard = this.setCard.bind(this);
     }
 
     componentWillMount() {
         const cookies = new Cookies();
         var key = cookies.get('key')
         var order = cookies.get('orderInfo')
-        if(key !== 'null' && key !== undefined && order !== null && order !== undefined){
-            this.setState({cusKey: key, orderInfo: order})
+        if(key !== 'null' && key !== undefined){
+            this.setState({cusKey: key})
             axios.get('https://pairmhai-api.herokuapp.com/membership/cust/'+key)
             .then(response => {
                 console.log(response);
@@ -39,25 +41,55 @@ class Payment extends Component {
         }
         Modal.setAppElement('body');
     }
+
     componentDidMount(){
         const cookies = new Cookies();
         var order = cookies.get('orderInfo')
         this.setState({orderInfo: order, shipping: order.shipping}) 
     }
 
-    addChange(e){
+    addrChange(e){
         var newUser = this.state.user
         newUser.address = e.target.value
         this.setState({user: newUser})
         e.preventDefault(); 
     }
 
-    cardAdd(){
-        const newCard = this.state.cardDetail;
-        newCard.push({owner: this.state.cardHolder, credit_no: this.state.cardNumber, ccv: this.state.ccv, expire_date: this.state.exp});
-        this.setState({cardDetail: newCard, isActive: !this.state.isActive});
-        console.log(this.state.cardDetail);
+    cardChange(e){
+        const target = e.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+    
+        this.setState({
+          [name]: value
+        });
+    }
 
+    setCard(e){
+        console.log(e.target.value)
+        this.setState({ selectedCard: e.target.value});
+    }
+
+    handleAdd() {
+        console.log(this.state.cusKey)
+        axios.post('https://pairmhai-api.herokuapp.com/payment/', {
+            "owner": this.state.cardHolder,
+            "credit_no": this.state.cardNumber,
+            "ccv": this.state.ccv,
+            "expire_date": this.state.exp,
+            "customer": this.state.cusKey
+        })
+        .then(function (response) {
+            console.log(response);
+            swal("Success","Already added", "success").then((value) => {
+                window.location = "/payment/"
+            });
+        })
+        .catch(function (error) {
+            console.log(error.response);
+            swal("Sorry","Something wrong try again", "error");
+        });
+    
         this.setState({ owner: '', cardNumber: '', ccv: '', exp: '', cardHolder:''});
     }
 
@@ -69,17 +101,22 @@ class Payment extends Component {
     }
 
     checkout(){
-        if(this.selectedCard === ''){
+        if(this.state.selectedCard === ''){
             swal ( "Oops" ,  "Select your card." ,  "error" )
         } else {
+            console.log(this.state.selectedCard)
             axios.post('https://pairmhai-api.herokuapp.com/cart/', {
                 "uuid": this.state.orderInfo.id,
-                "creditcard": this.selectedCard,
+                "creditcard": this.state.selectedCard,
                 "address": this.state.user.address,
             })
             .then(function (response) {
-                swal("Thank you!","Total price"+ response.data.final_price +" Baht-, Product " + response.data.total_product +" items, Send by " + response.data.transportation.name, "success");
-                window.location = "/home"
+                swal("Thank you!","Total price"+ response.data.final_price +" Baht-, Product " + response.data.total_product +
+                " items, Send by " + response.data.transportation.name, "success").then((value) => {
+                    window.location = "/home"
+                });
+                const cookies = new Cookies();
+                var key = cookies.set('prod', [])
                 console.log(response);
             })
             .catch(function (error) {
@@ -96,13 +133,12 @@ class Payment extends Component {
             return <img src={ require('../img/icon/kerry-exprss-logo.png')} alt="KERRY" width="15%" />
         else
             return <img src={ require('../img/icon/lineman.png')} alt="LINEMAN" width="15%" />
-
     }
 
     render(){
         const cusCard = this.state.card.map((det, index) => {
         return  <tr className="table-tr" key={det.id}>
-                    <td>&emsp;<input type="checkbox" /></td>
+                <td>&emsp;<input type="radio" name="selectedCard" defaultChecked={this.state.selectedCard} onChange={this.setCard} value={det.id}/></td>
                     <td>{det.credit_no}</td>
                     <td>{det.owner}</td>
                 </tr>
@@ -131,13 +167,13 @@ class Payment extends Component {
                                         <img id="visa_icon" src={ require('../img/icon/mastercard.png')} alt="master-icon"/>    
                                     </div>
                                     <br/>
-                                    Card Number &nbsp;&nbsp;<input name="cardNumber" value={this.state.cardNumber} onChange={this.handleChange}/>&nbsp;&nbsp;
-                                    CCV &nbsp;&nbsp;<input  name="ccv" value={this.state.ccv} onChange={this.handleChange}/><br/><br/>            
-                                    Card Holder &nbsp;&nbsp;<input  name="cardHolder" value={this.state.cardHolder} onChange={this.handleChange}/>&nbsp;&nbsp;
-                                    EXP &nbsp;&nbsp;<input type="date"  name="exp" value={this.state.exp} onChange={this.handleChange}/>
+                                    Card Number &nbsp;&nbsp;<input name="cardNumber" value={this.state.cardNumber} onChange={this.cardChange}/>&nbsp;&nbsp;
+                                    CCV &nbsp;&nbsp;<input  name="ccv" value={this.state.ccv} onChange={this.cardChange}/><br/><br/>            
+                                    Card Holder &nbsp;&nbsp;<input  name="cardHolder" value={this.state.cardHolder} onChange={this.cardChange}/>&nbsp;&nbsp;
+                                    EXP &nbsp;&nbsp;<input type="date"  name="exp" value={this.state.exp} onChange={this.cardChange}/>
                                 </div><br/>
                                 <button className="signup_btn modal-btn" onClick={this.cardToggleModal}>CANCEL</button>
-                                <button className="signup_btn modal-btn" onChange={this.cardAdd}>ADD</button>
+                                <button className="signup_btn modal-btn" onClick={this.handleAdd}>ADD</button>
                             </Modal>
                             <p/>
                             <table className="pay-table">
@@ -154,7 +190,7 @@ class Payment extends Component {
                                 </div><br/>
                                 <div type="container" className="info-box">
                                 <a className="address">ADDRESS:</a>
-                                <br/><textarea className="addr-add" name="address" value={this.state.user.address} onChange={this.addChange}/><br/><br/>
+                                <br/><textarea className="addr-add" name="address" value={this.state.user.address} onChange={this.addrChange}/><br/><br/>
                                 </div><br/>
                                 <button className="signup_btn modal-btn" onClick={this.addrToggleModal}>OK</button>
                             </Modal>
