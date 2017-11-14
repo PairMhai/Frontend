@@ -6,9 +6,11 @@ class ProdCard extends Component {
 
     constructor(props){
         super(props);
-        this.state = { prod: [], type: ''};
+        this.state = { prod: [], origin: [], type: ''};
 
         this.clickDetail = this.clickDetail.bind(this);
+        this.sort = this.sort.bind(this)
+        this.search = this.search.bind(this)
     }
 
     clickDetail(e){
@@ -16,7 +18,32 @@ class ProdCard extends Component {
         const type = e.currentTarget.dataset.type;
         window.location = '/'+type+'/'+id;
     }
-    
+
+    sort(type){
+        if(type === 'price')
+            this.setState({prod: this.state.prod.sort(function(a, b){return a.price - b.price})})
+        else {
+            this.setState({prod: this.state.prod.sort(
+                function(a, b){ 
+                    var nameA = a.name.toLowerCase(); 
+                    var nameB = b.name.toLowerCase(); 
+                    return nameA.localeCompare(nameB)}
+                )
+            })
+        }  
+    }
+
+    search(word){
+        if(word !== ''){
+            this.setState({prod: this.state.origin.filter(function(item){
+                var name = item.name.toLowerCase(); 
+                var lowerWord = word.toLowerCase();
+                return name.includes(lowerWord)})})
+        }
+        else {
+            this.setState({prod: this.state.origin})
+        }
+    }
 
     componentWillMount(){
         var typeProd = '';
@@ -31,12 +58,20 @@ class ProdCard extends Component {
         axios.get('https://pairmhai-api.herokuapp.com/catalog/'+typeProd)
         .then((response) => {
             console.log(response);
-            this.setState({prod: response.data});
+            this.setState({prod: response.data.sort(function(a, b){return a.price - b.price}), origin: response.data});
         })
         .catch(function (error) {
             console.log(error);
         }); 
+        console.log(this.props.sort)
     }
+
+    componentWillReceiveProps(nextProps){
+        this.sort(nextProps.sort)
+        this.search(nextProps.search)
+     
+    }
+
 
     render(){
         const allProd = this.state.prod.map((prodVal, index) => {
@@ -55,7 +90,7 @@ class ProdCard extends Component {
             }
         });
         
-        return <div id="procon" className="row justify-content-start">{allProd }</div>
+        return <div id="procon" className="row justify-content-start">{allProd}</div>
     }
 }
 
