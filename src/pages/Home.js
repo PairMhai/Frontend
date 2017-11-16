@@ -1,5 +1,6 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import LeftTabProfile from '../components/LeftTabProfile'
 import LeftTab from '../components/LeftTab'
 import homePic from '../img/homePic.png'
@@ -53,7 +54,12 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
+                <div >
+                <Footer />
+                </div>
+
             </div>
+            
         );
     }
 }

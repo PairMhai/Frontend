@@ -6,6 +6,7 @@ import Type from '../components/TypeInfo'
 import SilkHis from '../components/SilkHis'
 import Genuine from '../components/GenuineInfo'
 import '../CSS/Info.css'
+import Footer from '../components/Footer'
 
 class Information extends Component {
     constructor(props){
@@ -46,6 +47,9 @@ class Information extends Component {
                         <div className="info-btn" role="button" onClick={() => this.handleChange('genuine')}>Genuine</div>      
                     </div>   
                     {this.renderInfo()}
+                </div>
+                <div >
+                <Footer />
                 </div>
             </div>         
         );

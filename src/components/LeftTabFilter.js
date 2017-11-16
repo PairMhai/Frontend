@@ -1,95 +1,126 @@
 import React , {Component} from 'react'
+import axios from 'axios';
 import '../CSS/LeftTabFilter.css';
 
 class LeftTabFilter extends Component {
+    
+    constructor(props){
+        super(props);
+        console.log(props)
+        this.state = {matSel: [], keyword: ''}
+        this.rangeChange = this.rangeChange.bind(this)
+        this.sortChange = this.sortChange.bind(this)
+        this.keyChange = this.keyChange.bind(this)
+        this.handleKeyChange = this.handleKeyChange.bind(this)
+    }
+
+    componentWillMount(){
+        axios.get('https://pairmhai-api.herokuapp.com/catalog/materials')
+        .then((response) => {
+            console.log(response);
+            this.setState({matSel: response.data});
+        })
+        .catch(function (error) {
+            console.log(error);
+        }); 
+    }
+
+    sortChange(e) {  
+        this.props.sorting(e.target.value)
+    }
+
+    handleKeyChange(e){
+        this.setState({keyword: e.target.value})
+    }
+
+    keyChange(){
+        this.props.search(this.state.keyword)
+    }
+
+    rangeChange(e) {
+        this.props.search('')
+    }
+
    
     render(){
+        const mat = this.state.matSel.map((matVal, index) => {           
+            return  <option key={matVal.id} value={matVal.name}>{matVal.name}</option>
+        });
+
         return (
-            <div>
-                <div className="left-tab">
-                    <br/>
-                        <a className="head"><h3>SORT BY:</h3></a>
-                    
-                        <input type="radio" name="optradio"/><label className="radio-sort">&nbsp;PRICE 
-                        &nbsp;&nbsp;</label><input type="radio" name="optradio"/><label className="radio-sort">&nbsp;ALPHABET</label>
-                   <br></br>
-                   <br></br>
-                    <form action="" method="get" className="search">
-
-                    <div className="form__field">
-
-                        <input className="searchbar" type="search" name="search" placeholder="Enter here"/>
-                        
-                        <button type="submit" className="search_btn" >
-                        Search
-                        </button>
-
-                  
-                    </div>
-                    </form>
-                    <br></br>
-                   <div>
-                    <a className="head"><h4>PRICE RANGE:</h4></a>
-                   <select className="classic2" id="pricerange" >
-                        <option value="pricer1">1000-2000 </option>
-                        <option value="pricer2">2000-5000</option>
+            <div className="left-tab">
+                <h3>SORT BY:</h3>
+                <input type="radio" name="sort" value="price" onChange={this.sortChange} defaultChecked /><label className="radio-sort" >&nbsp;PRICE (Min->Max)</label>
+                <br/><input type="radio" name="sort" value="alpha" onChange={this.sortChange}/><label className="radio-sort">&nbsp;ALPHABET (A->Z)</label>
+                <br></br><br></br>
+                <div className="form__field">
+                    <input className="searchbar" type="search" name="search" placeholder="Keyword" value={this.state.keyword} onChange={this.handleKeyChange} />
+                    <button type="submit" className="search_btn" onClick={this.keyChange} >Search</button>                  
+                </div>
+                <br></br>
+                <div>
+                   <h4>PRICE RANGE:</h4>
+                    <select className="classic2" id="pricerange" >
+                        <option value="all">All</option>
+                        <option value="1000">0 - 1,000 Baht.-</option>
+                        <option value="2000">1,001 - 2,000 Baht.-</option>
+                        <option value="3000">2,001 - 3,000 Baht.-</option>
+                        <option value="4000">3,001 - 4,000 Baht.-</option>
+                        <option value="5000">4,001 - 5,000 Baht.-</option>
+                        <option value="5001">> 5,000 Baht.-</option>
                     </select>
-                    </div>
-                    <br></br>
-                    <a className="head"><h4>COLOR:</h4></a>
-                    <div className="custom-radios">
+                </div><br></br>
+                <h4>COLOR:</h4>
+                <div className="custom-radios">
                     <div>
-                        <input type="radio" id="color-1" name="color" value="color-1" />
+                        <input type="radio" id="color-5" name="color" value="all"/>
+                        <label htmlFor="color-5">
+                            <span>
+                               All
+                            </span>
+                        </label>
+                    </div>
+                    <div>
+                        <input type="radio" id="color-1" name="color" value="green" />
                         <label htmlFor="color-1">
-                        <span>
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
-                        </span>
+                            <span>
+                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                            </span>
                         </label>
                     </div>
-                    
                     <div>
-                        <input type="radio" id="color-2" name="color" value="color-2"/>
+                        <input type="radio" id="color-2" name="color" value="blue"/>
                         <label htmlFor="color-2">
-                        <span>
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
-                        </span>
+                            <span>
+                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                            </span>
                         </label>
                     </div>
-                    
                     <div>
-                        <input type="radio" id="color-3" name="color" value="color-3"/>
+                        <input type="radio" id="color-3" name="color" value="yellow"/>
                         <label htmlFor="color-3">
-                        <span>
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
-                        </span>
+                            <span>
+                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                            </span>
                         </label>
                     </div>
-
                     <div>
-                        <input type="radio" id="color-4" name="color" value="color-4"/>
+                        <input type="radio" id="color-4" name="color" value="red"/>
                         <label htmlFor="color-4">
-                        <span>
-                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
-                        </span>
+                            <span>
+                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                            </span>
                         </label>
                     </div>
-                    </div>
-                    <br/>                                  
-                    <div>
-                    <a className="head"><h4>MATERIAL:</h4></a>
-                   
-                  <select className="classic2" id="pricerange" >
-                        <option value="Mudmee Silk">&nbsp; Mudmee Silk </option>
-                        <option value="normal silk">&nbsp; Normal Silk</option>
-                    </select>
-                    </div>
-
-                    
-                
-                </div>
-                </div>
-
-                
+                </div><br/>                                  
+            <div>
+                <h4>MATERIAL:</h4>   
+                <select className="classic2" id="pricerange" onChange={this.rangeChange} >
+                    <option value="all">All</option>
+                    {mat}
+                </select>
+                </div>    
+            </div>         
         );
     }
 }

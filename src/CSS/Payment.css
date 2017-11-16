@@ -11,25 +11,22 @@
 
 .pay-info {
     float: right;
-    height: 300px;
     width: 95%;
     border: 2px solid black;
     padding: 2%;
-    padding-left: 5%;
     font-size: 30px   
 }
 
 #pay_icon {
-    margin-bottom: 8px;
-    height: 29px;
-    width: 89px;
-    padding-right: 20px ;
+    margin: 0px;
+    width: 25%;
 }
 .pay-btn-add {
+    margin-left: 2%;
     background-color: white;
     border: 2px solid black;
     font-size: 25px;
-    width: 35%; 
+    width: 25%; 
 }
 .pay-btn-add:hover {
     border: 2px solid black;
@@ -58,4 +55,9 @@ input[type=checkbox] {
     border: 2px solid black;
     font-size: 20px ;
 
+}
+
+.btn-right {
+    float: right;
+    margin-top: 2%;
 }
