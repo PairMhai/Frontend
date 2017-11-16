@@ -6,6 +6,7 @@ import LoginNav from '../components/LoginNav'
 import {Cookies} from 'react-cookie'
 import swal from 'sweetalert'
 import '../CSS/Mat.css'
+import Footer from '../components/Footer'
 
 class MatDetail extends Component {
 
@@ -147,6 +148,9 @@ class MatDetail extends Component {
                             <button className="mat-btn-submit" onClick={this.addProdToCart}>ADD TO CART</button>
                         </div>
                     </div>
+                </div>
+                <div >
+                <Footer />
                 </div>
             </div>
         );

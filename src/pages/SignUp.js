@@ -13,6 +13,7 @@ import diamond from '../img/icon/diamond.png'
 import visa from '../img/icon/visa.png'
 import master from '../img/icon/mastercard.png'
 import swal from 'sweetalert'
+import Footer from '../components/Footer'
 
 class SignUp extends Component {
     
@@ -194,6 +195,9 @@ class SignUp extends Component {
                 <button className="signup_btn" onClick={this.handleSubmit} >SIGN UP</button><br></br><br></br>
 
             </div>
+            <div >
+                <Footer />
+                </div>
             </div>
         );
     }

@@ -6,6 +6,7 @@ import line_icon from '../img/line-1.png'
 import profile_icon from '../img/icon/userpic.png'
 import {Cookies } from 'react-cookie';
 import swal from 'sweetalert'
+import Footer from '../components/Footer'
 
 class SignIn extends Component {
 
@@ -70,6 +71,9 @@ class SignIn extends Component {
                    <label className="orlabel-page"><img id="line_icon" src={line_icon} alt="line_icon"/>or<img id="line_icon" src={line_icon} alt="line_icon"/></label>
                    <br/>
                    <a href="/signup"><input className="signin-page-btn" href="/signup" type="submit" value="SIGN UP" /></a>
+                </div>
+                <div >
+                <Footer />
                 </div>
             </div>
         );

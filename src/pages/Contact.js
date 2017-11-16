@@ -6,6 +6,7 @@ import tel_icon from '../img/icon/tel_icon.png'
 import axios from 'axios'
 import swal from 'sweetalert'
 import '../CSS/Contact.css'
+import Footer from '../components/Footer'
 
 class Contact extends Component {
     
@@ -75,6 +76,9 @@ render(){
                             <input className="contact-btn" type="submit" value="Send" onClick={ this.handleSubmit }></input> 
                         </div>
                     </fieldset>
+                </div>
+                <div >
+                <Footer />
                 </div>
             </div> 
         );

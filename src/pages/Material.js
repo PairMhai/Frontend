@@ -5,6 +5,7 @@ import LeftTabFilter from '../components/LeftTabFilter'
 import ProdCard from '../components/ProdCard'
 import LoginNav from '../components/LoginNav'
 import ProfileNav from '../components/ProfileNav'
+import Footer from '../components/Footer'
 
 class Material extends Component {
 
@@ -52,6 +53,9 @@ class Material extends Component {
                     <div id="prod" className="col-md-9 push-md-3">
                         <ProdCard type="mat" sort={this.state.sort} search={this.state.keyword} filter={this.state.filter}  />
                     </div>
+                </div>
+                <div >
+                <Footer />
                 </div>
             </div>
         );

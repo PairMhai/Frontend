@@ -7,7 +7,7 @@ import {Cookies} from 'react-cookie'
 import Modal from 'react-modal'
 import swal from 'sweetalert'
 import '../CSS/Des.css'
-
+import Footer from '../components/Footer'
 class DesDetail extends Component {
 
     constructor(props){
@@ -231,6 +231,9 @@ class DesDetail extends Component {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div >
+                <Footer />
                 </div>
             </div>
         );

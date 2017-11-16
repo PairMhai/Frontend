@@ -5,7 +5,7 @@ import LeftTabFilter from '../components/LeftTabFilter'
 import ProdCard from '../components/ProdCard'
 import LoginNav from '../components/LoginNav'
 import ProfileNav from '../components/ProfileNav'
-
+import Footer from '../components/Footer'
 class Design extends Component {
     
     constructor(props){
@@ -61,6 +61,9 @@ class Design extends Component {
                         <ProdCard type="des" sort={this.state.sort} search={this.state.keyword} color={this.state.color} 
                         range={this.state.range} mat={this.state.mat} />
                     </div>
+                </div>
+                <div >
+                <Footer />
                 </div>
             </div>
         );
