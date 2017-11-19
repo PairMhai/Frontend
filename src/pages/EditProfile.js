@@ -85,17 +85,17 @@ class EditProfile extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <div className="container">
                         USERNAME: <input type="user" name="username" value={this.state.username} onChange={this.handleChange}/>&nbsp;&nbsp;&nbsp;&nbsp;
-                        PASSWORD: <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/>&nbsp;&nbsp;&nbsp;&nbsp;
-                        CONFIRM PASSWORD: <input type="password" name="cfpassword" value={this.state.cfpassword} onChange={this.handleChange}/>
+                        PASSWORD: <input type="password" name="password" value={this.state.password} onChange={this.handleChange} disabled/>&nbsp;&nbsp;&nbsp;&nbsp;
+                        CONFIRM PASSWORD: <input type="password" name="cfpassword" value={this.state.cfpassword} onChange={this.handleChange} disabled/>
                     </div>
                     <p className="person">PERSONAL INFORMATION</p>
                     <div className="container">
-                        FIRSTNAME: <input type="text" name="firstname" value={this.state.firstname} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
-                        LASTNAME: <input  type="text" name="lastname" value={this.state.lastname} onChange={this.handleChange}/> <br></br> <br></br>
+                        FIRSTNAME: <input type="text" name="firstname" value={this.state.firstname} onChange={this.handleChange} disabled/> &nbsp;&nbsp;&nbsp;&nbsp;
+                        LASTNAME: <input  type="text" name="lastname" value={this.state.lastname} onChange={this.handleChange} disabled/> <br></br> <br></br>
                         GENDER: 
-                            &nbsp;<input type="radio" name="gender" className="gender" value="Female" onChange={this.handleChange}/> FEMALE
-                            &nbsp;<input type="radio" name="gender" value="Male" className="gender" onChange={this.handleChange}/> MALE &nbsp;&nbsp;&nbsp;&nbsp;
-                        BIRTHDAY: <input type="date" name="birthday" className="hbd" value={this.state.birthday} onChange={this.handleChange}/>
+                            &nbsp;<input type="radio" name="gender" className="gender" value="Female" onChange={this.handleChange} disabled/> FEMALE
+                            &nbsp;<input type="radio" name="gender" value="Male" className="gender" onChange={this.handleChange} disabled/> MALE &nbsp;&nbsp;&nbsp;&nbsp;
+                        BIRTHDAY: <input type="date" name="birthday" className="hbd" value={this.state.birthday} onChange={this.handleChange} disabled/>
                                   <br></br><br></br>&nbsp;&nbsp;&nbsp;&nbsp;
                         E-MAIL: <input type="email" name="email" value={this.state.email} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
                         TEL: <input type="text" name="tel" value={this.state.tel} onChange={this.handleChange}/><br></br> <br></br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -107,27 +107,27 @@ class EditProfile extends Component {
 
                         <div className="member-box">
                             <img id="class-icon" src={diamond} alt="diamond-icon" className="diamond-icon member-icon"/> 
-                            <br/><input type="radio" name="classes" value="5" className="member-radio" onChange={this.handleChange}/>
+                            <br/><input type="radio" name="classes" value="5" className="member-radio" onChange={this.handleChange} disabled/>
                         </div>
                            
                         <div className="member-box">
                             <img id="class-icon" src={platinum} alt="platinum-icon" className="platinum-icon member-icon"/> 
-                            <br/><input type="radio" name="classes" value="4" className="member-radio" onChange={this.handleChange}/>
+                            <br/><input type="radio" name="classes" value="4" className="member-radio" onChange={this.handleChange} disabled/>
                         </div>
                           
                         <div className="member-box">
                             <img id="class-icon" src={gold} alt="gold-icon" className="gold-icon member-icon"/> 
-                            <br/><input type="radio"  name="classes" value="3" className="member-radio" onChange={this.handleChange}/>
+                            <br/><input type="radio"  name="classes" value="3" className="member-radio" onChange={this.handleChange} disabled/>
                         </div>
 
                         <div className="member-box">
                             <img id="class-icon" src={silver} alt="silver-icon" className="silver-icon member-icon"/> 
-                            <br/><input type="radio" name="classes" value="2" className="member-radio" onChange={this.handleChange}/>
+                            <br/><input type="radio" name="classes" value="2" className="member-radio" onChange={this.handleChange} disabled/>
                         </div>
                             
                         <div className="member-box">
                             <img id="class-icon" src={bronze} alt="bronze-icon" className="bronze-icon member-icon"/> 
-                            <br/><input type="radio" name="classes" value="1" className="member-radio" onChange={this.handleChange}/>
+                            <br/><input type="radio" name="classes" value="1" className="member-radio" onChange={this.handleChange} disabled/>
                         </div>
                                              
                         </div>
