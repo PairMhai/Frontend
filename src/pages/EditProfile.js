@@ -17,13 +17,13 @@ class EditProfile extends Component {
     }
 
     handleChange(event){
-        // const target = event.target;
-        // const value = target.type === 'checkbox' ? target.checked : target.value;
-        // const name = target.name;
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
     
-        // this.setState({
-        //   [name]: value
-        // });
+        this.setState({
+          [name]: value
+        });
     }
 
     componentWillMount() {
@@ -43,7 +43,7 @@ class EditProfile extends Component {
     }
 
     handleSubmit(event){
-        axios.patch('http://pairmhai-api.herokuapp.com/membership/user/', {
+        axios.post('http://pairmhai-api.herokuapp.com/membership/user/', {
             "username": this.state.username,
             "first_name": this.state.firstname,
             "last_name": this.state.lastname,
@@ -90,7 +90,7 @@ class EditProfile extends Component {
                             <br/><br/>TEL: <input className="cus-data edit-box" name="tel" value={this.state.tel} onChange={this.handleChange}/><br/><br/>
                             E-MAIL: <input className="cus-data edit-box" name="email" value={this.state.email} onChange={this.handleChange}/>
                         </div>
-                        {/* <button className="cus-btn-edit" onClick={this.handleSubmit} >SUBMIT</button> */}
+                        <button className="cus-btn-edit" onClick={this.handleSubmit} >SUBMIT</button>
                     </div>
                 </div>
             </div>
