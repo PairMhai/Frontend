@@ -11,11 +11,33 @@ class Material extends Component {
 
     constructor(props){
         super(props);
-        this.state = {keyword: '', sort: 'price', filter: [{color: '', range:'', mat: ''}]}
+        this.state = {keyword: '', sort: 'price', color: 'all', range:'all', mat: 'all'}
         this.checkLogin =  this.checkLogin = this.checkLogin.bind(this);
-        this.setFillter = this.setFillter.bind(this)
         this.setKeyword = this.setKeyword.bind(this)
         this.setSort = this.setSort.bind(this)
+        this.setRange = this.setRange.bind(this)
+        this.setColor = this.setColor.bind(this)
+        this.setMat = this.setMat.bind(this)
+    }
+
+    setRange(range){
+        this.setState({range: range})
+    }
+    
+    setColor(color){
+        this.setState({color: color})
+    }
+
+    setMat(mat){
+        this.setState({mat: mat})
+    }
+
+    setKeyword(word){
+        this.setState({keyword: word})
+    }
+
+    setSort(type){
+        this.setState({sort: type})
     }
 
     checkLogin(){
@@ -26,21 +48,6 @@ class Material extends Component {
         return <ProfileNav />;
     }
 
-    setFillter(data){
-        console.log(data)
-        this.setState({filter: data})
-    }
-
-    setKeyword(word){
-        console.log(word)
-        this.setState({keyword: word})
-    }
-
-    setSort(type){
-        alert(type)
-        this.setState({sort: type})
-    }
-
     render(){
         return (
             <div>
@@ -48,14 +55,16 @@ class Material extends Component {
                 {this.checkLogin()}
                 <div className="row container-fluid">
                     <div className="col-md-3 push-md-9 ">
-                        <LeftTabFilter test="df" filter={this.setFillter} keyword={this.setKeyword} sorting={this.setSort}/>
+                        <LeftTabFilter color={this.setColor} range={this.setRange} mat={this.setMat} 
+                        search={this.setKeyword} sorting={this.setSort}/>
                     </div>
                     <div id="prod" className="col-md-9 push-md-3">
-                        <ProdCard type="mat" sort={this.state.sort} search={this.state.keyword} filter={this.state.filter}  />
+                        <ProdCard type="mat" sort={this.state.sort} search={this.state.keyword} color={this.state.color} 
+                        range={this.state.range} mat={this.state.mat} />
                     </div>
                 </div>
                 <div >
-                <Footer />
+                    <Footer />
                 </div>
             </div>
         );
