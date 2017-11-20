@@ -5,8 +5,7 @@ import '../CSS/Navbar.css';
 class Navbar extends Component {
     render(){
         return (
-            
-            <div className="nb-div container-fluid">
+            <div className="nav-container container-fluid">
                 <Link to="/home"><img className="nb-logo" src={ require('../img/icon/logomain.png') } alt="Logo-Error"/></Link>
                 <Link to="/material"  className="nb-btn" role="button">Material</Link>
                 <Link to="/design" className="nb-btn" role="button">Design</Link>
