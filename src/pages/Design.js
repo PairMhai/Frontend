@@ -10,7 +10,7 @@ class Design extends Component {
     
     constructor(props){
         super(props);
-        this.state = {keyword: '', sort: 'price', color: '', range:'', mat: ''}
+        this.state = {keyword: '', sort: 'price', color: 'all', range:'all', mat: 'all'}
         this.checkLogin =  this.checkLogin = this.checkLogin.bind(this);
         this.setKeyword = this.setKeyword.bind(this)
         this.setSort = this.setSort.bind(this)
@@ -54,7 +54,7 @@ class Design extends Component {
                 {this.checkLogin()}
                 <div className="row container-fluid">
                     <div className="col-md-3 push-md-9 ">
-                        <LeftTabFilter  color={this.setColor} range={this.setRange} mat={this.setMat} 
+                        <LeftTabFilter color={this.setColor} range={this.setRange} mat={this.setMat} 
                         search={this.setKeyword} sorting={this.setSort}/>
                     </div>
                     <div id="prod" className="col-md-9 push-md-3">
