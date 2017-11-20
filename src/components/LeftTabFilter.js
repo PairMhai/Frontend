@@ -7,7 +7,7 @@ class LeftTabFilter extends Component {
     constructor(props){
         super(props);
         console.log(props)
-        this.state = {matSel: [], keyword: ''}
+        this.state = {matSel: [], keyword: '', }
         this.rangeChange = this.rangeChange.bind(this)
         this.sortChange = this.sortChange.bind(this)
         this.keyChange = this.keyChange.bind(this)

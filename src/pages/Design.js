@@ -58,6 +58,7 @@ class Design extends Component {
                         search={this.setKeyword} sorting={this.setSort}/>
                     </div>
                     <div id="prod" className="col-md-9 push-md-3">
+                        
                         <ProdCard type="des" sort={this.state.sort} search={this.state.keyword} color={this.state.color} 
                         range={this.state.range} mat={this.state.mat} />
                     </div>

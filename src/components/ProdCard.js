@@ -1,12 +1,13 @@
 import React , {Component} from 'react'
 import axios from 'axios';
+import loadGIF from '../img/icon/loading.gif'
 import '../CSS/Card.css'
 
 class ProdCard extends Component {
 
     constructor(props){
         super(props);
-        this.state = { prod: [], origin: [], type: ''};
+        this.state = { prod: [], origin: [], type: '', loading: true};
 
         this.clickDetail = this.clickDetail.bind(this);
         this.search = this.search.bind(this)
@@ -31,7 +32,7 @@ class ProdCard extends Component {
         axios.get('https://pairmhai-api.herokuapp.com/catalog/'+typeProd)
         .then((response) => {
             console.log(response);
-            this.setState({prod: response.data.sort(function(a, b){return a.price - b.price}), origin: response.data});
+            this.setState({prod: response.data.sort(function(a, b){return a.price - b.price}), origin: response.data, loading: false});
         })
         .catch(function (error) {
             console.log(error);
@@ -43,7 +44,6 @@ class ProdCard extends Component {
     }
 
     search(value){
-        console.log( value )
         var currProd
         if(value.sort === 'price')
             currProd = this.state.origin.sort(function(a, b){return a.price - b.price})
@@ -92,7 +92,6 @@ class ProdCard extends Component {
         }
 
         this.setState({prod: currProd})
-        console.log(currProd)
     }
 
 
@@ -112,8 +111,10 @@ class ProdCard extends Component {
                         </div>
             }
         });
-        
-        return <div id="procon" className="row justify-content-start">{allProd}</div>
+        if(this.state.loading)
+            return <div className="load"><h1>Loading...</h1></div>
+        else
+            return <div id="procon" className="row justify-content-start">{allProd}</div>
     }
 }
 
