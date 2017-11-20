@@ -170,7 +170,7 @@ class Payment extends Component {
                                     Card Number &nbsp;&nbsp;<input name="cardNumber" value={this.state.cardNumber} onChange={this.cardChange}/>&nbsp;&nbsp;
                                     CCV &nbsp;&nbsp;<input  name="ccv" value={this.state.ccv} onChange={this.cardChange}/><br/><br/>            
                                     Card Holder &nbsp;&nbsp;<input  name="cardHolder" value={this.state.cardHolder} onChange={this.cardChange}/>&nbsp;&nbsp;
-                                    EXP &nbsp;&nbsp;<input type="date"  name="exp" value={this.state.exp} onChange={this.cardChange}/>
+                                    EXP &nbsp;&nbsp;<input type="month"  name="exp" value={this.state.exp} onChange={this.cardChange}/>
                                 </div><br/>
                                 <button className="signup_btn modal-btn" onClick={this.cardToggleModal}>CANCEL</button>
                                 <button className="signup_btn modal-btn" onClick={this.handleAdd}>ADD</button>

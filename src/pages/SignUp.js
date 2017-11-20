@@ -1,5 +1,4 @@
 import React , {Component} from 'react'
-// import {Cookies} from 'react-cookie'
 import Navbar from '../components/Navbar'
 import axios from 'axios';
 import '../CSS/SignUp.css';
@@ -189,7 +188,7 @@ class SignUp extends Component {
                                     Card Number &nbsp;&nbsp;<input name="cardNumber" value={this.state.cardNumber} onChange={this.handleChange}/>&nbsp;&nbsp;
                                     CCV &nbsp;&nbsp;<input  name="ccv" value={this.state.ccv} onChange={this.handleChange}/><br/><br/>            
                                     Card Holder &nbsp;&nbsp;<input  name="cardHolder" value={this.state.cardHolder} onChange={this.handleChange}/>&nbsp;&nbsp;
-                                    EXP &nbsp;&nbsp;<input type="date"  name="exp" value={this.state.exp} onChange={this.handleChange}/>
+                                    EXP &nbsp;&nbsp;<input type="date" name="exp" value={this.state.exp} onChange={this.handleChange}/>
                                 </div><br/>
                                 <button className="signup_btn modal-btn" onClick={this.toggleModal}>CANCEL</button>
                                 <button className="signup_btn modal-btn" onClick={this.handleAdd}>ADD</button>
@@ -198,10 +197,9 @@ class SignUp extends Component {
                         </div>
                     </div><br></br>
                 <button className="signup_btn" onClick={this.handleSubmit} >SIGN UP</button><br></br><br></br>
-
             </div>
-            <div >
-                <Footer />
+                <div >
+                    <Footer />
                 </div>
             </div>
         );

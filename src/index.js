@@ -18,6 +18,7 @@ import Cart from './components/Cart'
 import Payment from './components/Payment'
 import Promotion from './components/Promotion'
 import History from './components/History'
+import EditProfile from './pages/EditProfile'
 
 import './CSS/index.css';
 
@@ -43,6 +44,7 @@ ReactDOM.render((
       <Route exact path="/des/" component={Design}/>
       <Route path="/mat/:id" component={MatDetail}/>
       <Route path="/des/:id" component={DesDetail}/>
+      <Route path="/edit_profile" component={EditProfile}/>
     </Switch>
   </BrowserRouter>
 )     

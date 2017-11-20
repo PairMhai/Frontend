@@ -53,7 +53,9 @@ class Profile extends Component {
                             <br/><br/>TEL: <span className="cus-data" name="tel">{this.state.tel}</span> &emsp;&emsp;&emsp;
                             E-MAIL: <span className="cus-data" name="email">{this.state.email}</span>
                         </div>
-                        <input className="cus-btn-edit" type="button" value="EDIT"/>
+                        <a href='/edit_profile'>
+                            <input className="cus-btn-edit" type="button" value="EDIT"/>
+                        </a>
                     </div>
                 </div>
             </div>
