@@ -1,9 +1,10 @@
 .nb-logo {
     width: 10%;
+   
     /* padding-top: 1%;
     padding-bottom: 1%; */
     padding: 1%;
-    margin-right: 50px;
+    margin-right: 5%;
 }
 
 .nb-btn{
@@ -25,12 +26,13 @@
     background-color: black;
     text-decoration: none;
     color: white;
-    padding: 3%;
+    padding-bottom: 4%;
+    padding-top: 4%;
 }
 
 .nav-container {
     border-bottom: 2px solid black;
     text-align: center;
     width: 100%;
-}
+} 
 
