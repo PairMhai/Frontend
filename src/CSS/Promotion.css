@@ -1,16 +1,15 @@
 .event {
     font-size: 450%;
     margin-top: 0%;
-    margin-left: 60%;
-    margin-bottom: -5.5%;  
+    margin-left: 40%;
+    margin-bottom: -2.75%;  
 }
 
 .promotion-box {
-    border: .2em solid black;
+    border: .1em solid black;
     padding: 2em;
     overflow-y: scroll;
-    height: 28em;
-    margin-top: 3%;
+    height: 25em;
 }
 
 .promotion-info {

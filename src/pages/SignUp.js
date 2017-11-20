@@ -83,7 +83,7 @@ class SignUp extends Component {
         })
         .catch(function (error) {
             console.log(error.response);
-            //swal ( "Oops" ,  "Please enter valid data" ,  "error" )
+            swal ( "Oops" ,  "Please enter valid data" ,  "error" )
         });
          event.preventDefault();  
      }

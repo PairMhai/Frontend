@@ -2,16 +2,7 @@ import React , {Component} from 'react'
 import {Cookies} from 'react-cookie'
 import Navbar from '../components/Navbar'
 import axios from 'axios';
-import '../CSS/SignUp.css';
-// import ReactTooltip from 'react-tooltip'
-import Modal from 'react-modal'
-import bronze from '../img/icon/bronze.png'
-import silver from '../img/icon/silver.png'
-import gold from '../img/icon/gold.png'
-import platinum from '../img/icon/platinum.png'
-import diamond from '../img/icon/diamond.png'
-import visa from '../img/icon/visa.png'
-import master from '../img/icon/mastercard.png'
+import LeftTabProfile from '../components/LeftTabProfile'
 import swal from 'sweetalert'
 
 class EditProfile extends Component {
@@ -36,40 +27,37 @@ class EditProfile extends Component {
     }
 
     componentWillMount() {
-        axios.post('http://pairmhai-api.herokuapp.com/membership/user')
+        const cookies = new Cookies();
+        var key = cookies.get('key')
+        axios.get('https://pairmhai-api.herokuapp.com/membership/user/' + key)
         .then((response) => {
             this.setState({ username: response.data.username, firstname: response.data.first_name, 
                             lastname: response.data.last_name, email: response.data.email_address, 
                             tel: response.data.telephone, address: response.data.address, 
                             birthday: response.data.date_of_birth, gender: response.data.gender,
                             age: response.data.age })
-        })            
-    }
-
-    toggleModal = () => {
-        this.setState({
-            isActive: !this.state.isActive
-        })
+        })         
+        .catch(function (error) {
+            console.log(error);
+        });   
     }
 
     handleSubmit(event){
-        axios.post('http://pairmhai-api.herokuapp.com/membership/user', {
-            "user": {
-                "username": this.state.username,
-                "first_name": this.state.firstname,
-                "last_name": this.state.lastname,
-                "email_address": this.state.email,
-                "telephone": this.state.tel,
-                "address": this.state.address,
-                "date_of_birth": this.state.birthday,
-                "gender": this.state.gender,
-                "age": this.state.age
-            },  
+        axios.patch('http://pairmhai-api.herokuapp.com/membership/user/', {
+            "username": this.state.username,
+            "first_name": this.state.firstname,
+            "last_name": this.state.lastname,
+            "email_address": this.state.email,
+            "telephone": this.state.tel,
+            "address": this.state.address,
+            "date_of_birth": this.state.birthday,
+            "gender": this.state.gender,
+            "age": this.state.age
         })
         .then(function (response) {
             const cookies = new Cookies();
             cookies.set('key', response.data.key, {path: '/'})
-            window.location = "/home"
+            window.location = "/profile"
             console.log(response);
         })
         .catch(function (error) {
@@ -85,12 +73,26 @@ class EditProfile extends Component {
         return (
             <div>
                 <Navbar />
-                <div className="siup-center container-fluid">
-                <p className="signup">Edit Profile</p>
-                <form onSubmit={this.handleSubmit}>   
-                    <input type="submit" value="SUBMIT" className="signup_btn" /><br></br><br></br>
-                </form> 
-            </div>
+                <div className="row">
+                    <div className="col-md-3 push-md-9">
+                        <LeftTabProfile />
+                    </div>
+                    <div className="col-md-9 push-md-3 cus-con">
+                        <p className="cus-inf-header">EDIT PROFILE</p>
+                        <div className="cus-inf-part">
+                            USERNAME: <span className="cus-data" name="username">{this.state.username}</span><br/><br/> 
+                            FIRSTNAME: <input className="cus-data edit-box" name="firstname" value={this.state.firstname} onChange={this.handleChange}/><br/><br/>
+                            LASTNAME: <input  className="cus-data edit-box" name="lastname" value={this.state.lastname} onChange={this.handleChange}/>
+                            <br/><br/>GENDER: <span className="cus-data" name="gender">{this.state.gender}</span> &emsp;&emsp;&emsp;
+                            BIRTHDAY: <span className="cus-data" name="birthday">{this.state.birthday}</span>  &emsp;&emsp;&emsp;
+                            AGE: <span className="cus-data" name="age">{this.state.age}</span><br/>
+                            ADDRESS: <textarea className="cus-data" name="address" value={this.state.address} onChange={this.handleChange}/>
+                            <br/><br/>TEL: <input className="cus-data edit-box" name="tel" value={this.state.tel} onChange={this.handleChange}/><br/><br/>
+                            E-MAIL: <input className="cus-data edit-box" name="email" value={this.state.email} onChange={this.handleChange}/>
+                        </div>
+                        <button className="cus-btn-edit" onClick={this.handleSubmit} >SUBMIT</button>
+                    </div>
+                </div>
             </div>
         );
     }

@@ -1,20 +1,16 @@
-* {
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
-}
-
 .company_name {
   font-size: 100px;
   font-weight: normal;
   color: #605f5f;
   text-align: right;
-  margin-right: 20%;
+  margin-right: 40%;
 }
 
 .our_story {
   font-size: 100px;
   font-weight: bold;
   text-align: right;
-  margin-right: 13%;
+  margin-right: 26%;
   line-height: 40px;
 }
 
@@ -22,7 +18,7 @@
   font-size: 40px;
   font-weight: normal;
   text-align: right;
-  margin-right: 25%;
+  margin-right: 40%;
   line-height: 120px;
 }
 
