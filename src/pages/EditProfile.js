@@ -90,7 +90,7 @@ class EditProfile extends Component {
                             <br/><br/>TEL: <input className="cus-data edit-box" name="tel" value={this.state.tel} onChange={this.handleChange}/><br/><br/>
                             E-MAIL: <input className="cus-data edit-box" name="email" value={this.state.email} onChange={this.handleChange}/>
                         </div>
-                        <button className="cus-btn-edit" onClick={this.handleSubmit} >SUBMIT</button>
+                        {/* <button className="cus-btn-edit" onClick={this.handleSubmit} >SUBMIT</button> */}
                     </div>
                 </div>
             </div>
