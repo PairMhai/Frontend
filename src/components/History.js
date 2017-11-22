@@ -13,9 +13,10 @@ class History extends Component {
         this.state = {
             prodhis: [], id: '', productid: '',
             design: '', material: '', quantity: '' 
-           
+            ,keyword: ''
         }
         this.clickDetail = this.clickDetail.bind(this);
+        this.keyChange = this.keyChange.bind(this)
         const orderid = null ;
     }
 
@@ -37,6 +38,18 @@ class History extends Component {
         this.toggleModal();
        
     }
+    handleKeyChange(e){
+        this.setState({keyword: e.target.value})
+    }
+    keyChange(word){
+        this.props.search(this.state.keyword)
+        this.setKeyword(word)
+    }
+
+    setKeyword(word){
+        this.setState({keyword: word})
+    }
+
    
 
     componentWillMount() {
@@ -77,13 +90,13 @@ class History extends Component {
                             
                             <br/>
                             <div className="search-con">
-                            <input className="searchbar-3" type="search" name="search" placeholder="Enter here" />
-                            <button type="submit" className="search_btn-2" >Search </button>
+                            <input className="searchbar-3" type="search" name="search" placeholder="Enter here" value={this.state.keyword} onChange={this.handleKeyChange}/>
+                            <button type="submit" className="search_btn-2" onClick={this.keyChange}>Search </button>
                             </div>
                             <br/>
                             <div className="det-con"><label className="Detail">Order ID : {prodhisval.id}</label><label className="Detail">Date : {prodhisval.created_at.substring(0, 10)} </label><label className="Detail">Total Price : {prodhisval.final_price}  </label>
                              </div>
-                             <div className="his-info-det">
+                             <div className="his-info-det" search={this.state.keyword}>
                              {
                                  
                                 prodhisval.products.map((product, ind) => {
@@ -154,9 +167,9 @@ class History extends Component {
                     </div>
                     <div className="col-md-9 push-md-3 cus-con">
                         <p className="his-header">HISTORY</p>
-                        <input className="searchbar-2" type="search" name="search" placeholder="Enter here" />
+                        <input className="searchbar-2" type="search" name="search" placeholder="Enter here" value={this.state.keyword} onChange={this.handleKeyChange}/>
 
-                        <button type="submit" className="search_btn" >
+                        <button type="submit" className="search_btn" onClick={this.keyChange} >
                             Search
                         </button>
                         <div className="his-info">
