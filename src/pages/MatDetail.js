@@ -6,12 +6,14 @@ import LoginNav from '../components/LoginNav'
 import {Cookies} from 'react-cookie'
 import swal from 'sweetalert'
 import '../CSS/Mat.css'
+import Footer from '../components/Footer'
 
 class MatDetail extends Component {
 
     constructor(props){
         super(props);
-        this.state = {amount: 0,id: '', name: '', description: '',  color: '', price: '', imageName: '', prod: [], detail: [] }
+        this.state = {amount: 0,id: '', name: '', description: '',  color: '', price: '', imageName: '',
+        prod: [], detail: [], max: '', remain: ''}
 
         this.increaseProd = this.increaseProd.bind(this);
         this.decreaseProd = this.decreaseProd.bind(this);
@@ -25,7 +27,8 @@ class MatDetail extends Component {
         .then((response)=> {
             this.setState({ id: response.data.product_id,
                 name: response.data.name, description: response.data.description,
-                price: response.data.price, color: response.data.color, imageName: response.data.image_name
+                price: response.data.price, color: response.data.color, imageName: response.data.image_name, 
+                max: response.data.quantity, remain: response.data.quantity
             })
 
             const newDetail = this.state.detail;
@@ -52,8 +55,11 @@ class MatDetail extends Component {
         if (!this.isLogin()) {
             swal({title:"Please Login"})
             return
-        }
-        this.setState({ amount: this.state.amount + 1 });
+        } 
+        if(this.state.amount < this.state.remain)
+            this.setState({ amount: this.state.amount + 1, remain: this.state.remain - this.state.amount})
+        else
+            swal("Sorry","The product is not enough.", "error")
     } 
 
     decreaseProd() {
@@ -62,7 +68,7 @@ class MatDetail extends Component {
             return
         }
         if(this.state.amount > 0)
-            this.setState({ amount: this.state.amount - 1 });
+            this.setState({ amount: this.state.amount - 1, remain: this.state.remain + 1});
     }
 
     isLogin(){
@@ -79,9 +85,23 @@ class MatDetail extends Component {
             return
         }
         if(this.state.amount > 0){
-            const newProd = this.state.prod;
-            newProd.push({ prod_id: this.state.id,type: 'mat', name: this.state.name, amount: this.state.amount, price: this.state.price, imageName: this.state.imageName, remark: ''}); 
-            this.setState({prod: newProd});
+            var idx = -1
+            for(var i = 0 ; i < this.state.prod.length; i++){
+                if(this.state.prod[i].prod_id === this.state.id){
+                   idx = i
+                   break
+                }    
+            }
+            if(idx !== -1){
+                var arr = this.state.prod;
+                arr[idx].amount += this.state.amount;
+                this.setState({prod: arr})
+            } else {
+                const newProd = this.state.prod;
+                newProd.push({ prod_id: this.state.id,type: 'mat', name: this.state.name, amount: this.state.amount,
+                price: this.state.price, imageName: this.state.imageName, remark: '', max: this.state.max}); 
+                this.setState({prod: newProd});
+            }
             this.setState({ amount: 0});
             const cookies = new Cookies();
             cookies.set('prod',this.state.prod,{path: '/'})
@@ -119,6 +139,7 @@ class MatDetail extends Component {
                             <p>DESCRIPTION:&ensp;{this.state.description}</p> 
                             <p>COLOR:&ensp;{this.state.color}</p>
                             <p>PRICE:&ensp;{this.state.price} Baht.- / Yard of Fabric</p>
+                            <p>REMAINING:&ensp;{this.state.max - this.state.amount} Yard of Fabric</p>
                             <div className="row mat-group-btn ">
                                 <button className="mat-btn-add" onClick={this.decreaseProd}>-</button>
                                 <input className="mat-amount" type="number" value={this.state.amount} disabled/>
@@ -127,6 +148,9 @@ class MatDetail extends Component {
                             <button className="mat-btn-submit" onClick={this.addProdToCart}>ADD TO CART</button>
                         </div>
                     </div>
+                </div>
+                <div >
+                <Footer />
                 </div>
             </div>
         );

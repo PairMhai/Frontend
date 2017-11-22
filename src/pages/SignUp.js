@@ -13,6 +13,7 @@ import diamond from '../img/icon/diamond.png'
 import visa from '../img/icon/visa.png'
 import master from '../img/icon/mastercard.png'
 import swal from 'sweetalert'
+import Footer from '../components/Footer'
 
 class SignUp extends Component {
     
@@ -115,7 +116,9 @@ class SignUp extends Component {
                         FIRSTNAME: <input type="text" name="firstname" value={this.state.firstname} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
                         LASTNAME: <input  type="text" name="lastname" value={this.state.lastname} onChange={this.handleChange}/> <br></br> <br></br>
                         GENDER: 
-                            &nbsp;<input type="radio" name="gender" className="gender" value="Female" onChange={this.handleChange} defaultChecked/> FEMALE
+
+                            &nbsp;<input type="radio" name="gender" className="gender" value="Female" defaultChecked={this.state.gender} onChange={this.handleChange}/> FEMALE
+
                             &nbsp;<input type="radio" name="gender" value="Male" className="gender" onChange={this.handleChange}/> MALE &nbsp;&nbsp;&nbsp;&nbsp;
                         BIRTHDAY: <input type="date" name="birthday" className="hbd" value={this.state.birthday} onChange={this.handleChange}/>
                                   <br></br><br></br>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -129,7 +132,7 @@ class SignUp extends Component {
 
                         <div className="member-box">
                             <img id="class-icon" src={diamond} alt="diamond-icon" className="diamond-icon member-icon"/> 
-                            <br/><input type="radio" name="classes" value="5" className="member-radio" onChange={this.handleChange} defaultChecked/>
+                            <br/><input type="radio" name="classes" value="5" className="member-radio" defaultChecked={this.state.classes} onChange={this.handleChange}/>
                             <a data-tip="Discount 12% each time that purchase product.">DIAMOND</a> 
                         </div>
                            
@@ -192,6 +195,9 @@ class SignUp extends Component {
                 <button className="signup_btn" onClick={this.handleSubmit} >SIGN UP</button><br></br><br></br>
 
             </div>
+            <div >
+                <Footer />
+                </div>
             </div>
         );
     }

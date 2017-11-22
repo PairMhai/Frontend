@@ -6,12 +6,13 @@ import line_icon from '../img/line-1.png'
 import profile_icon from '../img/icon/userpic.png'
 import {Cookies } from 'react-cookie';
 import swal from 'sweetalert'
+import Footer from '../components/Footer'
 
 class SignIn extends Component {
 
     constructor(props){
         super(props);
-        this.state = { user: '', pass: ''};
+        this.state = { user: '', pass: '',};
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -53,26 +54,32 @@ class SignIn extends Component {
         })}
    
     render(){
-        return (
-
-            <div>
-                <Navbar />
-                <div className="signin" >
-                <img id="profile-pic-signin" src={profile_icon} alt="profile-logo"/>
-                <br/>
-                   <label className="signin-label-page">USERNAME: </label> 
-                   <input type="user" name="user" className="signin-input-page" value={this.state.user} onChange={this.handleChange}></input><br></br>
-                   <label className="signin-label-page">PASSWORD: </label>
-                   <input type="password" name="pass" className="signin-input-page"   value={this.state.pass} onChange={this.handleChange}></input><br></br>
-                   <a href="#" className="forget">Forgot your password?</a><br></br> 
-                   <a href="home"><input className="signin-page-btn" href="/home"type="submit" value="SIGN IN" onClick={this.handleSubmit}/></a>
-                   <br/>
-                   <label className="orlabel-page"><img id="line_icon" src={line_icon} alt="line_icon"/>or<img id="line_icon" src={line_icon} alt="line_icon"/></label>
-                   <br/>
-                   <a href="/signup"><input className="signin-page-btn" href="/signup" type="submit" value="SIGN UP" /></a>
+        if(this.state.loading)
+            return <div className="load"><h1>Loading...</h1></div>
+        else {
+            return (
+                <div>
+                    <Navbar />
+                    <div className="signin" >
+                    <img id="profile-pic-signin" src={profile_icon} alt="profile-logo"/>
+                    <br/>
+                    <label className="signin-label-page">USERNAME: </label> 
+                    <input type="user" name="user" className="signin-input-page" value={this.state.user} onChange={this.handleChange}></input><br></br>
+                    <label className="signin-label-page">PASSWORD: </label>
+                    <input type="password" name="pass" className="signin-input-page"   value={this.state.pass} onChange={this.handleChange}></input><br></br>
+                    <a href="#" className="forget">Forgot your password?</a><br></br> 
+                    <a href="home"><input className="signin-page-btn" href="/home"type="submit" value="SIGN IN" onClick={this.handleSubmit}/></a>
+                    <br/>
+                    <label className="orlabel-page"><img id="line_icon" src={line_icon} alt="line_icon"/>or<img id="line_icon" src={line_icon} alt="line_icon"/></label>
+                    <br/>
+                    <a href="/signup"><input className="signin-page-btn" href="/signup" type="submit" value="SIGN UP" /></a>
+                    </div>
+                    <div >
+                    <Footer />
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        }
     }
 }
 

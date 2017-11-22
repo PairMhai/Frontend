@@ -6,6 +6,7 @@ import '../CSS/Payment.css'
 import '../CSS/Promotion.css';
 import axios from 'axios'
 import {Cookies} from 'react-cookie'
+import Footer from '../components/Footer'
 
 class Promotion extends Component {
 
@@ -65,6 +66,9 @@ class Promotion extends Component {
                             
                         </div>
                     </div>
+                </div>
+                <div >
+                <Footer />
                 </div>
             </div>
         );
