@@ -1,5 +1,5 @@
 import React , {Component} from 'react'
-import { Cookies } from 'react-cookie';
+import { Cookies } from 'react-cookie'
 import Navbar from '../components/Navbar'
 import LeftTabProfile from '../components/LeftTabProfile'
 import Modal from 'react-modal'
@@ -10,40 +10,40 @@ import '../CSS/Payment.css'
 
 class Payment extends Component {
     constructor(props){
-        super(props);
+        super(props)
         this.state = { orderInfo: [], cusKey: '',isCardActive: false, isAddrActive: false,
         selectedCard: '', user: [], card: [],owner: '', 
         cardNumber: '', ccv: '', exp: '', cardHolder:''}
-        this.getShipping = this.getShipping.bind(this);
-        this.cardChange = this.cardChange.bind(this);
-        this.handleAdd = this.handleAdd.bind(this);
-        this.checkout = this.checkout.bind(this);
-        this.addrChange = this.addrChange.bind(this);
-        this.setCard = this.setCard.bind(this);
+        this.getShipping = this.getShipping.bind(this)
+        this.cardChange = this.cardChange.bind(this)
+        this.handleAdd = this.handleAdd.bind(this)
+        this.checkout = this.checkout.bind(this)
+        this.addrChange = this.addrChange.bind(this)
+        this.setCard = this.setCard.bind(this)
     }
 
     componentWillMount() {
-        const cookies = new Cookies();
+        const cookies = new Cookies()
         var key = cookies.get('key')
         var order = cookies.get('orderInfo')
         if(key !== 'null' && key !== undefined){
             this.setState({cusKey: key})
             axios.get('https://pairmhai-api.herokuapp.com/membership/cust/'+key)
             .then(response => {
-                console.log(response);
+                console.log(response)
                 this.setState({user: response.data.user, card: response.data.creditcards })
             })
             .catch(function (error) {
-                console.log(error);
-            }); 
+                console.log(error)
+            })
         } else {
-            window.location = "/home";
+            window.location = "/home"
         }
-        Modal.setAppElement('body');
+        Modal.setAppElement('body')
     }
 
     componentDidMount(){
-        const cookies = new Cookies();
+        const cookies = new Cookies()
         var order = cookies.get('orderInfo')
         this.setState({orderInfo: order, shipping: order.shipping}) 
     }
@@ -52,26 +52,22 @@ class Payment extends Component {
         var newUser = this.state.user
         newUser.address = e.target.value
         this.setState({user: newUser})
-        e.preventDefault(); 
+        e.preventDefault() 
     }
 
     cardChange(e){
-        const target = e.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
+        const target = e.target
+        const value = target.type === 'checkbox' ? target.checked : target.value
+        const name = target.name
     
-        this.setState({
-          [name]: value
-        });
+        this.setState({ [name]: value })
     }
 
     setCard(e){
-        console.log(e.target.value)
-        this.setState({ selectedCard: e.target.value});
+        this.setState({ selectedCard: e.target.value})
     }
 
     handleAdd() {
-        console.log(this.state.cusKey)
         axios.post('https://pairmhai-api.herokuapp.com/payment/', {
             "owner": this.state.cardHolder,
             "credit_no": this.state.cardNumber,
@@ -80,17 +76,17 @@ class Payment extends Component {
             "customer": this.state.cusKey
         })
         .then(function (response) {
-            console.log(response);
+            console.log(response)
             swal("Success","Already added", "success").then((value) => {
                 window.location = "/payment/"
-            });
+            })
         })
         .catch(function (error) {
-            console.log(error.response);
-            swal("Sorry","Something wrong try again", "error");
-        });
+            console.log(error.response)
+            swal("Sorry","Something wrong try again", "error")
+        })
     
-        this.setState({ owner: '', cardNumber: '', ccv: '', exp: '', cardHolder:''});
+        this.setState({ owner: '', cardNumber: '', ccv: '', exp: '', cardHolder:''})
     }
 
     cardToggleModal = () => {
@@ -104,25 +100,24 @@ class Payment extends Component {
         if(this.state.selectedCard === ''){
             swal ( "Oops" ,  "Select your card." ,  "error" )
         } else {
-            console.log(this.state.selectedCard)
             axios.post('https://pairmhai-api.herokuapp.com/cart/', {
                 "uuid": this.state.orderInfo.id,
                 "creditcard": this.state.selectedCard,
                 "address": this.state.user.address,
             })
             .then(function (response) {
+                console.log(response)
+                const cookies = new Cookies()
+                var key = cookies.set('prod', [])
                 swal("Thank you!","Total price: "+ response.data.final_price +" Baht-, Product: " + response.data.total_product +
                 " items, Send by " + response.data.transportation.name, "success").then((value) => {
                     window.location = "/home"
-                });
-                const cookies = new Cookies();
-                var key = cookies.set('prod', [])
-                console.log(response);
+                })
             })
             .catch(function (error) {
-                console.log(error.response);
+                console.log(error.response)
                 swal ( "Oops" ,  "Something wrong" ,  "error" )
-            });
+            })
         }
     }
 
@@ -137,12 +132,13 @@ class Payment extends Component {
 
     render(){
         const cusCard = this.state.card.map((det, index) => {
-        return  <tr className="table-tr" key={det.id}>
+            return  <tr className="table-tr" key={det.id}>
                 <td>&emsp;<input type="radio" name="selectedCard" defaultChecked={this.state.selectedCard} onChange={this.setCard} value={det.id}/></td>
                     <td>{det.credit_no}</td>
                     <td>{det.owner}</td>
                 </tr>
-        });
+        })
+
         return (
             <div>
                 <Navbar /> 
@@ -205,7 +201,7 @@ class Payment extends Component {
                     </div>
                 </div>
             </div>
-        );
+        )
     }
 }
 

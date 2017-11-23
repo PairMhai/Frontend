@@ -4,7 +4,7 @@ import axios from 'axios'
 import swal from 'sweetalert'
 import Navbar from '../components/Navbar'
 import LeftTabProfile from '../components/LeftTabProfile'
-import '../CSS/Cart.css';
+import '../CSS/Cart.css'
 import ems from '../img/icon/ems-logo.png'
 import kerry from '../img/icon/kerry-exprss-logo.png'
 import lineman from '../img/icon/lineman.png'
@@ -13,22 +13,22 @@ import lineman from '../img/icon/lineman.png'
 class Cart extends Component {
 
     constructor(props){
-        super(props);
+        super(props)
         this.state = { isActive: false, prod: [], orderKey: 0, price: 0, discount: 0, total_price: 0, shipping: 1}
-        this.clearCart = this.clearCart.bind(this);
-        this.decreaseProd = this.decreaseProd.bind(this);
-        this.increaseProd = this.increaseProd.bind(this);
-        this.getPrice = this.getPrice.bind(this);
-        this.shipChange = this.shipChange.bind(this);
+        this.clearCart = this.clearCart.bind(this)
+        this.decreaseProd = this.decreaseProd.bind(this)
+        this.increaseProd = this.increaseProd.bind(this)
+        this.getPrice = this.getPrice.bind(this)
+        this.shipChange = this.shipChange.bind(this)
     }
 
     componentWillMount() {
-        const cookies = new Cookies();
-        var key = cookies.get('key');
-        var allProd = cookies.get('prod');
+        const cookies = new Cookies()
+        var key = cookies.get('key')
+        var allProd = cookies.get('prod')
         this.setState({prod: allProd})
         if(key === 'null' || key === undefined){
-            window.location = "/home";
+            window.location = "/home"
         }
         console.log(allProd)
     }
@@ -38,37 +38,37 @@ class Cart extends Component {
     }
 
     shipChange(e){
-        const target = e.target;
-        const value = target.value;
-        this.setState({ shipping: value },this.getPrice(value)); 
+        const target = e.target
+        const value = target.value
+        this.setState({ shipping: value },this.getPrice(value))
     }
 
     increaseProd(e){
-        var idx = e.target.id;
-        var arr = this.state.prod;
+        var idx = e.target.id
+        var arr = this.state.prod
         if(arr[idx].amount < arr[idx].max){
-            arr[idx].amount += 1;
+            arr[idx].amount += 1
             this.setState({prod: arr})
-            this.getPrice(this.state.shipping);
-            const cookies = new Cookies();
-            var key = cookies.set('prod', arr);
+            this.getPrice(this.state.shipping)
+            const cookies = new Cookies()
+            var key = cookies.set('prod', arr)
         } else
             swal("Sorry","The product is not enough.", "error")
-        e.preventDefault(); 
+        e.preventDefault()
     }
 
     decreaseProd(e){
-        var idx = e.target.id;
-        var arr = this.state.prod;
-        arr[idx].amount -= 1;
+        var idx = e.target.id
+        var arr = this.state.prod
+        arr[idx].amount -= 1
         if(arr[idx].amount === 0){
             arr.splice(idx, 1)
         }
         this.setState({prod: arr})
-        this.getPrice(this.state.shipping);
-        const cookies = new Cookies();
-        var key = cookies.set('prod', arr);
-        e.preventDefault(); 
+        this.getPrice(this.state.shipping)
+        const cookies = new Cookies()
+        var key = cookies.set('prod', arr)
+        e.preventDefault()
     }
 
     toggleModal = () => {
@@ -77,18 +77,18 @@ class Cart extends Component {
 
     clearCart(){
         this.setState({prod: [],price: 0, discount: 0, total_price: 0})
-        const cookies = new Cookies();
-        var key = cookies.set('prod', []);
+        const cookies = new Cookies()
+        var key = cookies.set('prod', [])
     }
 
     getPrice(transportation){
-        const cookies = new Cookies();
-        var key = cookies.get('key');
-        var products = [];
+        const cookies = new Cookies()
+        var key = cookies.get('key')
+        var products = []
         console.log(this.state.prod)
         if(this.state.prod.length > 0){
-            for(var i=0; i<this.state.prod.length; i++){
-                products.push({ pid: this.state.prod[i].prod_id, quantity:this.state.prod[i].amount}); 
+            for(var i=0 ; i<this.state.prod.length ; i++){
+                products.push({ pid: this.state.prod[i].prod_id, quantity:this.state.prod[i].amount}) 
             }
             axios.post('https://pairmhai-api.herokuapp.com/cart/calculate', {
                 "customer": key,
@@ -100,16 +100,16 @@ class Cart extends Component {
                 this.setState({orderKey: response.data.calculate_id, price: response.data.full_price, 
                     discount: response.data.customer_discount + response.data.event_discount, total_price: response.data.final_price
                 })
-                var order = { id: response.data.calculate_id, price: response.data.final_price, shipping: this.state.shipping}; 
-                const cookies = new Cookies();
+                var order = { id: response.data.calculate_id, price: response.data.final_price, shipping: this.state.shipping}
+                const cookies = new Cookies()
                 cookies.set('orderInfo',order,{path: '/'})
             })
             .catch(function (error) {
-                console.log(error.response);
-            });  
+                console.log(error.response)
+            })
         } else {
             this.setState({prod: [],price: 0, discount: 0, total_price: 0})
-            cookies.set('orderInfo',[]);
+            cookies.set('orderInfo',[])
         }
     }
 
@@ -123,7 +123,7 @@ class Cart extends Component {
                     <button className="cart-btn-add" id={index} onClick={this.increaseProd}>+</button></div>
                 <div className="second-col">{det.price * det.amount} Baht.-</div>
                 </div>
-        });
+        })
 
         return (
             <div>
@@ -164,7 +164,7 @@ class Cart extends Component {
                     </div>
                 </div>             
             </div>            
-        );
+        )
     }
 }
 

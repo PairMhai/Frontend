@@ -17,26 +17,24 @@ class DesDetail extends Component {
         neck: 0, sleeve: 0, bust: 0, back: 0, waist: 0, waistband: 0, rise: 0, outseam: 0, hips: 0, inseam: 0,
          thigh: 0, ankle: 0, knee: 0, calf: 0, isFillSize: false, remain: '', max: ''}
 
-        this.increaseProd = this.increaseProd.bind(this);
-        this.decreaseProd = this.decreaseProd.bind(this);
-        this.addProdToCart = this.addProdToCart.bind(this);
-        this.checkLogin = this.checkLogin.bind(this);
-        this.isLogin = this.isLogin.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
+        this.increaseProd = this.increaseProd.bind(this)
+        this.decreaseProd = this.decreaseProd.bind(this)
+        this.addProdToCart = this.addProdToCart.bind(this)
+        this.checkLogin = this.checkLogin.bind(this)
+        this.isLogin = this.isLogin.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
     handleChange(event){
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
+        const target = event.target
+        const value = target.value
+        const name = target.name
 
         if(value !== '' && value !== 0)
             this.setState({isFillSize: true})
 
-        this.setState({
-          [name]: value
-        });
+        this.setState({ [name]: value })
     }
 
     handleSubmit(){
@@ -57,7 +55,7 @@ class DesDetail extends Component {
             return
         }
         if(this.state.remain > 0)
-            this.setState({ amount: this.state.amount + 1, remain: this.state.remain - 1 });
+            this.setState({ amount: this.state.amount + 1, remain: this.state.remain - 1 })
         else
             swal("Sorry","The product is not enough.", "error")
     } 
@@ -68,7 +66,7 @@ class DesDetail extends Component {
             return
         }
         if(this.state.amount > 0)
-            this.setState({ amount: this.state.amount - 1, remain: this.state.remain + 1 });
+            this.setState({ amount: this.state.amount - 1, remain: this.state.remain + 1 })
     }
 
     addProdToCart() {
@@ -89,19 +87,19 @@ class DesDetail extends Component {
                 }    
             }
             if(idx !== -1){
-                var arr = this.state.prod;
-                arr[idx].amount += this.state.amount;
+                var arr = this.state.prod
+                arr[idx].amount += this.state.amount
                 this.setState({prod: arr})
             } else {
-                const newProd = this.state.prod;
+                const newProd = this.state.prod
                 newProd.push({ prod_id: this.state.id,type: 'des', name: this.state.name, amount: this.state.amount,
                 price: this.state.price, imageName: this.state.imageName, remark: '', max: this.state.max}); 
-                this.setState({prod: newProd});
+                this.setState({prod: newProd})
             }
-            this.setState({ amount: 0});
-            const cookies = new Cookies();
+            this.setState({ amount: 0})
+            const cookies = new Cookies()
             cookies.set('prod',this.state.prod,{path: '/'})
-            console.log(this.state.prod);
+            console.log(this.state.prod)
             swal({title:"Your product is already added"})
         } else {
             swal({title:"You should add product before add to cart"})
@@ -109,19 +107,19 @@ class DesDetail extends Component {
     }
 
     checkLogin(){
-        const cookies = new Cookies();
-        var key = cookies.get('key');
+        const cookies = new Cookies()
+        var key = cookies.get('key')
         if(key!== 'null' && key !== undefined)
-            return <ProfileNav />;
-        return <LoginNav />;
+            return <ProfileNav />
+        return <LoginNav />
     }
 
     isLogin(){
-        const cookies = new Cookies();
-        var key = cookies.get('key');
+        const cookies = new Cookies()
+        var key = cookies.get('key')
         if (key === 'null' || key === undefined) 
-            return false;
-        return true;
+            return false
+        return true
     }
 
     componentWillMount() {
@@ -133,22 +131,22 @@ class DesDetail extends Component {
                 material: response.data.material.name, color: response.data.material.color, 
                 max: response.data.quantity
             })
-            const newDetail = this.state.detail;
-            newDetail.push(response.data); 
+            const newDetail = this.state.detail
+            newDetail.push(response.data)
             this.setState({detail: newDetail})
             console.log(response)
 
 
             var oldProd = []
-            const cookies = new Cookies();
+            const cookies = new Cookies()
             if(cookies.get('prod')!== 'null' && cookies.get('prod') !== undefined){
-                oldProd = cookies.get('prod');
+                oldProd = cookies.get('prod')
                 this.setState({prod: oldProd,})
             } else {
-                var key = cookies.set('prod',this.state.prod, {path: '/'});
+                var key = cookies.set('prod',this.state.prod, {path: '/'})
             }
 
-            var idx = -1;
+            var idx = -1
             for(var i = 0 ; i < oldProd.length; i++){
                 if(oldProd[i].prod_id === response.data.product_id){
                    idx = i
@@ -162,13 +160,10 @@ class DesDetail extends Component {
             }
         })
         .catch(function (error){
-            console.log(error);
+            console.log(error)
         })
 
-        Modal.setAppElement('body');
-
-        
-        console.log(this.state.prod);
+        Modal.setAppElement('body')
     }
 
     open = () => {
@@ -180,10 +175,11 @@ class DesDetail extends Component {
     render(){
         const image = this.state.detail.map((det, index) => {
             return   <img className="img-prod" key="des-img" src={ require('../img/des/'+det.images[0].file_name) } alt="des-pic"/>
-        });
+        })
+
         const imgModal = this.state.detail.map((det, index) => {
             return  <img className="img-in-modal" key="modal-img" src={ require('../img/des/'+det.images[0].file_name)} alt="des-pic"/>
-        });
+        })
 
         return (
             <div>
@@ -250,10 +246,10 @@ class DesDetail extends Component {
                     </div>
                 </div>
                 <div >
-                <Footer />
+                    <Footer />
                 </div>
             </div>
-        );
+        )
     }
 }
 
