@@ -50,7 +50,7 @@ class Cart extends Component {
             arr[idx].amount += 1;
             this.setState({prod: arr})
             this.getPrice(this.state.shipping);
-        } else
+        } else 
             swal("Sorry","The product is not enough.", "error")
         e.preventDefault(); 
     }
