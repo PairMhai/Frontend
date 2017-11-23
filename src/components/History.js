@@ -10,13 +10,18 @@ class History extends Component {
 
     constructor(props) {
         super(props)
+        console.log(props)
         this.state = {
-            prodhis: [], id: '', productid: '', design: '', material: '', quantity: '', keyword: ''
+            prodhis: [], id: '', productid: '', design: '', material: '', quantity: '', keyword: '',keywordMo:''
         }
 
         this.clickDetail = this.clickDetail.bind(this)
         this.keyChange = this.keyChange.bind(this)
-        const orderid = null 
+        this.handleKeyChange = this.handleKeyChange.bind(this)
+        this.keyChangeMo = this.keyChangeMo.bind(this)
+        this.handleKeyChangeMo = this.handleKeyChangeMo.bind(this)
+        const orderid = null
+    
     }
 
     toggleModal = () => {
@@ -34,16 +39,20 @@ class History extends Component {
     handleKeyChange(e){
         this.setState({keyword: e.target.value})
     }
-    keyChange(word){
-        this.props.search(this.state.keyword)
-        this.setKeyword(word)
+    keyChange(){
+        this.props.search(this.state.keywordMo)
+    }
+    
+    handleKeyChangeMo(e){
+        this.setState({keywordMo: e.target.value})
     }
 
-    setKeyword(word){
-        this.setState({keyword: word})
+    keyChangeMo(){
+        this.props.search(this.state.keywordMo)
     }
 
-   
+
+    
 
     componentWillMount() {
 
@@ -60,6 +69,8 @@ class History extends Component {
             .catch(function (error) {
                 console.log(error);
             });
+
+
     }
     
 
@@ -83,13 +94,13 @@ class History extends Component {
                             
                             <br/>
                             <div className="search-con">
-                            <input className="searchbar-3" type="search" name="search" placeholder="Enter here" value={this.state.keyword} onChange={this.handleKeyChange}/>
-                            <button type="submit" className="search_btn-2" onClick={this.keyChange}>Search </button>
+                            <input className="searchbar-3" type="search" name="search" placeholder="Enter here" value={this.state.keywordMo} onChange={this.handleKeyChangeMo}/>
+                            <button type="submit" className="search_btn-2" onClick={this.keyChangeMo} >Search</button>
                             </div>
                             <br/>
                             <div className="det-con"><label className="Detail">Order ID : {prodhisval.id}</label><label className="Detail">Date : {prodhisval.created_at.substring(0, 10)} </label><label className="Detail">Total Price : {prodhisval.final_price}  </label>
                              </div>
-                             <div className="his-info-det" search={this.state.keyword}>
+                             <div className="his-info-det" >
                              {
                                  
                                 prodhisval.products.map((product, ind) => {

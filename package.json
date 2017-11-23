@@ -15,6 +15,7 @@
     "react-router-dom": "^4.2.2",
     "react-router-modal": "^1.1.13",
     "react-scripts": "0.9.5",
+    "react-search": "^2.0.5",
     "react-tooltip": "^3.3.0",
     "sweetalert": "^2.0.3",
     "tool-tip": "^4.2.5"
