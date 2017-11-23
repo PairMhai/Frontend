@@ -37,11 +37,11 @@ class ConfirmResetPass extends Component {
                     <p className="cfNewPass">Confirm Password</p>
                         <div className="container">
                         NEW PASSWORD: <input type="password" name="newPassword" value={this.state.newPassword} onChange={this.handleChange}/>&nbsp;&nbsp;&nbsp;&nbsp;
-                        CONFIRM NEW PASSWORD: <input type="password" name="cfnewPassword" value={this.state.cfnewPassword} onChange={this.handleChange}/><br></br>
-                        <br></br>
+                        CONFIRM NEW PASSWORD: <input type="password" name="cfnewPassword" value={this.state.cfnewPassword} onChange={this.handleChange}/><br></br><br></br>
                         USER ID: <input type="text" name="userid" value={this.state.userid} onChange={this.handleChange}/>&nbsp;&nbsp;&nbsp;&nbsp;
                        TOKEN: <input type="text" name="token" value={this.state.token} onChange={this.handleChange}/>
-                        </div>
+                        </div> <br></br>
+                        <button className="submit_btn" onClick={this.handleSubmit} >SUBMIT</button><br></br><br></br>
                 </div>
 
                 <div >

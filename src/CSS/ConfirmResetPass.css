@@ -19,3 +19,13 @@
     padding-bottom: 2%;  
     margin-top: 3%; 
 }
+
+.submit_btn {
+    text-align: center;
+    font-size: 100%;
+    width: 15%;
+    height: 8%;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+}
