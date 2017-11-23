@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import axios from 'axios';
-import { Cookies } from 'react-cookie';
+import axios from 'axios'
+import { Cookies } from 'react-cookie'
 import Navbar from '../components/Navbar'
 import LeftTabProfile from '../components/LeftTabProfile'
 import '../CSS/History.css'
@@ -9,27 +9,20 @@ import Modal from 'react-modal'
 class History extends Component {
 
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
-            prodhis: [], id: '', productid: '',
-            design: '', material: '', quantity: '' 
-            ,keyword: ''
+            prodhis: [], id: '', productid: '', design: '', material: '', quantity: '', keyword: ''
         }
-        this.clickDetail = this.clickDetail.bind(this);
-        this.keyChange = this.keyChange.bind(this)
-        const orderid = null ;
-    }
 
-   
-    
+        this.clickDetail = this.clickDetail.bind(this)
+        this.keyChange = this.keyChange.bind(this)
+        const orderid = null 
+    }
 
     toggleModal = () => {
         this.setState({
             isActive: !this.state.isActive
-        })
-
-        console.log(4);
-       
+        })      
     }
 
     clickDetail(e){
