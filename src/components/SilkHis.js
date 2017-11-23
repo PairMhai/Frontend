@@ -33,7 +33,7 @@ class SilkHis extends Component {
                     </div>         
                 </div>
             </div>
-        );
+        )
     }
 }
 

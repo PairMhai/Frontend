@@ -1,6 +1,6 @@
 import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
-import {Cookies} from 'react-cookie';
+import {Cookies} from 'react-cookie'
 import LeftTabFilter from '../components/LeftTabFilter'
 import ProdCard from '../components/ProdCard'
 import LoginNav from '../components/LoginNav'
@@ -9,9 +9,9 @@ import Footer from '../components/Footer'
 class Design extends Component {
     
     constructor(props){
-        super(props);
+        super(props)
         this.state = {keyword: '', sort: 'price', color: 'all', range:'all', mat: 'all'}
-        this.checkLogin =  this.checkLogin = this.checkLogin.bind(this);
+        this.checkLogin =  this.checkLogin = this.checkLogin.bind(this)
         this.setKeyword = this.setKeyword.bind(this)
         this.setSort = this.setSort.bind(this)
         this.setRange = this.setRange.bind(this)
@@ -40,11 +40,11 @@ class Design extends Component {
     }
 
     checkLogin(){
-        const cookies = new Cookies();
-        var key = cookies.get('key');
+        const cookies = new Cookies()
+        var key = cookies.get('key')
         if(key === 'null' || key === undefined)
-            return <LoginNav />;
-        return <ProfileNav />;
+            return <LoginNav />
+        return <ProfileNav />
     }
 
     render(){
@@ -67,7 +67,7 @@ class Design extends Component {
                 <Footer />
                 </div>
             </div>
-        );
+        )
     }
 }
 

@@ -44,7 +44,7 @@ class CleanInfo extends Component {
                     </div>         
                 </div>
             </div>
-        );
+        )
     }
 }
 

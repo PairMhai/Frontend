@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import axios from 'axios';
-import { Cookies } from 'react-cookie';
+import axios from 'axios'
+import { Cookies } from 'react-cookie'
 import Navbar from '../components/Navbar'
 import LeftTabProfile from '../components/LeftTabProfile'
 import '../CSS/History.css'
@@ -9,27 +9,20 @@ import Modal from 'react-modal'
 class History extends Component {
 
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
-            prodhis: [], id: '', productid: '',
-            design: '', material: '', quantity: '' 
-            ,keyword: ''
+            prodhis: [], id: '', productid: '', design: '', material: '', quantity: '', keyword: ''
         }
-        this.clickDetail = this.clickDetail.bind(this);
-        this.keyChange = this.keyChange.bind(this)
-        const orderid = null ;
-    }
 
-   
-    
+        this.clickDetail = this.clickDetail.bind(this)
+        this.keyChange = this.keyChange.bind(this)
+        const orderid = null 
+    }
 
     toggleModal = () => {
         this.setState({
             isActive: !this.state.isActive
-        })
-
-        console.log(4);
-       
+        })      
     }
 
     clickDetail(e){
@@ -101,18 +94,16 @@ class History extends Component {
                                  
                                 prodhisval.products.map((product, ind) => {
                                     
-                             if (product.product.material == true) {
-                                
+                             if (product.product.material) {
+                                console.log("true");
                                  return<div className="row-1" key={ind}>
-                                 <div className="second-col-his-det"> <img className="imgproduct" src={require('../img/mat/'+ product.product.material.image_name)} width="10%" alt="product pic" /><label className="product-name">{product.product.material.name}</label></div>
-                                 
+                                 <div className="second-col-his-det"> <img className="imgproduct" src={require('../img/mat/'+ product.product.material.image_name)} width="10%" alt="product pic" /><label className="product-name">{product.product.material.name}</label></div>  
                                  <div className="second-col-his-det"><label className="product-name">{product.product.material.price} Baht.-</label><label className="product-name">quantity : {product.quantity}</label></div>
                                  </div>
                              } else {
-                                
+                                console.log("false")
                                 return<div className="row-1" key={ind}>
-                                <div className="second-col-his-det"><img className="imgproduct" src={require('../img/des/'+ product.product.design.images[0].file_name)} width="10%" alt="product pic" /><label className="product-name">{product.product.design.name}</label></div>
-                                
+                                <div className="second-col-his-det"><img className="imgproduct" src={require('../img/des/'+ product.product.design.images[0].file_name)} width="10%" alt="product pic" /><label className="product-name">{product.product.design.name}</label></div>                           
                                 <div className="second-col-his-det"><label className="product-name">PRICE : {product.product.design.price} Baht.-</label><label className="product-name">quantity : {product.quantity}</label></div>
                                 </div>
                              }
