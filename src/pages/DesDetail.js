@@ -56,8 +56,8 @@ class DesDetail extends Component {
             swal({title:"Please Login"})
             return
         }
-        if(this.state.amount < this.state.remain)
-            this.setState({ amount: this.state.amount + 1, remain: this.state.remain - this.state.amount });
+        if(this.state.remain > 0)
+            this.setState({ amount: this.state.amount + 1, remain: this.state.remain - 1 });
         else
             swal("Sorry","The product is not enough.", "error")
     } 
@@ -131,12 +131,35 @@ class DesDetail extends Component {
                 name: response.data.name, description: response.data.description,
                 price: response.data.price, imageName: response.data.images[0].file_name,
                 material: response.data.material.name, color: response.data.material.color, 
-                max: response.data.quantity, remain: response.data.quantity 
+                max: response.data.quantity
             })
             const newDetail = this.state.detail;
             newDetail.push(response.data); 
             this.setState({detail: newDetail})
             console.log(response)
+
+
+            var oldProd = []
+            const cookies = new Cookies();
+            if(cookies.get('prod')!== 'null' && cookies.get('prod') !== undefined){
+                oldProd = cookies.get('prod');
+                this.setState({prod: oldProd,})
+            } else {
+                var key = cookies.set('prod',this.state.prod, {path: '/'});
+            }
+
+            var idx = -1;
+            for(var i = 0 ; i < oldProd.length; i++){
+                if(oldProd[i].prod_id === response.data.product_id){
+                   idx = i
+                   break
+                }    
+            }
+            if(idx !== -1){
+                this.setState({remain: response.data.quantity - oldProd[idx].amount})
+            } else {
+                this.setState({remain: response.data.quantity })
+            }
         })
         .catch(function (error){
             console.log(error);
@@ -144,13 +167,7 @@ class DesDetail extends Component {
 
         Modal.setAppElement('body');
 
-        const cookies = new Cookies();
-        if(cookies.get('prod')!== 'null' && cookies.get('prod') !== undefined){
-            var oldProd = cookies.get('prod');
-            this.setState({prod: oldProd,})
-        } else {
-            var key = cookies.set('prod',this.state.prod, {path: '/'});
-        }
+        
         console.log(this.state.prod);
     }
 

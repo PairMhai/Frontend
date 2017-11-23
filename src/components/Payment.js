@@ -111,7 +111,7 @@ class Payment extends Component {
                 "address": this.state.user.address,
             })
             .then(function (response) {
-                swal("Thank you!","Total price"+ response.data.final_price +" Baht-, Product " + response.data.total_product +
+                swal("Thank you!","Total price: "+ response.data.final_price +" Baht-, Product: " + response.data.total_product +
                 " items, Send by " + response.data.transportation.name, "success").then((value) => {
                     window.location = "/home"
                 });

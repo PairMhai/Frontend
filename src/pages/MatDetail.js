@@ -13,7 +13,7 @@ class MatDetail extends Component {
     constructor(props){
         super(props);
         this.state = {amount: 0,id: '', name: '', description: '',  color: '', price: '', imageName: '',
-        prod: [], detail: [], max: '', remain: ''}
+        prod: [], detail: [], max: '', remain: 0}
 
         this.increaseProd = this.increaseProd.bind(this);
         this.decreaseProd = this.decreaseProd.bind(this);
@@ -28,27 +28,62 @@ class MatDetail extends Component {
             this.setState({ id: response.data.product_id,
                 name: response.data.name, description: response.data.description,
                 price: response.data.price, color: response.data.color, imageName: response.data.image_name, 
-                max: response.data.quantity, remain: response.data.quantity
+                max: response.data.quantity
             })
 
             const newDetail = this.state.detail;
             newDetail.push(response.data); 
             this.setState({detail: newDetail})
             console.log(response.data)
+
+            var oldProd = []
+            const cookies = new Cookies();
+            if(cookies.get('prod')!== 'null' && cookies.get('prod') !== undefined){
+                oldProd = cookies.get('prod');
+                this.setState({prod: oldProd,})
+            } else {
+                var key = cookies.set('prod',this.state.prod, {path: '/'});
+            }
+
+            var idx = -1;
+            for(var i = 0 ; i < oldProd.length; i++){
+                if(oldProd[i].prod_id === response.data.product_id){
+                   idx = i
+                   break
+                }    
+            }
+            if(idx !== -1){
+                this.setState({remain: response.data.quantity - oldProd[idx].amount})
+                console.log(response.data.quantity)
+                console.log("llllll"+oldProd[idx].amount)
+            } else {
+                this.setState({remain: response.data.quantity })
+            }
         })
         .catch(function (error){
             console.log(error);
         })
          
-        const cookies = new Cookies();
         
-        if(cookies.get('prod')!== 'null' && cookies.get('prod') !== undefined){
-            var oldProd = cookies.get('prod');
-            this.setState({prod: oldProd,})
-        } else {
-            var key = cookies.set('prod',this.state.prod,{path: '/'});
+    }
+
+    componentDidMount() {
+        
+        var idx = -1;
+        for(var i = 0 ; i < this.state.prod.length; i++){
+            if(this.state.prod[i].prod_id === this.state.id){
+               idx = i
+               break
+            }    
         }
-        console.log(this.state.prod);
+        if(idx !== -1){
+            var arr = this.state.prod;
+            this.setState({remain: this.state.max-arr[idx].amount}, console.log(this.state.remain+"s"))
+        } else {
+            this.setState({remain: this.state.max}, console.log(this.state.remain+"s"))
+        }
+       
+        console.log(this.state.prod+ "dddd");
     }
 
     increaseProd() {
@@ -56,8 +91,9 @@ class MatDetail extends Component {
             swal({title:"Please Login"})
             return
         } 
-        if(this.state.amount < this.state.remain)
-            this.setState({ amount: this.state.amount + 1, remain: this.state.remain - this.state.amount})
+       
+        if(this.state.remain > 0)
+            this.setState({ amount: this.state.amount + 1, remain: this.state.remain - 1})
         else
             swal("Sorry","The product is not enough.", "error")
     } 
@@ -139,7 +175,7 @@ class MatDetail extends Component {
                             <p>DESCRIPTION:&ensp;{this.state.description}</p> 
                             <p>COLOR:&ensp;{this.state.color}</p>
                             <p>PRICE:&ensp;{this.state.price} Baht.- / Yard of Fabric</p>
-                            <p>REMAINING:&ensp;{this.state.max - this.state.amount} Yard of Fabric</p>
+                            <p>REMAINING:&ensp;{this.state.remain} Yard of Fabric</p>
                             <div className="row mat-group-btn ">
                                 <button className="mat-btn-add" onClick={this.decreaseProd}>-</button>
                                 <input className="mat-amount" type="number" value={this.state.amount} disabled/>

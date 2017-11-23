@@ -50,6 +50,8 @@ class Cart extends Component {
             arr[idx].amount += 1;
             this.setState({prod: arr})
             this.getPrice(this.state.shipping);
+            const cookies = new Cookies();
+            var key = cookies.set('prod', arr);
         } else
             swal("Sorry","The product is not enough.", "error")
         e.preventDefault(); 
@@ -64,6 +66,8 @@ class Cart extends Component {
         }
         this.setState({prod: arr})
         this.getPrice(this.state.shipping);
+        const cookies = new Cookies();
+        var key = cookies.set('prod', arr);
         e.preventDefault(); 
     }
 
