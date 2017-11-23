@@ -109,13 +109,13 @@ class History extends Component {
                                 console.log("true");
                                  return<div className="row-1" key={ind}>
                                  <div className="second-col-his-det"> <img className="imgproduct" src={require('../img/mat/'+ product.product.material.image_name)} width="10%" alt="product pic" /><label className="product-name">{product.product.material.name}</label></div>  
-                                 <div className="second-col-his-det"><label className="product-name">{product.product.material.price} Baht.-</label><label className="product-name">quantity : {product.quantity}</label></div>
+                                 <div className="second-col-his-det"><label className="product-name">{product.product.material.price} Baht.-</label>&emsp;&emsp;<label className="product-name">quantity : {product.quantity}</label></div>
                                  </div>
                              } else {
                                 console.log("false")
                                 return<div className="row-1" key={ind}>
                                 <div className="second-col-his-det"><img className="imgproduct" src={require('../img/des/'+ product.product.design.images[0].file_name)} width="10%" alt="product pic" /><label className="product-name">{product.product.design.name}</label></div>                           
-                                <div className="second-col-his-det"><label className="product-name">PRICE : {product.product.design.price} Baht.-</label><label className="product-name">quantity : {product.quantity}</label></div>
+                                <div className="second-col-his-det"><label className="product-name">PRICE : {product.product.design.price} Baht.-</label>&emsp;&emsp;<label className="product-name">quantity : {product.quantity}</label></div>
                                 </div>
                              }
                              
@@ -142,12 +142,12 @@ class History extends Component {
                         prodhisval.products.map((product, ind) => {
                             if (product.product.material) {
                                 
-                                return <div key={ind}> <label>{product.product.material.name} </label>        
+                                return <div key={ind}> <label>{product.product.material.name} </label>&emsp;&emsp;        
                                 <label className="quantity">quantity : {product.quantity} </label>
                                 </div>
                                 
                             } else {
-                                return <div key={ind}> <label>{product.product.design.name} </label>        <label> quantity : {product.quantity} </label> </div>
+                                return <div key={ind}> <label>{product.product.design.name} </label>&emsp;&emsp;<label> quantity : {product.quantity} </label> </div>
                             }
                         })
                     }
@@ -174,7 +174,15 @@ class History extends Component {
                         <button type="submit" className="search_btn" onClick={this.keyChange} >
                             Search
                         </button>
+                        <div className="his-h">
+                        <div className="row-h">
+                        <div className="first-head-his">Order id</div>
+                        <div className="second-head-his" >Order detail</div>
+                        <div className="second-head-his">Product</div>
+                        </div>
+                        </div>
                         <div className="his-info">
+                        
                             {allhis}
                         </div>
                         
