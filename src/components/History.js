@@ -101,18 +101,16 @@ class History extends Component {
                                  
                                 prodhisval.products.map((product, ind) => {
                                     
-                             if (product.product.material == true) {
-                                
+                             if (product.product.material) {
+                                console.log("true");
                                  return<div className="row-1" key={ind}>
-                                 <div className="second-col-his-det"> <img className="imgproduct" src={require('../img/mat/'+ product.product.material.image_name)} width="10%" alt="product pic" /><label className="product-name">{product.product.material.name}</label></div>
-                                 
+                                 <div className="second-col-his-det"> <img className="imgproduct" src={require('../img/mat/'+ product.product.material.image_name)} width="10%" alt="product pic" /><label className="product-name">{product.product.material.name}</label></div>  
                                  <div className="second-col-his-det"><label className="product-name">{product.product.material.price} Baht.-</label><label className="product-name">quantity : {product.quantity}</label></div>
                                  </div>
                              } else {
-                                
+                                console.log("false")
                                 return<div className="row-1" key={ind}>
-                                <div className="second-col-his-det"><img className="imgproduct" src={require('../img/des/'+ product.product.design.images[0].file_name)} width="10%" alt="product pic" /><label className="product-name">{product.product.design.name}</label></div>
-                                
+                                <div className="second-col-his-det"><img className="imgproduct" src={require('../img/des/'+ product.product.design.images[0].file_name)} width="10%" alt="product pic" /><label className="product-name">{product.product.design.name}</label></div>                           
                                 <div className="second-col-his-det"><label className="product-name">PRICE : {product.product.design.price} Baht.-</label><label className="product-name">quantity : {product.quantity}</label></div>
                                 </div>
                              }
