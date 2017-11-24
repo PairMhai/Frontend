@@ -10,13 +10,18 @@ class History extends Component {
 
     constructor(props) {
         super(props)
+        console.log(props)
         this.state = {
-            prodhis: [], id: '', productid: '', design: '', material: '', quantity: '', keyword: ''
+            prodhis: [], id: '', productid: '', design: '', material: '', quantity: '', keyword: '',keywordMo:''
         }
 
         this.clickDetail = this.clickDetail.bind(this)
         this.keyChange = this.keyChange.bind(this)
-        const orderid = null 
+        this.handleKeyChange = this.handleKeyChange.bind(this)
+        this.keyChangeMo = this.keyChangeMo.bind(this)
+        this.handleKeyChangeMo = this.handleKeyChangeMo.bind(this)
+        const orderid = null
+    
     }
 
     toggleModal = () => {
@@ -34,16 +39,20 @@ class History extends Component {
     handleKeyChange(e){
         this.setState({keyword: e.target.value})
     }
-    keyChange(word){
-        this.props.search(this.state.keyword)
-        this.setKeyword(word)
+    keyChange(){
+        this.props.search(this.state.keywordMo)
+    }
+    
+    handleKeyChangeMo(e){
+        this.setState({keywordMo: e.target.value})
     }
 
-    setKeyword(word){
-        this.setState({keyword: word})
+    keyChangeMo(){
+        this.props.search(this.state.keywordMo)
     }
 
-   
+
+    
 
     componentWillMount() {
 
@@ -60,6 +69,8 @@ class History extends Component {
             .catch(function (error) {
                 console.log(error);
             });
+
+
     }
     
 
@@ -83,13 +94,13 @@ class History extends Component {
                             
                             <br/>
                             <div className="search-con">
-                            <input className="searchbar-3" type="search" name="search" placeholder="Enter here" value={this.state.keyword} onChange={this.handleKeyChange}/>
-                            <button type="submit" className="search_btn-2" onClick={this.keyChange}>Search </button>
+                            <input className="searchbar-3" type="search" name="search" placeholder="Enter here" value={this.state.keywordMo} onChange={this.handleKeyChangeMo}/>
+                            <button type="submit" className="search_btn-2" onClick={this.keyChangeMo} >Search</button>
                             </div>
                             <br/>
                             <div className="det-con"><label className="Detail">Order ID : {prodhisval.id}</label><label className="Detail">Date : {prodhisval.created_at.substring(0, 10)} </label><label className="Detail">Total Price : {prodhisval.final_price}  </label>
                              </div>
-                             <div className="his-info-det" search={this.state.keyword}>
+                             <div className="his-info-det" >
                              {
                                  
                                 prodhisval.products.map((product, ind) => {
@@ -98,13 +109,13 @@ class History extends Component {
                                 console.log("true");
                                  return<div className="row-1" key={ind}>
                                  <div className="second-col-his-det"> <img className="imgproduct" src={require('../img/mat/'+ product.product.material.image_name)} width="10%" alt="product pic" /><label className="product-name">{product.product.material.name}</label></div>  
-                                 <div className="second-col-his-det"><label className="product-name">{product.product.material.price} Baht.-</label><label className="product-name">quantity : {product.quantity}</label></div>
+                                 <div className="second-col-his-det"><label className="product-name">{product.product.material.price} Baht.-</label>&emsp;&emsp;<label className="product-name">quantity : {product.quantity}</label></div>
                                  </div>
                              } else {
                                 console.log("false")
                                 return<div className="row-1" key={ind}>
                                 <div className="second-col-his-det"><img className="imgproduct" src={require('../img/des/'+ product.product.design.images[0].file_name)} width="10%" alt="product pic" /><label className="product-name">{product.product.design.name}</label></div>                           
-                                <div className="second-col-his-det"><label className="product-name">PRICE : {product.product.design.price} Baht.-</label><label className="product-name">quantity : {product.quantity}</label></div>
+                                <div className="second-col-his-det"><label className="product-name">PRICE : {product.product.design.price} Baht.-</label>&emsp;&emsp;<label className="product-name">quantity : {product.quantity}</label></div>
                                 </div>
                              }
                              
@@ -131,12 +142,12 @@ class History extends Component {
                         prodhisval.products.map((product, ind) => {
                             if (product.product.material) {
                                 
-                                return <div key={ind}> <label>{product.product.material.name} </label>        
+                                return <div key={ind}> <label>{product.product.material.name} </label>&emsp;&emsp;        
                                 <label className="quantity">quantity : {product.quantity} </label>
                                 </div>
                                 
                             } else {
-                                return <div key={ind}> <label>{product.product.design.name} </label>        <label> quantity : {product.quantity} </label> </div>
+                                return <div key={ind}> <label>{product.product.design.name} </label>&emsp;&emsp;<label> quantity : {product.quantity} </label> </div>
                             }
                         })
                     }
@@ -163,7 +174,15 @@ class History extends Component {
                         <button type="submit" className="search_btn" onClick={this.keyChange} >
                             Search
                         </button>
+                        <div className="his-h">
+                        <div className="row-h">
+                        <div className="first-head-his">Order id</div>
+                        <div className="second-head-his" >Order detail</div>
+                        <div className="second-head-his">Product</div>
+                        </div>
+                        </div>
                         <div className="his-info">
+                        
                             {allhis}
                         </div>
                         
