@@ -25,7 +25,7 @@ class ConfirmResetPass extends Component {
 
     handleSubmit(event) {
         if(this.state.newPassword !== '' && this.state.cfnewPassword !== ''){
-            axios.post('membership/password/reset/confirm/',{
+            axios.post('https://pairmhai-api.herokuapp.com/membership/password/reset/confirm/',{
                     "new_password1": this.state.newPassword,
                     "new_password2": this.state.cfnewPassword,
                     "uid": this.state.userid,
