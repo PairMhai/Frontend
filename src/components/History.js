@@ -91,14 +91,15 @@ class History extends Component {
                             <div>
                                 <p className="Detail-header">Order Detail</p>
                             </div>
-                            
-                            <br/>
-                            <div className="search-con">
-                            <input className="searchbar-3" type="search" name="search" placeholder="Enter here" value={this.state.keywordMo} onChange={this.handleKeyChangeMo}/>
-                            <button type="submit" className="search_btn-2" onClick={this.keyChangeMo} >Search</button>
-                            </div>
                             <br/>
                             <div className="det-con"><label className="Detail">Order ID : {prodhisval.id}</label><label className="Detail">Date : {prodhisval.created_at.substring(0, 10)} </label><label className="Detail">Total Price : {prodhisval.final_price}  </label>
+                             </div>
+                             <div className="his-h-det">
+                             <div className="row-h">
+                           
+                             <div className="second-col-his-det-h" >Order detail</div>
+                             <div className="second-col-his-det-h">Product</div>
+                             </div>
                              </div>
                              <div className="his-info-det" >
                              {
@@ -107,21 +108,22 @@ class History extends Component {
                                     
                              if (product.product.material) {
                                 console.log("true");
-                                 return<div className="row-1" key={ind}>
+                                 return<div className="row-1-h" key={ind}>
                                  <div className="second-col-his-det"> <img className="imgproduct" src={require('../img/mat/'+ product.product.material.image_name)} width="10%" alt="product pic" /><label className="product-name">{product.product.material.name}</label></div>  
-                                 <div className="second-col-his-det"><label className="product-name">{product.product.material.price} Baht.-</label>&emsp;&emsp;<label className="product-name">quantity : {product.quantity}</label></div>
+                                 <div className="second-col-his-det"><label className="product-name">PRICE: {product.product.material.price} Baht.-</label>&emsp;&emsp;<label className="product-name">Quantity: {product.quantity}</label></div>
                                  </div>
                              } else {
                                 console.log("false")
-                                return<div className="row-1" key={ind}>
+                                return<div className="row-1-h" key={ind}>
                                 <div className="second-col-his-det"><img className="imgproduct" src={require('../img/des/'+ product.product.design.images[0].file_name)} width="10%" alt="product pic" /><label className="product-name">{product.product.design.name}</label></div>                           
-                                <div className="second-col-his-det"><label className="product-name">PRICE : {product.product.design.price} Baht.-</label>&emsp;&emsp;<label className="product-name">quantity : {product.quantity}</label></div>
+                                <div className="second-col-his-det"><label className="product-name">PRICE: {product.product.design.price} Baht.-</label>&emsp;&emsp;<label className="product-name">Quantity: {product.quantity}</label></div>
                                 </div>
                              }
                              
                          })
                      }
                              </div>
+                             <p/>
                      <button className="signup_btn modal-btn" onClick={this.toggleModal}>CANCEL</button>
                      </div>
                      </Modal>
@@ -143,11 +145,11 @@ class History extends Component {
                             if (product.product.material) {
                                 
                                 return <div key={ind}> <label>{product.product.material.name} </label>&emsp;&emsp;        
-                                <label className="quantity">quantity : {product.quantity} </label>
+                                <label className="quantity">Quantity : {product.quantity} </label>
                                 </div>
                                 
                             } else {
-                                return <div key={ind}> <label>{product.product.design.name} </label>&emsp;&emsp;<label> quantity : {product.quantity} </label> </div>
+                                return <div key={ind}> <label>{product.product.design.name} </label>&emsp;&emsp;<label> Quantity : {product.quantity} </label> </div>
                             }
                         })
                     }
@@ -169,11 +171,6 @@ class History extends Component {
                     </div>
                     <div className="col-md-9 push-md-3 cus-con">
                         <p className="his-header">HISTORY</p>
-                        <input className="searchbar-2" type="search" name="search" placeholder="Enter here" value={this.state.keyword} onChange={this.handleKeyChange}/>
-
-                        <button type="submit" className="search_btn" onClick={this.keyChange} >
-                            Search
-                        </button>
                         <div className="his-h">
                         <div className="row-h">
                         <div className="first-head-his">Order id</div>

@@ -49,7 +49,7 @@ class Contact extends Component {
 render(){
     return (
         <div id="container">
-            <Navbar /> 
+            <Navbar /> <div>
             <div id="second">
                 <h3>Faculty of Engineering, Kasetsart University </h3>            
                     <iframe className="ct-map" src="https://maps.google.com/maps?q=Faculty%20of%20Engineering%2C%20Kasetsart%20University%20Bangkok%2C%20TH&t=&z=14&ie=UTF8&iwloc=&output=embed"></iframe>
@@ -77,9 +77,10 @@ render(){
                         </div>
                     </fieldset>
                 </div>
-                <div >
-                <Footer />
                 </div>
+                
+                <Footer />
+                
             </div> 
         );
     }

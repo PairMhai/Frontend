@@ -20,6 +20,7 @@ class LeftTabProfile extends Component {
         const cookies = new Cookies()
         cookies.remove('key', {path: '/'})
         cookies.remove('prod',{path: '/'})
+        cookies.remove('orderInfo',{path: '/'})
         window.location = "/home"
     }
     

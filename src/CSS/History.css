@@ -37,7 +37,7 @@
     font-weight: bold;
     font-size: 80px;
     text-align: right;
-    margin-bottom: 1%;
+    margin-bottom: -3.8%;
 
 }
 .Detail-header{
@@ -47,14 +47,14 @@
     margin-bottom: 1%;
 }
 .first-col-his {
-    width: 10%;
+    width: 16%;
     padding-left: 2%;
     border: 2px solid white;
     font-size: 30px;
-    color: white;
+    
 }
 .first-head-his {
-    width: 10%;
+    width: 16%;
     padding: 2%;
     border: 1px solid black;
     font-size: 20px;
@@ -79,14 +79,14 @@
 }
 
 .second-col-his {
-    width: 45%;
+    width: 42%;
     padding: 2%;
     border: 2px solid white;
     font-size: 15px;
-    color: white;
+    
 }
 .second-head-his {
-    width: 45%;
+    width: 42%;
     padding: 2%;
     border: 1px solid black;
     font-size: 20px;
@@ -97,7 +97,14 @@
     padding: 2%;
     border: 2px solid white;
     font-size: 15px;
-    color: white;
+
+}
+.second-col-his-det-h {
+    width: 50%;
+    padding: 2%;
+    border: 2px solid black;
+    font-size: 30px;
+    color: black;
 }
 
 .his-info {
@@ -107,12 +114,20 @@
     width: 95%;
     border: 1px solid black;
     font-size: 30px ;
-    color: white;  
+    
 }
 .his-h {
     overflow-y: auto;
     float: right;
-    height: 80px;
+   
+    width: 95%;
+    border: 1px solid black;
+    font-size: 30px ;
+    color: white;  
+}
+.his-h-det {
+    overflow-y: auto;
+    float: right;
     width: 95%;
     border: 1px solid black;
     font-size: 30px ;
@@ -126,11 +141,27 @@
     border: 1px solid black;
     font-size: 20px ;
     color: white;  
+    margin-bottom: 3%;
 }
 
 .row-1{
+    color: white;
+    background-color: black;
     
-    background-color: gray;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 0px;
+    
+}
+
+.row-1-h{
+    color:black;
+    background-color: white ;
     display: -ms-flexbox;
     display: -webkit-box;
     display: flex;
@@ -142,7 +173,7 @@
     
 }
 .row-h{
-    
+
     background-color: white;
     display: -ms-flexbox;
     display: -webkit-box;
@@ -155,7 +186,9 @@
     
 }
 .row-1:hover{
-    background-color: black;
+
+    color: black !important; 
+    background-color: white;
     display: -ms-flexbox;
     display: -webkit-box;
     display: flex;
@@ -167,8 +200,7 @@
     
 }
 .product-name{
-    color: white;
-    margin-left: 10%;
+    margin-left: 5%;
     font-size:20px; 
     
    
