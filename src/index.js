@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './CSS/index.css';
 
 import Highlight from './pages/Highlight'
 import Home from './pages/Home'
@@ -18,9 +19,7 @@ import Cart from './components/Cart'
 import Payment from './components/Payment'
 import Promotion from './components/Promotion'
 import History from './components/History'
-
-import './CSS/index.css';
-
+import ResetPassword from './pages/ConfirmResetPass'
 
 
 ReactDOM.render((
@@ -43,6 +42,7 @@ ReactDOM.render((
       <Route exact path="/des/" component={Design}/>
       <Route path="/mat/:id" component={MatDetail}/>
       <Route path="/des/:id" component={DesDetail}/>
+      <Route path="/password/reset/:uid/:token" component={ResetPassword}/>
     </Switch>
   </BrowserRouter>
 )     
