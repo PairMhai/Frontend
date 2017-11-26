@@ -53,7 +53,7 @@ class TypeInfo extends Component {
                     </div>
                 </div>
             </div>
-        );
+        )
     }
 }
 

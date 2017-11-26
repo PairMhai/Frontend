@@ -1,11 +1,11 @@
 import React , {Component} from 'react'
-import axios from 'axios';
-import '../CSS/LeftTabFilter.css';
+import axios from 'axios'
+import '../CSS/LeftTabFilter.css'
 
 class LeftTabFilter extends Component {
     
     constructor(props){
-        super(props);
+        super(props)
         console.log(props)
         this.state = {matSel: [], keyword: '', }
         this.rangeChange = this.rangeChange.bind(this)
@@ -19,12 +19,12 @@ class LeftTabFilter extends Component {
     componentWillMount(){
         axios.get('https://pairmhai-api.herokuapp.com/catalog/materials')
         .then((response) => {
-            console.log(response);
-            this.setState({matSel: response.data});
+            console.log(response)
+            this.setState({matSel: response.data})
         })
         .catch(function (error) {
-            console.log(error);
-        }); 
+            console.log(error)
+        })
     }
 
     sortChange(e) {  
@@ -55,7 +55,7 @@ class LeftTabFilter extends Component {
     render(){
         const mat = this.state.matSel.map((matVal, index) => {           
             return  <option key={matVal.id} value={matVal.name}>{matVal.name}</option>
-        });
+        })
 
         return (
             <div className="left-tab">
@@ -131,7 +131,7 @@ class LeftTabFilter extends Component {
                 </select>
                 </div>    
             </div>         
-        );
+        )
     }
 }
 

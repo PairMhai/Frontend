@@ -11,7 +11,7 @@ class LoginNav extends Component {
                 <a className="tab-text" href="/signin"><img id="pff_icon" src={pf_icon} alt="pf_icon"/>SIGN IN</a> &nbsp;&nbsp;&nbsp;
                 <a className="tab-text" href="/signup"><img id="pff_icon" src={pf2_icon} alt="pf2_icon"/>SIGN UP</a> &nbsp;&nbsp;&nbsp;
             </div>
-        );
+        )
     }
 }
 

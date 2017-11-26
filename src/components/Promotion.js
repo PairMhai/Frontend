@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar'
 import LeftTabProfile from '../components/LeftTabProfile'
 import LeftTab from '../components/LeftTab'
 import '../CSS/Payment.css'
-import '../CSS/Promotion.css';
+import '../CSS/Promotion.css'
 import axios from 'axios'
 import {Cookies} from 'react-cookie'
 import Footer from '../components/Footer'
@@ -15,23 +15,23 @@ class Promotion extends Component {
         this.state = { promotions: [] }
     }
 
-    checkLogin() {
-        const cookies = new Cookies();
-        var key = cookies.get('key');
+    checkLogin(){
+        const cookies = new Cookies()
+        var key = cookies.get('key')
         if(key === 'null' || key === undefined)
-            return <LeftTab />;
-        return <LeftTabProfile  />;
+            return <LeftTab />
+        return <LeftTabProfile  />
     }
 
     componentWillMount() {
         axios.get('https://pairmhai-api.herokuapp.com/catalog/promotions')
         .then((response) => {
-            console.log(response.data);
-            this.setState({promotions: response.data});
+            console.log(response.data)
+            this.setState({promotions: response.data})
         })
         .catch(function (error) {
-            console.log(error);
-        }); 
+            console.log(error)
+        })
     }
 
     render(){
@@ -49,8 +49,9 @@ class Promotion extends Component {
                         <div className="promo-detail" name="end">To {promVal.end.substring(0,10)}</div><br/>
                     </div>  
                 </div>  
-            );
-        });
+            )
+        })
+
         return (
             <div>
                 <Navbar /> 
@@ -61,17 +62,15 @@ class Promotion extends Component {
                     <div className="col-md-9 push-md-3 cus-con">
                         <p className="event">SPECIAL EVENT</p>
                         <div className="promotion-box">
-                            
                             {promDet}
-                            
                         </div>
                     </div>
                 </div>
                 <div >
-                <Footer />
+                    <Footer />
                 </div>
             </div>
-        );
+        )
     }
 }
 

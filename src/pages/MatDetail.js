@@ -11,15 +11,15 @@ import Footer from '../components/Footer'
 class MatDetail extends Component {
 
     constructor(props){
-        super(props);
+        super(props)
         this.state = {amount: 0,id: '', name: '', description: '',  color: '', price: '', imageName: '',
-        prod: [], detail: [], max: '', remain: ''}
+        prod: [], detail: [], max: '', remain: 0}
 
-        this.increaseProd = this.increaseProd.bind(this);
-        this.decreaseProd = this.decreaseProd.bind(this);
-        this.addProdToCart = this.addProdToCart.bind(this);
-        this.checkLogin = this.checkLogin.bind(this);
-        this.isLogin = this.isLogin.bind(this);
+        this.increaseProd = this.increaseProd.bind(this)
+        this.decreaseProd = this.decreaseProd.bind(this)
+        this.addProdToCart = this.addProdToCart.bind(this)
+        this.checkLogin = this.checkLogin.bind(this)
+        this.isLogin = this.isLogin.bind(this)
     }
 
     componentWillMount() {
@@ -28,27 +28,39 @@ class MatDetail extends Component {
             this.setState({ id: response.data.product_id,
                 name: response.data.name, description: response.data.description,
                 price: response.data.price, color: response.data.color, imageName: response.data.image_name, 
-                max: response.data.quantity, remain: response.data.quantity
+                max: response.data.quantity
             })
 
-            const newDetail = this.state.detail;
-            newDetail.push(response.data); 
+            const newDetail = this.state.detail
+            newDetail.push(response.data)
             this.setState({detail: newDetail})
             console.log(response.data)
+
+            var oldProd = []
+            const cookies = new Cookies()
+            if(cookies.get('prod')!== 'null' && cookies.get('prod') !== undefined){
+                oldProd = cookies.get('prod')
+                this.setState({prod: oldProd,})
+            } else {
+                var key = cookies.set('prod',this.state.prod, {path: '/'})
+            }
+
+            var idx = -1
+            for(var i = 0 ; i < oldProd.length; i++){
+                if(oldProd[i].prod_id === response.data.product_id){
+                   idx = i
+                   break
+                }    
+            }
+            if(idx !== -1){
+                this.setState({remain: response.data.quantity - oldProd[idx].amount})
+            } else {
+                this.setState({remain: response.data.quantity })
+            }
         })
         .catch(function (error){
-            console.log(error);
-        })
-         
-        const cookies = new Cookies();
-        
-        if(cookies.get('prod')!== 'null' && cookies.get('prod') !== undefined){
-            var oldProd = cookies.get('prod');
-            this.setState({prod: oldProd,})
-        } else {
-            var key = cookies.set('prod',this.state.prod,{path: '/'});
-        }
-        console.log(this.state.prod);
+            console.log(error)
+        })  
     }
 
     increaseProd() {
@@ -56,8 +68,9 @@ class MatDetail extends Component {
             swal({title:"Please Login"})
             return
         } 
-        if(this.state.amount < this.state.remain)
-            this.setState({ amount: this.state.amount + 1, remain: this.state.remain - this.state.amount})
+       
+        if(this.state.remain > 0)
+            this.setState({ amount: this.state.amount + 1, remain: this.state.remain - 1})
         else
             swal("Sorry","The product is not enough.", "error")
     } 
@@ -72,11 +85,11 @@ class MatDetail extends Component {
     }
 
     isLogin(){
-        const cookies = new Cookies();
-        var key = cookies.get('key');
+        const cookies = new Cookies()
+        var key = cookies.get('key')
         if (key === 'null' || key === undefined) 
-            return false;
-        return true;
+            return false
+        return true
     }
 
     addProdToCart() {
@@ -86,26 +99,26 @@ class MatDetail extends Component {
         }
         if(this.state.amount > 0){
             var idx = -1
-            for(var i = 0 ; i < this.state.prod.length; i++){
+            for(var i = 0 ; i < this.state.prod.length ; i++){
                 if(this.state.prod[i].prod_id === this.state.id){
                    idx = i
                    break
                 }    
             }
             if(idx !== -1){
-                var arr = this.state.prod;
-                arr[idx].amount += this.state.amount;
+                var arr = this.state.prod 
+                arr[idx].amount += this.state.amount 
                 this.setState({prod: arr})
             } else {
-                const newProd = this.state.prod;
+                const newProd = this.state.prod 
                 newProd.push({ prod_id: this.state.id,type: 'mat', name: this.state.name, amount: this.state.amount,
-                price: this.state.price, imageName: this.state.imageName, remark: '', max: this.state.max}); 
-                this.setState({prod: newProd});
+                price: this.state.price, imageName: this.state.imageName, remark: '', max: this.state.max})  
+                this.setState({prod: newProd}) 
             }
-            this.setState({ amount: 0});
-            const cookies = new Cookies();
+            this.setState({ amount: 0}) 
+            const cookies = new Cookies() 
             cookies.set('prod',this.state.prod,{path: '/'})
-            console.log(this.state.prod);
+            console.log(this.state.prod) 
             swal({title:"Your product is already added"})
         } else {
             swal({title:"You should add product before add to cart"})
@@ -113,18 +126,19 @@ class MatDetail extends Component {
     }
     
     checkLogin(){
-        const cookies = new Cookies();
-        var key = cookies.get('key');
+        const cookies = new Cookies() 
+        var key = cookies.get('key') 
         if(key!== 'null' && key !== undefined)
-            return <ProfileNav />;
-        return <LoginNav />;
+            return <ProfileNav /> 
+        return <LoginNav /> 
     }
 
     render(){
         const image = this.state.detail.map((det, index) => {
              return  <img className="mat-img-prod" key="mat-prod" src={require('../img/mat/'+det.image_name)} alt="mat-pic"/>
-        });
-          return (
+        })
+        
+        return (
             <div>
                 <Navbar />                 
                 {this.checkLogin()}
@@ -139,7 +153,7 @@ class MatDetail extends Component {
                             <p>DESCRIPTION:&ensp;{this.state.description}</p> 
                             <p>COLOR:&ensp;{this.state.color}</p>
                             <p>PRICE:&ensp;{this.state.price} Baht.- / Yard of Fabric</p>
-                            <p>REMAINING:&ensp;{this.state.max - this.state.amount} Yard of Fabric</p>
+                            <p>REMAINING:&ensp;{this.state.remain} Yard of Fabric</p>
                             <div className="row mat-group-btn ">
                                 <button className="mat-btn-add" onClick={this.decreaseProd}>-</button>
                                 <input className="mat-amount" type="number" value={this.state.amount} disabled/>
@@ -150,10 +164,10 @@ class MatDetail extends Component {
                     </div>
                 </div>
                 <div >
-                <Footer />
+                    <Footer />
                 </div>
             </div>
-        );
+        )
     }
 }
 

@@ -1,29 +1,29 @@
 import React , {Component} from 'react'
-import axios from 'axios';
+import axios from 'axios'
 import loadGIF from '../img/icon/loading.gif'
 import '../CSS/Card.css'
 
 class ProdCard extends Component {
 
     constructor(props){
-        super(props);
-        this.state = { prod: [], origin: [], type: '', loading: true};
+        super(props)
+        this.state = { prod: [], origin: [], type: '', loading: true}
 
-        this.clickDetail = this.clickDetail.bind(this);
+        this.clickDetail = this.clickDetail.bind(this)
         this.search = this.search.bind(this)
     }
 
     clickDetail(e){
-        const id = e.currentTarget.dataset.key;
-        const type = e.currentTarget.dataset.type;
-        window.location = '/'+type+'/'+id;
+        const id = e.currentTarget.dataset.key
+        const type = e.currentTarget.dataset.type
+        window.location = '/' + type + '/' + id
     }
 
     componentWillMount(){
-        var typeProd = '';
+        var typeProd = ''
         if(this.props.type === 'mat'){
             this.setState({type: 'mat'})
-            typeProd = 'materials';
+            typeProd = 'materials'
         } else {
             this.setState({type: 'des'})
             typeProd = 'designs' 
@@ -31,12 +31,12 @@ class ProdCard extends Component {
 
         axios.get('https://pairmhai-api.herokuapp.com/catalog/'+typeProd)
         .then((response) => {
-            console.log(response);
-            this.setState({prod: response.data.sort(function(a, b){return a.price - b.price}), origin: response.data, loading: false});
+            console.log(response)
+            this.setState({prod: response.data.sort(function(a, b){return a.price - b.price}), origin: response.data, loading: false})
         })
         .catch(function (error) {
-            console.log(error);
-        }); 
+            console.log(error)
+        })
     }
 
     componentWillReceiveProps(nextProps){
@@ -49,16 +49,16 @@ class ProdCard extends Component {
             currProd = this.state.origin.sort(function(a, b){return a.price - b.price})
         else {
             currProd = this.state.origin.sort(function(a, b){ 
-                var nameA = a.name.toLowerCase(); 
-                var nameB = b.name.toLowerCase(); 
+                var nameA = a.name.toLowerCase()
+                var nameB = b.name.toLowerCase() 
                 return nameA.localeCompare(nameB)}
             )
         }
 
         if(value.search !== ''){
             currProd = currProd.filter(function(item){
-                var name = item.name.toLowerCase(); 
-                var lowerWord = value.search.toLowerCase();
+                var name = item.name.toLowerCase()
+                var lowerWord = value.search.toLowerCase()
                 return name.includes(lowerWord)})
         }
 
@@ -110,7 +110,8 @@ class ProdCard extends Component {
                             <p>{prodVal.price} Baht.-</p>
                         </div>
             }
-        });
+        })
+
         if(this.state.loading)
             return <div className="load"><h1>Loading...</h1></div>
         else

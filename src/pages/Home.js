@@ -5,24 +5,24 @@ import LeftTabProfile from '../components/LeftTabProfile'
 import LeftTab from '../components/LeftTab'
 import homePic from '../img/homePic.png'
 import {Cookies} from 'react-cookie'
-import '../CSS/Home.css';
+import '../CSS/Home.css'
 
 
 class Home extends Component {
     
     constructor(props){
-        super(props);
+        super(props)
         this.state = {isLogin: false}
         
-        this.checkLogin =  this.checkLogin = this.checkLogin.bind(this);
+        this.checkLogin =  this.checkLogin = this.checkLogin.bind(this)
     }
 
     checkLogin(){
-        const cookies = new Cookies();
-        var key = cookies.get('key');
+        const cookies = new Cookies()
+        var key = cookies.get('key')
         if(key === 'null' || key === undefined)
-            return <LeftTab />;
-        return <LeftTabProfile  />;
+            return <LeftTab />
+        return <LeftTabProfile  />
     }
 
     render(){
@@ -60,7 +60,7 @@ class Home extends Component {
 
             </div>
             
-        );
+        )
     }
 }
 
