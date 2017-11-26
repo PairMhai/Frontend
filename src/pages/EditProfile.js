@@ -15,7 +15,7 @@ class EditProfile extends Component {
     constructor(props){
         super(props);
         this.state = { username: '', firstname: '', lastname: '', gender: '', email: '', 
-                       birthday: '', tel: '',  address: '', age: '', cusKey: '', isActive: false, user:[],
+                       birthday: '', tel: '',  address: '', age: '', customer:'', isActive: false, user:[],
                        card: [], owner: '', cardNumber: '', ccv: '', exp: '', cardHolder:''};
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -46,13 +46,13 @@ class EditProfile extends Component {
     }
 
     handleAdd() {
-        console.log(this.state.cusKey)
+        const cookies = new Cookies();
         axios.post('https://pairmhai-api.herokuapp.com/payment/', {
             "owner": this.state.cardHolder,
             "credit_no": this.state.cardNumber,
             "ccv": this.state.ccv,
             "expire_date": this.state.exp,
-            "customer": this.state.cusKey
+            "customer": cookies.get('key')
         })
         .then(function (response) {
             console.log(response);
