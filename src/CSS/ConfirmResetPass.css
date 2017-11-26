@@ -1,0 +1,36 @@
+.cfp-center {
+    padding-top: 2%;
+    text-align: center;
+}
+
+.cfNewPass {
+    font-size: 400%;
+    margin-top: 0%;
+    margin-left: 30%;
+    margin-bottom: -4.5%;   
+}
+
+.container {
+    border-style: solid;
+    border-width: 3%;
+    margin-left: auto; 
+    margin-right: auto; 
+    padding-top:  2%;
+    padding-bottom: 2%;  
+    margin-top: 3%;
+    font-size: 1.5 em; 
+}
+
+.submit_btn {
+    text-align: center;
+    font-size: 1.5em;
+    width: 15%;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+}
+
+.submit_btn:hover {
+    background-color: black;
+    color: white;
+}

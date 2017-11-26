@@ -38,7 +38,7 @@ class CareInfo extends Component {
                     </div>        
                 </div>            
             </div>
-        );
+        )
     }
 }
 
