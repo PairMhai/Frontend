@@ -15,7 +15,7 @@ class EditProfile extends Component {
     constructor(props){
         super(props);
         this.state = { username: '', firstname: '', lastname: '', gender: '', email: '', 
-                       birthday: '', tel: '',  address: '', age: '', isActive: false, user:[],
+                       birthday: '', tel: '',  address: '', age: '', cusKey: '', isActive: false, user:[],
                        card: [], owner: '', cardNumber: '', ccv: '', exp: '', cardHolder:''};
 
         this.handleSubmit = this.handleSubmit.bind(this);
