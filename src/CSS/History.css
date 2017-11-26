@@ -14,31 +14,200 @@
     border-width: 1px;
 }
 
+.searchbar-3 {
+   
+    margin-top: 2%;
+   
+    margin-bottom: 3%;
+    background-color : #ffffff;
+    border-color: #000000 ;
+    display: inline-block;
+   
+    line-height: 0em;
+    padding: 0.5em 3.5em 0.5em 1em;
+    width: 80%;
+    height: 40px;
+    border-radius: 0px ;
+    border-width: 1px;
+   
+   
+}
+
 .his-header {
     font-weight: bold;
     font-size: 80px;
     text-align: right;
-    margin-bottom: 1%;
+    margin-bottom: -3.8%;
 
 }
-
-.first-col-his {
-    width: 10%;
-    padding-left: 2%;
-    border: 2px solid black;
+.Detail-header{
+    font-weight: bold;
     font-size: 30px;
+    text-align: right;
+    margin-bottom: 1%;
+}
+.first-col-his {
+    width: 16%;
+    padding-left: 2%;
+    border: 2px solid white;
+    font-size: 30px;
+    
+}
+.first-head-his {
+    width: 16%;
+    padding: 2%;
+    border: 1px solid black;
+    font-size: 20px;
+    color: black;
+}
+.search_btn-2 {
+    background-color: black ;
+    border-color: #000000 ;
+    width: 20%;
+    height: 41px ;
+    color: white; 
+    
+    
+}
+.search-con{
+    width: 70%;
+    float: right;
+}
+.det-con{
+    width: 60%;
+    float: right;
 }
 
 .second-col-his {
-    width: 45%;
+    width: 42%;
+    padding: 2%;
+    border: 2px solid white;
+    font-size: 15px;
+    
+}
+.second-head-his {
+    width: 42%;
+    padding: 2%;
+    border: 1px solid black;
+    font-size: 20px;
+    color: black;
+}
+.second-col-his-det {
+    width: 50%;
+    padding: 2%;
+    border: 2px solid white;
+    font-size: 15px;
+
+}
+.second-col-his-det-h {
+    width: 50%;
     padding: 2%;
     border: 2px solid black;
-    font-size: 15px;
+    font-size: 30px;
+    color: black;
 }
+
 .his-info {
+    overflow-y: auto;
     float: right;
     height: 300px;
     width: 95%;
-    border: 2px solid black;
-    font-size: 30px   
+    border: 1px solid black;
+    font-size: 30px ;
+    
+}
+.his-h {
+    overflow-y: auto;
+    float: right;
+   
+    width: 95%;
+    border: 1px solid black;
+    font-size: 30px ;
+    color: white;  
+}
+.his-h-det {
+    overflow-y: auto;
+    float: right;
+    width: 95%;
+    border: 1px solid black;
+    font-size: 30px ;
+    color: white;  
+}
+.his-info-det {
+    overflow-y: auto;
+    float: right;
+    height: 300px;
+    width: 95%;
+    border: 1px solid black;
+    font-size: 20px ;
+    color: white;  
+    margin-bottom: 3%;
+}
+
+.row-1{
+    color: white;
+    background-color: black;
+    
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 0px;
+    
+}
+
+.row-1-h{
+    color:black;
+    background-color: white ;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 0px;
+    
+}
+.row-h{
+
+    background-color: white;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 0px;
+    
+}
+.row-1:hover{
+
+    color: black !important; 
+    background-color: white;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 0px;
+    
+}
+.product-name{
+    margin-left: 5%;
+    font-size:20px; 
+    
+   
+}
+.Detail{
+    
+    color: black;
+   margin-left: 10%;
+
 }

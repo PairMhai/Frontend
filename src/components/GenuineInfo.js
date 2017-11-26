@@ -29,7 +29,7 @@ class GenuineInfo extends Component {
                     </div>
                 </div>
             </div>
-        );
+        )
     }
 }
 

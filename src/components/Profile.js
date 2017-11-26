@@ -2,7 +2,7 @@ import React , {Component} from 'react'
 import Navbar from '../components/Navbar'
 import LeftTabProfile from '../components/LeftTabProfile'
 import axios from 'axios'
-import { Cookies } from 'react-cookie';
+import { Cookies } from 'react-cookie'
 import '../CSS/CustomerInfo.css'
 
 class Profile extends Component {
@@ -14,7 +14,7 @@ class Profile extends Component {
     }
 
     componentWillMount() {
-        const cookies = new Cookies();
+        const cookies = new Cookies()
         var key = cookies.get('key')
         if(key !== 'null' && key !== undefined){
             axios.get('https://pairmhai-api.herokuapp.com/membership/cust/'+ key) 
@@ -23,13 +23,13 @@ class Profile extends Component {
                     gender: response.data.user.gender ,birthday: response.data.user.date_of_birth, 
                     age: response.data.user.age, address: response.data.user.address, tel: response.data.user.telephone,
                     email: response.data.user.email,
-                });
+                })
             })
             .catch(function (error){
-                console.log(error);
+                console.log(error)
             })
         } else {
-            window.location = "/home";
+            window.location = "/home"
         }
     }
 
@@ -59,8 +59,8 @@ class Profile extends Component {
                     </div>
                 </div>
             </div>
-        );
+        )
     }
 }
 
-export default Profile;
+export default Profile

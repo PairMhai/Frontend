@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './CSS/index.css';
 
 import Highlight from './pages/Highlight'
 import Home from './pages/Home'
@@ -22,6 +23,7 @@ import EditProfile from './pages/EditProfile'
 
 import './CSS/index.css';
 
+import ResetPassword from './pages/ConfirmResetPass'
 
 
 ReactDOM.render((
@@ -45,6 +47,7 @@ ReactDOM.render((
       <Route path="/mat/:id" component={MatDetail}/>
       <Route path="/des/:id" component={DesDetail}/>
       <Route path="/edit_profile" component={EditProfile}/>
+      <Route path="/password/reset/:uid/:token" component={ResetPassword}/>
     </Switch>
   </BrowserRouter>
 )     
