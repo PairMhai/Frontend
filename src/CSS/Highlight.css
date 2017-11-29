@@ -35,6 +35,8 @@
     background-color: black;
     border: none;
     text-decoration: none;
+    cursor: pointer;
+    cursor: hand;
 }
 
 .col-lg-6 {

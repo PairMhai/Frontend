@@ -76,6 +76,8 @@
     border-style: solid;
     border-color: black;
     color: white;
+    cursor: pointer;
+    cursor: hand;
 }
 
 .addr {
@@ -117,6 +119,8 @@
     display: inline-block;
     color: white;
     padding-bottom: 1%;
+    cursor: pointer;
+    cursor: hand;
     
     
 }

@@ -25,6 +25,8 @@ a:link {
     border: 2px solid black;
     border-top: 10% ;
     border-bottom: 10% ;
+    cursor: pointer;
+    cursor: hand;
 }
 
 #profile-pic {

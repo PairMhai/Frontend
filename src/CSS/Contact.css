@@ -136,4 +136,6 @@ textarea {
     font-size: 20px;
     width: 25%;
     margin: 0;
+    cursor: pointer;
+    cursor: hand;
 }

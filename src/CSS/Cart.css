@@ -11,7 +11,7 @@ a:link {
 }
 
 .ship-header {
-    margin-bottom: -13px; 
+    margin-bottom: -12px; 
     font-size: 30px;
     font-weight: bold;
 }
@@ -26,11 +26,22 @@ a:link {
 }
 
 .cart-table {
+  
     float: right;
     border-collapse: collapse;
     width: 95%;
-    border-top: 2px solid black;
+    border: 1px solid black;
     font-size: 20px;
+}
+.cart-table-2 {
+    overflow:scroll;
+    float: right;
+    border-collapse: collapse;
+    width: 100%;
+    height: 300px;
+    border: 1px solid black;
+    font-size: 20px;
+    background-color: black;
 }
 
 .total-price{
@@ -50,7 +61,7 @@ a:link {
 .shipping-border {
     padding: 7%;
     text-align: center;
-    border: 2px solid black;
+    border: 1px solid black;
 }
 
 .price-label {
@@ -100,6 +111,8 @@ a:link {
     background-color: black;
     color: white ;
     border: 1px solid black;
+    cursor: pointer;
+    cursor: hand;
 }
 
 .cart_btn {
@@ -112,20 +125,24 @@ a:link {
 .first-col {
     width: 50%;
     padding-left: 2%;
-    border: 2px solid black;
+    border: 1px solid black;
+    background-color: white;
 }
 
 .second-col {
     width: 25%;
     padding: 2%;
     text-align: center;
-    border: 2px solid black;
+    border: 1px solid black;
+    background-color: white;
 }
 
 .head {
     text-align: center;
     padding-top: 2%;
     padding-left: -3%;
+    background-color: black;
+    color: white;
 }
 
 .cart-btn-add {

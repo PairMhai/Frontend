@@ -11,17 +11,31 @@
     margin-top: 1%;
 }
 
-.imgproduct {
+.imgproduct  {
     border: 1px solid black;
+   
 }
 
+.imgproduct {
+    border: 1px solid black;
+    
+   
+}
 .imgproduct:hover {
     border: 1px solid white;
+    opacity: 0.8;
+    background-color: white;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+    cursor: hand;
+   
 }
 
 #product:hover {
     background-color: black ;
     color: white;
+    cursor: pointer;
+    cursor: hand;
 
 }
 

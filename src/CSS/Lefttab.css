@@ -35,6 +35,8 @@
     margin-left: 5%;
     border-style: solid;
     border-color: black;
+    cursor: pointer;
+    cursor: hand;
 }
  
 .forget {

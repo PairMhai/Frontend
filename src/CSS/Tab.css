@@ -12,6 +12,8 @@
 .tab-text:hover{
     color: gray;
     text-decoration: none;
+    cursor: pointer;
+    cursor: hand;
 }
 
 #pff_icon {

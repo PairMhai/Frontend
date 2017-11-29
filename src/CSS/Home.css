@@ -145,6 +145,8 @@
   }
   .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
       background: gray;
+      cursor: pointer;
+      cursor: hand;
       
   }
   .btn-primary:active, .btn-primary.active {

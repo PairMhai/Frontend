@@ -36,18 +36,26 @@
 
 .custom-radios input[type="radio"]#color-1 + label span {
   background-color: #2ecc71;
+  cursor: pointer;
+  cursor: hand;
 }
 
 .custom-radios input[type="radio"]#color-2 + label span {
   background-color: #3498db;
+  cursor: pointer;
+  cursor: hand;
 }
 
 .custom-radios input[type="radio"]#color-3 + label span {
   background-color: #f1c40f;
+  cursor: pointer;
+  cursor: hand;
 }
 
 .custom-radios input[type="radio"]#color-4 + label span {
   background-color: #e74c3c;
+  cursor: pointer;
+  cursor: hand;
 }
 
 .custom-radios input[type="radio"]:checked + label span img {
@@ -86,6 +94,8 @@
   width: 80px ;
   height: 41px ;
   color: black;
+  cursor: pointer;
+  cursor: hand;
 }
 
 .left-tab {
@@ -97,4 +107,6 @@
 select.classic2 {
   width: 89%;
   margin-left: 0px; 
+  cursor: pointer;
+  cursor: hand;
 }

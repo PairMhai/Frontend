@@ -137,10 +137,12 @@ class Cart extends Component {
                         <div className="cart-table" >
                             <div className="row">
                                 <div className="first-col head"><h3>Product Name</h3></div>
-                                <div className="second-col"><h3>Amount</h3></div>
-                                <div className="second-col"><h3>Price</h3></div>
-                            </div>
-                            {listProd}                
+                                <div className="second-col head"><h3>Amount</h3></div>
+                                <div className="second-col head"><h3>Price</h3></div>
+                            </div >
+                            <div className="cart-table-2" >
+                            {listProd}  
+                            </div>              
                         </div>
                         <div className="shipping">
                             <br/>

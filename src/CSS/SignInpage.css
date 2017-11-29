@@ -51,6 +51,8 @@
     border-color: black;
     margin-top: 25px;
     margin-bottom: 10px;
+    cursor: pointer;
+    cursor: hand;
 }
 
 .forget-page {
