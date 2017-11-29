@@ -48,27 +48,32 @@ class Contact extends Component {
 
 render(){
     return (
-        <div id="container">
-            <Navbar /> <div>
-            <div id="second">
-                <h3>Faculty of Engineering, Kasetsart University </h3>            
+        <div>
+       
+            <Navbar /> 
+            
+            
+            
+           <div className="container-1 container-fluid" >
+            <div className="first-cont col-lg-6">
+                <a className="head-con-1">Faculty of Engineering, Kasetsart University </a>            
                     <iframe className="ct-map" src="https://maps.google.com/maps?q=Faculty%20of%20Engineering%2C%20Kasetsart%20University%20Bangkok%2C%20TH&t=&z=14&ie=UTF8&iwloc=&output=embed"></iframe>
             </div>
-            <div id="first">
-                 <h2>Contact Us</h2>
-                <div className="message"></div>
+            <div className="second-cont col-lg-6">
+                 <a className="head-con-2">&nbsp;Contact Us</a>
+                <div className="message">
                     <fieldset>
                         <div className="fb-field">
-                            <img id="fb" src={fb_icon} alt="fb-logo"/>&nbsp;www.facebook.com/pairmhai2017
+                            <img id="fb" src={fb_icon} alt="fb-logo"/>&nbsp;&nbsp;&nbsp;www.facebook.com/pairmhai2017
                         </div><br></br>
                         <div className="line-field">
-                            <img id="line" src={line_icon} alt="line-logo"/>&nbsp;pairmhai2017
+                            <img id="line" src={line_icon} alt="line-logo"/>&nbsp;&nbsp;&nbsp;pairmhai2017
                         </div><br></br>
                         <div className="tel-field">
-                             <img id="tel" src={tel_icon} alt="tel-logo"/>&nbsp;089-9999999
+                             <img id="tel" src={tel_icon} alt="tel-logo"/>&nbsp;&nbsp;&nbsp;089-9999999
                         </div>
                         <div className="mailTxt-field">
-                            <label id="sent_email" htmlFor="email"><h3>Send Message</h3></label>
+                            <label id="sent_email" htmlFor="email"><h3 >Send&nbsp;Message</h3></label>
                             <p>E-mail: <input type="email" name="email" value={this.state.email} onChange={this.handleChange} /></p>
                             <p><textarea className="text-msg" name="msg" value={this.state.msg} required="required" onChange={this.handleChange}/></p>
                         </div>
@@ -76,13 +81,18 @@ render(){
                             <input className="contact-btn" type="submit" value="Send" onClick={ this.handleSubmit }></input> 
                         </div>
                     </fieldset>
-                </div>
+                    </div>
                 </div>
                 
+                
+                </div>
+                <div >
                 <Footer />
+                    </div>
                 
-            </div> 
-        );
+                </div>
+            
+        )
     }
 }
 

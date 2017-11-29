@@ -1,5 +1,10 @@
 a:link {
     text-decoration: none;
+    
+}
+a:focus {
+    text-decoration: none;
+    background-color: black;
 }
 
 .profile-btn {
