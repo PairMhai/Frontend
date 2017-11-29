@@ -1,9 +1,8 @@
 import React , {Component} from 'react'
-import {Cookies} from 'react-cookie'
 import Navbar from '../components/Navbar'
 import axios from 'axios';
 import '../CSS/SignUp.css';
-// import ReactTooltip from 'react-tooltip'
+import ReactTooltip from 'react-tooltip'
 import Modal from 'react-modal'
 import bronze from '../img/icon/bronze.png'
 import silver from '../img/icon/silver.png'
@@ -84,7 +83,7 @@ class SignUp extends Component {
         })
         .catch(function (error) {
             console.log(error.response);
-            //swal ( "Oops" ,  "Please enter valid data" ,  "error" )
+            swal ( "Oops" ,  "Please enter valid data" ,  "error" )
         });
          event.preventDefault();  
      }
@@ -131,33 +130,38 @@ class SignUp extends Component {
                         <div type="container" className="radio-container">
 
                         <div className="member-box">
-                            <img id="class-icon" src={diamond} alt="diamond-icon" className="diamond-icon member-icon"/> 
+                            <img id="class-icon" src={diamond} alt="diamond-icon" className="diamond-icon member-icon" 
+                            data-tip="Discount 12% each time that purchase product."/> 
                             <br/><input type="radio" name="classes" value="5" className="member-radio" defaultChecked={this.state.classes} onChange={this.handleChange}/>
-                            <a data-tip="Discount 12% each time that purchase product.">DIAMOND</a> 
+                            <a>DIAMOND</a><ReactTooltip place="top" type="dark" effect="float"/>
                         </div>
                            
                         <div className="member-box">
-                            <img id="class-icon" src={platinum} alt="platinum-icon" className="platinum-icon member-icon"/> 
+                            <img id="class-icon" src={platinum} alt="platinum-icon" className="platinum-icon member-icon"
+                            data-tip="Discount 10% each time that purchase product."/> 
                             <br/><input type="radio" name="classes" value="4" className="member-radio" onChange={this.handleChange}/>
-                            <a data-tip="Discount 10% each time that purchase product.">PLATINUM</a>
+                            <a>PLATINUM</a><ReactTooltip place="top" type="dark" effect="float"/>
                         </div>
                           
                         <div className="member-box">
-                            <img id="class-icon" src={gold} alt="gold-icon" className="gold-icon member-icon"/> 
+                            <img id="class-icon" src={gold} alt="gold-icon" className="gold-icon member-icon"
+                            data-tip="Discount 8% each time that purchase product."/> 
                             <br/><input type="radio"  name="classes" value="3" className="member-radio" onChange={this.handleChange}/>
-                            <a data-tip="Discount 8% each time that purchase product.">GOLD</a>
+                            <a>GOLD</a><ReactTooltip place="top" type="dark" effect="float"/>
                         </div>
 
                         <div className="member-box">
-                            <img id="class-icon" src={silver} alt="silver-icon" className="silver-icon member-icon"/> 
+                            <img id="class-icon" src={silver} alt="silver-icon" className="silver-icon member-icon"
+                            data-tip="Discount 5% each time that purchase product."/> 
                             <br/><input type="radio" name="classes" value="2" className="member-radio" onChange={this.handleChange}/>
-                            <a data-tip="Discount 5% each time that purchase product.">SILVER</a> 
+                            <a>SILVER</a><ReactTooltip place="top" type="dark" effect="float"/>
                         </div>
                             
                         <div className="member-box">
-                            <img id="class-icon" src={bronze} alt="bronze-icon" className="bronze-icon member-icon"/> 
+                            <img id="class-icon" src={bronze} alt="bronze-icon" className="bronze-icon member-icon"
+                            data-tip="Discount 2% each time that purchase product."/> 
                             <br/><input type="radio" name="classes" value="1" className="member-radio" onChange={this.handleChange}/>
-                            <a data-tip="Discount 2% each time that purchase product.">BRONZE</a>
+                            <a>BRONZE</a><ReactTooltip place="top" type="dark" effect="float"/>
                         </div>
                                              
                         </div>
@@ -184,7 +188,7 @@ class SignUp extends Component {
                                     Card Number &nbsp;&nbsp;<input name="cardNumber" value={this.state.cardNumber} onChange={this.handleChange}/>&nbsp;&nbsp;
                                     CCV &nbsp;&nbsp;<input  name="ccv" value={this.state.ccv} onChange={this.handleChange}/><br/><br/>            
                                     Card Holder &nbsp;&nbsp;<input  name="cardHolder" value={this.state.cardHolder} onChange={this.handleChange}/>&nbsp;&nbsp;
-                                    EXP &nbsp;&nbsp;<input type="date"  name="exp" value={this.state.exp} onChange={this.handleChange}/>
+                                    EXP &nbsp;&nbsp;<input type="date" name="exp" value={this.state.exp} onChange={this.handleChange}/>
                                 </div><br/>
                                 <button className="signup_btn modal-btn" onClick={this.toggleModal}>CANCEL</button>
                                 <button className="signup_btn modal-btn" onClick={this.handleAdd}>ADD</button>
@@ -193,10 +197,9 @@ class SignUp extends Component {
                         </div>
                     </div><br></br>
                 <button className="signup_btn" onClick={this.handleSubmit} >SIGN UP</button><br></br><br></br>
-
             </div>
-            <div >
-                <Footer />
+                <div >
+                    <Footer />
                 </div>
             </div>
         );

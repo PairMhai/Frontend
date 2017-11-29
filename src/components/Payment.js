@@ -150,7 +150,7 @@ class Payment extends Component {
                         <p className="pay-header">PAYMENT</p>
                         <div className="pay-info">
                             TOTAL PRICE:&emsp;<span className="pay-price" id="price"> {this.state.orderInfo.price} </span>&emsp;Baht.- <br/>
-                            SELECT CARD &emsp;or&emsp; <input className="pay-btn-add" type="button" value="ADD CART" onClick={this.cardToggleModal}/>
+                            SELECT CARD &emsp;or&emsp; <input className="pay-btn-add" type="button" value="ADD CARD" onClick={this.cardToggleModal}/>
                             <Modal isOpen={this.state.isCardActive} onRequestClose={this.cardToggleModal} contentLabel="Modal">
                                 <div>
                                     <p className="add-card-info">CARD INFORMATION</p>

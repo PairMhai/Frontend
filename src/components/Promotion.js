@@ -15,9 +15,9 @@ class Promotion extends Component {
         this.state = { promotions: [] }
     }
 
-    checkLogin(){
-        const cookies = new Cookies()
-        var key = cookies.get('key')
+    checkLogin() {
+        const cookies = new Cookies();
+        var key = cookies.get('key');
         if(key === 'null' || key === undefined)
             return <LeftTab />
         return <LeftTabProfile  />
