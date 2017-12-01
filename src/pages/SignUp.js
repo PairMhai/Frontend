@@ -19,7 +19,7 @@ class SignUp extends Component {
     constructor(props){
         super(props);
         this.state = { username: '', password: '', cfpassword: '', firstname: '', lastname: '', 
-        gender: '',email: '', birthday:'', tel: '',  address: '', classes: '', isActive: false,
+        gender: 'male',email: '', birthday:'', tel: '',  address: '', classes: '', isActive: false,
         cardNumber: '', ccv:'', cardHolder:'', exp:'', customer:'', cardDetail:[]};
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -115,11 +115,10 @@ class SignUp extends Component {
                         FIRSTNAME: <input type="text" name="firstname" value={this.state.firstname} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
                         LASTNAME: <input  type="text" name="lastname" value={this.state.lastname} onChange={this.handleChange}/> <br></br> <br></br>
                         GENDER: 
+                            &nbsp;<input type="radio" name="gender" value="male" className="gender" onChange={this.handleChange} defaultChecked /> MALE &nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;<input type="radio" name="gender" className="gender" value="female" onChange={this.handleChange}/> FEMALE
 
-                            &nbsp;<input type="radio" name="gender" className="gender" value="Female" defaultChecked={this.state.gender} onChange={this.handleChange}/> FEMALE
-
-                            &nbsp;<input type="radio" name="gender" value="Male" className="gender" onChange={this.handleChange}/> MALE &nbsp;&nbsp;&nbsp;&nbsp;
-                        BIRTHDAY: <input type="date" name="birthday" className="hbd" value={this.state.birthday} onChange={this.handleChange}/>
+                            BIRTHDAY: <input type="date" name="birthday" className="hbd" value={this.state.birthday} onChange={this.handleChange}/>
                                   <br></br><br></br>&nbsp;&nbsp;&nbsp;&nbsp;
                         E-MAIL: <input type="email" name="email" value={this.state.email} onChange={this.handleChange}/> &nbsp;&nbsp;&nbsp;&nbsp;
                         TEL: <input type="text" name="tel" value={this.state.tel} onChange={this.handleChange}/><br></br> <br></br>&nbsp;&nbsp;&nbsp;&nbsp;

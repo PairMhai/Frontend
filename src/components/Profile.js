@@ -22,7 +22,7 @@ class Profile extends Component {
                 this.setState({ firstname: response.data.user.first_name, lastname: response.data.user.last_name,
                     gender: response.data.user.gender ,birthday: response.data.user.date_of_birth, 
                     age: response.data.user.age, address: response.data.user.address, tel: response.data.user.telephone,
-                    email: response.data.user.email,
+                    email: response.data.user.email_address,
                 })
             })
             .catch(function (error){
